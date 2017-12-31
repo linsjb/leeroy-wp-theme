@@ -1,7 +1,3 @@
 <?php get_header(); ?>
-
-<main role="main">
-  <?php include "index-sections/index-top.php" ?>
-</main>
-
+<?php include "index-sections/index-top.php" ?>
 <?php get_footer(); ?>
