@@ -9,5 +9,11 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <header class="header">
+        <header id="header" class="o-header o-header--extendedHeight col-md-12 animated">
+            <div class="o-headerLogo col-md-3 col-md-push-1">
+              <object id="headerLogo" class="m-headerLogo__logo" type="image/svg+xml" data="<?php echo get_template_directory_uri() . '/images/leeroyStdLogo.svg' ?>">je</object>
+            </div>
+
+            <div class="o-headerNav col-md-5 col-md-pull-1 pull-right">
+            </div>
         </header>
