@@ -1,0 +1,27 @@
+// main: ./style.less
+
+//Global elements
+p, a {
+  font-family: 'proxima_novaregular';
+}
+
+// Global variables
+@extendedHeaderHeight: 90px;
+@compressedHeaderHeight: 50px;
+@leeroyWhite: #FDFDFD;
+
+// Global functions
+.fadeInTransition(@duration) {
+  transition:         @duration;
+	-webkit-transition: @duration;
+  -moz-transition:    @duration;
+  -o-transition:      @duration;
+}
+
+.verticalAlign {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}

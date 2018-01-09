@@ -1,0 +1,18 @@
+Leeroy TODO:
+-----------:
+Struktur:
+  ☐ Skapa klass för header behaviour
+  ☐ PHP funktioner för Bootstrap Grid
+
+Sida:
+  ✔ Gör klart desktop header's flytande beteende @done(09-01-18 22:12)
+  ☐ Gör klart CSS för meny-navigering
+  ☐ Gör klart grid för header så den paddar ut mer till mitten
+
+Övrigt:
+  ☐ Kolla om webpack verkligen behöver alla node_moduler, kolla även upp mer om webpack på dess hemsida
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+  ✔ PHP klass för navigering @done(09-01-18 17:37)
+  ✔ Lägg in nav i desktop header @done(09-01-18 17:37)

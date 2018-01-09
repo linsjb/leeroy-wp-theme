@@ -1,0 +1,22 @@
+{
+  "name": "leeroy",
+  "version": "1.0.0",
+  "description": "Leeroy package.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linsjb/Leeroy_site.git"
+  },
+  "author": "Linus Sjöbro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linsjb/Leeroy_site/issues"
+  },
+  "homepage": "https://github.com/linsjb/Leeroy_site#readme",
+  "dependencies": {
+    "webpack": "^3.10.0"
+  }
+}

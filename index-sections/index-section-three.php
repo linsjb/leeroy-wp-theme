@@ -1,3 +1,3 @@
-<div class="indexSectionThree col-md-12">
+<div class="indexSectionThree col-md-100">
 
 </div><!-- .indexSectionThree -->
