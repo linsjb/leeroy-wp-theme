@@ -83,14 +83,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 window.onload = function () {
   (function ($) {
     let headerLogo = new __WEBPACK_IMPORTED_MODULE_0__classes_svgColor__["a" /* SvgColor */]();
-    headerLogo.setObject('headerLogo');
+    headerLogo.setObject('headerLogoObj');
     headerLogo.setSvgItems('a-leeroyLogo');
     headerLogo.setColor('white');
 
     let previous = window.scrollY;
-    let indexSectionOneHeight = $('.indexSectionOne').height();
+    let indexSectionOneHeight = $('.o-indexSectionOne').height();
     let headerElement = $('.o-header');
     let headerHeight = headerElement.height();
+
+    let headerNavElement = $('.m-header__nav');
 
     window.addEventListener('scroll', function () {
       if ($(window).scrollTop() > indexSectionOneHeight + 30) {
@@ -101,16 +103,15 @@ window.onload = function () {
         }
         previous = window.scrollY;
       }
-
       // Show/hide header background
       if ($(this).scrollTop() > (indexSectionOneHeight / 2) - headerHeight) {
-        // setHeaderLogoColor('black');
         headerLogo.setColor('black');
         headerElement.removeClass('o-header--extendedHeight').addClass('o-header--background o-header--compressedHeight');
+        headerNavElement.removeClass('m-header__nav--extendedTextColor').addClass('m-header__nav--compressedTextColor');
       } else {
-        // setHeaderLogoColor('white');
         headerLogo.setColor('white');
         headerElement.addClass('o-header--extendedHeight').removeClass('o-header--background o-header--compressedHeight');
+        headerNavElement.addClass('m-header__nav--extendedTextColor').removeClass('m-header__nav--compressedTextColor');
       }
     });
   })(jQuery);
@@ -145,7 +146,6 @@ class SvgColor {
     for (let i = 0; i < this.state.svgItems.length; i++) {
       this.state.svgItems[i].style.fill = this.state.color;
     }
-    console.log('SVG clr ' + setClr);
   }
 
   onLoad (setLoad) {

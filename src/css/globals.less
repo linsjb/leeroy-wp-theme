@@ -8,7 +8,10 @@ p, a {
 // Global variables
 @extendedHeaderHeight: 90px;
 @compressedHeaderHeight: 50px;
+
+// Global colors
 @leeroyWhite: #FDFDFD;
+@leeroyBlack: #2F2F2F;
 
 // Global functions
 .fadeInTransition(@duration) {
@@ -24,4 +27,13 @@ p, a {
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+}
+
+// Buttons
+.btnOutline {
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: @leeroyWhite; 
+  padding: 10px;
 }

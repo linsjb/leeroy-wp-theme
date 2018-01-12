@@ -1,5 +1,11 @@
 // main: ../style.less
 
+/*
+* Filename: o-block.less
+* Description: Organism blocks in ABEM CSS method
+* Author: Linus Sjöbro
+*/
+
 body {
   margin: 0;
   padding: 0;
@@ -9,10 +15,16 @@ body {
   height: @extendedHeaderHeight;
   z-index: 2;
   position: fixed;
-  background-color: blue;
 }
 
-.indexSectionOne {
+.o-headerWrapper {
+  height: 100%;
+  .row {
+    height: 100%;
+  }
+}
+
+.o-indexSectionOne {
   background-color: tomato;
   height: 100vh;
 }

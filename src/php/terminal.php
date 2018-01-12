@@ -2,7 +2,7 @@
 /*
 * Description: File for easy testing of php functions in terminal
 */
-include 'classes/navigation.php';
+include 'classes/acfImage.php';
 
-$test = new Navigation();
-$test->setClasses('bla');
+$test = new AcfImage();
+$test->setObject('bla');

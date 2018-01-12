@@ -1,13 +1,18 @@
 // main: ../style.less
+/*
+* Filename: m-element.less
+* Description: Molecule elements in ABEM CSS method
+* Author: Linus Sjöbro
+*/
 
 .m-header__logo {
-  background-color: red;
-  position: absolute;
-  bottom: 30%;
-  height: 40%;
+  height: 100%;
+  padding: 15px;
 }
 
-.m-headerNav {
+.m-header__nav {
+  height: 100%;
+  padding: 15px;
   ul {
     position: relative;
     .verticalAlign;
@@ -25,8 +30,14 @@
         font-size: 16px;
       	font-weight: bold;
       	text-align: left;
-      	color: #ffffff;
+        font-family: 'proxima_novabold';
       }
     }
   }
+}
+
+.m-indexSectionOne__image {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
 }

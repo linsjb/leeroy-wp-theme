@@ -1,18 +1,29 @@
 Leeroy TODO:
 -----------:
 Struktur:
-  ☐ Skapa klass för header behaviour
-  ☐ PHP funktioner för Bootstrap Grid
+  ☐ Skapa klass för header behaviour @php @struktur
 
 Sida:
-  ✔ Gör klart desktop header's flytande beteende @done(09-01-18 22:12)
-  ☐ Gör klart CSS för meny-navigering
-  ☐ Gör klart grid för header så den paddar ut mer till mitten
+  ☐ Gör klart CSS för meny-navigering @m_header
+  ☐ Fixa så att border på login knapp ändrar färg, alternativt försvinner @m_Header__nav
+  ☐ Lägg till alternativ bild för loggans SVG objekt @a_header__logo__logo
+
+Fel:
+  ☐ this.state.object.contentDocument is null @svgColorjs @firefox @safari
 
 Övrigt:
-  ☐ Kolla om webpack verkligen behöver alla node_moduler, kolla även upp mer om webpack på dess hemsida
+  ☐Kolla om webpack verkligen behöver alla node_moduler, kolla även upp mer om webpack på dess hemsida
 
+IE test:
+  ☐ Inte säkert att object-fit fungerar i IE @m_indexSectionOne__image @IE
+
+Slutstäd:
+  ☐ Rensa source
+  ☐ Ta bort consoleDebug.php
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ PHP funktioner för Bootstrap Grid @done(12-01-18 01:08) @project(Struktur)
+  ✔ Gör klart desktop header's flytande beteende @done(09-01-18 22:12)
+  ✔ Gör klart grid för header så den paddar ut mer till mitten @done(12-01-18 01:07) @project(Sida)
   ✔ PHP klass för navigering @done(09-01-18 17:37)
   ✔ Lägg in nav i desktop header @done(09-01-18 17:37)
