@@ -25,7 +25,7 @@ window.onload = function () {
         previous = window.scrollY;
       }
       // Show/hide header background
-      if ($(this).scrollTop() > (indexSectionOneHeight / 2) - headerHeight) {
+      if ($(this).scrollTop() > (indexSectionOneHeight / 3) - headerHeight) {
         headerLogo.setColor('black');
         headerElement.removeClass('o-header--extendedHeight').addClass('o-header--background o-header--compressedHeight');
         headerNavElement.removeClass('m-header__nav--extendedTextColor').addClass('m-header__nav--compressedTextColor');

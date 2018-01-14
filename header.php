@@ -16,7 +16,7 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <header id="header" class="o-header o-header--extendedHeight animated <?php bootstrapGrid(100, false, true)?>">
+        <header id="header" class="o-header o-header--extendedHeight animated <?php bootstrapGridWidth(100, false, true)?>">
           <div class="o-headerWrapper col-sm-100 col-md-100 col-lg-80 col-lg-offset-10">
             <div class="row">
               <div class="m-header__logo col-sm-20 col-md-20 col-lg-20 ">

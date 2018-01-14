@@ -2,7 +2,9 @@
 /*
 * Description: File for easy testing of php functions in terminal
 */
-include 'classes/acfImage.php';
+include 'functions/bootstrapGridOffset.php';
 
-$test = new AcfImage();
-$test->setObject('bla');
+$test = NULL;
+print "HEJ" . $test . "HEJ";
+$test = 23;
+print $test;
