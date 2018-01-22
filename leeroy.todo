@@ -2,18 +2,20 @@ Leeroy TODO:
 -----------:
 Pågående:
   ☐ Index top beteende @indexSectionOne
+  ☐ Fixa samma indrag på index-content som header @index @contentWidth @php @indexSectionOne_php
+  ☐ Klassen för indSecTwo values kan tas bort om den inte kommer fyllas med något @css @m_indexSectionTwoValues
 
 Struktur:
-  ☐ Skapa klasser för title och content som bryter när | finns i texten @php @title @content
 
 Sida:
   ☐ Gör klart CSS för meny-navigering Kvar mobil och att den blir för stor vid små skärmstorlekar som är väldigt nära xs @m_header
-  ☐ Fixa så att border på login knapp ändrar färg, alternativt försvinner @m_Header__nav
+  ☐ Fixa så att ramen på login knapp ändrar färg, alternativt försvinner @m_Header__nav @css @header @navigation
   ☐ Lägg till alternativ bild för loggans SVG objekt @a_header__logo__logo
+  ☐ Fixa så att content och header har en max-width. Så inte hela sidan blir sjukt utdragen med stora skärmar @core @layout
 
 Fel:
   ☐ this.state.object.contentDocument is null @js @svgColorjs @firefox @safari
-  ☐ Headern strular. Den kommer inte tillbaka ibland efter att den har försvunnit @js @main_js
+  ☐ Headern verkar strular. Den kommer inte tillbaka ibland efter att den har försvunnit @js @main_js
 
 Optimering:
 ☐ Gå igenom wpContent-klassen för att se om det går att optimera @php @wpContent_php
@@ -30,8 +32,9 @@ Slutstäd:
   ☐ Ta bort node_moduler
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ Skapa klasser för title och content som bryter när | finns i texten @php @title @content @done(2018-20-01 23:41) @project(Struktur)
   ✔ Fixa klart wpContent klassen @php @wpContent_php @done(14-01-18 03:09) @project(Pågående)
-  ✘ Skapa klass för header behaviour @php @struktur @cancelled(14-01-18 01:25) @project(Struktur)
+  ✘ Skapa klass för header behaviour @js @struktur @cancelled(14-01-18 01:25) @project(Struktur)
   ✔ PHP funktioner för Bootstrap Grid @done(12-01-18 01:08) @project(Struktur)
   ✔ Gör klart desktop header's flytande beteende @done(09-01-18 22:12)
   ✔ Gör klart grid för header så den paddar ut mer till mitten @done(12-01-18 01:07) @project(Sida)

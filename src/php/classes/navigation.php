@@ -1,9 +1,8 @@
 <?php
 /*
 * Filename: navigations.php
-* Author: Linus Sjöbro
-* Created: 2018-01-08
 * Class description: Define navigation objects for WP-backend
+* Author: Linus Sjöbro
 */
 
 class Navigation {

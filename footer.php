@@ -1,5 +1,7 @@
       <?php wp_footer() ?>
-    </div><!-- .row -->
-  </div><!-- .container-fluid -->
+    <!-- .row -->
+    </div>
+  <!-- .container-fluid -->
+  </div>
 </body>
 </html>

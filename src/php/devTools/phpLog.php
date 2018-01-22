@@ -1,5 +1,5 @@
 <?php
-function consoleDebug($data) {
+function phpLog($data) {
   $output = $data;
   if (is_array($output))
     $output = implode( ',', $output);

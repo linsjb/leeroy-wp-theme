@@ -1,33 +1,41 @@
 <?php
-$query = new WP_Query(array('paged' => 5));
+$query = new WP_Query('page_id=5');
 if($query->have_posts()):
-  while ($query -> have_posts()):
+  while ($query->have_posts()):
     $query->the_post();
-    $backgroundImage = new AcfImage();
+    $backgroundImage = new AcfImage;
     $backgroundImage->setObject('acfIndexImage');
+    $backgroundImage->useElement();
+    $backgroundImage->setClasses('m-indexSectionOne__image');
 
-    $title = new wpContent();
+    $title = new wpContent;
     $title->title();
     $title->breakPoint();
     $title->setElementType('h1');
-    $title->setClasses('a-indexSectionOneText__header col-md-100');
+    $title->setClasses('a-indexSectionOneText__header' . bootstrapGridWidth(100));
 
-    $content = new WpContent();
+    $content = new WpContent;
     $content->content();
     $content->breakPoint();
     $content->setElementType('p');
-    $content->setClasses('a-indexSectionOneText__paragraph col-md-60');
+    $content->setClasses('a-indexSectionOneText__paragraph' . bootstrapGridWidth(60));
+
 ?>
-    <div class="o-indexSectionOne col-md-100">
-      <img class="m-indexSectionOne__image" src="<?php echo $backgroundImage->getImageUrl() ?>" alt="">
-      <div class="m-indexSectionOne__imageFader <?php bootstrapGridWidth(100, true, true) ?>"></div>
-      <div class="m-indexSectionOneText <?php bootstrapGridWidth(94, false, true); bootstrapGridOffset(6); ?>">
+    <div class="o-indexSectionOne <?php bootstrapGridWidth(100); ?>">
+      <?php $backgroundImage->init(); ?>
+      <div class="m-indexSectionOne__imageFader <?= bootstrapGridWidth(100) ?> "></div>
+      <div class="m-indexSectionOneText <?= bootstrapGridWidth(94, false, true); echo bootstrapGridOffset(6); ?>">
         <?php
-        $title->init();
-        $content->init();
+          $title->init();
+          $content->init();
         ?>
 
       </div>
-    </div><!-- .indexSectionOne -->
-  <?php endwhile; ?>
-<?php endif; ?>
+    <!-- .indexSectionOne -->
+    </div>
+
+<?php
+  endwhile;
+endif;
+wp_reset_postdata();
+?>

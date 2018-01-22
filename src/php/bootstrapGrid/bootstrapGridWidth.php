@@ -6,7 +6,7 @@
 * Copyright: Linus Sjöbro 2018
 */
 
-function bootstrapGridWidth($columnWidth, $centerContent, $xsFull) {
+function bootstrapGridWidth($columnWidth, $centerContent = false, $xsFull = false) {
   $centerGrade = (100 - $columnWidth)/2;
 
   $columns = array(
@@ -31,19 +31,21 @@ function bootstrapGridWidth($columnWidth, $centerContent, $xsFull) {
     $centerGradeXs = $centerGrade;
   }
 
-  if($centerContent) {
-    echo $classAll =
-      $columns[0] . $columnWidth . $columnsOffset[0] . $centerGrade .
-      $columns[1] . $columnWidth . $columnsOffset[1] . $centerGrade .
-      $columns[2] . $columnWidth . $columnsOffset[2] . $centerGrade .
-      $columns[3] . $columnWidthXs . $columnsOffset[3] . $centerGradeXs;
-  } else {
-    echo $classAll =
-      $columns[0] . $columnWidth .
-      $columns[1] . $columnWidth .
-      $columns[2] . $columnWidth .
-      $columns[3] . $columnWidthXs;
-  }
+  $classAll =
+    $columns[0] . $columnWidth .
+    $columns[1] . $columnWidth .
+    $columns[2] . $columnWidth .
+    $columns[3] . $columnWidthXs;
 
-  return $classAll;
+  $classAllOffset =
+    $columns[0] . $columnWidth . $columnsOffset[0] . $centerGrade .
+    $columns[1] . $columnWidth . $columnsOffset[1] . $centerGrade .
+    $columns[2] . $columnWidth . $columnsOffset[2] . $centerGrade .
+    $columns[3] . $columnWidthXs . $columnsOffset[3] . $centerGradeXs;
+
+  if($centerContent) {
+    return $classAllOffset;
+  } else {
+    return $classAll;
+  }
 }

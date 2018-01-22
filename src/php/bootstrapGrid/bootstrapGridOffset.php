@@ -4,7 +4,7 @@
 * Author: Linus Sjöbro
 * Copyright: Linus Sjöbro 2018
 */
-function bootstrapGridoffset($offsetGrade, $xsOffset = false) {
+function bootstrapGridOffset($offsetGrade, $xsOffset = false) {
   $columnsOffset = array(
     " col-lg-offset-",
     " col-md-offset-",
@@ -13,18 +13,15 @@ function bootstrapGridoffset($offsetGrade, $xsOffset = false) {
   );
 
   if($xsOffset) {
-    echo $classAll =
+    return $classAll =
       $columnsOffset[0] . $offsetGrade .
       $columnsOffset[1] . $offsetGrade .
       $columnsOffset[2] . $offsetGrade .
       $columnsOffset[3] . $offsetGrade;
   } else {
-    echo $classAll =
+    return $classAll =
       $columnsOffset[0] . $offsetGrade .
       $columnsOffset[1] . $offsetGrade .
       $columnsOffset[2] . $offsetGrade;
-
   }
-
-  return $classAll;
 }
