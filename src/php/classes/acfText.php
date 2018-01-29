@@ -8,15 +8,23 @@
 class AcfText {
 
 // Public
-
-  function init() {
+  function contentMode() {
     $text = get_field($this->objectName);
 
+    if($this->breakPoint) {
+      $this->processedString = str_replace($this->breakType, '<br />', $text);
+    } else {
+      $this->processedString = $text;
+    }
+  }
+
+  function init() {
+    $this->contentMode();
     if($this->elementType != NULL) {
       if($this->classes != NULL) {
-        echo '<' . $this->elementType . ' class="' . $this->classes . '">' . $text . '</' . $this->elementType . '>';
+        echo '<' . $this->elementType . ' class="' . $this->classes . '">' . $this->processedString . '</' . $this->elementType . '>';
       } else {
-        echo '<' . $this->elementType . '>' . $text . '</' . $this->elementType . '>';
+        echo '<' . $this->elementType . '>' . $this->processedString . '</' . $this->elementType . '>';
       }
     } else {
       return $text;
@@ -29,9 +37,16 @@ class AcfText {
 
   function setClasses($stringPhrase) { $this->classes = $stringPhrase; }
 
+  function breakPoint() {$this->breakPoint = true; }
+
+  function setBreakType($stringPhrase) {$this->breakType = $stringPhrase; }
+
 // Private
   private $objectName;
   private $elementType = NULL;
   private $classes = NULL;
+  private $breakPoint = false;
+  private $breakType = "|";
+  private $processedString;
 
 }

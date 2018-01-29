@@ -29,15 +29,11 @@ class AcfImage {
     $this->useElement = true;
   }
 
-  function setElementType($stringPhrase) { $this->elementType = $stringPhrase; }
-
   function setClasses($stringPhrase) { $this->classes = $stringPhrase; }
 
   function setAltText($stringPhrase) { $this->altText = $stringPhrase; }
 
-  function getObject() {
-    return $this->imageObject;
-  }
+  function getObject() { return $this->imageObject; }
 
 // Private
   private $objectName;

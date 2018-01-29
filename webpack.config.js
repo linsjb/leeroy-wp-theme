@@ -1,4 +1,4 @@
-var webpack = require('webpack')
+// var webpack = require('webpack')
 
 module.exports = function (env) {
   return {
@@ -6,6 +6,11 @@ module.exports = function (env) {
     output: {
       path: __dirname + '/dist',
       filename: 'bundle.js'
+    },
+    module: {
+      loaders: [
+        {test: /\.js$/, loader: 'babel-loader', exclude: '/node_modules/', query: {presets: ['es2015']}}
+      ]
     }
   };
 };

@@ -67,44 +67,47 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(1);
+"use strict";
 
+
+__webpack_require__(1);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__classes_svgColor__ = __webpack_require__(2);
-/* global jQuery */
 
+
+var _svgColor = __webpack_require__(2);
 
 window.onload = function () {
   (function ($) {
-    let headerLogo = new __WEBPACK_IMPORTED_MODULE_0__classes_svgColor__["a" /* SvgColor */]();
+    var headerLogo = new _svgColor.SvgColor();
     headerLogo.setObject('headerLogoObj');
     headerLogo.setSvgItems('a-leeroyLogo');
     headerLogo.setColor('white');
 
-    let previous = window.scrollY;
-    let indexSectionOneHeight = $('.o-indexSectionOne').height();
-    let headerElement = $('.o-header');
-    let headerHeight = headerElement.height();
+    var previous = window.scrollY;
+    var indexSectionOneHeight = $('.o-indexSectionOne').height();
+    var headerElement = $('.o-header');
+    var headerHeight = headerElement.height();
 
-    let headerNavElement = $('.m-header__nav');
+    var headerNavElement = $('.m-header__nav');
 
     window.addEventListener('scroll', function () {
       if ($(window).scrollTop() > indexSectionOneHeight + 30) {
-        if (window.scrollY > previous) { // Scrolling up
+        if (window.scrollY > previous) {
+          // Scrolling up
           headerElement.addClass('slideOutUp').removeClass('slideInDown');
-        } else { // Scrolling down
+        } else {
+          // Scrolling down
           headerElement.addClass('slideInDown').removeClass('slideOutUp');
         }
         previous = window.scrollY;
       }
       // Show/hide header background
-      if ($(this).scrollTop() > (indexSectionOneHeight / 3) - headerHeight) {
+      if ($(this).scrollTop() > indexSectionOneHeight / 3 - headerHeight) {
         headerLogo.setColor('black');
         headerElement.removeClass('o-header--extendedHeight').addClass('o-header--background o-header--compressedHeight');
         headerNavElement.removeClass('m-header__nav--extendedTextColor').addClass('m-header__nav--compressedTextColor');
@@ -115,16 +118,27 @@ window.onload = function () {
       }
     });
   })(jQuery);
-};
-
+}; /* global jQuery */
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-class SvgColor {
-  constructor () {
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var SvgColor = exports.SvgColor = function () {
+  function SvgColor() {
+    _classCallCheck(this, SvgColor);
+
     this.state = {
       object: '',
       svgItems: '',
@@ -133,28 +147,33 @@ class SvgColor {
     };
   }
 
-  setObject (setObj) {
-    this.state.object = document.getElementById(setObj);
-  }
-
-  setSvgItems (setSvgItm) {
-    this.state.svgItems = this.state.object.contentDocument.getElementsByClassName(setSvgItm);
-  }
-
-  setColor (setClr) {
-    this.state.color = setClr;
-    for (let i = 0; i < this.state.svgItems.length; i++) {
-      this.state.svgItems[i].style.fill = this.state.color;
+  _createClass(SvgColor, [{
+    key: 'setObject',
+    value: function setObject(setObj) {
+      this.state.object = document.getElementById(setObj);
     }
-  }
+  }, {
+    key: 'setSvgItems',
+    value: function setSvgItems(setSvgItm) {
+      this.state.svgItems = this.state.object.contentDocument.getElementsByClassName(setSvgItm);
+    }
+  }, {
+    key: 'setColor',
+    value: function setColor(setClr) {
+      this.state.color = setClr;
+      for (var i = 0; i < this.state.svgItems.length; i++) {
+        this.state.svgItems[i].style.fill = this.state.color;
+      }
+    }
+  }, {
+    key: 'onLoad',
+    value: function onLoad(setLoad) {
+      this.state.onLoad = setLoad;
+    }
+  }]);
 
-  onLoad (setLoad) {
-    this.state.onLoad = setLoad;
-  }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = SvgColor;
-
-
+  return SvgColor;
+}();
 
 /***/ })
 /******/ ]);
