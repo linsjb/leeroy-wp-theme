@@ -58,18 +58,19 @@ if($query->have_posts()):
     $bottomImage = new AcfImage;
     $bottomImage->setObject('acfBottomImage');
     $bottomImage->useElement();
-    $bottomImage->setClasses('');
+    $bottomImage->setClasses('m-indexSectionTwoBottom__image' . bootstrapGridWidth(80, true, true));
 ?>
 
     <div class="o-indexSectionTwo">
       <div class="m-indexSectionTwoTop<?= bootstrapGridWidth(100); ?>">
-        <?php
-        $title->init();
-        ?>
+        <div class="container m-indexSectionTwoTopContent">
 
-        <div class="m-indexSectionTwoTopContent <?= bootstrapGridWidth(80, true, true);?>">
+          <?php
+          $title->init();
+          ?>
+
           <?php for($i = 0; $i < $numOfValues; $i++):?>
-            <div class="m-indexSectionTwoValues<?= bootstrapGridWidth(30, false, true); echo bootstrapGridOffset(3)?>">
+            <div class="<?= bootstrapGridWidth(33, false, true); ?>">
               <?php for($j = 0; $j < $numOfObjects; $j++): ?>
                     <?php
                     $valueObjects[$i][$j]->init();
@@ -80,18 +81,15 @@ if($query->have_posts()):
 
         <!-- .m-indexSectionTwoTopContent -->
         </div>
-
       <!-- .m-indexSectionTwoTop -->
       </div>
 
       <div class="m-indexSectionTwoBottom<?= bootstrapGridWidth(100); ?>">
-        <div class="m-indexSectionTwoBottomContent <?= bootstrapGridWidth(80, true, true); ?>">
-          <?php $bottomHeader->init(); ?>
-
-          <div class="m-indexSectionTwoBottom__image <?= bootstrapGridWidth(80, true); ?>">
-            <?php $bottomImage->init(); ?>
-          <!-- .m-indexSectionTwoBottom__image -->
-          </div>
+        <div class="container m-indexSectionTwoBottomContent">
+          <?php
+            $bottomHeader->init();
+            $bottomImage->init();
+          ?>
         <!-- .m-indexSectionTwoBottomContent -->
         </div>
       <!-- .m-indexSectionTwoBottom -->

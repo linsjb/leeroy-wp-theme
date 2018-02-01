@@ -22,14 +22,22 @@ if($query->have_posts()):
 
 ?>
     <div class="o-indexSectionOne <?php bootstrapGridWidth(100); ?>">
-      <?php $backgroundImage->init(); ?>
-      <div class="m-indexSectionOne__imageFader <?= bootstrapGridWidth(100) ?> "></div>
-      <div class="m-indexSectionOneText <?= bootstrapGridWidth(94, false, true); echo bootstrapGridOffset(6); ?>">
-        <?php
-          $title->init();
-          $content->init();
-        ?>
+      <?php
+      $backgroundImage->init();
+      if(get_field('acfIndexImageFade')):
+      ?>
+        <div class="m-indexSectionOneImageFader<?= bootstrapGridWidth(100) ?>" style="background-color: <?php the_field('acfIndexImageFadeColour')?>"></div>
+      <?php endif; ?>
 
+      <div class="container">
+        <div class="m-indexSectionOneText <?= bootstrapGridWidth(100) ?>">
+          <?php
+            $title->init();
+            $content->init();
+          ?>
+        <!-- .m-indexSectionOneText -->
+        </div>
+      <!-- .container -->
       </div>
     <!-- .indexSectionOne -->
     </div>

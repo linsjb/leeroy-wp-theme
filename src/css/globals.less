@@ -1,6 +1,11 @@
 // main: ./style.less
 
 //Global elements
+body {
+  margin: 0;
+  padding: 0;
+}
+
 p, a {
   font-family: 'proxima_novalight';
   font-weight: lighter;
@@ -19,8 +24,8 @@ h1 {
 }
 
 // Global variables
-@extendedHeaderHeight: 90px;
-@compressedHeaderHeight: 50px;
+@headerHeight: 65px;
+
 
 // Global colors
 @leeroyWhite:   #FDFDFD;
@@ -43,6 +48,10 @@ h1 {
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+}
+
+.row, .container {
+  height: 100%;
 }
 
 // Buttons

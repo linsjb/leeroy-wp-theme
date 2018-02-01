@@ -86,35 +86,39 @@ window.onload = function () {
     var headerLogo = new _svgColor.SvgColor();
     headerLogo.setObject('headerLogoObj');
     headerLogo.setSvgItems('a-leeroyLogo');
-    headerLogo.setColor('white');
+    headerLogo.setColor('#FDFDFD');
 
     var previous = window.scrollY;
     var indexSectionOneHeight = $('.o-indexSectionOne').height();
     var headerElement = $('.o-header');
-    var headerHeight = headerElement.height();
 
     var headerNavElement = $('.m-header__nav');
 
+    // Listen wich direction we are scrolling in.
     window.addEventListener('scroll', function () {
-      if ($(window).scrollTop() > indexSectionOneHeight + 30) {
+      if ($(window).scrollTop() > 20) {
         if (window.scrollY > previous) {
           // Scrolling up
-          headerElement.addClass('slideOutUp').removeClass('slideInDown');
+          headerElement.fadeOut('slow');
         } else {
           // Scrolling down
-          headerElement.addClass('slideInDown').removeClass('slideOutUp');
+          headerElement.fadeIn('slow');
         }
         previous = window.scrollY;
       }
-      // Show/hide header background
-      if ($(this).scrollTop() > indexSectionOneHeight / 3 - headerHeight) {
-        headerLogo.setColor('black');
-        headerElement.removeClass('o-header--extendedHeight').addClass('o-header--background o-header--compressedHeight');
-        headerNavElement.removeClass('m-header__nav--extendedTextColor').addClass('m-header__nav--compressedTextColor');
-      } else {
-        headerLogo.setColor('white');
-        headerElement.addClass('o-header--extendedHeight').removeClass('o-header--background o-header--compressedHeight');
-        headerNavElement.addClass('m-header__nav--extendedTextColor').removeClass('m-header__nav--compressedTextColor');
+
+      // When the header is not visible anymore, add the headerbackgorund and change the nav and logo to white.
+      if (!headerElement.is(':visible')) {
+        headerLogo.setColor('#2F2F2F');
+        headerElement.addClass('o-header--background');
+        headerNavElement.removeClass('m-header__nav--lightTextColour').addClass('m-header__nav--darkTextColor');
+      }
+
+      // Hide headerbackground and change back the text on logo and nav white when we reach the top of the window.
+      if ($(this).scrollTop() < 30) {
+        headerLogo.setColor('#FDFDFD');
+        headerElement.removeClass('o-header--background');
+        headerNavElement.addClass('m-header__nav--lightTextColour').removeClass('m-header__nav--darkTextColor');
       }
     });
   })(jQuery);

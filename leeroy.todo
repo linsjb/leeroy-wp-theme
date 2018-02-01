@@ -3,6 +3,8 @@ Leeroy TODO:
 Pågående:
   ☐ Index top beteende @indexSectionOne
   ☐ Fixa samma indrag på index-content som header @index @contentWidth @php @indexSectionOne_php
+  ☐ Fixa så att headern's bakgroundsfärg tonar ut när vi når toppen av fönstret @main_js @js
+  ☐ Loggan går inte tillbaka till vitt när vi når toppen @main_js
 
 Struktur:
 

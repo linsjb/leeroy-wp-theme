@@ -8,14 +8,14 @@ if($query->have_posts()):
 $title = new WpContent;
 $title->title();
 $title->setElementType('h2');
-$title->setClasses('m-indexSectionThree__header pull-right' . bootstrapGridWidth(80));
+$title->setClasses('m-indexSectionThree__header' . bootstrapGridWidth(80));
 $title->breakPoint();
 
 $icon = new AcfImage;
-$icon->
+// $icon->
 ?>
     <div class="o-indexSectionThree<?= bootstrapGridWidth(100); ?>">
-      <div class="m-indexSectionThreeContent<?= bootstrapGridWidth(80, true, true); ?>">
+      <div class="container m-indexSectionThreeContent<?= bootstrapGridWidth(80, true, true); ?>">
         <?php $title->init(); ?>
       <!-- .m-indexSectionThreeContent -->
       </div>
