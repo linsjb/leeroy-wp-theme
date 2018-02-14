@@ -3,6 +3,9 @@
 <?xml-stylesheet type="text/css" href="../style.css"?>
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 472.5 149.7" style="enable-background:new 0 0 472.5 149.7;" xml:space="preserve">
+	 <style type="text/css">
+	 	.a-leeroyLogo{fill:#FDFDFD;}
+	 </style>
 <g>
 	<path class="a-leeroyLogo" d="M0,1.7h23v125.4h37.8V148H0V1.7z"/>
 	<path class="a-leeroyLogo" d="M96.9,63.3h31.6v20.9H96.9v42.8h39.7V148H74V1.7h62.7v20.9H96.9V63.3z"/>

@@ -6,42 +6,195 @@
 * Author: Linus Sjöbro
 */
 
-.a-header__logo__logo {
-  position: absolute;
-  bottom: 25%;
-  height: 50%;
+.a-headerLogo__link {
+  display: block;
+  height: 100%;
+  width: 100px;
 }
 
-.a-indexSectionOneText__header {
+.a-headerLogo__logo {
+  position: absolute;
+  bottom: 30%;
+  height: 40%;
+  pointer-events: none;
+}
+
+// Text-align is controlled with media queries
+.a-indexSectionOneContent__header {
   margin: 0;
   padding: 0;
   margin-bottom: 35px;
   font-size: 65px;
 }
 
-.a-indexSectionOneText__paragraph {
+// Text-align is controlled with media queries
+.a-indexSectionOneContent__text {
   margin: 0;
   font-size: 20px;
 }
 
-.a-indexSectionTwoValues__icon {
+.a-indexSectionTwoContent__header {
+  margin-bottom: 120px;
+  text-align: center;
+  color: @leeroyWhite;
+  font-size: 30px;
+}
+
+.a-indexSectionItems__icon {
   text-align: center;
   height: 40%;
   margin-bottom: 30px;
 }
 
-.a-indexSectionTwoValues__title {
+.a-indexSectionItems__title {
   text-align: center;
   font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.a-indexSectionItems__content {
+  font-size: 16px;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.a-indexSectionThreeContent__header {
+  color: @leeroyPurple;
+  font-size: 35px;
+}
+
+.a-indexSectionThreeContent__header {
+
+}
+
+.a-indexSectionFourContent__header {
+  text-align: right;
+  font-size: 40px;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  color: @leeroyPurple;
+}
+
+.a-indexSectionFourContent__icon {
+}
+
+.a-indexSectionFiveContent__header {
+  margin-bottom: 85px;
+  text-align: center;
+  font-size: 30px; //TODO ändra till rätt storlek sen
   color: @leeroyWhite;
+}
+
+.a-indexSectionSixContent__header {
+  margin-top: 60px;
   margin-bottom: 30px;
+  font-size: 30px;
+  color: @leeroyPurple;
+}
+
+.a-contactForm__icon {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  // Position is controlled with media queries!
+}
+
+.a-contactForm__input {
+  font-family: 'proxima_novasemibold';
+  padding-bottom: 50px;
+  font-size: 18px;
+  color: @leeroyBlack;
+
+  input {
+    background-color: @leeroyWhite !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-bottom: 2px solid @leeroyPurple !important;
+    font-size: 18px !important;
+    color: @leeroyBlack !important;
+  }
+}
+
+.a-formButton {
+  float: right;
+  margin-top: -30px;
 }
 
 
-.a-indexSectionTwoValues__content {
+.a-footerNav__title {
+  color: @leeroyWhite;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.a-informationPage__header {
+  margin: 0;
+  position: absolute;
+  bottom: 30%;
+  font-size: 65px;
+  color: @leeroyWhite;
+}
+
+.a-informationPage__slogan {
+  font-size: 22px;
+  position: absolute;
+  bottom: 11%;
+  color: @leeroyWhite;
+}
+
+
+.a-btn {
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 10px 20px;
+  font-family: 'proxima_novaregular' !important;
+}
+
+
+.a-btnPurple {
+  background-color: @leeroyPurple;
+  color: @leeroyWhite;
+}
+
+.a-aboutTimeline__title {
+  font-size: 35px;
+  color: @leeroyPurple;
+  margin-bottom: 40px;
+}
+
+.a-aboutPageTeam__header {
+  text-align: center;
+  font-size: 30px;
+  color: @leeroyWhite;
+  margin-bottom: 55px;
+}
+
+.a-aboutContact__header {
+  font-size: 30px;
+  color: @leeroyPurple;
+  margin-bottom: 30px;
+}
+
+.a-aboutTeamLastCell__icon {
+  width: 50%;
+  left: 25%;
+  position: absolute;
+  top: 26%;
+}
+
+.a-aboutTeam__name {
+  position: absolute;
+  bottom: 8%;
+  color: @leeroyWhite;
+  font-family: 'FreightDispProSemibold-Regular';
+  font-size: 18px;
+}
+
+.a-aboutTeam__email {
+  position: absolute;
+  bottom: 0;
   color: @leeroyWhite;
   font-size: 16px;
-  text-align: center;
-  padding: 0 15px;
-  margin: 0;
 }

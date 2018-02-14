@@ -1,39 +1,45 @@
 Leeroy TODO:
 -----------:
 Pågående:
-  ☐ Index top beteende @indexSectionOne
-  ☐ Fixa samma indrag på index-content som header @index @contentWidth @php @indexSectionOne_php
-  ☐ Fixa så att headern's bakgroundsfärg tonar ut när vi når toppen av fönstret @main_js @js
-  ☐ Loggan går inte tillbaka till vitt när vi når toppen @main_js
+  ☐ Fixa så att headern's bakgrundsfärg tonar ut när vi når toppen av fönstret @main_js @js
+  ☐ Fixa klart info page template. Lägg till fält för bakgroundsbild osv @infoPageTemplate_php
+  ☐ testa lägga in data-nav-section i a elementen i header. För att se om den kan gå till vald section i index.
 
 Struktur:
 
 Sida:
-  ☐ Gör klart CSS för meny-navigering. Kvar mobil och att den blir för stor vid små skärmstorlekar som är väldigt nära xs @m_header
-  ☐ Fixa så att ramen på login knapp ändrar färg, alternativt försvinner. Endast om headern ska följa med @m_Header__nav @css @header @navigation
+  ☐ Fixa mobilanpassning för hela sidan.
   ☐ Lägg till alternativ bild för loggans SVG objekt @a_header__logo__logo
-  ☐ Fixa så att content och header har en max-width. Så inte hela sidan blir sjukt utdragen med stora skärmar @core @layout
 
 Fel:
-  ☐ this.state.object.contentDocument is null @js @svgColor_js @firefox @safari
-  ☐ Headern verkar strular. Den kommer inte tillbaka ibland efter att den har försvunnit @js @main_js
+  ☐ pageBackgroundType bild fungerar inte på ipad. Troligen object-fit cover som orsakar. Bilden blir helt utdragen
 
 Optimering:
-☐ Gå igenom wpContent-klassen för att se om det går att optimera @php @wpContent_php
 
 Övrigt (låg prio):
-  ☐Kolla om webpack verkligen behöver alla node_moduler, kolla även upp mer om webpack på dess hemsida
 
 IE test:
-  ☐ Inte säkert att object-fit fungerar i IE @m_indexSectionOne__image @IE
 
 Slutstäd:
   ☐ Rensa source
   ☐ Ta bort consoleDebug.php
   ☐ Ta bort node_moduler
-  ☐ Ta bort define('FS_METHOD', 'direct') från wp_config @php
+  ☐ Ta bort define('FS_METHOD', 'direct') från wp_config @wp_config_php
+  ☐ Fixa licensen till acf pro när siten ligger live @wp_backend
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ Loggan går inte tillbaka till vitt när vi når toppen @main_js @done(2018-13-02 00:15) @project(Pågående)
+  ✔ Fixa till fontsens. I proxima nova lägg till semi bold @fonts @done(2018-13-02 00:15) @project(Pågående)
+  ✔ Inte säkert att object-fit fungerar i IE @m_indexSectionOne__image @IE @timestamp(2018-05-02 05:36) Fungerar @done(2018-05-02 05:36) @project(IE test)
+  ✘ this.state.object.contentDocument is null @js @svgColor_js @firefox @safari | Verkar fungera@timestamp(2018-01-02 04:15) @cancelled(2018-05-02 05:35) @project(Fel)
+  ✘ Fixa så att ramen på login knapp ändrar färg, alternativt försvinner. Endast om headern ska följa med @m_Header__nav @css @header @navigation @cancelled(2018-05-02 05:35) @project(Sida)
+  ✔ Index top beteende @indexSectionOne @done(2018-05-02 05:35) @project(Pågående)
+  ✔ Fixa samma indrag på index-content som header @index @contentWidth @php @indexSectionOne_php @done(2018-05-02 05:35) @project(Pågående)
+  ✘Kolla om webpack verkligen behöver alla node_moduler, kolla även upp mer om webpack på dess hemsida @cancelled(2018-01-02 04:17) @project(Övrigt \(låg prio\))
+  ✘ Gå igenom wpContent-klassen för att se om det går att optimera @php @wpContent_php @cancelled(2018-01-02 04:17)
+  ✔ Headern verkar strular. Den kommer inte tillbaka ibland efter att den har försvunnit @js @main_js @done(2018-01-02 04:17) @project(Fel)
+  ✘ Gör klart CSS för meny-navigering. Kvar mobil och att den blir för stor vid små skärmstorlekar som är väldigt nära xs @m_header @cancelled(2018-01-02 04:17) @project(Sida)
+  ✔ Fixa så att content och header har en max-width. Så inte hela sidan blir sjukt utdragen med stora skärmar @core @layout @done(2018-01-02 04:16) @project(Sida)
   ✔ Kolla upp en global css-class för content som har en viss bredd. Kolla om det går att göra i css direkt. annars php. @done(2018-29-01 03:13) @project(Pågående)
   ✘ Klassen för indSecTwo values kan tas bort om den inte kommer fyllas med något @css @m_indexSectionTwoValues @cancelled(2018-24-01 14:31) @project(Pågående)
   ✔ Skapa klasser för title och content som bryter när | finns i texten @php @title @content @done(2018-20-01 23:41) @project(Struktur)

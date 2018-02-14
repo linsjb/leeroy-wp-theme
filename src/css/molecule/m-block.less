@@ -5,41 +5,131 @@
 * Author: Linus Sjöbro
 */
 
-.m-indexSectionOneImageFader {
-  height: 100vh;
-  opacity: 0.5;
-  position: absolute;
-  z-index: 2;
+.m-headerLogo {
+  height: 100%;
+  padding: 15px;
 }
 
-.m-indexSectionOneText {
-  top: 30%;
-  z-index: 3;
+.m-pageImageFader {
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+}
+
+.m-indexSectionOneContent {
+  z-index: 1;
+  color: @leeroyWhite;
+  margin-top: 20%;
+}
+
+.m-indexSectionTwoContent {
+  padding-top: 100px;
+  padding-bottom: 70px;
   color: @leeroyWhite;
 }
 
-.m-indexSectionTwoTop {
-  background-color: @leeroyBlack;
-  min-height: 70vh;
-}
-
-.m-indexSectionTwoTopContent {
-  margin-top: 100px;
-  margin-bottom: 120px;
-}
-
-.m-indexSectionTwoBottom {
-  // background-color: @leeroyWhite;
-  background-color: @clr-red-100;
-  min-height: 30vh;
-
-}
-
-.m-indexSectionTwoBottomContent {
-  margin-top: 50px;
-  margin-bottom: 85px;
+.m-indexSectionItem {
+  margin-bottom: 100px;
 }
 
 .m-indexSectionThreeContent {
-  background-color: green;
+  margin-top: 50px;
+}
+
+.m-indexSectionFourContent {
+  color: @leeroyBlack;
+  padding-top: 100px;
+}
+
+.m-indexSectionFourUpperContent {
+  margin-bottom: 110px;
+}
+
+.m-indexSectionFiveContent {
+  padding-top: 80px;
+  padding-bottom: 65px;
+  color: @leeroyWhite;
+}
+
+.m-indexSectionSixContent {
+  padding-bottom: 40px;
+  padding-left: 15px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.m-footerContent {
+}
+
+.m-footerInnerContent {
+}
+
+.m-footerInnerContentCol {
+  height: 180px;
+}
+
+.m-informationPageTop {
+  min-height: 45vh;
+  left: 0;
+  padding: 0;
+}
+
+.m-informationPageTopContent {
+  z-index: 2;
+}
+
+.m-informationPageBottom {
+  padding-top: 60px;
+  padding-bottom: 120px;
+  font-size: 16px;
+}
+
+.m-informationPageBottomContent {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.m-informationPageColBottomContent {
+  &:nth-child(1) {
+    padding-left: 15px;
+    padding-right: 100px;
+  }
+  &:nth-child(2) {
+    padding-left: 100px;
+    padding-right: 15px;
+  }
+}
+
+.m-aboutTimelineContent {
+  padding-left: 15px;
+  padding-left: 15px;
+}
+
+.m-aboutPageTeamContent {
+  padding-top: 60px;
+  padding-bottom: 90px;
+  // Left and right padding is controlled with media queries
+}
+
+.m-aboutTeamCell {
+  margin-bottom: 40px;
+}
+
+.m-aboutTeamCellContent {
+  width: 100%;
+  .green;
+  padding-bottom: 115.625%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.m-aboutContactContent {
+  position: relative;
+  padding-top: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
