@@ -7,17 +7,17 @@ if($query->have_posts()):
 
     $title = new wpContent;
     $title->title();
-    $title->breakPoint();
+    $title->useBreakpoint();
     $title->setElementType('h1');
     $title->setClasses('a-indexSectionOneContent__header' . $grid->width(100));
 
     $content = new WpContent;
     $content->content();
-    $content->breakPoint();
+    $content->useBreakpoint();
     $content->setElementType('p');
     $content->setClasses('a-indexSectionOneContent__text' . $grid->width(100));
 ?>
-    <div id="home" class="o-indexSectionOne <?= $grid->width(100); ?>" style="background-color: <?php the_field('acfIndexSectionBackgroundColor'); ?>">
+    <div id="home" class="o-indexSectionOne <?= $grid->width(100); ?>" style="background-color: <?php the_field('acfPageBackgroundColor'); ?>">
       <?php pageBackgroundType(); ?>
         <div class="container m-indexSectionOneContent">
           <?php

@@ -15,7 +15,7 @@ class AcfText {
       $text = get_field($this->objectName);
     }
 
-    if($this->breakPoint) {
+    if($this->useBreakpoint) {
       $this->processedString = str_replace($this->breakType, '<br />', $text);
     } else {
       $this->processedString = $text;
@@ -43,7 +43,7 @@ class AcfText {
 
   function setClasses($stringPhrase) { $this->classes = $stringPhrase; }
 
-  function breakPoint() {$this->breakPoint = true; }
+  function useBreakpoint() {$this->useBreakpoint = true; }
 
   function setBreakType($stringPhrase) {$this->breakType = $stringPhrase; }
 
@@ -51,7 +51,7 @@ class AcfText {
   private $objectName;
   private $elementType = NULL;
   private $classes = NULL;
-  private $breakPoint = false;
+  private $useBreakpoint = false;
   private $subfield = false;
   private $breakType = "|";
   private $processedString;

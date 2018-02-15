@@ -15,7 +15,7 @@ class WpContent {
   }
 
   function contentMode() {
-    if($this->breakPoint) {
+    if($this->useBreakpoint) {
       $this->processedString = str_replace($this->breakType, '<br />', $this->rawString);
     } else {
       $this->processedString = $this->rawString;
@@ -40,7 +40,7 @@ class WpContent {
 
   function title() { $this->type = 'title'; }
 
-  function breakPoint() { $this->breakPoint = true; }
+  function useBreakpoint() { $this->useBreakpoint = true; }
 
   function setElementType($stringPhrase) { $this->elementType = $stringPhrase; }
 
@@ -52,7 +52,7 @@ class WpContent {
   private $type = 'content';
   private $elementType = NULL;
   private $classes = NULL;
-  private $breakPoint = false;
+  private $useBreakpoint = false;
   private $breakType = '|';
   private $rawString;
   private $processedString;

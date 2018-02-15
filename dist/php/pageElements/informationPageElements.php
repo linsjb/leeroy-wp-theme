@@ -9,7 +9,7 @@ function informationPageElements() {
 
   $title = new wpContent;
   $title->title();
-  $title->breakPoint();
+  $title->useBreakpoint();
   $title->setElementType('h1');
   $title->setClasses('a-informationPage__header');
 
@@ -17,44 +17,30 @@ function informationPageElements() {
   $slogan->setObject('acfInfoPageSlogan');
   $slogan->setClasses('a-informationPage__slogan');
   $slogan->setElementType('p');
+
+  informationPageTop();
   ?>
+  <div class="o-informationPageBottom<?= $grid->width(100) ?>" style="background-color: <?php the_field('acfInfoPageContentBackground') ?>; color: <?php the_field('acfInfoPageTextColor')?>;">
+    <div class="container">
+      <?php if(get_field('acfInfoPageColumns') == 1): ?>
+        <div class="m-informationPageBottomContent<?= $grid->width(100) ?>">
+          <?php the_field('acfInfoPageLeftContent') ?>
+        </div>
 
-  <div class="o-informationPage" <?= $grid->width(100) ?>>
-    <div class="m-informationPageTop <?= $grid->width(100) ?>" style="background-color: <?php the_field('acfIndexSectionBackgroundColor'); ?>">
-      <?php pageBackgroundType(); ?>
-
-      <div class="container m-informationPageTopContent">
-        <?php
-        $title->init();
-        $slogan->init();
-        ?>
-      <!-- .m-informationPageTopContent -->
-      </div>
-    <!-- .m-informationPageTop -->
-    </div>
-
-    <div class="m-informationPageBottom<?= $grid->width(100) ?>" style="background-color: <?php the_field('acfInfoPageContentBackground') ?>; color: <?php the_field('acfInfoPageTextColor')?>;">
-      <div class="container">
-        <?php if(get_field('acfInfoPageColumns') == 1): ?>
-          <div class="m-informationPageBottomContent<?= $grid->width(100) ?>">
-            <?php the_field('acfInfoPageLeftContent') ?>
+        <?php elseif(get_field('acfInfoPageColumns') == 2): ?>
+          <div class="m-informationPageColBottomContent<?= $grid->width(50, 100) ?>">
+              <?php the_field('acfInfoPageLeftContent') ?>
           </div>
 
-          <?php elseif(get_field('acfInfoPageColumns') == 2): ?>
-            <div class="m-informationPageColBottomContent<?= $grid->width(50, 100) ?>">
-                <?php the_field('acfInfoPageLeftContent') ?>
-            </div>
-
-            <div class="m-informationPageColBottomContent<?= $grid->width(50, 100) ?>">
-              <?php the_field('acfInfoPageRightContent') ?>
-            </div>
-        <?php endif; ?>
-      <!-- .m-informationPageBottomContent -->
-      </div>
-    <!-- .m-informationPageBottom -->
+          <div class="m-informationPageColBottomContent<?= $grid->width(50, 100) ?>">
+            <?php the_field('acfInfoPageRightContent') ?>
+          </div>
+      <?php endif; ?>
+    <!-- .m-informationPageBottomContent -->
     </div>
-  <!-- .o-informationPage -->
+  <!-- .o-informationPageBottom -->
   </div>
+
 <?php
 }
 ?>

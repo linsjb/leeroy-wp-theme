@@ -1,32 +1,36 @@
 <?php
 $grid = $GLOBALS["grid"];
-$query = new WP_Query('page_id=192');
+$query = new WP_Query('page_id=69');
 
 if($query->have_posts()):
   while ($query->have_posts()):
     $query->the_post();
-    $title = new wpContent;
-    $title->title();
-    $title->breakpoint();
-    $title->setElementType('h2');
-    $title->setClasses('a-indexSectionThreeContent__header');
 
-    $image = new AcfImage;
-    $image->setObject('acfIndexSectionThreeImage');
-    $image->useElement();
-    $image->setClasses('a-indexSectionThreeContent__image' . $grid->width(100));
+$title = new WpContent;
+$title->title();
+$title->setElementType('h2');
+$title->setClasses('a-indexSectionThreeContent__header');
+$title->useBreakpoint();
 
+$icon = new AcfImage;
+$icon->setObject('acfIndexSectionImage');
+$icon->useElement();
+$icon->setClasses('a-indexSectionThreeContent__icon' . $grid->width(30));
 ?>
-    <div class="o-indexSectionThree<?= $grid->width(100); ?>" style="background-color: <?php the_field('acfIndexSectionBackgroundColor') ?>">
+    <div class="o-indexSectionThree<?= $grid->width(100); ?>" style="background-color: <?php the_field('acfPageBackgroundColor') ?>">
       <?php pageBackgroundType() ?>
-      <div class="container">
-        <?php $title->init() ?>
-        <div class="m-indexSectionThreeContent <?= $grid->width(80, 100); echo $grid->center(); ?>">
-          <?php $image->init() ?>
+        <div class="container m-indexSectionThreeContent">
+          <div class="m-indexSectionThreeTopContent<?= $grid->width(80); echo $grid->center(true) ?>">
+            <?php
+            $icon->init();
+            $title->init();
+            ?>
+          <!-- .m-indexSectionThreeTopContent -->
+          </div>
+            <?php indexSectionItems() ?>
         <!-- .m-indexSectionThreeContent -->
         </div>
-      <!-- .container -->
-      </div>
+      <!-- .m-indexSectionThreeContent -->
     </div><!-- .indexSectionThree -->
 <?php
   endwhile;

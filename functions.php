@@ -15,6 +15,7 @@ require_once 'dist/php/classes/wpContent.php';
 // Page elements
 require_once 'dist/php/pageElements/pageBackgroundType.php';
 require_once 'dist/php/pageElements/indexSectionItems.php';
+require_once 'dist/php/pageElements/informationPageTop.php';
 require_once 'dist/php/pageElements/informationPageElements.php';
 
 // Dev
@@ -28,3 +29,5 @@ add_action('admin_init', 'remove_textarea');
     function remove_textarea() {
       remove_post_type_support( 'page', 'editor' );
     }
+
+add_theme_support( 'title-tag' );

@@ -6,6 +6,8 @@
 * Author: Linus Sjöbro
 */
 
+// Header
+// -----------------------
 .a-headerLogo__link {
   display: block;
   height: 100%;
@@ -19,20 +21,24 @@
   pointer-events: none;
 }
 
-// Text-align is controlled with media queries
+// Index section one
+// -----------------------
 .a-indexSectionOneContent__header {
+  // Text-align is controlled with media queries
   margin: 0;
   padding: 0;
   margin-bottom: 35px;
   font-size: 65px;
 }
 
-// Text-align is controlled with media queries
 .a-indexSectionOneContent__text {
+  // Text-align is controlled with media queries
   margin: 0;
   font-size: 20px;
 }
 
+// Index section two
+// -----------------------
 .a-indexSectionTwoContent__header {
   margin-bottom: 120px;
   text-align: center;
@@ -40,35 +46,19 @@
   font-size: 30px;
 }
 
-.a-indexSectionItems__icon {
-  text-align: center;
-  height: 40%;
-  margin-bottom: 30px;
-}
-
-.a-indexSectionItems__title {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.a-indexSectionItems__content {
-  font-size: 16px;
-  text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.a-indexSectionThreeContent__header {
+.a-indexSectionTwoBottom__title {
   color: @leeroyPurple;
   font-size: 35px;
+  margin-bottom: 45px;
 }
 
+.a-indexSectionTwoBottom__image {
+
+}
+
+// Index section three
+// -----------------------
 .a-indexSectionThreeContent__header {
-
-}
-
-.a-indexSectionFourContent__header {
   text-align: right;
   font-size: 40px;
   position: absolute;
@@ -77,58 +67,37 @@
   color: @leeroyPurple;
 }
 
-.a-indexSectionFourContent__icon {
+.a-indexSectionThreeContent__icon {
 }
 
-.a-indexSectionFiveContent__header {
+// Index section four
+// -----------------------
+.a-indexSectionFourContent__header {
   margin-bottom: 85px;
   text-align: center;
   font-size: 30px; //TODO ändra till rätt storlek sen
   color: @leeroyWhite;
 }
 
-.a-indexSectionSixContent__header {
+// Index section five
+// -----------------------
+.a-indexSectionFiveContent__header {
   margin-top: 60px;
   margin-bottom: 30px;
   font-size: 30px;
   color: @leeroyPurple;
 }
 
-.a-contactForm__icon {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  // Position is controlled with media queries!
-}
-
-.a-contactForm__input {
-  font-family: 'proxima_novasemibold';
-  padding-bottom: 50px;
-  font-size: 18px;
-  color: @leeroyBlack;
-
-  input {
-    background-color: @leeroyWhite !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    border-bottom: 2px solid @leeroyPurple !important;
-    font-size: 18px !important;
-    color: @leeroyBlack !important;
-  }
-}
-
-.a-formButton {
-  float: right;
-  margin-top: -30px;
-}
-
-
+// Footer
+// -----------------------
 .a-footerNav__title {
   color: @leeroyWhite;
   margin-bottom: 30px;
   font-size: 18px;
 }
 
+// Information page
+// -----------------------
 .a-informationPage__header {
   margin: 0;
   position: absolute;
@@ -144,20 +113,8 @@
   color: @leeroyWhite;
 }
 
-
-.a-btn {
-  border-radius: 8px;
-  box-shadow: none;
-  padding: 10px 20px;
-  font-family: 'proxima_novaregular' !important;
-}
-
-
-.a-btnPurple {
-  background-color: @leeroyPurple;
-  color: @leeroyWhite;
-}
-
+// About Leeroy
+// -----------------------
 .a-aboutTimeline__title {
   font-size: 35px;
   color: @leeroyPurple;
@@ -197,4 +154,67 @@
   bottom: 0;
   color: @leeroyWhite;
   font-size: 16px;
+}
+
+
+
+// Globals
+// -----------------------
+.a-btn {
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 10px 20px;
+  font-family: 'proxima_novaregular' !important;
+}
+
+.a-btnPurple {
+  background-color: @leeroyPurple;
+  color: @leeroyWhite;
+}
+
+.a-contactForm__icon {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  // Position is controlled with media queries!
+}
+
+.a-contactForm__input {
+  font-family: 'proxima_novasemibold';
+  padding-bottom: 50px;
+  font-size: 18px;
+  color: @leeroyBlack;
+
+  input {
+    background-color: @leeroyWhite !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-bottom: 2px solid @leeroyPurple !important;
+    font-size: 18px !important;
+    color: @leeroyBlack !important;
+  }
+}
+
+.a-formButton {
+  float: right;
+  margin-top: -30px;
+}
+
+.a-indexSectionItems__icon {
+  text-align: center;
+  height: 40%;
+  margin-bottom: 30px;
+}
+
+.a-indexSectionItems__title {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.a-indexSectionItems__content {
+  font-size: 16px;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
 }

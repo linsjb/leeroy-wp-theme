@@ -101,7 +101,7 @@ if(have_posts()):
 <?php
     endif;
 ?>
-    <div class="o-aboutContact<?= $grid->width(100)?>">
+    <div class="o-aboutContact<?= $grid->width(100)?>" style="background-color: <?php the_field('acfAboutContactBackground') ?>">
       <div class="container m-aboutContactContent">
         <?php
         $contactTitle->init();
