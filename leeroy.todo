@@ -4,6 +4,7 @@ Pågående:
   ☐ Fixa så att headern's bakgrundsfärg tonar ut när vi når toppen av fönstret @main_js @js
   ☐ Fixa klart info page template. Lägg till fält för bakgroundsbild osv @infoPageTemplate_php
   ☐ testa lägga in data-nav-section i a elementen i header. För att se om den kan gå till vald section i index.
+  ☐ Lägg in så vi kan hämta title från posts index
 
 Struktur:
 

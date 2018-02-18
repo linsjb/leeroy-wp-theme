@@ -1,12 +1,13 @@
 <?php
-/*
-* Filename: acfImage.php
-* Class description: Define navigation objects for ACF image objects
-* Author: Linus Sjöbro
+/**
+* 
 */
-
 class AcfImage {
 // Public
+
+  /**
+  *
+  */
   function init() {
     if($this->useElement) {
       if($this->classes != NULL) {

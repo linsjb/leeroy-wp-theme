@@ -37,9 +37,8 @@
       $resourcesAcfFields->setAcfObject('acfFooterMenuTitle');
       $resourcesAcfFields->setPosition('before');
       $resourcesAcfFields->init();
-
       ?>
-      <div class="o-footer <?= $grid->width(100)?>">
+      <div class="o-footer<?= $grid->width(100)?>">
         <object class="m-footer__logo" type="image/svg+xml" data="<?= get_template_directory_uri() . '/images/leeroyStdLogo.svg' ?>"></object>
         <p class="m-footer__slogan"><?= get_bloginfo('description') ?></p>
 
