@@ -11,7 +11,7 @@ Sida:
   ☐ Lägg till alternativ bild för loggans SVG objekt @a_header__logo__logo
 
 Fel:
-  ☐ pageBackgroundType bild fungerar inte på ipad. Troligen object-fit cover som orsakar. Bilden blir helt utdragen. Fix: Gör att elementet har bakgrunden via css istället.
+  ☐ pageBackgroundType bild fungerar inte på ipad eller i IE. fixa så bakgrunden sätts via css istället.
 
 Optimering:
 
@@ -28,6 +28,7 @@ Slutstäd:
   ☐ Fixa licensen till acf pro när siten ligger live @wp_backend
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ Fixa knowledgeHubPost's bild för col-xs. @done(2018-02-21 00:32) @project(Pågående)
   ✘ testa lägga in data-nav-section i a elementen i header. För att se om den kan gå till vald section i index. @cancelled(2018-02-20 01:12) @project(Pågående)
   ✔ Fixa klart info page template. Lägg till fält för bakgroundsbild osv @infoPageTemplate_php @done(2018-02-20 01:11) @project(Pågående)
   ✔ Lägg in så vi kan hämta title från posts index @done(2018-02-20 01:11) @project(Pågående)

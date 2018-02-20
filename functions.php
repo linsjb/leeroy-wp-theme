@@ -11,6 +11,7 @@ require_once 'dist/php/classes/acfImage.php';
 require_once 'dist/php/classes/acfText.php';
 require_once 'dist/php/classes/acfMenuFields.php';
 require_once 'dist/php/classes/wpContent.php';
+require_once 'dist/php/classes/categories.php';
 
 // Page elements
 require_once 'dist/php/pageElements/pageBackgroundType.php';

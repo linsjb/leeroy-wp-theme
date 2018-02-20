@@ -1,9 +1,4 @@
 <?php
-/*
-* Author: Linus Sjöbro
-* Class description: Class to use a customized version of the Wordpress get_title and get_content.
-*/
-
 class WpContent {
   function contentType() {
 

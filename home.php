@@ -8,7 +8,7 @@ informationPageTop('postsPage');
 
 <div class="o-knowledgeHub col-xs-100 col-sm-100 col-md-100 col-lg-100">
   <div class="container m-knowledgeHubContent">
-    <div class="m-knowledgeHubLeft col-md-75">
+    <div id="knowledgeHubPosts" class="m-knowledgeHubLeft col-xs-100 col-sm-100 col-md-70 col-lg-70">
 
   <?php
   if(have_posts()):
@@ -35,12 +35,11 @@ informationPageTop('postsPage');
       $postAuthor->setContent('author');
       $postAuthor->setClasses('a-knowledgeHubPost__author');
 ?>
-      <div class="m-knowledgeHubPost col-md-100">
-        <div class="a-knowledgeHubPostImage col-md-40" style="background-image: url(<?= $postImage->getUrl() ?>)"></div>
-        <div class="a-knowledgeHubPostContent col-md-55 pull-right">
+      <div class="m-knowledgeHubPost col-xs-100 col sm-100 col-md-100 col-lg-100">
+        <div class="a-knowledgeHubPostImage col-xs-100 col-sm-50 col-md-50 col-lg-50" style="background-image: url(<?= $postImage->getUrl() ?>)"></div>
+        <div class="a-knowledgeHubPostContent col-xs-100 col-sm-50 col-md-50 col-lg-50 pull-right">
           <?php
           $postCategory->init();
-
           ?>
           <a href="#" class="a-knowledgeHubContent__title"><?= $postTitle->init(); ?></a>
           <p class="a-knowledgeHubPost__info"><?php $postDate->init(); ?> by <?php $postAuthor->init(); ?></p>
@@ -50,11 +49,26 @@ informationPageTop('postsPage');
 <?php
     endwhile;
   endif;
+  load_more_button();
+  $categories = new Categories;
+  $categories->setContainerClasses('a-knowledgeHubCategory__list');
+  $categories->setElementClasses('a-knowledgeHubCategory__item');
   ?>
+
   <!-- .m-knowledgeHubLeft -->
   </div>
 
-  <div class="red m-knowledgeHubRight col-lg-20 pull-right">
+  <div class="m-knowledgeHubRight col-xs-100 col-sm-100 col-md-25 col-lg-25 pull-right">
+    <div class="m-knowledgeHubRightBox col-xs-100 col-sm-45 col-md-100 col-lg-100">
+      <h5 class="a-knowledgeHubRightBox__title">Categories</h5>
+      <?php $categories->init(); ?>
+    <!-- .m-knowledgeHubCategory -->
+    </div>
+
+    <div class="m-knowledgeHubRightBox col-xs-100 col-sm-45 col-md-100 col-lg-100 pull-right">
+      <h5 class="a-knowledgeHubRightBox__title">Resources</h5>
+    <!-- .m-knowledgeHubRightBox -->
+    </div>
   <!-- .m-knowledgeHubRight -->
   </div>
 

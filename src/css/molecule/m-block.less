@@ -59,6 +59,7 @@
 .m-indexSectionFiveContent {
   padding-bottom: 40px;
   padding-left: 15px;
+  padding-right: 15px;
   position: relative;
 }
 
@@ -144,19 +145,40 @@
 }
 
 .m-knowledgeHubPost {
-  height: 250px;
+  // Height is controlled with media queries
   border-radius: 2px;
   border: 1px solid #d5d5d5;
+  box-shadow: 0 3px 3px 0 rgba(210, 210, 210, 0.5);
   padding: 40px;
   margin-bottom: 40px;
-  background-color: @leeroyWhite;
-  box-shadow: 0 3px 3px 0 rgba(210, 210, 210, 0.5);
+  background-color: @pureWhite;
 }
 
 .m-knowledgeHubRight {
   height: 100%;
   padding-top: 50px;
   position: relative;
+}
+
+.m-knowledgeHubRightBox {
+  background-color: @pureWhite;
+  border-radius: 2px;
+  border: 1px solid #d5d5d5;
+  box-shadow: 0 3px 3px 0 rgba(210, 210, 210, 0.5);
+  padding: 16px;
+  margin-bottom: 40px;
+}
+
+.m-knowledgeHubButton {
+  height: 100px;
+  .red;
+}
+
+.elm-button {
+  .a-btn;
+  font-size: 14px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 // Globals
