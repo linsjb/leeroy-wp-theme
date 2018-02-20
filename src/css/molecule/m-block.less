@@ -7,6 +7,7 @@
 
 // header
 // -----------------------
+
 .m-headerLogo {
   height: 100%;
   padding: 15px;
@@ -14,23 +15,26 @@
 
 // Index section one
 // -----------------------
+
 .m-indexSectionOneContent {
-  z-index: 1;
   color: @leeroyWhite;
   margin-top: 20%;
+  z-index: 1;
 }
 
 // Index section two
 // -----------------------
+
 .m-indexSectionTwoTopContent {
   color: @leeroyWhite;
 }
 
-.m-indexSectionTwoBottomContent {
-}
+// .m-indexSectionTwoBottomContent {
+// }
 
 // Index section three
 // -----------------------
+
 .m-indexSectionThreeContent {
   color: @leeroyBlack;
   padding-top: 100px;
@@ -42,24 +46,25 @@
 
 // Index section four
 // -----------------------
+
 .m-indexSectionFourContent {
-  padding-top: 80px;
-  padding-bottom: 65px;
   color: @leeroyWhite;
+  padding-bottom: 65px;
+  padding-top: 80px;
 }
 
 // Index section five
 // -----------------------
+
 .m-indexSectionFiveContent {
   padding-bottom: 40px;
-  padding-left: 15px;
   padding-left: 15px;
   position: relative;
 }
 
-
 // Information page
 // -----------------------
+
 .m-informationPageTopContent {
   z-index: 2;
 }
@@ -74,6 +79,7 @@
     padding-left: 15px;
     padding-right: 100px;
   }
+
   &:nth-child(2) {
     padding-left: 100px;
     padding-right: 15px;
@@ -82,14 +88,14 @@
 
 // About
 // -----------------------
+
 .m-aboutTimelineContent {
-  padding-left: 15px;
   padding-left: 15px;
 }
 
 .m-aboutPageTeamContent {
-  padding-top: 60px;
   padding-bottom: 90px;
+  padding-top: 60px;
   // Left and right padding is controlled with media queries
 }
 
@@ -98,41 +104,69 @@
 }
 
 .m-aboutTeamCellContent {
-  width: 100%;
+  .backgroundPosition;
   padding-bottom: 115.625%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
   padding-left: 15px;
   padding-right: 15px;
+  width: 100%;
 }
 
 .m-aboutContactContent {
-  position: relative;
-  padding-top: 60px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 60px;
+  position: relative;
 }
 
 // Footer
 // -----------------------
-.m-footerContent {
-}
 
-.m-footerInnerContent {
-}
+// .m-footerContent {
+// }
+
+// .m-footerInnerContent {
+// }
 
 .m-footerInnerContentCol {
   height: 180px;
 }
 
+// Knowledge hub
+// -----------------------
+
+.m-knowledgeHubContent {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.m-knowledgeHubLeft {
+  padding-top: 50px;
+}
+
+.m-knowledgeHubPost {
+  height: 250px;
+  border-radius: 2px;
+  border: 1px solid #d5d5d5;
+  padding: 40px;
+  margin-bottom: 40px;
+  background-color: @leeroyWhite;
+  box-shadow: 0 3px 3px 0 rgba(210, 210, 210, 0.5);
+}
+
+.m-knowledgeHubRight {
+  height: 100%;
+  padding-top: 50px;
+  position: relative;
+}
+
 // Globals
 // -----------------------
+
 .m-pageImageFader {
   height: 100%;
+  left: 0px;
   position: absolute;
   z-index: 0;
-  left: 0;
 }
 
 .m-indexSectionItem {

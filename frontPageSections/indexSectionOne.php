@@ -6,13 +6,13 @@ if($query->have_posts()):
     $query->the_post();
 
     $title = new wpContent;
-    $title->title();
+    $title->setContent('title');
     $title->useBreakpoint();
     $title->setElementType('h1');
     $title->setClasses('a-indexSectionOneContent__header' . $grid->width(100));
 
     $content = new WpContent;
-    $content->content();
+    $content->setContent('content');
     $content->useBreakpoint();
     $content->setElementType('p');
     $content->setClasses('a-indexSectionOneContent__text' . $grid->width(100));

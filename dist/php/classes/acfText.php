@@ -6,13 +6,19 @@
 */
 
 class AcfText {
-
-// Public
   function contentMode() {
     if($this->subfield) {
-      $text = get_sub_field($this->objectName);
+      if($this->postpage) {
+        $text = get_sub_field($this->objectName, get_option('page_for_posts'));
+      } else {
+        $text = get_sub_field($this->objectName);
+      }
     } else {
-      $text = get_field($this->objectName);
+      if($this->postpage) {
+        $text = get_field($this->objectName, get_option('page_for_posts'));
+      } else {
+        $text = get_field($this->objectName);
+      }
     }
 
     if($this->useBreakpoint) {
@@ -45,14 +51,16 @@ class AcfText {
 
   function useBreakpoint() {$this->useBreakpoint = true; }
 
+  function usePostsPage() {$this->postpage = true; }
+
   function setBreakType($stringPhrase) {$this->breakType = $stringPhrase; }
 
-// Private
   private $objectName;
   private $elementType = NULL;
   private $classes = NULL;
   private $useBreakpoint = false;
   private $subfield = false;
+  private $postpage = false;
   private $breakType = "|";
   private $processedString;
 

@@ -1,13 +1,8 @@
 <?php
 /**
-* 
+*
 */
 class AcfImage {
-// Public
-
-  /**
-  *
-  */
   function init() {
     if($this->useElement) {
       if($this->classes != NULL) {
@@ -24,13 +19,24 @@ class AcfImage {
 
   function useSubfield() { $this->subfield = true; }
 
+  // Viktigt att denna kommer föra setobject
+  function usePostsPage() { $this->postpage = true; }
+
   function setObject($stringPhrase) {
     $this->objectName = $stringPhrase;
 
     if($this->subfield) {
-      $this->imageObject = get_sub_field($this->objectName);
+      if($this->postpage) {
+        $this->imageObject = get_sub_field($this->objectName, get_option('page_for_posts'));
+      } else {
+        $this->imageObject = get_sub_field($this->objectName);
+      }
     } else {
-      $this->imageObject = get_field($this->objectName);
+      if($this->postpage) {
+        $this->imageObject = get_field($this->objectName, get_option('page_for_posts'));
+      } else {
+        $this->imageObject = get_field($this->objectName);
+      }
     }
 
     $this->imageUrl = $this->imageObject['url'];
@@ -38,14 +44,18 @@ class AcfImage {
   }
 
   function setClasses($stringPhrase) { $this->classes = $stringPhrase; }
+  function setSize() { }
   function getObject() { return $this->imageObject; }
+  function getUrl() { return $this->imageUrl;  }
 
-// Private
+
   private $objectName;
   private $imageObject;
   private $imageUrl;
+  private $imageSize;
   private $useElement = false;
   private $subfield = false;
-  private $classes = NULL;
+  private $postpage = false;
+  private $classes = null;
   private $altText;
 }

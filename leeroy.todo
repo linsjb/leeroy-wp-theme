@@ -2,9 +2,7 @@ Leeroy TODO:
 -----------:
 Pågående:
   ☐ Fixa så att headern's bakgrundsfärg tonar ut när vi når toppen av fönstret @main_js @js
-  ☐ Fixa klart info page template. Lägg till fält för bakgroundsbild osv @infoPageTemplate_php
-  ☐ testa lägga in data-nav-section i a elementen i header. För att se om den kan gå till vald section i index.
-  ☐ Lägg in så vi kan hämta title från posts index
+  ☐ Fixa så att headern försvinner när vi scrollar ner @main_js @js
 
 Struktur:
 
@@ -13,11 +11,12 @@ Sida:
   ☐ Lägg till alternativ bild för loggans SVG objekt @a_header__logo__logo
 
 Fel:
-  ☐ pageBackgroundType bild fungerar inte på ipad. Troligen object-fit cover som orsakar. Bilden blir helt utdragen
+  ☐ pageBackgroundType bild fungerar inte på ipad. Troligen object-fit cover som orsakar. Bilden blir helt utdragen. Fix: Gör att elementet har bakgrunden via css istället.
 
 Optimering:
 
 Övrigt (låg prio):
+  ☐ Skriv dokumentation på egna klasser
 
 IE test:
 
@@ -29,6 +28,9 @@ Slutstäd:
   ☐ Fixa licensen till acf pro när siten ligger live @wp_backend
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✘ testa lägga in data-nav-section i a elementen i header. För att se om den kan gå till vald section i index. @cancelled(2018-02-20 01:12) @project(Pågående)
+  ✔ Fixa klart info page template. Lägg till fält för bakgroundsbild osv @infoPageTemplate_php @done(2018-02-20 01:11) @project(Pågående)
+  ✔ Lägg in så vi kan hämta title från posts index @done(2018-02-20 01:11) @project(Pågående)
   ✔ Loggan går inte tillbaka till vitt när vi når toppen @main_js @done(2018-13-02 00:15) @project(Pågående)
   ✔ Fixa till fontsens. I proxima nova lägg till semi bold @fonts @done(2018-13-02 00:15) @project(Pågående)
   ✔ Inte säkert att object-fit fungerar i IE @m_indexSectionOne__image @IE @timestamp(2018-05-02 05:36) Fungerar @done(2018-05-02 05:36) @project(IE test)

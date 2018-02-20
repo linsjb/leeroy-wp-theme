@@ -8,7 +8,7 @@ function informationPageElements() {
   $grid = $GLOBALS["grid"];
 
   $title = new wpContent;
-  $title->title();
+  $title->setContent('title');
   $title->useBreakpoint();
   $title->setElementType('h1');
   $title->setClasses('a-informationPage__header');

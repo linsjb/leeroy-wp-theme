@@ -6,7 +6,7 @@ if($query->have_posts()):
     $query->the_post();
 
     $topTitle = new wpContent;
-    $topTitle->title();
+    $topTitle->setContent('title');
     $topTitle->setElementType('h2');
     $topTitle->setClasses('a-indexSectionTwoContent__header');
 

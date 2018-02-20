@@ -6,7 +6,7 @@ if($query->have_posts()):
     $query->the_post();
 
     $title = new wpContent;
-    $title->title();
+    $title->setContent('title');
     $title->useBreakpoint();
     $title->setElementType('h2');
     $title->setClasses('a-indexSectionFiveContent__header' . $grid->width(100));

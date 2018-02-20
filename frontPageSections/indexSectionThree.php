@@ -7,7 +7,7 @@ if($query->have_posts()):
     $query->the_post();
 
 $title = new WpContent;
-$title->title();
+$title->setContent('title');
 $title->setElementType('h2');
 $title->setClasses('a-indexSectionThreeContent__header');
 $title->useBreakpoint();
