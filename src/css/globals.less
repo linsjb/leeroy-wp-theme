@@ -6,7 +6,7 @@ body {
   padding: 0;
 }
 
-p, a {
+p, a, span {
   font-family: 'proxima_novaregular';
 }
 
@@ -22,6 +22,12 @@ h1 {
 	font-style: normal;
 }
 
+h3 {
+  font-family: 'FreightDispProSemibold-Regular';
+  font-weight: normal;
+  font-style: normal;
+}
+
 // Global variables
 @headerHeight: 70px;
 
@@ -33,13 +39,18 @@ h1 {
 @leeroyGold:    #C9AD74;
 
 @pureWhite:     #ffffff;
+@secondaryContent: #aaaaaa;
 
 // Global functions
 .fadeInTransition(@duration) {
   transition:         @duration;
+  transition-timing-function: ease-in-out;
 	-webkit-transition: @duration;
+  -webkit-transition-timing-function: ease-in-out;
   -moz-transition:    @duration;
+  -moz-transition-timing-function: ease-in-out;
   -o-transition:      @duration;
+  -o-transition-timing-function: ease-in-out;
 }
 
 .verticalAlign {

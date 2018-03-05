@@ -1,6 +1,10 @@
 <?php
 $grid = $GLOBALS["grid"];
-$query = new WP_Query('page_id=69');
+$args = array(
+  'p' => 690,
+  'post_type' => 'sm_indexsections'
+);
+$query = new WP_Query($args);
 
 if($query->have_posts()):
   while ($query->have_posts()):

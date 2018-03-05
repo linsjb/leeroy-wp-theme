@@ -166,7 +166,7 @@
 
 .a-knowledgeHubContent__category {
   font-size: 16px;
-  color: #aaaaaa;
+  color: @secondaryContent;
   margin-bottom: 16px;
 }
 
@@ -195,7 +195,7 @@
   }
 }
 
-.a-knowledgeHubRightBox__title {
+.a-contentRightBox__title {
   margin: 0;
   font-size: 18px;
   color: @leeroyBlue;
@@ -223,6 +223,171 @@
   }
 }
 
+// Knowlede hub single post
+// -----------------------
+
+.a-singlePost__title {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-family: 'freightDispProBold-Regular';
+  color: @leeroyBlack;
+}
+
+.a-singlePostInfo__category {
+  color: @secondaryContent;
+  font-size: 16px;
+  font-family: 'proxima_novaregular';
+  text-decoration: none;
+
+  &:hover {
+    color: @leeroyGold;
+  }
+}
+
+.a-singlePostContent__image {
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.a-singlePostContent__quote {
+  font-size: 25px;
+  font-family: 'proxima_novabold';
+  color: @leeroyBlue;
+  padding-left: 35px;
+  padding-right: 45px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+
+  &:before {
+    content: '"';
+  }
+
+  &:after {
+    content: '"';
+  }
+}
+
+// Knowledge hub single post info
+// -----------------------
+
+.a-singlePostInfo__author {
+  font-size: 18px;
+  color: @leeroyBlue;
+}
+
+.a-singlePostInfo__date {
+  font-size: 16px;
+  color: @leeroyBlue;
+}
+
+.a-singlePostShare__link {
+  display: inline-block;
+  height: 15px;
+  margin-left: 10px;
+
+  svg {
+    height: 100%;
+    pointer-events: none;
+    fill: @secondaryContent;
+    .fadeInTransition(0.2s);
+  }
+}
+
+.a-singlePostShare__facebook:hover {
+  svg {
+    fill: #3b5998;
+  }
+}
+
+.a-singlePostShare__google:hover {
+  svg {
+    fill: #ea4335;
+  }
+}
+
+.a-singlePostShare__twitter:hover {
+  svg {
+    fill: #1da1f2;
+  }
+}
+
+.a-singlePostShare__linkedin:hover {
+  svg {
+    fill: #00a0dc;
+  }
+}
+
+.a-singlePostShare__icon {
+  height: 100%;
+  pointer-events: none;
+}
+
+.a-postTags_title {
+  font-size: 14px;
+  color: @secondaryContent;
+}
+
+.a-postTags__tag {
+  text-decoration: none;
+  color: @secondaryContent;
+  font-size: 14px;
+  .fadeInTransition(0.2s);
+
+  &:hover {
+    color: @leeroyGold;
+  }
+}
+
+// Knowledge hub single post author
+// -----------------------
+
+.a-postAuthor__image {
+  border-radius: 50%;
+}
+
+.a-postAuthor__author {
+  margin: 0;
+  font-size: 20px;
+  color: @leeroyBlue;
+}
+
+.a-postAuthor__role {
+  margin: 0;
+  color: @secondaryContent;
+  font-size: 16px;
+}
+
+.a-postAuthor_description {
+  font-family: 'proxima_novalight_italic';
+  color: @secondaryContent;
+  font-size: 16px;
+}
+
+// Knowledge hub single post right box
+// -----------------------
+
+.a-singlePostRightBox__list {
+  margin: 0;
+  padding: 0;
+}
+
+.a-singlePostRightBox__item {
+  list-style: none;
+  margin-bottom: 15px;
+
+  a {
+    text-decoration: none;
+    .fadeInTransition(0.2s);
+    color: @leeroyBlack;
+
+    &:hover {
+      color: @leeroyGold;
+    }
+  }
+}
 
 
 // Globals

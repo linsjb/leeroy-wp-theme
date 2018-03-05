@@ -26,9 +26,9 @@
         text-decoration: none;
         font-size: 16px;
       	text-align: left;
+        .fadeInTransition(0.2s);
 
         &:hover {
-          .fadeInTransition(0.3s);
           color: @leeroyGold;
         }
       }
@@ -65,16 +65,25 @@
       margin-bottom: 15px;
       a {
         text-decoration: none;
+        .fadeInTransition(0.2s);
         color: @leeroyWhite;
 
         &:hover {
-          .fadeInTransition(0.3s);
           color: @leeroyGold;
         }
       }
     }
   }
 }
+
+// Knowledge hub single post
+// -----------------------
+
+.m-singlePostInfo__text {
+  margin-bottom: 40px;
+}
+
+
 
 // Globals
 // -----------------------

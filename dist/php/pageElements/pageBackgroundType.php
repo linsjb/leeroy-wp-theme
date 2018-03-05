@@ -7,8 +7,8 @@
 * Author: Linus Sjöbro
 */
 
-function pageBackgroundType() {
-  if(is_home()) {
+function pageBackgroundType($pageType = null) {
+  if(is_home() || $pageType == 'postsPage') {
     $backgroundColor    = get_field('acfPageFadeColor',       get_option('page_for_posts'));
     $backgroundOpacity  = get_field('acfPageFadeOpacity',     get_option('page_for_posts'));
     $backgroundType     = get_field('acfPageBackgroundType',  get_option('page_for_posts'));
@@ -23,8 +23,9 @@ function pageBackgroundType() {
   if($backgroundType == 'image'):
     $backgroundImage = new AcfImage;
 
-    if(is_home())
+    if(is_home() || $pageType == 'postsPage') {
       $backgroundImage->usePostsPage();
+    }
 
     $backgroundImage->setObject('acfPageBackgroundImage');
     $backgroundImage->useElement();

@@ -1,8 +1,14 @@
 <?php
+/**
+* Create objects for the wordpress content
+*/
 class WpContent {
-  function contentType() {
-
-    switch($this->type) {
+  /**
+  * Method to use the object.
+  * Place the declaration of the created object anywhere in the code that we want to display the content.
+  */
+  function init() {
+    switch($this->contentType) {
       case 'title':
         if($this->postpage) {
           $this->rawString = get_the_title(get_option('page_for_posts'));
@@ -19,6 +25,10 @@ class WpContent {
         }
         break;
 
+      case 'rawContent':
+        $this->rawString = the_content();
+        break;
+
       case 'category':
         $this->rawString = get_the_category()[0]->name;
         break;
@@ -28,54 +38,104 @@ class WpContent {
         break;
 
       case 'author':
-        $this->rawString = get_the_author_meta('user_firstname') . ' ' . get_the_author_meta('user_lastname');
+        $this->rawString = get_the_author_meta('display_name');
+        break;
+
+      case 'tags':
+        $this->rawString = get_the_tags();
         break;
 
       case '':
-        echo "Specify a content type with setContent()!";
+        echo "Specify a content contentType with setContent()!";
         break;
 
       default:
-        echo "Wrong content type in WpContent! \n Choose between title, content, category, date and author";
+        echo "Wrong content contentType in WpContent! \n Choose between title, content, rawContent, category, date and author";
         break;
     }
-  }
 
-  function contentMode() {
     if($this->useBreakpoint) {
       $this->processedString = str_replace($this->breakType, '<br />', $this->rawString);
     } else {
       $this->processedString = $this->rawString;
     }
-  }
 
-  function init() {
-    $this->contentType();
-    $this->contentMode();
     if($this->elementType != NULL) {
-      if($this->classes != NULL) {
-        echo '<' . $this->elementType . ' class="' . $this->classes . '">' .  $this->processedString . '</' . $this->elementType . '>';
+      if($this->contentType == 'tags') {
+        if($this->rawString) {
+          foreach ($this->rawString as $tag) {
+            echo '<' . $this->elementType . ' class="' . $this->classes . '">' .  $tag->name . '</' . $this->elementType . '>';
+          }
+        }
       } else {
-        echo '<' . $this->elementType . '>' . $this->processedString. '</' . $this->elementType . '>';
+          echo '<' . $this->elementType . ' class="' . $this->classes . '">' .  $this->processedString . '</' . $this->elementType . '>';
       }
     } else {
       return $this->processedString;
     }
   }
 
-  function setContent($setContentType) { $this->type = $setContentType; }
+  /**
+  * What contentType of content the object is going to present.
+  *
+  * ## Content types:
+  * - Title
+  * - Content
+  * - rawContent
+  * - Category
+  * - Date
+  * - Author
+  *
+  * With raw content there is no point of using a wrapper element.
+  * This because the content will not be wrapped inside it.
+  */
+  function setContent($setContentType) {
+    $this->contentType = $setContentType;
+  }
 
-  function useBreakpoint() { $this->useBreakpoint = true; }
+  /**
+  * Specify if the content is going to have a breakpoint at a specific place.
+  *
+  * The default breakpoint is |. The breakpoint can easily be changed with method setBreakType().
+  */
+  function useBreakpoint() {
+    $this->useBreakpoint = true;
+  }
 
-  function usePostsPage() { $this->postpage = true; }
+  /**
+  * Specify if the content is going to be used at the posts page (blog index).
+  *
+  * Without this method the posts page is not going to show the right content.
+  */
+  function usePostsPage() {
+    $this->postpage = true;
+  }
 
-  function setElementType($stringPhrase) { $this->elementType = $stringPhrase; }
+  /**
+  * The Wp content class can embed an element directly in the class.
+  * Specify what kind of element with this method.
+  */
+  function setElementType($setElemType) {
+    $this->elementType = $setElemType;
+  }
 
-  function setClasses($stringPhrase) { $this->classes = $stringPhrase; }
+  /**
+  * Specify the classes that the created element is going to have.
+  */
+  function setClasses($setElemClasses) {
+    $this->classes = $setElemClasses;
+  }
 
-  function setBreakType($stringPhrase) { $this->breakType = $stringPhrase; }
+  /**
+  * If the method useBreakpoint() is used, we can specify what kind of breakpoint we want.
+  *
+  * The default breakpoint is |.
+  */
+  function setBreakType($setBreakpointType) {
+    $this->breakType = $setBreakpointType;
+  }
 
-  private $type = '';
+  private $contentType = '';
   private $elementType = NULL;
   private $classes = NULL;
   private $useBreakpoint = false;

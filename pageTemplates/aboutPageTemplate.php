@@ -62,7 +62,7 @@ if(have_posts()):
       $lastCellSubTitle->setElementType('p');
       $lastCellSubTitle->setClasses('a-aboutTeam__email');
 ?>
-      <div class="o-aboutPageTeam<?= $grid->width(100) ?>" style="background-color: <?php the_field('acfAboutTeamBackground') ?>">
+      <div id="the-team" class="o-aboutPageTeam<?= $grid->width(100) ?>" style="background-color: <?php the_field('acfAboutTeamBackground') ?>">
         <div class="container m-aboutPageTeamContent">
           <?php
           $teamTitle->init();
@@ -101,7 +101,7 @@ if(have_posts()):
 <?php
     endif;
 ?>
-    <div class="o-aboutContact<?= $grid->width(100)?>" style="background-color: <?php the_field('acfAboutContactBackground') ?>">
+    <div id="join" class="o-aboutContact<?= $grid->width(100)?>" style="background-color: <?php the_field('acfAboutContactBackground') ?>">
       <div class="container m-aboutContactContent">
         <?php
         $contactTitle->init();

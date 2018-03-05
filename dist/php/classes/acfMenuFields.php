@@ -22,7 +22,7 @@ class AcfMenuFields {
           break;
 
         default:
-          echo "Wrong position in, or missing method setPosition!";
+          echo "Wrong position in setPosition, or the method is not defined!";
           break;
       }
     }

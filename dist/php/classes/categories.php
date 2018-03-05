@@ -10,8 +10,10 @@ class Categories {
     echo '<' . $this->containerType . ' class="' . $this->containerClasses . '">';
 
       foreach ($this->categories as $category) {
+        $categoryId = get_cat_ID($category->name);
+
         echo '<' . $this->elementType . ' class="' . $this->elementClasses . '">';
-          echo '<a href="' . '">';
+          echo '<a href="' . get_category_link($categoryId) . '">';
             echo $category->name;
           echo '</a>';
         echo '</' . $this->elementType . '>';

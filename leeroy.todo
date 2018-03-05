@@ -3,6 +3,7 @@ Leeroy TODO:
 Pågående:
   ☐ Fixa så att headern's bakgrundsfärg tonar ut när vi når toppen av fönstret @main_js @js
   ☐ Fixa så att headern försvinner när vi scrollar ner @main_js @js
+  ☐ Fixa så att home använder sig av knowledge hud page. Det har blivit strul efter att jag haer gjort om strukturen och skapat en egen cpt för index sections.
 
 Struktur:
 
@@ -14,6 +15,7 @@ Fel:
   ☐ pageBackgroundType bild fungerar inte på ipad eller i IE. fixa så bakgrunden sätts via css istället.
 
 Optimering:
+  ☐ Byt ut php bootstrap till statisk bootstrap. Men innan det, testa gör en mätning för att se om det faktiskt blir någon skillnad.
 
 Övrigt (låg prio):
   ☐ Skriv dokumentation på egna klasser

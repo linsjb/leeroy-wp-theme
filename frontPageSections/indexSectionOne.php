@@ -1,6 +1,10 @@
 <?php
-$grid = $GLOBALS["grid"];
-$query = new WP_Query('page_id=5');
+$args = array(
+  'p' => 687,
+  'post_type' => 'sm_indexsections'
+);
+$query = new WP_Query($args);
+
 if($query->have_posts()):
   while ($query->have_posts()):
     $query->the_post();
@@ -9,15 +13,15 @@ if($query->have_posts()):
     $title->setContent('title');
     $title->useBreakpoint();
     $title->setElementType('h1');
-    $title->setClasses('a-indexSectionOneContent__header' . $grid->width(100));
+    $title->setClasses('a-indexSectionOneContent__header col-xs-100');
 
-    $content = new WpContent;
-    $content->setContent('content');
+    $content = new AcfText;
     $content->useBreakpoint();
+    $content->setObject('acfIndexSectionOneContent');
     $content->setElementType('p');
-    $content->setClasses('a-indexSectionOneContent__text' . $grid->width(100));
+    $content->setClasses('a-indexSectionOneContent__text col-xs-100');
 ?>
-    <div id="home" class="o-indexSectionOne <?= $grid->width(100); ?>" style="background-color: <?php the_field('acfPageBackgroundColor'); ?>">
+    <div id="home" class="o-indexSectionOne col-xs-100" style="background-color: <?php the_field('acfPageBackgroundColor'); ?>">
       <?php pageBackgroundType(); ?>
         <div class="container m-indexSectionOneContent">
           <?php

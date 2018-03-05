@@ -1,6 +1,9 @@
 <?php
-$grid = $GLOBALS["grid"];
-$query = new WP_Query('page_id=31');
+$args = array(
+  'p' => 689,
+  'post_type' => 'sm_indexsections'
+);
+$query = new WP_Query($args);
 if($query->have_posts()):
   while ($query->have_posts()):
     $query->the_post();
@@ -19,10 +22,10 @@ if($query->have_posts()):
     $bottomImg = new AcfImage;
     $bottomImg->setObject('acfIndSecTwoBottomImg');
     $bottomImg->useElement();
-    $bottomImg->setClasses('a-indexSectionTwoBottom__image' . $grid->width(100));
+    $bottomImg->setClasses('a-indexSectionTwoBottom__image col-xs-100 col-sm-100 col-md-100 col-lg-100');
 ?>
 
-    <div class="o-indexSectionTwoTop<?= $grid->width(100); ?>" style="background-color: <?php the_field('acfPageBackgroundColor') ?>">
+    <div class="o-indexSectionTwoTop col-xs-100 col-sm-100 col-md-100 col-lg-100" style="background-color: <?php the_field('acfPageBackgroundColor') ?>">
       <?php pageBackgroundType() ?>
         <div class="container m-indexSectionTwoTopContent">
           <?php
@@ -34,7 +37,7 @@ if($query->have_posts()):
     <!-- .o-indexSectionTwoTop -->
     </div>
 
-    <div class="o-indexSectionTwoBottom<?= $grid->width(100); ?>" style="background-color: <?php the_field('acfIndSecTwoBackground') ?>">
+    <div class="o-indexSectionTwoBottom col-xs-100 col-sm-100 col-md-100 col-lg-100 " style="background-color: <?php the_field('acfIndSecTwoBackground') ?>">
       <div class="container o-indexSectionTwoBottomContent">
         <?php
         $bottomTitle->init();

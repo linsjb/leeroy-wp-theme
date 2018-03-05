@@ -18,7 +18,7 @@ function informationPageTop($pageType = null) {
   $slogan->setClasses('a-informationPage__slogan');
   $slogan->setElementType('p');
 
-  if(is_home()) {
+  if(is_home() || $pageType == 'postsPage') {
     $slogan->usePostsPage();
     $title->usePostsPage();
     $backgroundColor = get_field('acfPageBackgroundColor', get_option('page_for_posts'));
@@ -27,7 +27,7 @@ function informationPageTop($pageType = null) {
   }
 ?>
 
-  <div class="o-informationPageTop<?= $grid->width(100) ?>" style="background-color: <?= $backgroundColor ?>">
+  <div id="top" class="o-informationPageTop<?= $grid->width(100) ?>" style="background-color: <?= $backgroundColor ?>">
     <?php pageBackgroundType($pageType); ?>
     <div class="container m-informationPageTopContent">
       <?php

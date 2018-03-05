@@ -1,9 +1,6 @@
 <?php
-/*
- * Description: Page template for blog index.
- */
 get_header();
-informationPageTop('postsPage');
+informationPageTop();
 ?>
 
 <div class="o-knowledgeHub col-xs-100 col-sm-100 col-md-100 col-lg-100">
@@ -41,7 +38,7 @@ informationPageTop('postsPage');
           <?php
           $postCategory->init();
           ?>
-          <a href="#" class="a-knowledgeHubContent__title"><?= $postTitle->init(); ?></a>
+          <a href="<?php the_permalink() ?>" class="a-knowledgeHubContent__title"><?= $postTitle->init(); ?></a>
           <p class="a-knowledgeHubPost__info"><?php $postDate->init(); ?> by <?php $postAuthor->init(); ?></p>
         </div>
       <!-- .m-knowledgeHubPost -->
@@ -50,25 +47,24 @@ informationPageTop('postsPage');
     endwhile;
   endif;
   load_more_button();
-  $categories = new Categories;
-  $categories->setContainerClasses('a-knowledgeHubCategory__list');
-  $categories->setElementClasses('a-knowledgeHubCategory__item');
-  ?>
+?>
 
   <!-- .m-knowledgeHubLeft -->
   </div>
 
   <div class="m-knowledgeHubRight col-xs-100 col-sm-100 col-md-25 col-lg-25 pull-right">
-    <div class="m-knowledgeHubRightBox col-xs-100 col-sm-45 col-md-100 col-lg-100">
-      <h5 class="a-knowledgeHubRightBox__title">Categories</h5>
-      <?php $categories->init(); ?>
+    <div class="m-contentRightBox col-xs-100 col-sm-45 col-md-100 col-lg-100">
+      <h5 class="a-contentRightBox__title">Categories</h5>
+      <?php
+      $categories = new Categories;
+      $categories->setContainerClasses('a-knowledgeHubCategory__list');
+      $categories->setElementClasses('a-knowledgeHubCategory__item');
+      $categories->init();
+      ?>
     <!-- .m-knowledgeHubCategory -->
     </div>
 
-    <div class="m-knowledgeHubRightBox col-xs-100 col-sm-45 col-md-100 col-lg-100 pull-right">
-      <h5 class="a-knowledgeHubRightBox__title">Resources</h5>
-    <!-- .m-knowledgeHubRightBox -->
-    </div>
+    <?php resourcesSideBox() ?>
   <!-- .m-knowledgeHubRight -->
   </div>
 

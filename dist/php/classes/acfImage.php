@@ -1,8 +1,16 @@
 <?php
 /**
+* @Description Class for easy usage of ACF image field.
 *
+* The presentation of the content can be modified.
 */
 class AcfImage {
+
+  /**
+  * @Description Method to initialize the class. In other words, the method to use the object.
+  *
+  * This method is placed where the image-element is going to be represented.
+  */
   function init() {
     if($this->useElement) {
       if($this->classes != NULL) {
@@ -15,15 +23,36 @@ class AcfImage {
     }
   }
 
-  function useElement() { $this->useElement = true; }
+  /**
+  *
+  */
+  function useElement() {
+    $this->useElement = true;
+  }
 
-  function useSubfield() { $this->subfield = true; }
+  function useSubfield() {
+    $this->subfield = true;
+  }
 
-  // Viktigt att denna kommer föra setobject
-  function usePostsPage() { $this->postpage = true; }
+  /**
+  * For usage where the page is the blog index (posts page).
+  *
+  * The method get's the ID of the posts page.
+  *
+  * **IMPORTANT**
+  * This method need's to be declared before setObject()!
+  */
+  function usePostsPage() {
+    $this->postpage = true;
+  }
 
-  function setObject($stringPhrase) {
-    $this->objectName = $stringPhrase;
+  /**
+  * Set's the object name for the image.
+  *
+  * The object name is specified in the ACF field settings in WordPress backend.
+  */
+  function setObject($setObjName) {
+    $this->objectName = $setObjName;
 
     if($this->subfield) {
       if($this->postpage) {
@@ -43,10 +72,27 @@ class AcfImage {
     $this->altText = $this->imageObject['alt'];
   }
 
-  function setClasses($stringPhrase) { $this->classes = $stringPhrase; }
+  /**
+  * Specify what classes the img-element should have.
+  *
+  * Multiple classes can be used.
+  */
+  function setClasses($setElmClasses) {
+    $this->classes = $setElmClasses;
+  }
+
+  /**
+  * Specify the size of the image.
+  */
   function setSize() { }
-  function getObject() { return $this->imageObject; }
-  function getUrl() { return $this->imageUrl;  }
+
+  function getObject() {
+    return $this->imageObject;
+  }
+
+  function getUrl() {
+    return $this->imageUrl;
+  }
 
 
   private $objectName;
