@@ -266,7 +266,7 @@ h3 {
 .m-postAuthorContent {
   margin-top: 2%;
 }
-.m-pageImageFader {
+.m-pageImageToner {
   height: 100%;
   left: 0px;
   position: absolute;
@@ -461,6 +461,14 @@ h3 {
   color: #FDFDFD;
   margin-bottom: 30px;
   font-size: 18px;
+}
+.a-footerLogo__link {
+  display: block;
+}
+.a-footerLogo__logo {
+  height: 30px;
+  padding-left: 40px;
+  pointer-events: none;
 }
 .a-informationPage__header {
   margin: 0;

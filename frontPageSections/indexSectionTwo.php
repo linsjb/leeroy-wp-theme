@@ -22,11 +22,11 @@ if($query->have_posts()):
     $bottomImg = new AcfImage;
     $bottomImg->setObject('acfIndSecTwoBottomImg');
     $bottomImg->useElement();
-    $bottomImg->setClasses('a-indexSectionTwoBottom__image col-xs-100 col-sm-100 col-md-100 col-lg-100');
+    $bottomImg->setClasses('a-indexSectionTwoBottom__image col-xs-100');
 ?>
 
-    <div class="o-indexSectionTwoTop col-xs-100 col-sm-100 col-md-100 col-lg-100" style="background-color: <?php the_field('acfPageBackgroundColor') ?>">
-      <?php pageBackgroundType() ?>
+    <div class="o-indexSectionTwoTop col-xs-100" style="<?= pageBackgroundType(); ?>">
+        <?php pageBackgroundTone() ?>
         <div class="container m-indexSectionTwoTopContent">
           <?php
           $topTitle->init();
@@ -37,7 +37,7 @@ if($query->have_posts()):
     <!-- .o-indexSectionTwoTop -->
     </div>
 
-    <div class="o-indexSectionTwoBottom col-xs-100 col-sm-100 col-md-100 col-lg-100 " style="background-color: <?php the_field('acfIndSecTwoBackground') ?>">
+    <div class="o-indexSectionTwoBottom col-xs-100" style="background-color: <?php the_field('acfIndSecTwoBackground') ?>">
       <div class="container o-indexSectionTwoBottomContent">
         <?php
         $bottomTitle->init();

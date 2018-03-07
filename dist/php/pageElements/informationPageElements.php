@@ -5,8 +5,6 @@
 * Author: Linus Sjöbro
 */
 function informationPageElements() {
-  $grid = $GLOBALS["grid"];
-
   $title = new wpContent;
   $title->setContent('title');
   $title->useBreakpoint();
@@ -20,19 +18,19 @@ function informationPageElements() {
 
   informationPageTop();
   ?>
-  <div class="o-informationPageBottom<?= $grid->width(100) ?>" style="background-color: <?php the_field('acfInfoPageContentBackground') ?>; color: <?php the_field('acfInfoPageTextColor')?>;">
+  <div class="o-informationPageBottom col-xs-100" style="background-color: <?php the_field('acfInfoPageContentBackground') ?>; color: <?php the_field('acfInfoPageTextColor')?>;">
     <div class="container">
       <?php if(get_field('acfInfoPageColumns') == 1): ?>
-        <div class="m-informationPageBottomContent<?= $grid->width(100) ?>">
+        <div class="m-informationPageBottomContent col-xs-100">
           <?php the_field('acfInfoPageLeftContent') ?>
         </div>
 
         <?php elseif(get_field('acfInfoPageColumns') == 2): ?>
-          <div class="m-informationPageColBottomContent<?= $grid->width(50, 100) ?>">
+          <div class="m-informationPageColBottomContent col-xs-100 col-sm-50">
               <?php the_field('acfInfoPageLeftContent') ?>
           </div>
 
-          <div class="m-informationPageColBottomContent<?= $grid->width(50, 100) ?>">
+          <div class="m-informationPageColBottomContent col-xs-100 col-sm-50">
             <?php the_field('acfInfoPageRightContent') ?>
           </div>
       <?php endif; ?>

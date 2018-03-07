@@ -70,16 +70,7 @@
 "use strict";
 
 
-__webpack_require__(1);
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _svgColor = __webpack_require__(2);
+var _svgColor = __webpack_require__(1);
 
 window.onload = function () {
   (function ($) {
@@ -90,13 +81,15 @@ window.onload = function () {
 
     var headerElement = $('.o-header');
     var headerNavElement = $('.m-header__nav');
+    var topElementHeight = $('#topElement').height();
+    console.log("Height: " + topElementHeight);
 
     window.addEventListener('scroll', function () {
-      if ($(this).scrollTop() > 120) {
+      if ($(this).scrollTop() > topElementHeight / 2) {
         headerLogo.setColor('#2F2F2F');
         headerElement.addClass('o-header--background');
         headerNavElement.removeClass('m-header__nav--lightTextColour').addClass('m-header__nav--darkTextColor');
-      } else if ($(this).scrollTop() < 120) {
+      } else if ($(this).scrollTop() < topElementHeight / 2) {
         headerLogo.setColor('#FDFDFD');
         headerElement.removeClass('o-header--background');
         headerNavElement.addClass('m-header__nav--lightTextColour').removeClass('m-header__nav--darkTextColor');
@@ -106,7 +99,7 @@ window.onload = function () {
 }; /* global jQuery */
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

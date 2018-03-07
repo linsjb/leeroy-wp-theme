@@ -4,7 +4,6 @@
  * Description: Page template for about page.
  */
 get_header();
-$grid = $GLOBALS["grid"];
 if(have_posts()):
   $timelineTitle = new AcfText;
   $timelineTitle->setObject('acfAboutTimelineTitle');
@@ -14,13 +13,13 @@ if(have_posts()):
   $timelineImage = new AcfImage;
   $timelineImage->setObject('acfAboutTimelineImage');
   $timelineImage->useElement();
-  $timelineImage->setClasses('a-aboutTimeline__image' . $grid->width(98) . $grid->offset(2));
+  $timelineImage->setClasses('a-aboutTimeline__image col-xs-98 col-xs-offset-2');
 
   while (have_posts()):
     the_post();
     informationPageElements();
 ?>
-    <div class="o-aboutTimeline<?= $grid->width(100)?>" style="background-color: <?php the_field('acfAboutTimelineBackground') ?>">
+    <div class="o-aboutTimeline col-xs-100" style="background-color: <?php the_field('acfAboutTimelineBackground') ?>">
       <div class="container m-aboutTimelineContent">
         <?php
         $timelineTitle->init();
@@ -62,7 +61,7 @@ if(have_posts()):
       $lastCellSubTitle->setElementType('p');
       $lastCellSubTitle->setClasses('a-aboutTeam__email');
 ?>
-      <div id="the-team" class="o-aboutPageTeam<?= $grid->width(100) ?>" style="background-color: <?php the_field('acfAboutTeamBackground') ?>">
+      <div id="the-team" class="o-aboutPageTeam col-xs-100" style="background-color: <?php the_field('acfAboutTeamBackground') ?>">
         <div class="container m-aboutPageTeamContent">
           <?php
           $teamTitle->init();
@@ -70,10 +69,10 @@ if(have_posts()):
             the_row();
           ?>
           <!-- Team cell -->
-          <div class="m-aboutTeamCell<?= $grid->individualWidth(40, 30, 20, 20); echo $grid->individualOffset(7, 3, 4, 4) ?>">
+          <div class="m-aboutTeamCell col-xs-40 col-sm-30 col-md-20 col-xs-offset-7 col-sm-offset-3 col-md-offset-4">
             <div class="m-aboutTeamCellContent" style="background-image: url('<?php the_sub_field('acfAboutTeamEmpPicture') ?>')">
               <?php if(get_sub_field('acfAboutTeamEmpImgDim')):?>
-                <div class="m-pageImageFader<?= $grid->width(100)?>" style="background-color: <?php the_field('acfAboutTeamFadeColor') ?>; opacity: <?php the_field('acfAboutTeamFadeOpacity') ?>"></div>
+                <div class="m-pageImageFader col-xs-100" style="background-color: <?php the_field('acfAboutTeamFadeColor') ?>; opacity: <?php the_field('acfAboutTeamFadeOpacity') ?>"></div>
               <?php endif; ?>
               <p class="a-aboutTeam__name"><span><?php the_sub_field('acfAboutTeamEmpName') ?></span>, <span><?php the_sub_field('acfAboutTeamEmpTitle') ?></span></p>
               <p class="a-aboutTeam__email"><?php the_sub_field('acfAboutTeamEmpEmail') ?></p>
@@ -84,7 +83,7 @@ if(have_posts()):
           endwhile;
           ?>
           <!-- Element for the last cell that is static -->
-          <div class="m-aboutTeamCell<?= $grid->individualWidth(40, 30, 20, 20); echo $grid->individualOffset(7, 3, 4, 4) ?>">
+          <div class="m-aboutTeamCell col-xs-40 col-sm-30 col-md-20 col-xs-offset-7 col-sm-offset-3 col-md-offset-4">
             <div class="m-aboutTeamCellContent" style="background-color: <?php the_field('acfAboutTeamLcBgc') ?>">
               <?php
               $lastCellIcon->init();
@@ -101,7 +100,7 @@ if(have_posts()):
 <?php
     endif;
 ?>
-    <div id="join" class="o-aboutContact<?= $grid->width(100)?>" style="background-color: <?php the_field('acfAboutContactBackground') ?>">
+    <div id="join" class="o-aboutContact col-xs-100" style="background-color: <?php the_field('acfAboutContactBackground') ?>">
       <div class="container m-aboutContactContent">
         <?php
         $contactTitle->init();

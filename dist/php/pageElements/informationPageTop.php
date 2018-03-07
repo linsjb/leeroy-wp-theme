@@ -5,8 +5,6 @@
 * Author: Linus Sjöbro
 */
 function informationPageTop($pageType = null) {
-  $grid = $GLOBALS["grid"];
-
   $title = new wpContent;
   $title->setContent('title');
   $title->useBreakpoint();
@@ -21,23 +19,19 @@ function informationPageTop($pageType = null) {
   if(is_home() || $pageType == 'postsPage') {
     $slogan->usePostsPage();
     $title->usePostsPage();
-    $backgroundColor = get_field('acfPageBackgroundColor', get_option('page_for_posts'));
-  } else {
-    $backgroundColor = get_field('acfPageBackgroundColor');
   }
 ?>
-
-  <div id="top" class="o-informationPageTop<?= $grid->width(100) ?>" style="background-color: <?= $backgroundColor ?>">
-    <?php pageBackgroundType($pageType); ?>
-    <div class="container m-informationPageTopContent">
-      <?php
-      $title->init();
-      $slogan->init();
-      ?>
-    <!-- .m-informationPageTopContent -->
+    <div id="topElement" class="o-informationPageTop col-xs-100" style="<?= pageBackgroundType($pageType); ?>">
+      <?php pageBackgroundTone($pageType) ?>
+      <div class="container m-informationPageTopContent">
+        <?php
+        $title->init();
+        $slogan->init();
+        ?>
+      <!-- .m-informationPageTopContent -->
+      </div>
+    <!-- .o-informationPageTop -->
     </div>
-  <!-- .o-informationPageTop -->
-  </div>
 <?php
 }
 ?>

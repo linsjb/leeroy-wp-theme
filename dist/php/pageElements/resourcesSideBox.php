@@ -2,7 +2,7 @@
 <?php
 function resourcesSideBox () {
 ?>
-  <div class="m-contentRightBox col-xs-100 col-sm-45 col-md-100 col-lg-100 pull-right">
+  <div class="m-contentRightBox col-xs-100 col-sm-45 col-md-100 pull-right">
     <h5 class="a-contentRightBox__title">Resources</h5>
     <?php
     $args = array(

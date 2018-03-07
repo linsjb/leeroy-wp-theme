@@ -21,8 +21,8 @@ if($query->have_posts()):
     $content->setElementType('p');
     $content->setClasses('a-indexSectionOneContent__text col-xs-100');
 ?>
-    <div id="home" class="o-indexSectionOne col-xs-100" style="background-color: <?php the_field('acfPageBackgroundColor'); ?>">
-      <?php pageBackgroundType(); ?>
+    <div id="topElement" class="o-indexSectionOne col-xs-100" style="<?= pageBackgroundType(); ?>">
+      <?php pageBackgroundTone() ?>
         <div class="container m-indexSectionOneContent">
           <?php
           $title->init();

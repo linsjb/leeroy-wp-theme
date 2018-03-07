@@ -3,19 +3,17 @@ Leeroy TODO:
 Pågående:
   ☐ Fixa så att headern's bakgrundsfärg tonar ut när vi når toppen av fönstret @main_js @js
   ☐ Fixa så att headern försvinner när vi scrollar ner @main_js @js
-  ☐ Fixa så att home använder sig av knowledge hud page. Det har blivit strul efter att jag haer gjort om strukturen och skapat en egen cpt för index sections.
+  ☐ Bakgrunden på bannern ska komma fram efter halva topSection.
 
 Struktur:
 
 Sida:
-  ☐ Fixa mobilanpassning för hela sidan.
   ☐ Lägg till alternativ bild för loggans SVG objekt @a_header__logo__logo
 
 Fel:
-  ☐ pageBackgroundType bild fungerar inte på ipad eller i IE. fixa så bakgrunden sätts via css istället.
+  ☐ Scroll to id beter sig inte rätt i about. Detta pga. att vi måste länka till sidan också. Kolla om det går att lösa.
 
 Optimering:
-  ☐ Byt ut php bootstrap till statisk bootstrap. Men innan det, testa gör en mätning för att se om det faktiskt blir någon skillnad.
 
 Övrigt (låg prio):
   ☐ Skriv dokumentation på egna klasser
@@ -23,13 +21,17 @@ Optimering:
 IE test:
 
 Slutstäd:
-  ☐ Rensa source
+  ☐ Rensa source & dist
   ☐ Ta bort consoleDebug.php
   ☐ Ta bort node_moduler
   ☐ Ta bort define('FS_METHOD', 'direct') från wp_config @wp_config_php
   ☐ Fixa licensen till acf pro när siten ligger live @wp_backend
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✘ Fixa mobilanpassning för hela sidan. @cancelled(2018-03-07 01:39) @project(Sida)
+  ✔ Byt ut php bootstrap till statisk bootstrap. Men innan det, testa gör en mätning för att se om det faktiskt blir någon skillnad. @done(2018-03-07 01:38) @project(Optimering)
+  ✔ pageBackgroundType bild fungerar inte på ipad eller i IE. fixa så bakgrunden sätts via css istället. @done(2018-03-07 00:46) @project(Fel)
+  ✔ Fixa så att home använder sig av knowledge hud page. Det har blivit strul efter att jag haer gjort om strukturen och skapat en egen cpt för index sections. @done(2018-03-06 19:46) @project(Pågående)
   ✔ Fixa knowledgeHubPost's bild för col-xs. @done(2018-02-21 00:32) @project(Pågående)
   ✘ testa lägga in data-nav-section i a elementen i header. För att se om den kan gå till vald section i index. @cancelled(2018-02-20 01:12) @project(Pågående)
   ✔ Fixa klart info page template. Lägg till fält för bakgroundsbild osv @infoPageTemplate_php @done(2018-02-20 01:11) @project(Pågående)

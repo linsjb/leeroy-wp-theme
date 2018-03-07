@@ -10,8 +10,10 @@
     $navigation->setContainerClasses('m-header__nav m-header__nav--lightTextColour pull-right col-lg-80');
 
     if(is_front_page()) {
-      $logoUrl = '#home';
+      $logoLinkRel = 'm_PageScroll2id';
+      $logoUrl = '#topElement';
     } else {
+      $logoLinkRel = '';
       $logoUrl = home_url();
     }
 
@@ -24,7 +26,7 @@
           <div class="container">
             <div class="o-headerWrapper col-xs-100 col-sm-100 col-md-100 col-lg-100">
                 <div class="m-headerLogo col-xs-20 col-sm-20 col-md-20 col-lg-20">
-                  <a href="<?= $logoUrl ?>" class="a-headerLogo__link">
+                  <a rel="<?= $logoLinkRel ?>" href="<?= $logoUrl ?>" class="a-headerLogo__link">
                     <object id="headerLogoObj" class="a-headerLogo__logo" type="image/svg+xml" data="<?= get_template_directory_uri() . '/images/leeroyStdLogo.svg' ?>"></object>
                   </a>
                 </div>

@@ -1,5 +1,4 @@
 <?php
-$grid = $GLOBALS["grid"];
 $args = array(
   'p' => 690,
   'post_type' => 'sm_indexsections'
@@ -19,12 +18,12 @@ $title->useBreakpoint();
 $icon = new AcfImage;
 $icon->setObject('acfIndexSectionImage');
 $icon->useElement();
-$icon->setClasses('a-indexSectionThreeContent__icon' . $grid->width(30));
+$icon->setClasses('a-indexSectionThreeContent__icon col-xs-30');
 ?>
-    <div class="o-indexSectionThree<?= $grid->width(100); ?>" style="background-color: <?php the_field('acfPageBackgroundColor') ?>">
-      <?php pageBackgroundType() ?>
+    <div class="o-indexSectionThree col-xs-100" style="<?= pageBackgroundType(); ?>">
+        <?php pageBackgroundTone() ?>
         <div class="container m-indexSectionThreeContent">
-          <div class="m-indexSectionThreeTopContent<?= $grid->width(80); echo $grid->center(true) ?>">
+          <div class="m-indexSectionThreeTopContent col-xs-80 col-md-offset-10">
             <?php
             $icon->init();
             $title->init();

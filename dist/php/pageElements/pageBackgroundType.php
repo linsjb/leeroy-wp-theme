@@ -8,38 +8,30 @@
 */
 
 function pageBackgroundType($pageType = null) {
+  $backgroundImage = ' ';
+
   if(is_home() || $pageType == 'postsPage') {
-    $backgroundColor    = get_field('acfPageFadeColor',       get_option('page_for_posts'));
-    $backgroundOpacity  = get_field('acfPageFadeOpacity',     get_option('page_for_posts'));
-    $backgroundType     = get_field('acfPageBackgroundType',  get_option('page_for_posts'));
-    $opacityCheck       = get_field('acfPageImageFade',       get_option('page_for_posts'));
+    $backgroundType    = get_field('acfPageBackgroundType',       get_option('page_for_posts'));
+    $backgroundColor   = get_field('acfPageBackgroundColor',      get_option('page_for_posts'));
   } else {
-    $backgroundColor    = get_field('acfPageFadeColor');
-    $backgroundOpacity  = get_field('acfPageFadeOpacity');
-    $backgroundType     = get_field('acfPageBackgroundType');
-    $opacityCheck       = get_field('acfPageImageFade');
+    $backgroundType    = get_field('acfPageBackgroundType');
+    $backgroundColor   = get_field('acfPageBackgroundColor');
   }
 
-  if($backgroundType == 'image'):
-    $backgroundImage = new AcfImage;
+  // What kind of background is set for the page
+  if($backgroundType == 'image') {
+    $backgroundImageUrl = new AcfImage;
 
-    if(is_home() || $pageType == 'postsPage') {
-      $backgroundImage->usePostsPage();
-    }
+    // If the page is home of posts page (blog index)
+    if(is_home() || $pageType == 'postsPage')
+      $backgroundImageUrl->usePostsPage();
 
-    $backgroundImage->setObject('acfPageBackgroundImage');
-    $backgroundImage->useElement();
-    $backgroundImage->setClasses('m-pageSection__image col-xs-100 col-sm-100 col-md-100 col-lg-100');
-    $backgroundImage->init();
+    $backgroundImageUrl->setObject('acfPageBackgroundImage');
 
-    if($opacityCheck):
-?>
-      <div
-        class="m-pageImageFader col-xs-100 col-sm-100 col-md-100 col-lg-100"
-        style="background-color: <?= $backgroundColor ?>; opacity: <?= $backgroundOpacity ?>;">
-      </div>
-<?php
-    endif;
-  endif;
+    $backgroundImage = 'url(' . $backgroundImageUrl->init() . '); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover';
+  } else {
+    $backgroundImage =  $backgroundColor;
+  }
+
+  return 'background: ' . $backgroundImage . ';';
 }
-?>

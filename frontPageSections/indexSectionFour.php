@@ -1,5 +1,4 @@
 <?php
-$grid = $GLOBALS["grid"];
 $args = array(
   'p' => 695,
   'post_type' => 'sm_indexsections'
@@ -15,12 +14,12 @@ if($query->have_posts()):
     $title->setElementType('h2');
     $title->setClasses('a-indexSectionFourContent__header');
 ?>
-    <div class="o-indexSectionFour<?= $grid->width(100); ?>"style="background-color: <?php the_field('acfPageBackgroundColor') ?>">
-      <?php pageBackgroundType() ?>
+    <div class="o-indexSectionFour col-xs-100" style="<?= pageBackgroundType(); ?>">
+      <?php pageBackgroundTone() ?>
       <div class="container m-indexSectionFourContent">
           <?php $title->init(); ?>
 
-          <div class="col-xs-100 col-sm-100 col-md-70 col-md-offset-15 col-lg-70 col-lg-offset-15">
+          <div class="col-xs-100 col-md-70 col-md-offset-15">
             <?php
             // Loop through the customer values in page
             if(have_rows('acfIndexSectionItems')):
@@ -30,21 +29,21 @@ if($query->have_posts()):
                 $icon->useSubfield();
                 $icon->useElement();
                 $icon->setObject('acfItemIcon');
-                $icon->setClasses('a-indexSectionItems__icon' . $grid->width(30, 40) . $grid->center(true));
+                $icon->setClasses('a-indexSectionItems__icon col-xs-40 col-sm-30 col-xs-offset-30 col-sm-offset-35');
 
                 $title = new AcfText;
                 $title->useSubfield();
                 $title->setObject('acfItemTitle');
                 $title->setElementType('h5');
-                $title->setClasses('a-indexSectionItems__title' . $grid->width(100));
+                $title->setClasses('a-indexSectionItems__title col-xs-100');
 
                 $content = new AcfText;
                 $content->useSubfield();
                 $content->setObject('acfItemContent');
                 $content->setElementType('p');
-                $content->setClasses('a-indexSectionItems__content' . $grid->width(100, 60) . $grid->center(true));
+                $content->setClasses('a-indexSectionItems__content col-xs-60 col-sm-100 col-xs-offset-20 col-sm-offset-0');
                 ?>
-                <div class="m-indexSectionItem<?= $grid->width(47, 90); echo $grid->offset(2, 5)?>">
+                <div class="m-indexSectionItem col-xs-90 col-sm-47 col-xs-offset-5 col-sm-offset-2">
                   <?php
                   $icon->init();
                   $title->init();

@@ -1,5 +1,4 @@
 <?php
-$grid = $GLOBALS["grid"];
 $args = array(
   'p' => 698,
   'post_type' => 'sm_indexsections'
@@ -13,15 +12,15 @@ if($query->have_posts()):
     $title->setContent('title');
     $title->useBreakpoint();
     $title->setElementType('h2');
-    $title->setClasses('a-indexSectionFiveContent__header' . $grid->width(100));
+    $title->setClasses('a-indexSectionFiveContent__header col-xs-100');
 
     $icon = new AcfImage;
     $icon->setObject('acfIndexSectionImage');
     $icon->setClasses('a-contactForm__icon');
     $icon->useElement();
 ?>
-    <div class="o-indexSectionFive <?= $grid->width(100); ?>" style="background-color: <?php the_field('acfPageBackgroundColor'); ?>">
-      <?php pageBackgroundType(); ?>
+    <div class="o-indexSectionFive col-xs-100" style="<?= pageBackgroundType(); ?>">
+        <?php pageBackgroundTone() ?>
         <div class="container m-indexSectionFiveContent">
           <?php
           $title->init();

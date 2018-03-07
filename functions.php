@@ -3,33 +3,23 @@
 require_once 'dist/php/functions/scripts.php';
 require_once 'dist/php/functions/navigationRegister.php';
 
-//Bootstrap grid
-require_once 'dist/php/bootstrapGrid/bootstrapGrid.php';
-
-// Classes´
+// Classes
 require_once 'dist/php/classes/index.php';
 
 // Page elements
-require_once 'dist/php/pageElements/pageBackgroundType.php';
-require_once 'dist/php/pageElements/indexSectionItems.php';
-require_once 'dist/php/pageElements/informationPageTop.php';
-require_once 'dist/php/pageElements/informationPageElements.php';
-require_once 'dist/php/pageElements/resourcesSideBox.php';
-require_once 'dist/php/pageElements/postAuthor.php';
+require_once 'dist/php/pageElements/index.php';
 
 // Dev
 require_once 'dist/php/devTools/devTools.php';
 
-// Init bootstrap grid
-$grid = new BootstrapGrid(100);
-
-add_action('admin_init', 'removeFunctionalities');
 
 function removeFunctionalities() {
-  // remove_post_type_support('page', 'editor');
+  remove_post_type_support('page', 'editor');
   remove_post_type_support('post', 'editor');
   remove_menu_page('edit-comments.php');
 }
+
+add_action('admin_init', 'removeFunctionalities');
 
 add_theme_support('title-tag');
 
@@ -54,6 +44,7 @@ $cases->showInMenu(false);
 $cases->setSupport('title');
 $cases->initPostType();
 
+// Taonomy for cases
 $casesTaxonomy = new CustomPostTaxonomy($cases->getSystemName());
 $casesTaxonomy->setName('Positions');
 $casesTaxonomy->setSingularName('Position');

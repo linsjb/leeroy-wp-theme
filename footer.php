@@ -1,6 +1,13 @@
       <?php
       wp_footer();
-      $grid = $GLOBALS["grid"];
+
+      if(is_front_page()) {
+        $logoUrl = '#topElement';
+        $logoLinkRel = 'm_PageScroll2id';
+      } else {
+        $logoUrl = home_url();
+        $logoLinkRel = '';
+      }
 
       $businessNav = new Navigation;
       $businessNav->setLocation('business');
@@ -38,23 +45,25 @@
       $resourcesAcfFields->setPosition('before');
       $resourcesAcfFields->init();
       ?>
-      <div class="o-footer<?= $grid->width(100)?>">
-        <object class="m-footer__logo" type="image/svg+xml" data="<?= get_template_directory_uri() . '/images/leeroyStdLogo.svg' ?>"></object>
+      <div class="o-footer col-xs-100">
+        <a rel="<?= $logoLinkRel ?>" href="<?= $logoUrl ?>" class="a-footerLogo__link">
+          <object id="headerLogoObj" class="a-footerLogo__logo" type="image/svg+xml" data="<?= get_template_directory_uri() . '/images/leeroyStdLogo.svg' ?>"></object>
+        </a>
         <p class="m-footer__slogan"><?= get_bloginfo('description') ?></p>
 
         <div class="container m-footerContent">
-          <div class="m-footerInnerContent<?= $grid->individualWidth(100, 100, 80, 80); echo $grid->center(); ?>">
-            <div class="m-footerInnerContentCol<?= $grid->width(33) ?>">
+          <div class="m-footerInnerContent col-xs-100 col-md-80 col-md-offset-10">
+            <div class="m-footerInnerContentCol col-xs-33">
               <?php $businessNav->init() ?>
             <!-- .m-footerInnerContentCol -->
             </div>
 
-            <div class="m-footerInnerContentCol<?= $grid->width(33) ?>">
+            <div class="m-footerInnerContentCol col-xs-33">
               <?php $aboutLeeroyNav->init() ?>
             <!-- .m-footerInnerContentCol -->
             </div>
 
-            <div class="m-footerInnerContentCol<?= $grid->width(34) ?>">
+            <div class="m-footerInnerContentCol col-xs-34">
               <?php $resourcesNav->init() ?>
             <!-- .m-footerInnerContentCol -->
             </div>
