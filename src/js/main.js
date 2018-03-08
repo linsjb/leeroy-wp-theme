@@ -11,7 +11,6 @@ window.onload = function () {
     let headerElement = $('.o-header');
     let headerNavElement = $('.m-header__nav');
     let topElementHeight = $('#topElement').height();
-    console.log("Height: " + topElementHeight);
 
     window.addEventListener('scroll', function () {
       if ($(this).scrollTop() > topElementHeight/2) {

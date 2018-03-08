@@ -6,4 +6,5 @@ require_once 'informationPageTop.php';
 require_once 'informationPageElements.php';
 require_once 'resourcesSideBox.php';
 require_once 'postAuthor.php';
+require_once 'knowledgeHubTop.php';
 ?>

@@ -11,7 +11,7 @@ if($query->have_posts()):
     $topTitle = new wpContent;
     $topTitle->setContent('title');
     $topTitle->setElementType('h2');
-    $topTitle->setClasses('a-indexSectionTwoContent__header');
+    $topTitle->setClasses('a-indexSectionTwoContent__title');
 
     $bottomTitle = new AcfText;
     $bottomTitle->useBreakpoint();

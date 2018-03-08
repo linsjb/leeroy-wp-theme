@@ -1,7 +1,6 @@
 <?php
 // Wordpress functions
 require_once 'dist/php/functions/scripts.php';
-require_once 'dist/php/functions/navigationRegister.php';
 
 // Classes
 require_once 'dist/php/classes/index.php';
@@ -12,6 +11,12 @@ require_once 'dist/php/pageElements/index.php';
 // Dev
 require_once 'dist/php/devTools/devTools.php';
 
+$test = new NavigationRegistration;
+$test->regMenu('masterMenu', 'Header menu');
+$test->regMenu('business', 'Footer left section');
+$test->regMenu('aboutLeeroy', 'Footer middle section');
+$test->regMenu('resources', 'Footer right section');
+$test->buildMenu();
 
 function removeFunctionalities() {
   remove_post_type_support('page', 'editor');
@@ -33,23 +38,6 @@ $indexSections->setPostType('page');
 $indexSections->showInMenu(false);
 $indexSections->setSupport('title');
 $indexSections->initPostType();
-
-// Custom post page for cases
-$cases = new CustomPostType;
-$cases->setName('Cases');
-$cases->setSingularName('Case');
-$cases->setAdminMenuIcon('dashicons-clipboard');
-$cases->setAdminMenuPosition(20);
-$cases->showInMenu(false);
-$cases->setSupport('title');
-$cases->initPostType();
-
-// Taonomy for cases
-$casesTaxonomy = new CustomPostTaxonomy($cases->getSystemName());
-$casesTaxonomy->setName('Positions');
-$casesTaxonomy->setSingularName('Position');
-$casesTaxonomy->setTaxonomyType('categories');
-$casesTaxonomy->initTaxonomy();
 
 // Custom post type for resources
 $resources = new CustomPostType;

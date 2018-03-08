@@ -1,6 +1,6 @@
 <?php
 get_header();
-informationPageTop();
+knowledgeHubTop();
 ?>
 
 <div class="o-knowledgeHub col-xs-100">

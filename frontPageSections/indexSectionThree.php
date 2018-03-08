@@ -12,7 +12,7 @@ if($query->have_posts()):
 $title = new WpContent;
 $title->setContent('title');
 $title->setElementType('h2');
-$title->setClasses('a-indexSectionThreeContent__header');
+$title->setClasses('a-indexSectionThreeContent__title');
 $title->useBreakpoint();
 
 $icon = new AcfImage;
@@ -23,14 +23,7 @@ $icon->setClasses('a-indexSectionThreeContent__icon col-xs-30');
     <div class="o-indexSectionThree col-xs-100" style="<?= pageBackgroundType(); ?>">
         <?php pageBackgroundTone() ?>
         <div class="container m-indexSectionThreeContent">
-          <div class="m-indexSectionThreeTopContent col-xs-80 col-md-offset-10">
-            <?php
-            $icon->init();
-            $title->init();
-            ?>
-          <!-- .m-indexSectionThreeTopContent -->
-          </div>
-            <?php indexSectionItems() ?>
+
         <!-- .m-indexSectionThreeContent -->
         </div>
       <!-- .m-indexSectionThreeContent -->

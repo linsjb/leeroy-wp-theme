@@ -100,6 +100,14 @@ h3 {
   padding-bottom: 30px;
   background-color: #FDFDFD;
 }
+.o-knowledgeHubMenu {
+  text-align: center;
+  border-bottom: 1px solid #cfcfcf;
+}
+.o-knowledgeHubMenuDropdown {
+  height: 65px;
+  background-color: #0B4F6C;
+}
 .o-singlePost {
   padding-top: 50px;
   padding-bottom: 30px;
@@ -272,8 +280,11 @@ h3 {
   position: absolute;
   z-index: 0;
 }
-.m-indexSectionItem {
+.m-indexSectionItemRow {
   margin-bottom: 100px;
+}
+.m-indexSectionItemCell {
+  text-align: center;
 }
 .m-contentRightBox {
   background-color: #ffffff;
@@ -366,6 +377,36 @@ h3 {
 .m-singlePostInfo__text {
   margin-bottom: 40px;
 }
+.m-knowledgeHubMenu__nav ul {
+  margin: 0;
+  padding: 0;
+}
+.m-knowledgeHubMenu__nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 45px 25px;
+  font-size: 14px;
+  color: #2F2F2F;
+  text-decoration: none;
+  font-family: 'proxima_novabold';
+}
+.m-knowledgeHubMenu__nav ul li:after {
+  background-image: url('images/arrowBlack.svg');
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top: 4px;
+  left: 3px;
+  content: '';
+}
+.m-knowledgeHubMenu__nav ul li:hover {
+  color: #0B4F6C;
+  cursor: pointer;
+}
+.m-knowledgeHubMenu__nav ul li:hover:after {
+  background-image: url('images/arrowBlue.svg');
+}
 .m-pageSection__image {
   position: absolute;
   object-fit: cover;
@@ -416,7 +457,7 @@ h3 {
   height: 40%;
   pointer-events: none;
 }
-.a-indexSectionOneContent__header {
+.a-indexSectionOneContent__title {
   margin: 0;
   padding: 0;
   margin-bottom: 35px;
@@ -426,7 +467,7 @@ h3 {
   margin: 0;
   font-size: 20px;
 }
-.a-indexSectionTwoContent__header {
+.a-indexSectionTwoContent__title {
   margin-bottom: 120px;
   text-align: center;
   color: #FDFDFD;
@@ -437,7 +478,7 @@ h3 {
   font-size: 35px;
   margin-bottom: 45px;
 }
-.a-indexSectionThreeContent__header {
+.a-indexSectionThreeContent__title {
   text-align: right;
   font-size: 40px;
   position: absolute;
@@ -445,13 +486,13 @@ h3 {
   top: 40%;
   color: #442D5E;
 }
-.a-indexSectionFourContent__header {
+.a-indexSectionFourContent__title {
   margin-bottom: 85px;
   text-align: center;
   font-size: 30px;
   color: #FDFDFD;
 }
-.a-indexSectionFiveContent__header {
+.a-indexSectionFiveContent__title {
   margin-top: 60px;
   margin-bottom: 30px;
   font-size: 30px;
@@ -743,17 +784,17 @@ h3 {
   float: right;
   margin-top: -30px;
 }
-.a-indexSectionItems__icon {
+.a-indexSectionItemCell__icon {
   text-align: center;
   height: 40%;
   margin-bottom: 30px;
 }
-.a-indexSectionItems__title {
+.a-indexSectionItemCell__title {
   text-align: center;
   font-size: 18px;
   margin-bottom: 15px;
 }
-.a-indexSectionItems__content {
+.a-indexSectionItemCell__content {
   font-size: 16px;
   text-align: center;
   padding-left: 15px;

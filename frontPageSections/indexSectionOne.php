@@ -13,7 +13,7 @@ if($query->have_posts()):
     $title->setContent('title');
     $title->useBreakpoint();
     $title->setElementType('h1');
-    $title->setClasses('a-indexSectionOneContent__header col-xs-100');
+    $title->setClasses('a-indexSectionOneContent__title col-xs-100');
 
     $content = new AcfText;
     $content->useBreakpoint();

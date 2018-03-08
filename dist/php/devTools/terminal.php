@@ -3,28 +3,12 @@
 * Description: File for easy testing of php functions in terminal
 */
 
-class Test {
+$data = array(
+);
 
-  function foos($string) {
-    $this->foo = $string;
-    return $this->foo . "\n";
-  }
+$data['key1'] = 'data1';
+$data['key2'] = 'data2';
+$data['key3'] = 'data3';
+$data['key3'] = 'data33';
 
-  function bars($string) {
-    return "offset" . $this->foo/2 . "\n";
-  }
-
-  function tunas() {
-    print $this->tuna[0];
-  }
-
-  private $foo;
-  private $bar;
-  private $tuna = array(
-    'der',
-    'drt'
-  );
-}
-
-$test = new Test;
-$test->tunas();
+print $data['key3'];

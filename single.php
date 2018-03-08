@@ -1,6 +1,6 @@
 <?php
 get_header();
-informationPageTop('postsPage');
+knowledgeHubTop('postsPage');
 ?>
 <div class="o-singlePost col-xs-100">
   <div class="container m-singlePostContent">

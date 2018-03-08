@@ -12,7 +12,7 @@ if($query->have_posts()):
     $title->setContent('title');
     $title->useBreakpoint();
     $title->setElementType('h2');
-    $title->setClasses('a-indexSectionFiveContent__header col-xs-100');
+    $title->setClasses('a-indexSectionFiveContent__title col-xs-100');
 
     $icon = new AcfImage;
     $icon->setObject('acfIndexSectionImage');
