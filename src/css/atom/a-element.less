@@ -28,13 +28,16 @@
   margin: 0;
   padding: 0;
   margin-bottom: 35px;
-  font-size: 65px;
+  font-size: 45px;
+  width: 65%;
+  line-height: 1.29;
 }
 
 .a-indexSectionOneContent__text {
   // Text-align is controlled with media queries
   margin: 0;
   font-size: 20px;
+  width: 45%;
 }
 
 // Index section two
@@ -169,69 +172,6 @@
 // Knowledge hub
 // -----------------------
 
-.a-knowledgeHubPost__image {
-  position: absolute;
-  height: 100%;
-}
-
-.a-knowledgeHubContent__category {
-  font-size: 16px;
-  color: @secondaryContent;
-  margin-bottom: 16px;
-}
-
-.a-knowledgeHubPost__info {
-  color: @leeroyBlue;
-  margin-top: 16px;
-}
-
-.a-knowledgeHubPost__date {
-  font-size: 16px;
-}
-
-.a-knowledgeHubPost__author {
-  font-size: 14px;
-}
-
-.a-knowledgeHubContent__title {
-  font-family: 'FreightDispProBook-Regular';
-  font-size: 25px;
-  color: #2e2e2e;
-  margin: 0;
-  text-decoration: none;
-
-  &:hover {
-    color: @leeroyGold;
-  }
-}
-
-.a-contentRightBox__title {
-  margin: 0;
-  font-size: 18px;
-  color: @leeroyBlue;
-  margin-bottom: 20px;
-}
-
-.a-knowledgeHubCategory__list {
-  margin: 0;
-  padding: 0;
-}
-
-.a-knowledgeHubCategory__item {
-  list-style: none;
-  margin-bottom: 15px;
-
-  a {
-    text-decoration: none;
-    color: @leeroyBlack;
-    font-size: 16px;
-    font-family: 'proxima_novaregular';
-
-    &:hover {
-      color: @leeroyGold;
-    }
-  }
-}
 
 // Knowlede hub single post
 // -----------------------
@@ -293,40 +233,62 @@
   color: @leeroyBlue;
 }
 
+.a-singlePostShareList__item {
+  list-style: none;
+}
+
 .a-singlePostShare__link {
-  display: inline-block;
-  height: 15px;
-  margin-left: 10px;
+  display: block;
+  height: 30px;
+  text-align: center;
+  margin-bottom: 10px;
 
   svg {
     height: 100%;
     pointer-events: none;
     fill: @secondaryContent;
     .fadeInTransition(0.2s);
+
+    .svgCircle {
+      stroke: @secondaryContent;
+      .fadeInTransition(0.2s);
+    }
   }
 }
 
 .a-singlePostShare__facebook:hover {
   svg {
     fill: #3b5998;
+    .svgCircle {
+      stroke: #3b5998;
+    }
   }
 }
 
 .a-singlePostShare__google:hover {
   svg {
     fill: #ea4335;
+    .svgCircle {
+      stroke: #ea4335;
+    }
   }
 }
 
 .a-singlePostShare__twitter:hover {
   svg {
     fill: #1da1f2;
+    .svgCircle {
+      stroke: #1da1f2;
+    }
   }
 }
 
 .a-singlePostShare__linkedin:hover {
   svg {
     fill: #00a0dc;
+    .svgCircle {
+      stroke: #00a0dc;
+    }
   }
 }
 

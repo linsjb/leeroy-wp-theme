@@ -7,17 +7,17 @@ a,
 span {
   font-family: 'proxima_novaregular';
 }
+h1 {
+  font-family: 'FreightDispProLight-Regular';
+  font-weight: normal;
+  font-style: normal;
+}
 h2,
 h5 {
   font-family: 'proxima_novasemibold';
   font-weight: normal;
   margin: 0;
   padding: 0;
-}
-h1 {
-  font-family: 'FreightDispProBook-Regular';
-  font-weight: normal;
-  font-style: normal;
 }
 h3 {
   font-family: 'FreightDispProSemibold-Regular';
@@ -112,6 +112,9 @@ h3 {
   padding-top: 50px;
   padding-bottom: 30px;
   background-color: #FDFDFD;
+  margin-bottom: 30px;
+  color: #2F2F2F;
+  font-size: 16px;
 }
 /*
 * Filename: o-element.less
@@ -148,8 +151,9 @@ h3 {
 }
 .m-indexSectionOneContent {
   color: #FDFDFD;
-  margin-top: 20%;
+  margin-top: 200px;
   z-index: 1;
+  height: auto;
 }
 .m-indexSectionTwoTopContent {
   color: #FDFDFD;
@@ -219,9 +223,6 @@ h3 {
   padding-left: 50px;
   padding-right: 50px;
 }
-.m-knowledgeHubLeft {
-  padding-top: 50px;
-}
 .m-knowledgeHubPost {
   border-radius: 2px;
   border: 1px solid #d5d5d5;
@@ -229,11 +230,6 @@ h3 {
   padding: 40px;
   margin-bottom: 40px;
   background-color: #ffffff;
-}
-.m-knowledgeHubRight {
-  height: 100%;
-  padding-top: 50px;
-  position: relative;
 }
 .m-knowledgeHubButton {
   height: 100px;
@@ -248,31 +244,22 @@ h3 {
   padding-left: 50px;
   padding-right: 50px;
 }
-.m-singlePostLeft {
-  border-radius: 2px;
-  border: 1px solid #d5d5d5;
-  box-shadow: 0 3px 3px 0 rgba(210, 210, 210, 0.5);
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 60px;
-  padding-right: 60px;
-  margin-bottom: 40px;
-  background-color: #ffffff;
+.m-singlePostLeftColumn {
+  height: auto;
 }
-.m-singlePostContent {
-  margin-bottom: 30px;
-  color: #2F2F2F;
-  font-size: 16px;
-}
-.m-singlePostShare {
-  text-align: right;
-  margin-top: 40px;
+.m-singlePostRightColumn {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .m-singlePostTags {
   margin-top: 40px;
 }
 .m-postAuthorContent {
   margin-top: 2%;
+}
+.m-singlePostShareList {
+  margin: 0;
+  padding: 0;
 }
 .m-pageImageToner {
   height: 100%;
@@ -285,14 +272,6 @@ h3 {
 }
 .m-indexSectionItemCell {
   text-align: center;
-}
-.m-contentRightBox {
-  background-color: #ffffff;
-  border-radius: 2px;
-  border: 1px solid #d5d5d5;
-  box-shadow: 0 3px 3px 0 rgba(210, 210, 210, 0.5);
-  padding: 16px;
-  margin-bottom: 40px;
 }
 /*
 * Filename: m-element.less
@@ -376,6 +355,7 @@ h3 {
 }
 .m-singlePostInfo__text {
   margin-bottom: 40px;
+  color: #0B4F6C;
 }
 .m-knowledgeHubMenu__nav ul {
   margin: 0;
@@ -461,11 +441,14 @@ h3 {
   margin: 0;
   padding: 0;
   margin-bottom: 35px;
-  font-size: 65px;
+  font-size: 45px;
+  width: 65%;
+  line-height: 1.29;
 }
 .a-indexSectionOneContent__text {
   margin: 0;
   font-size: 20px;
+  width: 45%;
 }
 .a-indexSectionTwoContent__title {
   margin-bottom: 120px;
@@ -559,58 +542,6 @@ h3 {
   color: #FDFDFD;
   font-size: 16px;
 }
-.a-knowledgeHubPost__image {
-  position: absolute;
-  height: 100%;
-}
-.a-knowledgeHubContent__category {
-  font-size: 16px;
-  color: #aaaaaa;
-  margin-bottom: 16px;
-}
-.a-knowledgeHubPost__info {
-  color: #0B4F6C;
-  margin-top: 16px;
-}
-.a-knowledgeHubPost__date {
-  font-size: 16px;
-}
-.a-knowledgeHubPost__author {
-  font-size: 14px;
-}
-.a-knowledgeHubContent__title {
-  font-family: 'FreightDispProBook-Regular';
-  font-size: 25px;
-  color: #2e2e2e;
-  margin: 0;
-  text-decoration: none;
-}
-.a-knowledgeHubContent__title:hover {
-  color: #C9AD74;
-}
-.a-contentRightBox__title {
-  margin: 0;
-  font-size: 18px;
-  color: #0B4F6C;
-  margin-bottom: 20px;
-}
-.a-knowledgeHubCategory__list {
-  margin: 0;
-  padding: 0;
-}
-.a-knowledgeHubCategory__item {
-  list-style: none;
-  margin-bottom: 15px;
-}
-.a-knowledgeHubCategory__item a {
-  text-decoration: none;
-  color: #2F2F2F;
-  font-size: 16px;
-  font-family: 'proxima_novaregular';
-}
-.a-knowledgeHubCategory__item a:hover {
-  color: #C9AD74;
-}
 .a-singlePost__title {
   font-size: 40px;
   margin-top: 0;
@@ -656,10 +587,14 @@ h3 {
   font-size: 16px;
   color: #0B4F6C;
 }
+.a-singlePostShareList__item {
+  list-style: none;
+}
 .a-singlePostShare__link {
-  display: inline-block;
-  height: 15px;
-  margin-left: 10px;
+  display: block;
+  height: 30px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 .a-singlePostShare__link svg {
   height: 100%;
@@ -674,17 +609,40 @@ h3 {
   -o-transition: 0.2s;
   -o-transition-timing-function: ease-in-out;
 }
+.a-singlePostShare__link svg .svgCircle {
+  stroke: #aaaaaa;
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition: 0.2s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition: 0.2s;
+  -o-transition-timing-function: ease-in-out;
+}
 .a-singlePostShare__facebook:hover svg {
   fill: #3b5998;
+}
+.a-singlePostShare__facebook:hover svg .svgCircle {
+  stroke: #3b5998;
 }
 .a-singlePostShare__google:hover svg {
   fill: #ea4335;
 }
+.a-singlePostShare__google:hover svg .svgCircle {
+  stroke: #ea4335;
+}
 .a-singlePostShare__twitter:hover svg {
   fill: #1da1f2;
 }
+.a-singlePostShare__twitter:hover svg .svgCircle {
+  stroke: #1da1f2;
+}
 .a-singlePostShare__linkedin:hover svg {
   fill: #00a0dc;
+}
+.a-singlePostShare__linkedin:hover svg .svgCircle {
+  stroke: #00a0dc;
 }
 .a-singlePostShare__icon {
   height: 100%;
