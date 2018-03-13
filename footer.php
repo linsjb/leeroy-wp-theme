@@ -9,18 +9,6 @@
       $logoLinkRel = '';
     }
 
-    $businessNav = new Navigation;
-    $businessNav->setLocation('business');
-    $businessNav->setContainerClasses('m-footer__nav');
-
-    $businessAcfFields = new AcfMenuFields;
-    $businessAcfFields->setElementType('h5');
-    $businessAcfFields->setElementClasses('a-footerNav__title');
-    $businessAcfFields->setMenuObject('business');
-    $businessAcfFields->setAcfObject('acfFooterMenuTitle');
-    $businessAcfFields->setPosition('before');
-    $businessAcfFields->init();
-
     $aboutLeeroyNav = new Navigation;
     $aboutLeeroyNav->setLocation('aboutLeeroy');
     $aboutLeeroyNav->setContainerClasses('m-footer__nav');
@@ -38,7 +26,7 @@
     $resourcesNav->setContainerClasses('m-footer__nav');
 
     $resourcesAcfFields = new AcfMenuFields;
-    $resourcesAcfFields->setElementType('p');
+    $resourcesAcfFields->setElementType('h5');
     $resourcesAcfFields->setElementClasses('a-footerNav__title');
     $resourcesAcfFields->setMenuObject('resources');
     $resourcesAcfFields->setAcfObject('acfFooterMenuTitle');
@@ -53,17 +41,12 @@
 
       <div class="container m-footerContent">
         <div class="m-footerInnerContent col-xs-100 col-md-80 col-md-offset-10">
-          <div class="m-footerInnerContentCol col-xs-33">
-            <?php $businessNav->init() ?>
-          <!-- .m-footerInnerContentCol -->
-          </div>
-
-          <div class="m-footerInnerContentCol col-xs-33">
+          <div class="m-footerInnerContentCol col-xs-50">
             <?php $aboutLeeroyNav->init() ?>
           <!-- .m-footerInnerContentCol -->
           </div>
 
-          <div class="m-footerInnerContentCol col-xs-34">
+          <div class="m-footerInnerContentCol col-xs-50">
             <?php $resourcesNav->init() ?>
           <!-- .m-footerInnerContentCol -->
           </div>

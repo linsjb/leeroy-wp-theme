@@ -907,20 +907,35 @@ h4 {
 .a-indexSectionContent__title--right {
   text-align: right;
 }
-.a-indexSectionContent--black {
+.a-textColor--black {
   color: #2F2F2F;
 }
-.a-indexSectionContent--purple {
+.a-textColor--purple {
   color: #442D5E;
 }
-.a-indexSectionContent--white {
+.a-textColor--white {
   color: #FDFDFD;
 }
-.a-indexSectionContent--blue {
+.a-textColor--blue {
   color: #0B4F6C;
 }
-.a-indexSectionContent--gold {
+.a-textColor--gold {
   color: #C9AD74;
+}
+.a-backgroundolor--black {
+  background-color: #2F2F2F;
+}
+.a-backgroundlor--purple {
+  background-color: #442D5E;
+}
+.a-backgroundolor--white {
+  background-color: #FDFDFD;
+}
+.a-backgroundColor--blue {
+  background-color: #0B4F6C;
+}
+.a-backgroundColor--gold {
+  background-color: #C9AD74;
 }
 .owl-dots {
   padding-top: 30px;

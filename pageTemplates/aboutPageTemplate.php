@@ -21,14 +21,7 @@ if(have_posts()):
     // Page main content
     informationPageElements();
 ?>
-    <div class="o-aboutTimeline col-xs-100" style="background-color: <?php the_field('acfAboutTimelineBackground') ?>">
-      <div class="container m-aboutTimelineContent">
-        <?php
-        $timelineTitle->init();
-        $timelineImage->init();
-        ?>
-      <!-- .m-aboutTimelineContent -->
-      </div>
+  
     <!-- .o-aboutTimeline -->
     </div>
 

@@ -27,54 +27,54 @@ if($query->have_posts()):
     // color of post title
     switch(get_field('acfIndSecTitlePref')['color']) {
       case 'black':
-        $titleColor = 'a-indexSectionContent--black';
+        $titleColor = 'a-textColor--black';
         break;
 
       case 'purple':
-        $titleColor = 'a-indexSectionContent--purple';
+        $titleColor = 'a-textColor--purple';
         break;
 
       case 'white':
-        $titleColor = 'a-indexSectionContent--white';
+        $titleColor = 'a-textColor--white';
         break;
 
       case 'blue':
-        $titleColor = 'a-indexSectionContent--blue';
+        $titleColor = 'a-textColor--blue';
         break;
 
       case 'gold':
-        $titleColor = 'a-indexSectionContent--gold';
+        $titleColor = 'a-textColor--gold';
         break;
 
       default:
-        $titleColor = 'a-indexSectionContent--black';
+        $titleColor = 'a-textColor--black';
         break;
     }
 
     // Color of content text
     switch(get_field('acfIndSecContPref')['color']) {
       case 'black':
-        $contentTextColor = 'a-indexSectionContent--black';
+        $contentTextColor = 'a-textColor--black';
         break;
 
       case 'purple':
-        $contentTextColor = 'a-indexSectionContent--purple';
+        $contentTextColor = 'a-textColor--purple';
         break;
 
       case 'white':
-        $contentTextColor = 'a-indexSectionContent--white';
+        $contentTextColor = 'a-textColor--white';
         break;
 
       case 'blue':
-        $contentTextColor = 'a-indexSectionContent--blue';
+        $contentTextColor = 'a-textColor--blue';
         break;
 
       case 'gold':
-        $contentTextColor = 'a-indexSectionContent--gold';
+        $contentTextColor = 'a-textColor--gold';
         break;
 
       default:
-        $contentTextColor = 'a-indexSectionContent--black';
+        $contentTextColor = 'a-textColor--black';
         break;
     }
 
