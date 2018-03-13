@@ -60,19 +60,32 @@ h3 {
 .o-headerWrapper {
   height: 100%;
 }
-.o-indexSectionOne {
+.o-mobileHeader {
+  padding-left: 25px;
+  padding-right: 25px;
+  height: 60px;
+  position: fixed;
+  z-index: 10;
+}
+.o-indexSectionContent {
+  padding-top: 80px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 80px;
+}
+.o-indexSectionContent .caldera-grid {
+  padding-top: 30px;
+}
+.o-indexSectionTop {
   height: 100vh;
   margin: 0px;
   padding: 0px;
   position: relative;
 }
-.o-indexSectionTwoTop {
-  padding-bottom: 70px;
-  padding-top: 100px;
-}
-.o-indexSectionTwoBottom {
-  padding-bottom: 90px;
-  padding-top: 50px;
+.o-indexSectionTopContent {
+  color: #FDFDFD;
+  margin-top: 200px;
+  z-index: 1;
 }
 .o-informationPageTop {
   left: 0px;
@@ -83,6 +96,10 @@ h3 {
   font-size: 16px;
   padding-bottom: 120px;
   padding-top: 60px;
+}
+.o-aboutOffices {
+  padding-top: 75px;
+  padding-bottom: 70px;
 }
 .o-aboutTimeline {
   padding-bottom: 105px;
@@ -100,6 +117,15 @@ h3 {
   padding-bottom: 30px;
   background-color: #FDFDFD;
 }
+.o-knowledgeHubContent {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.o-knowledgeHubCellContent {
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+}
 .o-knowledgeHubMenu {
   text-align: center;
   border-bottom: 1px solid #cfcfcf;
@@ -107,6 +133,10 @@ h3 {
 .o-knowledgeHubMenuDropdown {
   height: 65px;
   background-color: #0B4F6C;
+  visibility: hidden;
+}
+.o-knowledgeHubGrid {
+  padding-top: 100px;
 }
 .o-singlePost {
   padding-top: 50px;
@@ -115,6 +145,9 @@ h3 {
   margin-bottom: 30px;
   color: #2F2F2F;
   font-size: 16px;
+}
+.visible {
+  visibility: visible;
 }
 /*
 * Filename: o-element.less
@@ -149,32 +182,22 @@ h3 {
   height: 100%;
   padding: 15px;
 }
-.m-indexSectionOneContent {
+.m-mobileHeaderMenuBtn {
+  position: absolute;
+  height: 50%;
+  top: 25%;
+  right: 25px;
+  width: 60px;
+  float: right;
   color: #FDFDFD;
-  margin-top: 200px;
-  z-index: 1;
-  height: auto;
 }
-.m-indexSectionTwoTopContent {
-  color: #FDFDFD;
-}
-.m-indexSectionThreeContent {
-  color: #2F2F2F;
-  padding-top: 100px;
-}
-.m-indexSectionThreeTopContent {
-  margin-bottom: 110px;
-}
-.m-indexSectionFourContent {
-  color: #FDFDFD;
-  padding-bottom: 65px;
+.m-indexSectionContentText {
   padding-top: 80px;
 }
-.m-indexSectionFiveContent {
-  padding-bottom: 40px;
-  padding-left: 15px;
-  padding-right: 15px;
-  position: relative;
+.m-indexSectionTopContent {
+  padding-left: 25px;
+  padding-right: 120px;
+  font-size: 20px;
 }
 .m-informationPageTopContent {
   z-index: 2;
@@ -194,21 +217,31 @@ h3 {
 .m-aboutTimelineContent {
   padding-left: 15px;
 }
+.m-aboutOfficesIcon {
+  text-align: right;
+}
+.m-aboutOfficeCell {
+  padding-top: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
 .m-aboutPageTeamContent {
   padding-bottom: 90px;
   padding-top: 60px;
 }
 .m-aboutTeamCell {
-  margin-bottom: 40px;
+  border: 1px solid #1f1f1f;
 }
 .m-aboutTeamCellContent {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 115.625%;
+  padding-bottom: 125%;
   padding-left: 15px;
   padding-right: 15px;
   width: 100%;
+  background-color: #442D5E;
 }
 .m-aboutContactContent {
   padding-left: 15px;
@@ -219,10 +252,6 @@ h3 {
 .m-footerInnerContentCol {
   height: 180px;
 }
-.m-knowledgeHubContent {
-  padding-left: 50px;
-  padding-right: 50px;
-}
 .m-knowledgeHubPost {
   border-radius: 2px;
   border: 1px solid #d5d5d5;
@@ -230,6 +259,23 @@ h3 {
   padding: 40px;
   margin-bottom: 40px;
   background-color: #ffffff;
+}
+.m-knowledgeHubCell {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 340px;
+  margin-bottom: 10px;
+  color: #FDFDFD;
+  background-color: #ececec;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-shadow: 0 3px 3px 0 rgba(233, 233, 233, 0.5);
+}
+.m-knowledgehubCellInfo {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
 .m-knowledgeHubButton {
   height: 100px;
@@ -254,12 +300,16 @@ h3 {
 .m-singlePostTags {
   margin-top: 40px;
 }
-.m-postAuthorContent {
-  margin-top: 2%;
-}
 .m-singlePostShareList {
   margin: 0;
   padding: 0;
+}
+.m-singlePostMobileShareIcons {
+  text-align: right;
+  margin-top: 20px;
+}
+.m-singlePostMobileShareIcons ul li {
+  margin-left: 20px;
 }
 .m-pageImageToner {
   height: 100%;
@@ -268,10 +318,19 @@ h3 {
   z-index: 0;
 }
 .m-indexSectionItemRow {
-  margin-bottom: 100px;
+  margin-top: 100px;
+  text-align: center;
 }
 .m-indexSectionItemCell {
   text-align: center;
+  font-size: 16px;
+}
+.m-mobileIndexSectionItemRow {
+  margin-top: 100px;
+}
+.m-mobileIndexSectionItemCell {
+  padding-left: 15%;
+  padding-right: 15%;
 }
 /*
 * Filename: m-element.less
@@ -364,13 +423,29 @@ h3 {
 .m-knowledgeHubMenu__nav ul li {
   list-style: none;
   display: inline-block;
-  margin: 45px 25px;
+  margin: 35px 25px;
   font-size: 14px;
-  color: #2F2F2F;
   text-decoration: none;
   font-family: 'proxima_novabold';
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition: 0.2s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition: 0.2s;
+  -o-transition-timing-function: ease-in-out;
+  color: #2F2F2F;
 }
 .m-knowledgeHubMenu__nav ul li:after {
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition: 0.2s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition: 0.2s;
+  -o-transition-timing-function: ease-in-out;
   background-image: url('images/arrowBlack.svg');
   display: inline-block;
   width: 15px;
@@ -437,49 +512,26 @@ h3 {
   height: 40%;
   pointer-events: none;
 }
-.a-indexSectionOneContent__title {
+.a-indexSectionContent__title {
+  font-size: 30px;
+}
+.a-indexSectionContent__image {
+  padding-top: 70px;
+}
+.a-indexSectionContent__topTitle {
   margin: 0;
   padding: 0;
   margin-bottom: 35px;
   font-size: 45px;
-  width: 65%;
+  padding-left: 35px;
+  padding-right: 35px;
   line-height: 1.29;
 }
-.a-indexSectionOneContent__text {
+.a-indexSectionContent__topContent {
   margin: 0;
+  padding-left: 25px;
+  padding-right: 25px;
   font-size: 20px;
-  width: 45%;
-}
-.a-indexSectionTwoContent__title {
-  margin-bottom: 120px;
-  text-align: center;
-  color: #FDFDFD;
-  font-size: 30px;
-}
-.a-indexSectionTwoBottom__title {
-  color: #442D5E;
-  font-size: 35px;
-  margin-bottom: 45px;
-}
-.a-indexSectionThreeContent__title {
-  text-align: right;
-  font-size: 40px;
-  position: absolute;
-  right: 0;
-  top: 40%;
-  color: #442D5E;
-}
-.a-indexSectionFourContent__title {
-  margin-bottom: 85px;
-  text-align: center;
-  font-size: 30px;
-  color: #FDFDFD;
-}
-.a-indexSectionFiveContent__title {
-  margin-top: 60px;
-  margin-bottom: 30px;
-  font-size: 30px;
-  color: #442D5E;
 }
 .a-footerNav__title {
   color: #FDFDFD;
@@ -512,6 +564,13 @@ h3 {
   color: #442D5E;
   margin-bottom: 40px;
 }
+.a-aboutOffice__title {
+  font-size: 16px;
+}
+.a-aboutOffices__icon {
+  width: 60px;
+  height: 60px;
+}
 .a-aboutPageTeam__header {
   text-align: center;
   font-size: 30px;
@@ -529,18 +588,32 @@ h3 {
   position: absolute;
   top: 26%;
 }
+.a-aboutTeam__noPicText {
+  position: absolute;
+  width: 100%;
+  top: 38%;
+  left: 0;
+  font-size: 13px;
+  color: #aaaaaa;
+  text-align: center;
+}
 .a-aboutTeam__name {
   position: absolute;
   bottom: 8%;
   color: #FDFDFD;
   font-family: 'FreightDispProSemibold-Regular';
-  font-size: 18px;
+  font-size: 16px;
 }
 .a-aboutTeam__email {
   position: absolute;
   bottom: 0;
   color: #FDFDFD;
-  font-size: 16px;
+  font-size: 14px;
+}
+.a-knowledgeHubCell__title {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
 }
 .a-singlePost__title {
   font-size: 40px;
@@ -589,9 +662,10 @@ h3 {
 }
 .a-singlePostShareList__item {
   list-style: none;
+  display: inline;
 }
 .a-singlePostShare__link {
-  display: block;
+  display: inline-block;
   height: 30px;
   text-align: center;
   margin-bottom: 10px;
@@ -674,7 +748,7 @@ h3 {
 .a-postAuthor__author {
   margin: 0;
   font-size: 20px;
-  color: #0B4F6C;
+  color: #2e2e2e;
 }
 .a-postAuthor__role {
   margin: 0;
@@ -755,20 +829,63 @@ h3 {
 .a-indexSectionItemCell__content {
   font-size: 16px;
   text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
+}
+.a-mobileIndexSectionItemCell__icon {
+  height: 100px;
+  margin-bottom: 30px;
 }
 /*
 * Filename: a-modifier.less
 * Description: Atom modifiers in ABEM CSS method
 * Author: Linus Sjöbro
 */
+.a-indexSectionContent__title--left {
+  text-align: left;
+}
+.a-indexSectionContent__title--center {
+  text-align: center;
+}
+.a-indexSectionContent__title--right {
+  text-align: right;
+}
+.a-indexSectionContent--black {
+  color: #2F2F2F;
+}
+.a-indexSectionContent--purple {
+  color: #442D5E;
+}
+.a-indexSectionContent--white {
+  color: #FDFDFD;
+}
+.a-indexSectionContent--blue {
+  color: #0B4F6C;
+}
+.a-indexSectionContent--gold {
+  color: #C9AD74;
+}
+.owl-dots {
+  padding-top: 30px;
+}
+.owl-dots .owl-dot span {
+  background: #ffffff !important;
+  width: 9px !important;
+  height: 9px !important;
+}
+.owl-dots .active span {
+  background: #C9AD74 !important;
+  width: 12px !important;
+  height: 12px !important;
+}
 @media screen and (max-width: 767px) {
-  .a-indexSectionOneContent__text {
-    text-align: center;
+  .a-indexSectionContent__title {
+    font-size: 25px;
   }
-  .a-indexSectionOneContent__header {
-    text-align: center;
+  .a-indexSectionContent__topTitle {
+    font-size: 30px;
+  }
+  .m-indexSectionTopContent {
+    font-size: 16px;
+    padding-right: 25px;
   }
   .m-footer__nav ul {
     left: 0;

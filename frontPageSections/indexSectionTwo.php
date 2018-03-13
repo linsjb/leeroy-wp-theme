@@ -13,16 +13,7 @@ if($query->have_posts()):
     $topTitle->setElementType('h2');
     $topTitle->setClasses('a-indexSectionTwoContent__title');
 
-    $bottomTitle = new AcfText;
-    $bottomTitle->useBreakpoint();
-    $bottomTitle->setObject('acfIndSecTwoBottomTitle');
-    $bottomTitle->setElementType('h2');
-    $bottomTitle->setClasses('a-indexSectionTwoBottom__title');
 
-    $bottomImg = new AcfImage;
-    $bottomImg->setObject('acfIndSecTwoBottomImg');
-    $bottomImg->useElement();
-    $bottomImg->setClasses('a-indexSectionTwoBottom__image col-xs-100');
 ?>
 
     <div class="o-indexSectionTwoTop col-xs-100" style="<?= pageBackgroundType(); ?>">
@@ -36,16 +27,6 @@ if($query->have_posts()):
         </div>
     <!-- .o-indexSectionTwoTop -->
     </div>
-
-    <div class="o-indexSectionTwoBottom col-xs-100" style="background-color: <?php the_field('acfIndSecTwoBackground') ?>">
-      <div class="container o-indexSectionTwoBottomContent">
-        <?php
-        $bottomTitle->init();
-        $bottomImg->init();
-        ?>
-      <!-- .o-indexSectionTwoBottomContent -->
-      </div>
-    </div><!-- .indexSectionThree -->
 
 <?php
   endwhile;

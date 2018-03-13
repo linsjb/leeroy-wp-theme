@@ -4,12 +4,21 @@ knowledgeHubTop();
 ?>
 
 <div class="o-knowledgeHub col-xs-100">
-  <div class="container m-knowledgeHubContent">
+  <div class="container o-knowledgeHubContent">
     <?php
     if(have_posts()):
-      while (have_posts()):
+    ?>
+      <div class="o-knowledgeHubGrid col-xs-100">
+
+        <?php
+        while (have_posts()) {
           the_post();
-      endwhile;
+          knowledgeHubGrid();
+        }
+        ?>
+      <!-- .o-knowledgeHubGrid -->
+      </div>
+    <?php
     endif;
     ?>
   <!-- .m-knowledgeHubContent -->

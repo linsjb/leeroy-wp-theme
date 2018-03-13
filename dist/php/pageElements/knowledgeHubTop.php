@@ -14,7 +14,7 @@ function knowledgeHubTop($pageType = null) {
   <!-- .o-knowledgeHubMenu -->
   </div>
 
-  <div class="o-knowledgeHubMenuDropdown col-xs-100">
+  <div id="knowledgeHubDropdown" class="o-knowledgeHubMenuDropdown col-xs-100">
   <!-- .o-knowledgeHubMenuDropdown -->
   </div>
 <?php

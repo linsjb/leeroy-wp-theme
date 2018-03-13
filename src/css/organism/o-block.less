@@ -19,40 +19,46 @@
   height: 100%;
 }
 
-// Index section one
+// Mobile header
 // -----------------------
 
-.o-indexSectionOne {
+.o-mobileHeader {
+  padding-left: 25px;
+  padding-right: 25px;
+  height: @mobileHeaderHeight;
+  position: fixed;
+  z-index: 10;
+}
+
+// Index section
+// -----------------------
+
+.o-indexSection {
+}
+
+.o-indexSectionContent {
+  padding-top: 80px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 80px;
+
+  .caldera-grid {
+    padding-top: 30px;
+  }
+}
+
+.o-indexSectionTop {
   height: 100vh;
   margin: 0px;
   padding: 0px;
   position: relative;
 }
 
-// Index section two
-// -----------------------
-
-.o-indexSectionTwoTop {
-  padding-bottom: 70px;
-  padding-top: 100px;
+.o-indexSectionTopContent {
+  color: @leeroyWhite;
+  margin-top: 200px;
+  z-index: 1;
 }
-
-.o-indexSectionTwoBottom {
-  padding-bottom: 90px;
-  padding-top: 50px;
-}
-
-// Index section three
-// -----------------------
-
-// .o-indexSectionThree {
-// }
-
-// Index section four
-// -----------------------
-
-// .o-indexSectionFour {
-// }
 
 // Information page
 // -----------------------
@@ -67,6 +73,11 @@
   font-size: 16px;
   padding-bottom: 120px;
   padding-top: 60px;
+}
+
+.o-aboutOffices {
+  padding-top: 75px;
+  padding-bottom: 70px;
 }
 
 .o-aboutTimeline {
@@ -98,6 +109,17 @@
   background-color: @leeroyWhite;
 }
 
+.o-knowledgeHubContent {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.o-knowledgeHubCellContent {
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+}
+
 .o-knowledgeHubMenu {
   text-align: center;
   border-bottom: 1px solid #cfcfcf;
@@ -106,6 +128,11 @@
 .o-knowledgeHubMenuDropdown {
   height: 65px;
   background-color: @leeroyBlue;
+  visibility: hidden;
+}
+
+.o-knowledgeHubGrid {
+  padding-top: 100px;
 }
 
 // Knowledge hub single post
@@ -118,4 +145,8 @@
   margin-bottom: 30px;
   color: @leeroyBlack;
   font-size: 16px;
+}
+
+.visible {
+  visibility: visible;
 }

@@ -37,7 +37,7 @@ class AcfText {
         echo '<' . $this->elementType . '>' . $this->processedString . '</' . $this->elementType . '>';
       }
     } else {
-      return $text;
+      return $this->processedString;
     }
   }
 

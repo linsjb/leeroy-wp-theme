@@ -34,19 +34,7 @@ $indexSections->setName('Index sections');
 $indexSections->setSingularName('Index section');
 $indexSections->setAdminMenuIcon('dashicons-admin-home');
 $indexSections->setAdminMenuPosition(20);
-$indexSections->setPostType('page');
+$indexSections->setPostType('post');
 $indexSections->showInMenu(false);
 $indexSections->setSupport('title');
 $indexSections->initPostType();
-
-// Custom post type for resources
-$resources = new CustomPostType;
-$resources->setName('Resources');
-$resources->setSingularName('Resource');
-$resources->setAdminMenuIcon('dashicons-hammer');
-$resources->setAdminMenuPosition(20);
-$resources->showInMenu(false);
-$resources->setSupport('title');
-$resources->setSupport('editor');
-$resources->setPostType('page');
-$resources->initPostType();

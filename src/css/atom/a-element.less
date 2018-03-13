@@ -21,74 +21,33 @@
   pointer-events: none;
 }
 
-// Index section one
+// Index section
 // -----------------------
-.a-indexSectionOneContent__title {
-  // Text-align is controlled with media queries
+
+.a-indexSectionContent__title {
+  font-size: 30px;
+}
+
+.a-indexSectionContent__image {
+  padding-top: 70px;
+}
+
+.a-indexSectionContent__topTitle {
   margin: 0;
   padding: 0;
   margin-bottom: 35px;
   font-size: 45px;
-  width: 65%;
+  padding-left: 35px;
+  padding-right: 35px;
   line-height: 1.29;
 }
 
-.a-indexSectionOneContent__text {
-  // Text-align is controlled with media queries
+.a-indexSectionContent__topContent {
   margin: 0;
   font-size: 20px;
-  width: 45%;
-}
-
-// Index section two
-// -----------------------
-.a-indexSectionTwoContent__title {
-  margin-bottom: 120px;
-  text-align: center;
-  color: @leeroyWhite;
-  font-size: 30px;
-}
-
-.a-indexSectionTwoBottom__title {
-  color: @leeroyPurple;
-  font-size: 35px;
-  margin-bottom: 45px;
-}
-
-.a-indexSectionTwoBottom__image {
-
-}
-
-// Index section three
-// -----------------------
-.a-indexSectionThreeContent__title {
-  text-align: right;
-  font-size: 40px;
-  position: absolute;
-  right: 0;
-  top: 40%;
-  color: @leeroyPurple;
-}
-
-.a-indexSectionThreeContent__icon {
-}
-
-// Index section four
-// -----------------------
-.a-indexSectionFourContent__title {
-  margin-bottom: 85px;
-  text-align: center;
-  font-size: 30px; //TODO ändra till rätt storlek sen
-  color: @leeroyWhite;
-}
-
-// Index section five
-// -----------------------
-.a-indexSectionFiveContent__title {
-  margin-top: 60px;
-  margin-bottom: 30px;
-  font-size: 30px;
-  color: @leeroyPurple;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 20px;
 }
 
 // Footer
@@ -134,6 +93,15 @@
   margin-bottom: 40px;
 }
 
+.a-aboutOffice__title {
+  font-size: 16px;
+}
+
+.a-aboutOffices__icon {
+  width: 60px;
+  height: 60px;
+}
+
 .a-aboutPageTeam__header {
   text-align: center;
   font-size: 30px;
@@ -154,23 +122,45 @@
   top: 26%;
 }
 
+.a-aboutTeam__noPicText {
+  position: absolute;
+  width: 100%;
+  top: 38%;
+  left: 0;
+  font-size: 13px;
+  color: @secondaryContent;
+  text-align: center;
+}
+
 .a-aboutTeam__name {
   position: absolute;
   bottom: 8%;
   color: @leeroyWhite;
   font-family: 'FreightDispProSemibold-Regular';
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .a-aboutTeam__email {
   position: absolute;
   bottom: 0;
   color: @leeroyWhite;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 // Knowledge hub
 // -----------------------
+
+.a-knowledgeHubCell__title {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.a-knowledgeHubCell__date {
+}
+
+.a-knowledgeHubCell__author {
+}
 
 
 // Knowlede hub single post
@@ -235,10 +225,11 @@
 
 .a-singlePostShareList__item {
   list-style: none;
+  display: inline;
 }
 
 .a-singlePostShare__link {
-  display: block;
+  display: inline-block;
   height: 30px;
   text-align: center;
   margin-bottom: 10px;
@@ -323,7 +314,7 @@
 .a-postAuthor__author {
   margin: 0;
   font-size: 20px;
-  color: @leeroyBlue;
+  color: #2e2e2e;
 }
 
 .a-postAuthor__role {
@@ -419,6 +410,9 @@
 .a-indexSectionItemCell__content {
   font-size: 16px;
   text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
+}
+
+.a-mobileIndexSectionItemCell__icon {
+  height: 100px;
+  margin-bottom: 30px;
 }

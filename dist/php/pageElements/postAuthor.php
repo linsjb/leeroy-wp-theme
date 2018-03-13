@@ -8,11 +8,14 @@ function postAuthor() {
   $postTags->setContent('tags');
   $postTags->setElementType('a');
 ?>
-  <div class="m-postAuthor col-xs-100">
-    <img class="a-postAuthor__image col-xs-25" src="<?= $authorAvatar ?>" alt="Author image">
-    <div class="m-postAuthorContent col-xs-70 pull-right">
+  <div class="red m-postAuthor col-xs-100">
+    <img class="orange a-postAuthor__image col-xs-20 col-sm-12" src="<?= $authorAvatar ?>" alt="Author image">
+    <div class="green m-postAuthorInfo col-xs-80 col-sm-85 col-sm-offset-3">
       <h3 class="a-postAuthor__author"><?= $postAuthor->display_name ?></h3>
       <p class="a-postAuthor__role"><?php the_field('acfUserTitle', 'user_' . $postAuthorId) ?></p>
+    </div>
+
+    <div class="blue m-postAuthorContent col-xs-100 col-sm-85 col-sm-offset-3">
       <p class="a-postAuthor_description"><?= $postAuthor->description ?></p>
     <!-- .m-postAuthorContent -->
     </div>

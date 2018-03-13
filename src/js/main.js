@@ -23,5 +23,36 @@ window.onload = function () {
         headerNavElement.addClass('m-header__nav--lightTextColour').removeClass('m-header__nav--darkTextColor');
       }
     });
+
+    let test = document.getElementsByClassName('test');
+    let testArray = [];
+    for (var i = 0; i < test.length; i++) {
+      testArray.push(test[i]);
+    }
+
+    let dropdown = document.getElementById('knowledgeHubDropdown');
+    let assignedId;
+
+    testArray.map((arr) => {
+      arr.addEventListener('click', () => {
+        dropdown.classList.toggle('visible');
+      });
+    });
+
   })(jQuery);
 };
+
+jQuery(document).ready(function(){
+  jQuery(".owl-carousel").owlCarousel({
+    items: 1,
+    autoHeight: true
+  });
+
+  jQuery('.o-knowledgeHubGrid').masonry({
+    itemSelector: '.m-knowledgeHubCell',
+    percentPosition: true,
+    horizontalOrder: true,
+    gutter: 10
+  });
+
+});

@@ -125,7 +125,11 @@ class customPostType {
   * Default type is **post**.
   */
   function setPostType($setPType) {
-    $this->postType = $setPType;
+    if($setPType == 'page') {
+      $this->postType = true;
+    } else if($setPType == 'post') {
+      $this->postType = false;
+    }
   }
 
   /**

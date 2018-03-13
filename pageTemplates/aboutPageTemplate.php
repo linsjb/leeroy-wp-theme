@@ -17,6 +17,8 @@ if(have_posts()):
 
   while (have_posts()):
     the_post();
+
+    // Page main content
     informationPageElements();
 ?>
     <div class="o-aboutTimeline col-xs-100" style="background-color: <?php the_field('acfAboutTimelineBackground') ?>">
@@ -29,7 +31,58 @@ if(have_posts()):
       </div>
     <!-- .o-aboutTimeline -->
     </div>
-<?php
+
+    <?php
+    // Offices section
+    if(have_rows('acfAboutOffices')):
+      $officesIcon = new AcfImage;
+      $officesIcon->setObject('acfAboutOfficesIcon');
+      $officesIcon->useElement();
+      $officesIcon->setClasses('a-aboutOffices__icon');
+    ?>
+      <div class="o-aboutOffices col-xs-100" style="background-color: <?php the_field('acfAboutOfficesBackground') ?>; color: <?php the_field('acfAboutOfficesContentColor') ?>">
+        <div class="container m-aboutOfficesContent">
+
+          <div class="m-aboutOfficesIcon col-xs-19">
+            <?php $officesIcon->init(); ?>
+          <!-- .m-aboutOfficesIcon -->
+          </div>
+
+          <div class="col-xs-100 col-sm-60">
+            <?php
+            while(have_rows('acfAboutOffices')):
+              the_row();
+              $officeTitle = new AcfText;
+              $officeTitle->useSubfield();
+              $officeTitle->setObject('acfaboutOfficeTitle'); //TODO Fixa namnet i backend
+              $officeTitle->setElementType('h2');
+              $officeTitle->setClasses('a-aboutOffice__title');
+
+              $officeContent = new AcfText;
+              $officeContent->useSubfield();
+              $officeContent->setObject('acfAboutOfficeContent');
+            ?>
+              <div class="m-aboutOfficeCell col-xs-45 col-xs-offset-5">
+                <?php
+                $officeTitle->init();
+                the_sub_field('acfAboutOfficeContent');
+                ?>
+              <!-- .m-aboutOfficeCell  -->
+              </div>
+            <?php
+            endwhile;
+            ?>
+          </div>
+        <!-- .m-aboutOfficesContent -->
+        </div>
+      <!-- .o-aboutOffices -->
+      </div>
+    <?php
+    endif;
+    ?>
+
+    <?php
+    // The team section
     if(have_rows('acfAboutTeam')):
       $teamTitle = new AcfText;
       $teamTitle->setObject('acfAboutTeamTitle');
@@ -60,7 +113,7 @@ if(have_posts()):
       $lastCellSubTitle->setObject('acfAboutTeamLcTt');
       $lastCellSubTitle->setElementType('p');
       $lastCellSubTitle->setClasses('a-aboutTeam__email');
-?>
+    ?>
       <div id="the-team" class="o-aboutPageTeam col-xs-100" style="background-color: <?php the_field('acfAboutTeamBackground') ?>">
         <div class="container m-aboutPageTeamContent">
           <?php
@@ -68,22 +121,26 @@ if(have_posts()):
           while(have_rows('acfAboutTeam')):
             the_row();
           ?>
-          <!-- Team cell -->
-          <div class="m-aboutTeamCell col-xs-40 col-sm-30 col-md-20 col-xs-offset-7 col-sm-offset-3 col-md-offset-4">
-            <div class="m-aboutTeamCellContent" style="background-image: url('<?php the_sub_field('acfAboutTeamEmpPicture') ?>')">
-              <?php if(get_sub_field('acfAboutTeamEmpImgDim')):?>
-                <div class="m-pageImageFader col-xs-100" style="background-color: <?php the_field('acfAboutTeamFadeColor') ?>; opacity: <?php the_field('acfAboutTeamFadeOpacity') ?>"></div>
-              <?php endif; ?>
-              <p class="a-aboutTeam__name"><span><?php the_sub_field('acfAboutTeamEmpName') ?></span>, <span><?php the_sub_field('acfAboutTeamEmpTitle') ?></span></p>
-              <p class="a-aboutTeam__email"><?php the_sub_field('acfAboutTeamEmpEmail') ?></p>
-            <!-- .m-aboutTeamCellContent -->
+            <!-- Team cell -->
+            <div class="m-aboutTeamCell col-xs-50 col-sm-30 col-md-25">
+              <div class="m-aboutTeamCellContent" style="background-image: url('<?php the_sub_field('acfAboutTeamEmpPicture') ?>')">
+                <?php if(get_sub_field('acfAboutTeamEmpImgDim')):?>
+                  <div class="m-pageImageFader col-xs-100" style="background-color: <?php the_field('acfAboutTeamFadeColor') ?>; opacity: <?php the_field('acfAboutTeamFadeOpacity') ?>"></div>
+                <?php endif; ?>
+
+                <?php if(!get_sub_field('acfAboutTeamEmpPicture')): ?>
+                  <p class="a-aboutTeam__noPicText">Image coming soon</p>
+                <?php endif; ?>
+                <p class="a-aboutTeam__name"><span><?php the_sub_field('acfAboutTeamEmpName') ?></span>, <span><?php the_sub_field('acfAboutTeamEmpTitle') ?></span></p>
+                <p class="a-aboutTeam__email"><?php the_sub_field('acfAboutTeamEmpEmail') ?></p>
+              <!-- .m-aboutTeamCellContent -->
+              </div>
             </div>
-          </div>
           <?php
           endwhile;
           ?>
           <!-- Element for the last cell that is static -->
-          <div class="m-aboutTeamCell col-xs-40 col-sm-30 col-md-20 col-xs-offset-7 col-sm-offset-3 col-md-offset-4">
+          <div class="m-aboutTeamCell col-xs-50 col-sm-30 col-md-25">
             <div class="m-aboutTeamCellContent" style="background-color: <?php the_field('acfAboutTeamLcBgc') ?>">
               <?php
               $lastCellIcon->init();
@@ -92,14 +149,17 @@ if(have_posts()):
               ?>
               <!-- .m-aboutTeamCellContent -->
             </div>
+          <!-- .m-aboutTeamCell -->
           </div>
           <!-- .m-aboutPageTeamContent -->
         </div>
         <!-- .o-aboutPageTeam -->
       </div>
-<?php
+    <?php
     endif;
-?>
+    ?>
+
+    <!-- Contact field section -->
     <div id="join" class="o-aboutContact col-xs-100" style="background-color: <?php the_field('acfAboutContactBackground') ?>">
       <div class="container m-aboutContactContent">
         <?php

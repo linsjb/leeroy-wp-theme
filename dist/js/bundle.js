@@ -94,8 +94,38 @@ window.onload = function () {
         headerNavElement.addClass('m-header__nav--lightTextColour').removeClass('m-header__nav--darkTextColor');
       }
     });
+
+    var test = document.getElementsByClassName('test');
+    var testArray = [];
+    for (var i = 0; i < test.length; i++) {
+      testArray.push(test[i]);
+    }
+
+    var dropdown = document.getElementById('knowledgeHubDropdown');
+    var assignedId = void 0;
+
+    testArray.map(function (arr) {
+      arr.addEventListener('click', function () {
+        dropdown.classList.toggle('visible');
+      });
+    });
   })(jQuery);
 }; /* global jQuery */
+
+
+jQuery(document).ready(function () {
+  jQuery(".owl-carousel").owlCarousel({
+    items: 1,
+    autoHeight: true
+  });
+
+  jQuery('.o-knowledgeHubGrid').masonry({
+    itemSelector: '.m-knowledgeHubCell',
+    percentPosition: true,
+    horizontalOrder: true,
+    gutter: 10
+  });
+});
 
 /***/ }),
 /* 1 */

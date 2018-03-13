@@ -21,7 +21,7 @@ if($query->have_posts()):
 ?>
     <div class="o-indexSectionFive col-xs-100" style="<?= pageBackgroundType(); ?>">
         <?php pageBackgroundTone() ?>
-        <div class="container m-indexSectionFiveContent">
+        <div class="container o-indexSectionFiveContent">
           <?php
           $title->init();
           echo do_shortcode('[caldera_form id="CF5a80d6fe9432c"]');

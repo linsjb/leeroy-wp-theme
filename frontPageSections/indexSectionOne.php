@@ -13,13 +13,13 @@ if($query->have_posts()):
     $title->setContent('title');
     $title->useBreakpoint();
     $title->setElementType('h1');
-    $title->setClasses('a-indexSectionOneContent__title col-xs-100');
+    $title->setClasses('a-indexSectionOneContent__title col-xs-100 col-sm-60');
 
     $content = new AcfText;
     $content->useBreakpoint();
     $content->setObject('acfIndexSectionOneContent');
     $content->setElementType('p');
-    $content->setClasses('a-indexSectionOneContent__text col-xs-100');
+    $content->setClasses('a-indexSectionOneContent__text col-xs-100 col-sm-60');
 ?>
     <div id="topElement" class="o-indexSectionOne col-xs-100" style="<?= pageBackgroundType(); ?>">
       <?php pageBackgroundTone() ?>

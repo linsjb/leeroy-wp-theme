@@ -92,13 +92,15 @@
     li {
       list-style: none;
       display: inline-block;
-      margin: 45px 25px;
+      margin: 35px 25px;
       font-size: 14px;
-      color: @leeroyBlack;
       text-decoration: none;
       font-family: 'proxima_novabold';
+      .fadeInTransition(0.2s);
+      color: @leeroyBlack;
 
       &:after {
+        .fadeInTransition(0.2s);
         background-image: url('images/arrowBlack.svg');
         display: inline-block;
         width: 15px;

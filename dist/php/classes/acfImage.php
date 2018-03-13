@@ -84,21 +84,30 @@ class AcfImage {
   /**
   * Specify the size of the image.
   */
-  function setSize() { }
+  function setSize($setImgSize) {
+    $this->imageSize = $setImgSize;
+  }
 
   function getObject() {
     return $this->imageObject;
   }
 
-  function getUrl() {
-    return $this->imageUrl;
+  function getHeight() {
+    return $this->imageObject['sizes'][$this->imageSize . '-height'];
   }
+
+  function getWidth() {
+    return $this->imageObject['sizes'][$this->imageSize . '-width'];
+  }
+
+
+
 
 
   private $objectName;
   private $imageObject;
   private $imageUrl;
-  private $imageSize;
+  private $imageSize = 'large';
   private $useElement = false;
   private $subfield = false;
   private $postpage = false;

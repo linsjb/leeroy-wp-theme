@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +8,10 @@
     $navigation = new Navigation();
     $navigation->setLocation('masterMenu');
     $navigation->setContainerClasses('m-header__nav m-header__nav--lightTextColour pull-right col-lg-80');
+
+    $mobileNavigation = new Navigation();
+    $mobileNavigation->setLocation('masterMenu');
+    $mobileNavigation->setContainerClasses('');
 
     if(is_front_page()) {
       $logoLinkRel = 'm_PageScroll2id';
@@ -21,18 +25,5 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row">
-        <header class="o-header col-xs-100 col-sm-100 col-md-100 col-lg-100">
-          <div class="container">
-            <div class="o-headerWrapper col-xs-100 col-sm-100 col-md-100 col-lg-100">
-                <div class="m-headerLogo col-xs-20 col-sm-20 col-md-20 col-lg-20">
-                  <a rel="<?= $logoLinkRel ?>" href="<?= $logoUrl ?>" class="a-headerLogo__link">
-                    <object id="headerLogoObj" class="a-headerLogo__logo" type="image/svg+xml" data="<?= get_template_directory_uri() . '/images/leeroyStdLogo.svg' ?>"></object>
-                  </a>
-                </div>
-                <?php $navigation->init(); ?>
-            <!-- .o-headerWrapper -->
-            </div>
-          <!-- .container -->
-          </div>
-        </header>
+      <?php include "headerDesktop.php" ?>
+      <?php include "headerMobile.php" ?>
