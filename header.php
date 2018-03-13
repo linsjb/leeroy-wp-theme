@@ -7,11 +7,11 @@
     wp_head();
     $navigation = new Navigation();
     $navigation->setLocation('masterMenu');
-    $navigation->setContainerClasses('m-header__nav m-header__nav--lightTextColour pull-right col-lg-80');
+    $navigation->setContainerClasses('m-header__nav m-header__nav--lightTextColour pull-right col-md-80');
 
     $mobileNavigation = new Navigation();
-    $mobileNavigation->setLocation('masterMenu');
-    $mobileNavigation->setContainerClasses('');
+    $mobileNavigation->setLocation('mobileMasterMenu');
+    $mobileNavigation->setContainerClasses('m-mobileHeader__nav');
 
     if(is_front_page()) {
       $logoLinkRel = 'm_PageScroll2id';

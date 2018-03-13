@@ -11,7 +11,12 @@ knowledgeHubTop('postsPage');
       $postTitle = new WpContent;
       $postTitle->setContent('title');
       $postTitle->setElementType('h1');
-      $postTitle->setClasses('a-singlePost__title');
+
+      if(get_field('acfKnowHubPostCase')) {
+        $postTitle->setClasses('a-singlePost__caseTitle');
+      } else {
+        $postTitle->setClasses('a-singlePost__title');
+      }
 
       $postCategory = new WpContent;
       $postCategory->setContent('category');

@@ -15,7 +15,6 @@ function leeroyScripts() {
 
   wp_enqueue_style( 'grid100', get_template_directory_uri() . '/dist/css/grid100.css', array(),'3.2.0', 'all');
   wp_enqueue_style( 'animateCss', get_template_directory_uri() . '/dist/css/animate.min.css', array() , '3.5.2', 'all');
-
   wp_enqueue_style( 'hamburgers', get_template_directory_uri() . '/dist/css/hamburgers.min.css', array() , '0.9.3', 'all');
 
   wp_enqueue_style( 'owlCarouselCss', get_template_directory_uri() . '/dist/css/owl.carousel.min.css', array() , '2.2.1', 'all');

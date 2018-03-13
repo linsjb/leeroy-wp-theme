@@ -74,27 +74,70 @@ var _svgColor = __webpack_require__(1);
 
 window.onload = function () {
   (function ($) {
+
     var headerLogo = new _svgColor.SvgColor();
-    headerLogo.setObject('headerLogoObj');
+    var headerElement = void 0;
+    var headerNavElement = void 0;
+
+    if (window.innerWidth > 768) {
+      console.log('not xs');
+      headerElement = $('.o-header');
+      headerNavElement = $('.m-header__nav');
+      headerLogo.setObject('desktopHeaderLogoObj');
+    } else if (window.innerWidth < 768) {
+      headerLogo.setObject('mobileHeaderLogoObj');
+      headerElement = $('.o-mobileHeader');
+      headerNavElement = $('.m-mobileHeader__nav');
+      // let headerNavElement = $('.m-mobileHeader__nav');
+    }
     headerLogo.setSvgItems('a-leeroyLogo');
     headerLogo.setColor('#FDFDFD');
 
-    var headerElement = $('.o-header');
-    var headerNavElement = $('.m-header__nav');
-    var topElementHeight = $('#topElement').height();
+    // Mobile menu
+    var mobileHeaderNavigation = document.getElementById('mobileNav');
+    var mobileMenu = document.getElementById('mobileHeaderMenu');
 
-    window.addEventListener('scroll', function () {
-      if ($(this).scrollTop() > topElementHeight / 2) {
-        headerLogo.setColor('#2F2F2F');
-        headerElement.addClass('o-header--background');
-        headerNavElement.removeClass('m-header__nav--lightTextColour').addClass('m-header__nav--darkTextColor');
-      } else if ($(this).scrollTop() < topElementHeight / 2) {
-        headerLogo.setColor('#FDFDFD');
-        headerElement.removeClass('o-header--background');
-        headerNavElement.addClass('m-header__nav--lightTextColour').removeClass('m-header__nav--darkTextColor');
+    var testa = true;
+
+    mobileHeaderNavigation.addEventListener('click', function () {
+      mobileMenu.classList.toggle('visible');
+      testa = !testa;
+
+      if (window.pageYOffset > 200) {
+        headerElement.toggleClass('o-header--background');
+      }
+      headerLogo.setColor('#FDFDFD');
+      if (testa) {
+        if (window.pageYOffset < 200) {
+          headerLogo.setColor('#FDFDFD');
+        } else {
+          headerLogo.setColor('#2F2F2F');
+        }
       }
     });
 
+    // Menu behaviour withing the scroll
+    window.addEventListener('scroll', function () {
+      if ($(this).scrollTop() > 200) {
+        if (testa) {
+          headerLogo.setColor('#2F2F2F');
+          headerElement.addClass('o-header--background');
+        }
+        if (window.innerWidth >= 768) {
+          headerNavElement.removeClass('m-header__nav--lightTextColour').addClass('m-header__nav--darkTextColor');
+        }
+      } else if ($(this).scrollTop() < 200) {
+        if (testa) {
+          headerLogo.setColor('#FDFDFD');
+          headerElement.removeClass('o-header--background');
+        }
+        if (window.innerWidth >= 768) {
+          headerNavElement.addClass('m-header__nav--lightTextColour').removeClass('m-header__nav--darkTextColor');
+        }
+      }
+    });
+
+    // Knowledge hub menu
     var test = document.getElementsByClassName('test');
     var testArray = [];
     for (var i = 0; i < test.length; i++) {

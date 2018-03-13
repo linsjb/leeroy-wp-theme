@@ -16,6 +16,7 @@ $test->regMenu('masterMenu', 'Header menu');
 $test->regMenu('business', 'Footer left section');
 $test->regMenu('aboutLeeroy', 'Footer middle section');
 $test->regMenu('resources', 'Footer right section');
+$test->regMenu('mobileMasterMenu', 'Mobile header menu');
 $test->buildMenu();
 
 function removeFunctionalities() {

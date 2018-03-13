@@ -9,7 +9,7 @@ function informationPageTop($pageType = null) {
   $title->setContent('title');
   $title->useBreakpoint();
   $title->setElementType('h1');
-  $title->setClasses('a-informationPage__header');
+  $title->setClasses('a-informationPage__title');
 
   $slogan = new AcfText;
   $slogan->setObject('acfInfoPageSlogan');

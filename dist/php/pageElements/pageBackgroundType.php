@@ -21,6 +21,7 @@ function pageBackgroundType($pageType = null) {
   // What kind of background is set for the page
   if($backgroundType == 'image') {
     $backgroundImageUrl = new AcfImage;
+    $backgroundImageUrl->setSize('thumbnail');
 
     // If the page is home of posts page (blog index)
     if(is_home() || $pageType == 'postsPage')

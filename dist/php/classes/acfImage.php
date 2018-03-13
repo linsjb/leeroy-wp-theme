@@ -107,7 +107,7 @@ class AcfImage {
   private $objectName;
   private $imageObject;
   private $imageUrl;
-  private $imageSize = 'large';
+  private $imageSize = 'medium';
   private $useElement = false;
   private $subfield = false;
   private $postpage = false;

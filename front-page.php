@@ -160,7 +160,7 @@ if($query->have_posts()):
                     $postsArgs = array(
                       'numberposts' => -1,
                       'post_type'  => 'post',
-                      'meta_key' => 'acfKnowHubPostCase',
+                      'meta_key' => 'acfKnowHubPostCaseShow',
                       'meta_value' => true
                     );
                     $postsQuery = new WP_Query($postsArgs);

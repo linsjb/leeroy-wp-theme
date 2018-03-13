@@ -24,6 +24,11 @@ h3 {
   font-weight: normal;
   font-style: normal;
 }
+h4 {
+  font-family: 'FreightDispProBook-Regular';
+  font-weight: normal;
+  font-style: normal;
+}
 .verticalAlign {
   position: relative;
   top: 50%;
@@ -66,6 +71,19 @@ h3 {
   height: 60px;
   position: fixed;
   z-index: 10;
+  top: 0;
+}
+.o-mobileHeaderMenu {
+  background-color: #0B4F6C;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  visibility: hidden;
+  padding-top: 100px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 .o-indexSectionContent {
   padding-top: 80px;
@@ -184,8 +202,7 @@ h3 {
 }
 .m-mobileHeaderMenuBtn {
   position: absolute;
-  height: 50%;
-  top: 25%;
+  height: 100%;
   right: 25px;
   width: 60px;
   float: right;
@@ -201,6 +218,8 @@ h3 {
 }
 .m-informationPageTopContent {
   z-index: 2;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 .m-informationPageBottomContent {
   padding-left: 15px;
@@ -372,6 +391,30 @@ h3 {
 .m-header__nav ul li a:hover {
   color: #C9AD74;
 }
+.m-mobileHeader__nav ul {
+  margin: 0;
+  padding: 0;
+}
+.m-mobileHeader__nav ul li {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.m-mobileHeader__nav ul li a {
+  text-decoration: none;
+  font-size: 30px;
+  color: #aaaaaa;
+}
+.m-mobileHeader__nav ul li a:hover {
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition: 0.2s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition: 0.2s;
+  -o-transition-timing-function: ease-in-out;
+  color: #FDFDFD;
+}
 .m-footer__logo {
   height: 30px;
   padding-left: 40px;
@@ -496,6 +539,13 @@ h3 {
   text-align: center;
   padding-top: 15px;
 }
+.a-knowledgeHubCellTint {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
 /*
 * Filename: a-element.less
 * Description: Atom elements in ABEM CSS method
@@ -546,7 +596,7 @@ h3 {
   padding-left: 40px;
   pointer-events: none;
 }
-.a-informationPage__header {
+.a-informationPage__title {
   margin: 0;
   position: absolute;
   bottom: 30%;
@@ -610,17 +660,26 @@ h3 {
   color: #FDFDFD;
   font-size: 14px;
 }
-.a-knowledgeHubCell__title {
+.a-knowledgeHubCell__title,
+.a-knowledgeHubCell__caseTitle {
   font-size: 25px;
   margin: 0;
   padding: 0;
+  margin-bottom: 5px;
 }
-.a-singlePost__title {
+.a-knowledgeHubCell__caseTitle:before {
+  content: 'Case: ';
+}
+.a-singlePost__title,
+.a-singlePost__caseTitle {
   font-size: 40px;
   margin-top: 0;
   margin-bottom: 12px;
   font-family: 'freightDispProBold-Regular';
   color: #2F2F2F;
+}
+.a-singlePost__caseTitle:before {
+  content: 'Case: ';
 }
 .a-singlePostInfo__category {
   color: #aaaaaa;
@@ -886,6 +945,12 @@ h3 {
   .m-indexSectionTopContent {
     font-size: 16px;
     padding-right: 25px;
+  }
+  .a-informationPage__title {
+    font-size: 30px;
+  }
+  .a-informationPage__slogan {
+    font-size: 16px;
   }
   .m-footer__nav ul {
     left: 0;
