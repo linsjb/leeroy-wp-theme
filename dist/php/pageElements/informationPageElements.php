@@ -16,22 +16,76 @@ function informationPageElements() {
   $slogan->setClasses('a-informationPage__slogan');
   $slogan->setElementType('p');
 
+  switch(get_field('acfInfPageContentClrs')['backgroundColor']) {
+    case 'black':
+      $backgroundColor = '#2F2F2F';
+      break;
+
+    case 'purple':
+      $backgroundColor = '#442D5E';
+      break;
+
+    case 'white':
+      $backgroundColor = '#FDFDFD';
+      break;
+
+    case 'blue':
+      $backgroundColor = '#0B4F6C';
+      break;
+
+    case 'gold':
+      $backgroundColor = '#C9AD74';
+      break;
+
+    default:
+      $backgroundColor = '#2F2F2F';
+      break;
+  }
+
+  switch(get_field('acfInfPageContentClrs')['textColor']) {
+    case 'black':
+      $textColor = '#2F2F2F';
+      break;
+
+    case 'purple':
+      $textColor = '#442D5E';
+      break;
+
+    case 'white':
+      $textColor = '#FDFDFD';
+      break;
+
+    case 'blue':
+      $textColor = '#0B4F6C';
+      break;
+
+    case 'gold':
+      $textColor = '#C9AD74';
+      break;
+
+    default:
+      $textColor = '#2F2F2F';
+      break;
+  }
+
+  $content = get_field('acfInfPageContent');
+
   informationPageTop();
   ?>
-  <div class="o-informationPageBottom col-xs-100" style="background-color: <?php the_field('acfInfoPageContentBackground') ?>; color: <?php the_field('acfInfoPageTextColor')?>;">
+  <div class="o-informationPageBottom col-xs-100" style="background-color: <?= $backgroundColor ?>; color: <?= $textColor ?>;">
     <div class="container">
-      <?php if(get_field('acfInfoPageColumns') == 1): ?>
+      <?php if($content['columns'] == 'one'): ?>
         <div class="m-informationPageBottomContent col-xs-100">
-          <?php the_field('acfInfoPageLeftContent') ?>
+          <?= $content['leftContent'] ?>
         </div>
 
-        <?php elseif(get_field('acfInfoPageColumns') == 2): ?>
+      <?php elseif($content['columns'] == 'two'): ?>
           <div class="m-informationPageColBottomContent col-xs-100 col-sm-50">
-              <?php the_field('acfInfoPageLeftContent') ?>
+              <?= $content['leftContent'] ?>
           </div>
 
           <div class="m-informationPageColBottomContent col-xs-100 col-sm-50">
-            <?php the_field('acfInfoPageRightContent') ?>
+            <?= $content['rightContent'] ?>
           </div>
       <?php endif; ?>
     <!-- .m-informationPageBottomContent -->

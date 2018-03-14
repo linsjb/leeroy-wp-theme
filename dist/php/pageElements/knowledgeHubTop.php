@@ -1,8 +1,8 @@
 <?php
 function knowledgeHubTop($pageType = null) {
-  informationPageTop($pageType);
+  informationPageTop('postsPage');
 ?>
-  
+
 
   <div id="knowledgeHubDropdown" class="o-knowledgeHubMenuDropdown col-xs-100">
   <!-- .o-knowledgeHubMenuDropdown -->

@@ -1,8 +1,8 @@
 <?php
 function knowledgeHubGrid() {
   $postImage = new AcfImage;
-  $postImage->setObject('acfKnowHubPostImage');
-  $postImage->setSize('large');
+  $postImage->setObject('acfPageBackgroundImage');
+  $postImage->setSize('medium');
 
   $postTitle = new WpContent;
   $postTitle->setContent('title');
@@ -28,9 +28,7 @@ function knowledgeHubGrid() {
 ?>
   <a href="<?php the_permalink()?>">
     <div class="m-knowledgeHubCell" style="background-image: url(<?= $postImage->init() ?>); height: <?= $cellHeight ?>px">
-        <?php if(get_field('acfKnowHubCellTint')): ?>
-          <div class="a-knowledgeHubCellTint" style="background-color: <?= get_field('acfKnowHubCellTintPref')['color'] ?>; opacity: <?= get_field('acfKnowHubCellTintPref')['opacity'] ?>"></div>
-        <?php endif; ?>
+        <?php pageBackgroundTone() ?>
       <div class="o-knowledgeHubCellContent col-xs-100">
         <?php
         $postTitle->init();

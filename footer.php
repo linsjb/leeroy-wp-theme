@@ -40,13 +40,13 @@
       <p class="m-footer__slogan"><?= get_bloginfo('description') ?></p>
 
       <div class="container m-footerContent">
-        <div class="m-footerInnerContent col-xs-100 col-md-80 col-md-offset-10">
-          <div class="m-footerInnerContentCol col-xs-50">
+        <div class="m-footerInnerContent col-xs-100 col-sm-80 col-sm-offset-10">
+          <div class="m-footerInnerContentCol col-xs-100 col-sm-50">
             <?php $aboutLeeroyNav->init() ?>
           <!-- .m-footerInnerContentCol -->
           </div>
 
-          <div class="m-footerInnerContentCol col-xs-50">
+          <div class="m-footerInnerContentCol col-xs-100 col-sm-50">
             <?php $resourcesNav->init() ?>
           <!-- .m-footerInnerContentCol -->
           </div>

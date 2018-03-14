@@ -143,7 +143,7 @@ if($query->have_posts()):
                       $mobileImage->useSubfield();
                       $mobileImage->setObject('acfIndSecMobileImg');
                       $mobileImage->useElement();
-                      $mobileImage->setClasses('a-indexSection__image col-xs-100 hidden-sm hidden-md hidden-lg');
+                      $mobileImage->setClasses('a-indexSectionMobile__image col-xs-100 hidden-sm hidden-md hidden-lg');
                       $mobileImage->init();
                     }
                     break;
