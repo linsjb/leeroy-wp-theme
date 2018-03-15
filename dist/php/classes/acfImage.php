@@ -51,24 +51,44 @@ class AcfImage {
   *
   * The object name is specified in the ACF field settings in WordPress backend.
   */
-  function setObject($setObjName) {
+  function setObject($setObjName, $setObjCell = null) {
     $this->objectName = $setObjName;
 
-    if($this->subfield) {
-      if($this->postpage) {
-        $this->imageObject = get_sub_field($this->objectName, get_option('page_for_posts'));
+    if($setObjCell == null) {
+      if($this->subfield) {
+        if($this->postpage) {
+          $this->imageObject = get_sub_field($this->objectName, get_option('page_for_posts'));
+        } else {
+          $this->imageObject = get_sub_field($this->objectName);
+        }
       } else {
-        $this->imageObject = get_sub_field($this->objectName);
+        if($this->postpage) {
+          $this->imageObject = get_field($this->objectName, get_option('page_for_posts'));
+        } else {
+          $this->imageObject = get_field($this->objectName);
+        }
       }
     } else {
-      if($this->postpage) {
-        $this->imageObject = get_field($this->objectName, get_option('page_for_posts'));
+      if($this->subfield) {
+        if($this->postpage) {
+          $this->imageObject = get_sub_field($this->objectName, get_option('page_for_posts'))[$setObjCell];
+        } else {
+          $this->imageObject = get_sub_field($this->objectName)[$setObjCell];
+        }
       } else {
-        $this->imageObject = get_field($this->objectName);
+        if($this->postpage) {
+          $this->imageObject = get_field($this->objectName, get_option('page_for_posts'))[$setObjCell];
+        } else {
+          $this->imageObject = get_field($this->objectName)[$setObjCell];
+        }
       }
     }
 
-    $this->imageUrl = $this->imageObject['url'];
+    if($this->imageSize == null) {
+      $this->imageUrl = $this->imageObject['url'];
+    } else {
+      $this->imageUrl = $this->imageObject['sizes'][$this->imageSize];
+    }
     $this->altText = $this->imageObject['alt'];
   }
 
@@ -82,32 +102,39 @@ class AcfImage {
   }
 
   /**
-  * Specify the size of the image.
+  * Specify the imageSize of the image.
+  *
+  * If a size is not defined, the image will be it's original size.
   */
   function setSize($setImgSize) {
     $this->imageSize = $setImgSize;
   }
 
+  /**
+  * Get the images object name
+  */
   function getObject() {
     return $this->imageObject;
   }
 
+  /**
+  * Get the height of the image
+  */
   function getHeight() {
     return $this->imageObject['sizes'][$this->imageSize . '-height'];
   }
 
+  /**
+  * Get the width of the image
+  */
   function getWidth() {
     return $this->imageObject['sizes'][$this->imageSize . '-width'];
   }
 
-
-
-
-
   private $objectName;
   private $imageObject;
   private $imageUrl;
-  private $imageSize = 'medium';
+  private $imageSize = null;
   private $useElement = false;
   private $subfield = false;
   private $postpage = false;

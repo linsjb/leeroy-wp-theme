@@ -12,7 +12,7 @@ function postAuthor() {
     <img class="a-postAuthor__image col-xs-20 col-sm-12" src="<?= $authorAvatar ?>" alt="Author image">
     <div class="m-postAuthorInfo col-xs-80 col-sm-85 col-sm-offset-3">
       <h3 class="a-postAuthor__author"><?= $postAuthor->display_name ?></h3>
-      <p class="a-postAuthor__role"><?php the_field('acfUserTitle', 'user_' . $postAuthorId) ?></p>
+      <p class="a-postAuthor__role"><?php the_field('acfUserAdditionalInfo', 'user_' . $postAuthorId)['position'] ?></p>
     </div>
 
     <div class="m-postAuthorContent col-xs-100 col-sm-85 col-sm-offset-3">

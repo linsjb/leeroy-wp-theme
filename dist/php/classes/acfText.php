@@ -7,17 +7,33 @@
 
 class AcfText {
   function contentMode() {
-    if($this->subfield) {
-      if($this->postpage) {
-        $text = get_sub_field($this->objectName, get_option('page_for_posts'));
+    if($this->objectIndex == null) {
+      if($this->subfield) {
+        if($this->postpage) {
+          $text = get_sub_field($this->objectName, get_option('page_for_posts'));
+        } else {
+          $text = get_sub_field($this->objectName);
+        }
       } else {
-        $text = get_sub_field($this->objectName);
+        if($this->postpage) {
+          $text = get_field($this->objectName, get_option('page_for_posts'));
+        } else {
+          $text = get_field($this->objectName);
+        }
       }
     } else {
-      if($this->postpage) {
-        $text = get_field($this->objectName, get_option('page_for_posts'));
+      if($this->subfield) {
+        if($this->postpage) {
+          $text = get_sub_field($this->objectName, get_option('page_for_posts'))[$this->objectIndex];
+        } else {
+          $text = get_sub_field($this->objectName)[$this->objectIndex];
+        }
       } else {
-        $text = get_field($this->objectName);
+        if($this->postpage) {
+          $text = get_field($this->objectName, get_option('page_for_posts'))[$this->objectIndex];
+        } else {
+          $text = get_field($this->objectName)[$this->objectIndex];
+        }
       }
     }
 
@@ -43,7 +59,10 @@ class AcfText {
 
   function useSubfield() { $this->subfield = true; }
 
-  function setObject($stringPhrase) { $this->objectName = $stringPhrase; }
+  function setObject($setTextObj, $setObjIndex = null) {
+    $this->objectName = $setTextObj;
+    $this->objectIndex = $setObjIndex;
+  }
 
   function setElementType($stringPhrase) { $this->elementType = $stringPhrase; }
 
@@ -63,5 +82,6 @@ class AcfText {
   private $postpage = false;
   private $breakType = "|";
   private $processedString;
+  private $objectIndex;
 
 }

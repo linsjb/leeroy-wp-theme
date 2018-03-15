@@ -125,7 +125,7 @@ if($query->have_posts()):
                   $content->useSubfield();
                   $content->setObject('acfIndSecTextField');
                   $content->setElementType('div');
-                  $content->setClasses('m-indexSectionContentText ');
+                  $content->setClasses('m-indexSectionContentText');
                   $content->init();
                   break;
 
@@ -154,6 +154,13 @@ if($query->have_posts()):
 
                   case 'acfIndSecContactForm':
                     echo do_shortcode(get_sub_field('acfIndSecContCode'));
+
+                    $contactIcon = new AcfImage;
+                    $contactIcon->useSubfield();
+                    $contactIcon->setObject('acfIndSecContIcon');
+                    $contactIcon->useElement();
+                    $contactIcon->setClasses('a-contactForm__icon');
+                    $contactIcon->init();
                     break;
 
                   case 'acfIndSecBlogPosts':
@@ -166,10 +173,10 @@ if($query->have_posts()):
                     $postsQuery = new WP_Query($postsArgs);
                     if($postsQuery->have_posts()) {
                       echo '<div class="o-knowledgeHubGrid col-xs-100">';
-                      while($postsQuery->have_posts()) {
-                        $postsQuery->the_post();
-                        knowledgeHubGrid();
-                      }
+                        while($postsQuery->have_posts()) {
+                          $postsQuery->the_post();
+                          knowledgeHubGrid();
+                        }
                       echo '</div>'; // .KnowledgeHubGrid
                     }
                     wp_reset_postdata();
@@ -179,9 +186,9 @@ if($query->have_posts()):
             }
           }
           ?>
-        <!-- .m-indexSectionTwoTopContent -->
+        <!-- .container -->
         </div>
-    <!-- .o-indexSectionTwoTop -->
+    <!-- .col-xs-100 -->
     </div>
 
 <?php

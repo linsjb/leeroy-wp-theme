@@ -9,7 +9,6 @@ window.onload = function () {
     let headerNavElement;
 
     if(window.innerWidth > 768) {
-      console.log('not xs');
       headerElement = $('.o-header');
       headerNavElement = $('.m-header__nav');
       headerLogo.setObject('desktopHeaderLogoObj');

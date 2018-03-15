@@ -1,18 +1,13 @@
 <?php
 function knowledgeHubGrid() {
   $postImage = new AcfImage;
-  $postImage->setObject('acfPageBackgroundImage');
   $postImage->setSize('medium');
+  $postImage->setObject('acfPageBackgroundImage');
 
   $postTitle = new WpContent;
   $postTitle->setContent('title');
   $postTitle->setElementType('h4');
 
-  if(get_field('acfKnowHubPostCase')) {
-    $postTitle->setClasses('a-knowledgeHubCell__caseTitle');
-  } else {
-    $postTitle->setClasses('a-knowledgeHubCell__title');
-  }
 
   $postDate = new WpContent;
   $postDate->setContent('date');
@@ -24,11 +19,53 @@ function knowledgeHubGrid() {
   $postAuthor->setElementType('span');
   $postAuthor->setClasses('a-knowledgeHubCell__author');
 
-  $cellHeight = ($postImage->getHeight() / $postImage->getWidth()) * 340;
+  if(get_field('acfKnowHubPostCase')) {
+    $postTitle->setClasses('a-knowledgeHubCell__caseTitle');
+  } else {
+    $postTitle->setClasses('a-knowledgeHubCell__title');
+  }
+
+  if(get_field('acfPageBackgroundType') == 'image') {
+    $cellHeight = ($postImage->getHeight() / $postImage->getWidth()) * 340;
+    $cellBackground = 'background-image: url(' . $postImage->init() .'); ';
+  } else {
+    switch(get_field('acfPageBackgroundColor')) {
+      case 'black':
+        $cellBackgroundColor = '#2F2F2F';
+        break;
+
+      case 'purple':
+        $cellBackgroundColor = '#442D5E';
+        break;
+
+      case 'white':
+        $cellBackgroundColor = '#FDFDFD';
+        break;
+
+      case 'blue':
+        $cellBackgroundColor = '#0B4F6C';
+        break;
+
+      case 'gold':
+        $cellBackgroundColor = '#C9AD74';
+        break;
+
+      default:
+        $cellBackgroundColor = '#2F2F2F';
+        break;
+    }
+    $cellHeight = 300;
+    $cellBackground = 'background-color: ' . $cellBackgroundColor . '; ';
+  }
+
 ?>
   <a href="<?php the_permalink()?>">
-    <div class="m-knowledgeHubCell" style="background-image: url(<?= $postImage->init() ?>); height: <?= $cellHeight ?>px">
-        <?php pageBackgroundTone() ?>
+    <div class="m-knowledgeHubCell" style="<?= $cellBackground ?> height: <?= $cellHeight ?>px">
+        <?php
+        if(get_field('acfPageBackgroundType') == 'image') {
+          pageBackgroundTone();
+        }
+        ?>
       <div class="o-knowledgeHubCellContent col-xs-100">
         <?php
         $postTitle->init();

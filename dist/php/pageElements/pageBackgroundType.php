@@ -10,7 +10,7 @@
 function pageBackgroundType($pageType = null) {
   $backgroundImage = ' ';
 
-  if(is_home() || $pageType == 'postsPage') {
+  if($pageType == 'postsPage') {
     $backgroundType = get_field('acfPageBackgroundType', get_option('page_for_posts'));
 
     switch(get_field('acfPageBackgroundColor', get_option('page_for_posts'))) {
@@ -71,10 +71,10 @@ function pageBackgroundType($pageType = null) {
   // What kind of background is set for the page
   if($backgroundType == 'image') {
     $backgroundImageUrl = new AcfImage;
-    $backgroundImageUrl->setSize('thumbnail');
+    $backgroundImageUrl->setSize('large');
 
     // If the page is home of posts page (blog index)
-    if(is_home() || $pageType == 'postsPage')
+    if($pageType == 'postsPage')
       $backgroundImageUrl->usePostsPage();
 
     $backgroundImageUrl->setObject('acfPageBackgroundImage');

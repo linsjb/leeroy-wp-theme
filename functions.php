@@ -27,6 +27,8 @@ function removeFunctionalities() {
 add_action('admin_init', 'removeFunctionalities');
 
 add_theme_support('title-tag');
+add_theme_support('post-thumbnails');
+add_image_size('mediumLarge', 500, 500);
 
 // Custom post page for index sections
 $indexSections = new CustomPostType;

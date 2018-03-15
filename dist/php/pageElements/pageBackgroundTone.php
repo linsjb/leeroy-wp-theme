@@ -1,10 +1,10 @@
 <?php
 function pageBackgroundTone($pageType = null) {
   if($pageType == 'postsPage') {
-    $toneCheck               = get_field('acfToneImage',            get_option('page_for_posts'));
-    $toneOpacity             = get_field('acfTonePref',             get_option('page_for_posts'))['opacity'];
+    $toneCheck               = get_field('acfTintImage',            get_option('page_for_posts'));
+    $toneOpacity             = get_field('acfTintPref',             get_option('page_for_posts'))['opacity'];
 
-    switch(get_field('acfTonePref', get_option('page_for_posts'))['color']) {
+    switch(get_field('acfTintPref', get_option('page_for_posts'))['color']) {
       case 'black':
         $toneColor = '#2F2F2F';
         break;
@@ -30,10 +30,10 @@ function pageBackgroundTone($pageType = null) {
         break;
     }
   } else {
-    $toneCheck               = get_field('acfToneImage');
-    $toneOpacity             = get_field('acfTonePref')['opacity'];
+    $toneCheck               = get_field('acfTintImage');
+    $toneOpacity             = get_field('acfTintPref')['opacity'];
 
-    switch(get_field('acfTonePref')['color']) {
+    switch(get_field('acfTintPref')['color']) {
       case 'black':
         $toneColor = '#2F2F2F';
         break;

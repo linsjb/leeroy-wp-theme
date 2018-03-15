@@ -59,6 +59,7 @@ knowledgeHubTop('postsPage');
                 case 'acfPostImage':
                   $rowImage = new AcfImage;
                   $rowImage->useSubfield();
+                  $rowImage->setSize('large');
                   $rowImage->setObject('acfPostImageField');
                   $rowImage->setClasses('a-singlePostContent__image');
                   $rowImage->useElement();

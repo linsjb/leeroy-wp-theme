@@ -21,9 +21,8 @@ if(have_posts()):
     // Page main content
     informationPageElements();
 ?>
-  
-    <!-- .o-aboutTimeline -->
-    </div>
+
+    <!-- timeline -->
 
     <?php
     // Offices section
@@ -73,7 +72,6 @@ if(have_posts()):
     <?php
     endif;
     ?>
-
     <?php
     // The team section
     if(have_rows('acfAboutTeam')):
@@ -105,27 +103,62 @@ if(have_posts()):
       $lastCellSubTitle = new AcfText;
       $lastCellSubTitle->setObject('acfAboutTeamLcTt');
       $lastCellSubTitle->setElementType('p');
-      $lastCellSubTitle->setClasses('a-aboutTeam__email');
+      $lastCellSubTitle->setClasses('a-aboutTeam__position');
     ?>
+
       <div id="the-team" class="o-aboutPageTeam col-xs-100" style="background-color: <?php the_field('acfAboutTeamBackground') ?>">
         <div class="container m-aboutPageTeamContent">
           <?php
           $teamTitle->init();
           while(have_rows('acfAboutTeam')):
             the_row();
+
+            // Tint colors
+            switch(get_field('acfAboutTeamCellPref')['tintColor']) {
+              case 'black':
+                $empCardTintColor = '#2F2F2F';
+                break;
+
+              case 'purple':
+                $empCardTintColor = '#442D5E';
+                break;
+
+              case 'white':
+                $empCardTintColor = '#FDFDFD';
+                break;
+
+              case 'blue':
+                $empCardTintColor = '#0B4F6C';
+                break;
+
+              case 'gold':
+                $empCardTintColor = '#C9AD74';
+                break;
+
+              default:
+                $empCardTintColor = '#2F2F2F';
+                break;
+            }
+
+            $cardImage = new AcfImage;
+            $cardImage->setSize('mediumLarge');
+            $cardImage->useSubfield();
+            $cardImage->setObject('acfAboutTeamEmployee', 'image');
+
+            $cardEmployee = get_sub_field('acfAboutTeamEmployee');
           ?>
             <!-- Team cell -->
             <div class="m-aboutTeamCell col-xs-50 col-sm-30 col-md-25">
-              <div class="m-aboutTeamCellContent" style="background-image: url('<?php the_sub_field('acfAboutTeamEmpPicture') ?>')">
-                <?php if(get_sub_field('acfAboutTeamEmpImgDim')):?>
-                  <div class="m-pageImageFader col-xs-100" style="background-color: <?php the_field('acfAboutTeamFadeColor') ?>; opacity: <?php the_field('acfAboutTeamFadeOpacity') ?>"></div>
+              <div class="m-aboutTeamCellContent" style="background-image: url('<?= $cardImage->init(); ?>')">
+                <?php if($cardEmployee['tintImage']):?>
+                  <div class="a-elementToner col-xs-100" style="background-color: <?= $empCardTintColor ?>; opacity: <?= get_sub_field('acfAboutTeamEmployee')['tintOpacity'] ?>"></div>
                 <?php endif; ?>
 
-                <?php if(!get_sub_field('acfAboutTeamEmpPicture')): ?>
+                <?php if(!$cardEmployee['image']): ?>
                   <p class="a-aboutTeam__noPicText">Image coming soon</p>
                 <?php endif; ?>
-                <p class="a-aboutTeam__name"><span><?php the_sub_field('acfAboutTeamEmpName') ?></span>, <span><?php the_sub_field('acfAboutTeamEmpTitle') ?></span></p>
-                <p class="a-aboutTeam__email"><?php the_sub_field('acfAboutTeamEmpEmail') ?></p>
+                <p class="a-aboutTeam__name"><?= $cardEmployee['name'] ?></p>
+                <p class="a-aboutTeam__position"><?= $cardEmployee['position'] ?></p>
               <!-- .m-aboutTeamCellContent -->
               </div>
             </div>
