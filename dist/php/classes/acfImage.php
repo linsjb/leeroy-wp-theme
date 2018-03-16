@@ -84,11 +84,7 @@ class AcfImage {
       }
     }
 
-    if($this->imageSize == null) {
-      $this->imageUrl = $this->imageObject['url'];
-    } else {
-      $this->imageUrl = $this->imageObject['sizes'][$this->imageSize];
-    }
+    $this->imageUrl = $this->imageObject['sizes'][$this->imageSize];
     $this->altText = $this->imageObject['alt'];
   }
 
@@ -134,7 +130,7 @@ class AcfImage {
   private $objectName;
   private $imageObject;
   private $imageUrl;
-  private $imageSize = null;
+  private $imageSize = 'large';
   private $useElement = false;
   private $subfield = false;
   private $postpage = false;
