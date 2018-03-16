@@ -11,12 +11,12 @@ require_once 'dist/php/pageElements/index.php';
 // Dev
 require_once 'dist/php/devTools/devTools.php';
 
-$test = new NavigationRegistration;
-$test->regMenu('masterMenu', 'Header menu');
-$test->regMenu('aboutLeeroy', 'Footer middle section');
-$test->regMenu('resources', 'Footer right section');
-$test->regMenu('mobileMasterMenu', 'Mobile header menu');
-$test->buildMenu();
+$sizeNavigations = new NavigationRegistration;
+$sizeNavigations->regMenu('masterMenu', 'Header menu');
+$sizeNavigations->regMenu('aboutLeeroy', 'Footer middle section');
+$sizeNavigations->regMenu('resources', 'Footer right section');
+$sizeNavigations->regMenu('mobileMasterMenu', 'Mobile header menu');
+$sizeNavigations->buildMenu();
 
 function removeFunctionalities() {
   remove_post_type_support('page', 'editor');
