@@ -110,9 +110,10 @@ jQuery(document).ready(function() {
 
 });
 
+
 let knowledgeHubCells = document.getElementsByClassName('m-knowledgeHubCell');
 
 for (var i = 0; i < knowledgeHubCells.length; i++) {
   let knowledgeHubCell = document.getElementById('cell-' + i);
-  knowledgeHubCell.style.height = knowledgeHubCell.dataset.imgprops * knowledgeHubCell.offsetWidth + 'px';
+  knowledgeHubCell.style.height = knowledgeHubCell.getAttribute('data-imgprops') * knowledgeHubCell.offsetWidth + 'px';
 }
