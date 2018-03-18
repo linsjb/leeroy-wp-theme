@@ -6,20 +6,15 @@ knowledgeHubTop();
 <div class="o-knowledgeHub col-xs-100">
   <div class="container o-knowledgeHubContent">
     <?php
-    if(have_posts()):
-    ?>
-      <div class="o-knowledgeHubGrid col-xs-100">
+    if(have_posts()) {
+      $counter = 0;
+      while (have_posts()) {
+        the_post();
+        knowledgeHubGrid($counter);
+        $counter++;
+      }
 
-        <?php
-        while (have_posts()) {
-          the_post();
-          knowledgeHubGrid();
-        }
-        ?>
-      <!-- .o-knowledgeHubGrid -->
-      </div>
-    <?php
-    endif;
+    }
     ?>
   <!-- .m-knowledgeHubContent -->
   </div>

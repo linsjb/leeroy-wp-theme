@@ -172,10 +172,12 @@ if($query->have_posts()):
                     );
                     $postsQuery = new WP_Query($postsArgs);
                     if($postsQuery->have_posts()) {
-                      echo '<div class="o-knowledgeHubGrid col-xs-100">';
+                      $counter = 0;
+                      echo '<div class="o-knowledgeHubIndexGrid col-xs-100">';
                         while($postsQuery->have_posts()) {
                           $postsQuery->the_post();
-                          knowledgeHubGrid();
+                          knowledgeHubGrid($counter);
+                          $counter++;
                         }
                       echo '</div>'; // .KnowledgeHubGrid
                     }

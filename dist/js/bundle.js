@@ -151,16 +151,15 @@ window.onload = function () {
         dropdown.classList.toggle('visible');
       });
     });
-    var hejsan = $('#postAuthor').outerHeight(true);
-    console.log(hejsan);
 
-    var tjo = $('#postAuthorContent');
-    var bla = tjo.outerHeight(true);
-    console.log(bla);
+    if ($(window).width() >= 768) {
+      var postAuthorHeight = $('#postAuthor').outerHeight(true);
+      var postAuthorDescriptionHeight = $('#postAuthorDesc').outerHeight(true);
 
-    var calc = (hejsan - bla) / 2;
-    console.log(calc);
-    tjo.css("margin-top", calc);
+      var postAuthorContent = $('#postAuthorContent');
+      var postAuthorContentHeight = postAuthorContent.outerHeight(true);
+      postAuthorContent.css("margin-top", (postAuthorHeight - (postAuthorContentHeight + postAuthorDescriptionHeight)) / 2);
+    }
   })(jQuery);
 }; /* global jQuery */
 

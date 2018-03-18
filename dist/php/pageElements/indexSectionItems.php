@@ -3,7 +3,7 @@
 */
 
 function indexSectionItems() {
-  // Item row
+  // Desktop cells
   if(have_rows('acfIndSecItemCells')) {
     echo '<div class="row">';
     // When the counter reach 4, insert a Bootstrap clear fix;
@@ -49,6 +49,7 @@ function indexSectionItems() {
     echo '</div>';
   }
 
+  // Mobile cell's
   if(have_rows('acfIndSecItemCells')) {
     echo '<div class="owl-carousel owl-theme m-mobileIndexSectionItemCell col-xs-100 hidden-sm hidden-md hidden-lg">';
       while(have_rows('acfIndSecItemCells')) {

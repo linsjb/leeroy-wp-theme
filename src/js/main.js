@@ -84,6 +84,14 @@ window.onload = function () {
       });
     });
 
+    if($(window).width() >=768 ) {
+      let postAuthorHeight = $('#postAuthor').outerHeight(true);
+      let postAuthorDescriptionHeight = $('#postAuthorDesc').outerHeight(true);
+
+      let postAuthorContent = $('#postAuthorContent');
+      let postAuthorContentHeight = postAuthorContent.outerHeight(true);
+      postAuthorContent.css("margin-top", (postAuthorHeight - (postAuthorContentHeight + postAuthorDescriptionHeight))/2);
+    }
   })(jQuery);
 };
 
@@ -97,7 +105,14 @@ jQuery(document).ready(function() {
     itemSelector: '.m-knowledgeHubCell',
     percentPosition: true,
     horizontalOrder: true,
-    gutter: 10
+    gutter: 50
   });
 
 });
+
+let knowledgeHubCells = document.getElementsByClassName('m-knowledgeHubCell');
+
+for (var i = 0; i < knowledgeHubCells.length; i++) {
+  let knowledgeHubCell = document.getElementById('cell-' + i);
+  knowledgeHubCell.style.height = knowledgeHubCell.dataset.imgprops * knowledgeHubCell.offsetWidth + 'px';
+}

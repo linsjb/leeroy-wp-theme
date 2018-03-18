@@ -1,7 +1,7 @@
 <?php
-function knowledgeHubGrid() {
+function knowledgeHubGrid($counter) {
   $postImage = new AcfImage;
-  $postImage->setSize('medium');
+  $postImage->setSize('large');
   $postImage->setObject('acfPageBackgroundImage');
 
   $postTitle = new WpContent;
@@ -26,7 +26,8 @@ function knowledgeHubGrid() {
   }
 
   if(get_field('acfPageBackgroundType') == 'image') {
-    $cellHeight = ($postImage->getHeight() / $postImage->getWidth()) * 340;
+    $imageProps = ($postImage->getHeight() / $postImage->getWidth());
+    $xsCellHeight = ($postImage->getHeight() / $postImage->getWidth()) * 100;
     $cellBackground = 'background-image: url(' . $postImage->init() .'); ';
   } else {
     switch(get_field('acfPageBackgroundColor')) {
@@ -54,25 +55,28 @@ function knowledgeHubGrid() {
         $cellBackgroundColor = '#2F2F2F';
         break;
     }
-    $cellHeight = 300;
+    $imageProps = 300;
     $cellBackground = 'background-color: ' . $cellBackgroundColor . '; ';
   }
-
+  $cellId = "cell-{$counter}";
 ?>
+
+
   <a href="<?php the_permalink()?>">
-    <div class="m-knowledgeHubCell" style="<?= $cellBackground ?> height: <?= $cellHeight ?>px">
-        <?php
-        if(get_field('acfPageBackgroundType') == 'image') {
-          pageBackgroundTone();
-        }
-        ?>
-      <div class="o-knowledgeHubCellContent col-xs-100">
-        <?php
-        $postTitle->init();
-        ?>
-        <p class="m-knowledgehubCellInfo"><?php $postDate->init()?> by <?php $postAuthor->init() ?></p>
-      <!-- .m-knowledgeHubCellContent -->
-      </div>
+    <div id="<?= $cellId ?>" class="m-knowledgeHubCell col-xs-100 col-sm-32 col-sm-offset-1" style="<?= $cellBackground ?>;" data-imgprops="<?= $imageProps ?>">
+
+      <?php
+      if(get_field('acfPageBackgroundType') == 'image') {
+        pageBackgroundTone();
+      }
+      ?>
+    <div class="o-knowledgeHubCellContent col-xs-100">
+      <?php
+      $postTitle->init();
+      ?>
+      <p class="m-knowledgehubCellInfo"><?php $postDate->init()?> by <?php $postAuthor->init() ?></p>
+    <!-- .m-knowledgeHubCellContent -->
+    </div>
     <!-- .m-knowledgeHubCell -->
     </div>
   </a>

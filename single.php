@@ -31,12 +31,12 @@ knowledgeHubTop('postsPage');
       $postAuthor->setElementType('span');
       $postAuthor->setClasses('a-singlePostInfo__author');
     ?>
-      <div class="m-singlePostLeftColumn hidden-xs col-sm-5">
+      <div class="m-singlePostLeftColumn hidden-xs col-sm-5 col-md-offset-7 col-lg-offset-12">
         <?php shareIcons() ?>
       <!-- .m-singlePostLeftColumn -->
       </div>
 
-      <div class="m-singlePostRightColumn col-xs-100 col-sm-95">
+      <div class="m-singlePostRightColumn col-xs-100 col-sm-95 col-md-80 col-lg-70">
         <?php $postTitle->init() ?>
 
         <p class="m-singlePostInfo__text">
