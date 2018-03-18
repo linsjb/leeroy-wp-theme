@@ -8,12 +8,13 @@ knowledgeHubTop();
     <?php
     if(have_posts()) {
       $counter = 0;
-      while (have_posts()) {
-        the_post();
-        knowledgeHubGrid($counter);
-        $counter++;
-      }
-
+      echo '<div class="o-knowledgeHubGrid col-xs-100">';
+        while (have_posts()) {
+          the_post();
+            knowledgeHubGrid($counter);
+          $counter++;
+        }
+      echo '</div>';
     }
     ?>
   <!-- .m-knowledgeHubContent -->

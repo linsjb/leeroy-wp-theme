@@ -63,7 +63,7 @@ function knowledgeHubGrid($counter) {
 
 
   <a href="<?php the_permalink()?>">
-    <div id="<?= $cellId ?>" class="m-knowledgeHubCell col-xs-100 col-sm-32 col-sm-offset-1" style="<?= $cellBackground ?>;" data-imgprops="<?= $imageProps ?>">
+    <div id="<?= $cellId ?>" class="m-knowledgeHubCell col-xs-100 col-sm-49 col-md-32" style="<?= $cellBackground ?>;" data-imgprops="<?= $imageProps ?>">
 
       <?php
       if(get_field('acfPageBackgroundType') == 'image') {

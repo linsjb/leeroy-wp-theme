@@ -174,7 +174,7 @@ jQuery(document).ready(function () {
     itemSelector: '.m-knowledgeHubCell',
     percentPosition: true,
     horizontalOrder: true,
-    gutter: 50
+    gutter: 20
   });
 });
 
