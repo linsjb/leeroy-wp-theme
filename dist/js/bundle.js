@@ -151,6 +151,16 @@ window.onload = function () {
         dropdown.classList.toggle('visible');
       });
     });
+    var hejsan = $('#postAuthor').outerHeight(true);
+    console.log(hejsan);
+
+    var tjo = $('#postAuthorContent');
+    var bla = tjo.outerHeight(true);
+    console.log(bla);
+
+    var calc = (hejsan - bla) / 2;
+    console.log(calc);
+    tjo.css("margin-top", calc);
   })(jQuery);
 }; /* global jQuery */
 
@@ -165,9 +175,16 @@ jQuery(document).ready(function () {
     itemSelector: '.m-knowledgeHubCell',
     percentPosition: true,
     horizontalOrder: true,
-    gutter: 10
+    gutter: 50
   });
 });
+
+var knowledgeHubCells = document.getElementsByClassName('m-knowledgeHubCell');
+
+for (var i = 0; i < knowledgeHubCells.length; i++) {
+  var knowledgeHubCell = document.getElementById('cell-' + i);
+  knowledgeHubCell.style.height = knowledgeHubCell.dataset.imgprops * knowledgeHubCell.offsetWidth + 'px';
+}
 
 /***/ }),
 /* 1 */
