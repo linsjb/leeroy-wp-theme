@@ -105,7 +105,7 @@ jQuery(document).ready(function() {
     itemSelector: '.m-knowledgeHubCell',
     percentPosition: true,
     horizontalOrder: true,
-    gutter: 20
+    gutter: 15
   });
 
 });
