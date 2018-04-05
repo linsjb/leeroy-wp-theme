@@ -89,9 +89,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a431125fbcc255ce6c9324f6b59160014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a139090579f84908dc3ec2dbabc9103d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recent_posts.html#a139090579f84908dc3ec2dbabc9103d0">setPostType</a> ($setPType)</td></tr>
 <tr class="separator:a139090579f84908dc3ec2dbabc9103d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9577d6a8718b86a85b19be08fbefc61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recent_posts.html#ac9577d6a8718b86a85b19be08fbefc61">setTitle</a> ($setListTitle)</td></tr>
+<tr class="separator:ac9577d6a8718b86a85b19be08fbefc61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28adffa6c99a136c219fc05030238846"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recent_posts.html#a28adffa6c99a136c219fc05030238846">setTitleElementType</a> ($setTitleElemType)</td></tr>
+<tr class="separator:a28adffa6c99a136c219fc05030238846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaca4cf899ce4034563559a79f58bf742"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recent_posts.html#aaca4cf899ce4034563559a79f58bf742">setTitleClasses</a> ($setListTitleClasses)</td></tr>
+<tr class="separator:aaca4cf899ce4034563559a79f58bf742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Create a list of recent post's. </p>
+<div class="textblock"><p>Create a list of recent post's. By default the standard Wordpress post's is the post type.</p>
+<p>this can be changed with the <a class="el" href="class_recent_posts.html#a139090579f84908dc3ec2dbabc9103d0">setPostType()</a> method. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a58a75b13f1949dad35a6857b228640bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a58a75b13f1949dad35a6857b228640bd">&#9670;&nbsp;</a></span>init()</h2>
@@ -225,16 +232,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>What kind of post the list is going to be sorted after.</p>
-<p>Default order is <b>post</b>.</p>
-<h2>Avaliable post types</h2>
+<h2>Avaliable sortings</h2>
 <ul>
 <li>date</li>
 <li>author</li>
 <li>title</li>
 <li>modified</li>
 <li>random</li>
-<li>none </li>
+<li>none</li>
 </ul>
+<p>Default order is <b>date</b>. </p>
 
 </div>
 </div>
@@ -253,17 +260,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Define what post type that is going to be listed.</p>
-<h2>Avaliable sortings</h2>
-<ul>
-<li>date</li>
-<li>author</li>
-<li>title</li>
-<li>modified</li>
-<li>random</li>
-<li>none</li>
-</ul>
-<p>Default post type is <b>date</b>. </p>
+<p>Define which post type that is going to be listed.</p>
+<p>The default post type is <b>WP post</b>.</p>
+<p>If a custom post type is created, this can be listed with this class. </p>
 
 </div>
 </div>
@@ -284,7 +283,69 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the direction of the list.</p>
 <h2>Avaliable options</h2>
-<p>DESC ASC </p>
+<ul>
+<li>DESC</li>
+<li>ASC </li>
+</ul>
+
+</div>
+</div>
+<a id="ac9577d6a8718b86a85b19be08fbefc61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9577d6a8718b86a85b19be08fbefc61">&#9670;&nbsp;</a></span>setTitle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RecentPosts::setTitle </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$setListTitle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Define a title for the list if this is needed.</p>
+<p>Default the list does not house a title. </p>
+
+</div>
+</div>
+<a id="aaca4cf899ce4034563559a79f58bf742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaca4cf899ce4034563559a79f58bf742">&#9670;&nbsp;</a></span>setTitleClasses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RecentPosts::setTitleClasses </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$setListTitleClasses</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the class/classes for the title. </p>
+
+</div>
+</div>
+<a id="a28adffa6c99a136c219fc05030238846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28adffa6c99a136c219fc05030238846">&#9670;&nbsp;</a></span>setTitleElementType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RecentPosts::setTitleElementType </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$setTitleElemType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the type of element that the title is going to have.</p>
+<p>Default this element is <em>span</em>. </p>
 
 </div>
 </div>

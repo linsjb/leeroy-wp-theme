@@ -19,65 +19,43 @@ function knowledgeHubGrid($counter) {
   $postAuthor->setElementType('span');
   $postAuthor->setClasses('a-knowledgeHubCell__author');
 
-  if(get_field('acfKnowHubPostCase')) {
-    $postTitle->setClasses('a-knowledgeHubCell__caseTitle');
-  } else {
-    $postTitle->setClasses('a-knowledgeHubCell__title');
-  }
-
   if(get_field('acfPageBackgroundType') == 'image') {
+    // Image props to change the height (padding-top) of the cell with Javacript.
     $imageProps = ($postImage->getHeight() / $postImage->getWidth());
-    $xsCellHeight = ($postImage->getHeight() / $postImage->getWidth()) * 100;
     $cellBackground = 'background-image: url(' . $postImage->init() .'); ';
+    $titleSize = 'a-knowledgeHubCell__title--fontSize25';
   } else {
-    switch(get_field('acfPageBackgroundColor')) {
-      case 'black':
-        $cellBackgroundColor = '#2F2F2F';
-        break;
-
-      case 'purple':
-        $cellBackgroundColor = '#442D5E';
-        break;
-
-      case 'white':
-        $cellBackgroundColor = '#FDFDFD';
-        break;
-
-      case 'blue':
-        $cellBackgroundColor = '#0B4F6C';
-        break;
-
-      case 'gold':
-        $cellBackgroundColor = '#C9AD74';
-        break;
-
-      default:
-        $cellBackgroundColor = '#2F2F2F';
-        break;
-    }
-    $imageProps = 300;
-    $cellBackground = 'background-color: ' . $cellBackgroundColor . '; ';
+    // A static value to set a static height (padding-top) of the cell with JavaScript.
+    $imageProps = 0;
+    $cellBackground = 'background-color: ' . get_field('acfPageBackgroundColor') . '; ';
+    $titleSize = 'a-knowledgeHubCell__title--fontSize45';
   }
+
+  // Is the blogpost treated as a case or regular post?
+  if(get_field('acfKnowHubPostCase')) {
+    $postTitle->setClasses('a-knowledgeHubCell__caseTitle ' . $titleSize);
+  } else {
+    $postTitle->setClasses('a-knowledgeHubCell__title ' . $titleSize);
+  }
+
+  // We assign a unique ID for every cell-element to be able to set the height with JavaScript.
   $cellId = "cell-{$counter}";
 ?>
 
 
   <a href="<?php the_permalink()?>">
-    <div id="<?= $cellId ?>" class="m-knowledgeHubCell col-xs-100 col-sm-48 col-md-32" style="<?= $cellBackground ?>;" data-imgprops="<?= $imageProps ?>">
-
+    <div id="<?= $cellId ?>" class="o-knowledgeHubCell col-xs-100 col-sm-48 col-md-32" style="<?= $cellBackground ?>;" data-imgprops="<?= $imageProps ?>">
       <?php
       if(get_field('acfPageBackgroundType') == 'image') {
         pageBackgroundTone();
       }
       ?>
-    <div class="o-knowledgeHubCellContent col-xs-100">
-      <?php
-      $postTitle->init();
-      ?>
-      <p class="m-knowledgehubCellInfo"><?php $postDate->init()?> by <?php $postAuthor->init() ?></p>
-    <!-- .m-knowledgeHubCellContent -->
-    </div>
-    <!-- .m-knowledgeHubCell -->
+      <div class="o-knowledgeHubCellContent col-xs-100">
+        <?php $postTitle->init(); ?>
+        <p class="m-knowledgehubCellInfo"><?php $postDate->init()?> by <?php $postAuthor->init() ?></p>
+        <!-- .m-knowledgeHubCellContent -->
+      </div>
+    <!-- .o-knowledgeHubCell -->
     </div>
   </a>
 <?php

@@ -1,6 +1,8 @@
 <?php
 // Wordpress functions
-require_once 'dist/php/functions/scripts.php';
+require_once 'dist/php/wpFunctions/scripts.php';
+
+require_once 'dist/php/functions/index.php';
 
 // Classes
 require_once 'dist/php/classes/index.php';

@@ -30,7 +30,7 @@
     margin-bottom: 15px;
   }
 
-  .a-contactForm__icon {
+  .a-aboutForm__icon {
     bottom: 15px;
     left: 15px;
     width: 50px;
@@ -62,10 +62,15 @@
   .m-postAuthorInfo {
     margin-top: 25px;
   }
+
+  .o-informationPageBottomContent {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .a-contactForm__icon {
+  .a-aboutForm__icon {
     top: 110px;
     right: 90px;
   }
@@ -81,5 +86,27 @@
 
   .a-knowledgeHubPostImage {
     height: 100%;
+  }
+
+  .m-aboutTextColumnContent {
+    &:nth-child(1) {
+      padding-right: 50px;
+    }
+
+    &:nth-child(2) {
+      padding-left: 50px;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .m-aboutTextColumnContent {
+    &:nth-child(1) {
+      padding-right: 100px;
+    }
+
+    &:nth-child(2) {
+      padding-left: 100px;
+    }
   }
 }

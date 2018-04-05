@@ -80,8 +80,7 @@ class AcfText {
   private $useBreakpoint = false;
   private $subfield = false;
   private $postpage = false;
-  private $breakType = "|";
+  private $breakType = '|';
   private $processedString;
   private $objectIndex;
-
 }

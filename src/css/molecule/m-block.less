@@ -24,20 +24,19 @@
   float: right;
   color: @leeroyWhite;
 
-  // .hamburger-inner {
-  //   &, &::before, &::after {
-  //     .fadeInTransition(0.5s);
-  //     background-color: @leeroyWhite;
-  //   }
-  // }
-  //
-  // &:hover {
-  //   .hamburger-inner {
-  //     &, &::before, &::after {
-  //       background-color: @leeroyGold;
-  //     }
-  //   }
-  // }
+  .hamburger-inner {
+    &, &::before, &::after {
+      background-color: @leeroyWhite;
+    }
+  }
+
+  &:hover {
+    .hamburger-inner {
+      &, &::before, &::after {
+        background-color: @leeroyWhite;
+      }
+    }
+  }
 }
 
 // Index section
@@ -65,18 +64,6 @@
 .m-informationPageBottomContent {
   padding-left: 15px;
   padding-right: 15px;
-}
-
-.m-informationPageColBottomContent {
-  &:nth-child(1) {
-    padding-left: 15px;
-    padding-right: 100px;
-  }
-
-  &:nth-child(2) {
-    padding-left: 100px;
-    padding-right: 15px;
-  }
 }
 
 // About
@@ -114,10 +101,15 @@
 .m-aboutTeamCellContent {
   .backgroundPosition;
   padding-bottom: 125%;
-  padding-left: 15px;
-  padding-right: 15px;
   width: 100%;
   background-color: @leeroyPurple;
+}
+
+.m-aboutTeamCellInfo {
+  position: absolute;
+  bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .m-aboutContactContent {
@@ -125,6 +117,12 @@
   padding-right: 15px;
   padding-top: 60px;
   position: relative;
+}
+
+
+// NEW ABOUT
+.m-aboutTextContent,
+.m-aboutTextColumnContent {
 }
 
 // Footer
@@ -155,15 +153,6 @@
   background-color: @pureWhite;
 }
 
-.m-knowledgeHubCell {
-  .backgroundPosition;
-  margin-bottom: 15px;
-  color: @leeroyWhite;
-  border: 1px solid #d5d5d5;
-  border-radius: 2px;
-  box-shadow: 0 3px 3px 0 rgba(233, 233, 233, 0.5);
-}
-
 .m-knowledgehubCellInfo {
   font-size: 14px;
   margin: 0;
@@ -182,6 +171,11 @@
   padding-right: 50px;
 }
 
+.m-knowledgeHubMenuDropdownList {
+  margin: 0;
+  padding: 0;
+}
+
 // Knowledge hub single post
 // -----------------------
 
@@ -197,12 +191,16 @@
 }
 
 .m-singlePostContent {
-  line-height: 1.6;
-
+  font-size: 17px;
 }
 
 .m-singlePostTags {
   margin-top: 40px;
+}
+
+.m-singlePostContentImage {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 // Knowledge hub single post author
@@ -214,7 +212,6 @@
 
 .m-postAuthorContent {
 }
-
 
 // Knowledge hub single post share icons
 .m-singlePostShareList {
@@ -236,7 +233,6 @@
 // Globals
 // -----------------------
 
-
 .m-indexSectionItemCell {
   text-align: center;
   margin-top: 100px;
@@ -245,7 +241,6 @@
   padding-right: 15px;
 }
 
-.m-mobileIndexSectionItemCell {
+.m-mobileIndexSectionItemCells {
   margin-top: 20px;
-  margin-bottom: 30px;
 }

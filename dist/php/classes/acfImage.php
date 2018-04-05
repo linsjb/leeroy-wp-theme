@@ -53,8 +53,9 @@ class AcfImage {
   */
   function setObject($setObjName, $setObjCell = null) {
     $this->objectName = $setObjName;
+    $this->objectIndex = $setObjCell;
 
-    if($setObjCell == null) {
+    if($this->objectIndex == null) {
       if($this->subfield) {
         if($this->postpage) {
           $this->imageObject = get_sub_field($this->objectName, get_option('page_for_posts'));
@@ -71,15 +72,15 @@ class AcfImage {
     } else {
       if($this->subfield) {
         if($this->postpage) {
-          $this->imageObject = get_sub_field($this->objectName, get_option('page_for_posts'))[$setObjCell];
+          $this->imageObject = get_sub_field($this->objectName, get_option('page_for_posts'))[$this->objectIndex];
         } else {
-          $this->imageObject = get_sub_field($this->objectName)[$setObjCell];
+          $this->imageObject = get_sub_field($this->objectName)[$this->objectIndex];
         }
       } else {
         if($this->postpage) {
-          $this->imageObject = get_field($this->objectName, get_option('page_for_posts'))[$setObjCell];
+          $this->imageObject = get_field($this->objectName, get_option('page_for_posts'))[$this->objectIndex];
         } else {
-          $this->imageObject = get_field($this->objectName)[$setObjCell];
+          $this->imageObject = get_field($this->objectName)[$this->objectIndex];
         }
       }
     }
@@ -140,4 +141,5 @@ class AcfImage {
   private $postpage = false;
   private $classes = null;
   private $altText;
+  private $objectIndex;
 }

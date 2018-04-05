@@ -108,10 +108,8 @@
   height: 60px;
 }
 
-.a-aboutPageTeam__header {
-  text-align: center;
-  font-size: 30px;
-  color: @leeroyWhite;
+.a-aboutPageSection__header {
+  font-size: 35px;
   margin-bottom: 55px;
 }
 
@@ -139,18 +137,16 @@
 }
 
 .a-aboutTeam__name {
-  position: absolute;
-  bottom: 8%;
   color: @leeroyWhite;
   font-family: 'FreightDispProSemibold-Regular';
   font-size: 18px;
+  margin: 0;
 }
 
 .a-aboutTeam__position {
-  position: absolute;
-  bottom: 0;
   color: @leeroyWhite;
   font-size: 16px;
+  margin: 0;
 }
 
 // Knowledge hub
@@ -158,7 +154,6 @@
 
 .a-knowledgeHubCell__title,
 .a-knowledgeHubCell__caseTitle  {
-  font-size: 25px;
   margin: 0;
   padding: 0;
   margin-bottom: 5px;
@@ -176,6 +171,26 @@
 .a-knowledgeHubCell__author {
 }
 
+.a-knowledgeHubMenuDropdownTitle {
+
+}
+
+.a-knowledgehubMenuDropdownItem {
+  display: inline-block;
+  list-style: none;
+  margin-right: 5px;
+
+  a {
+    color: @leeroyWhite;
+    display: block;
+    padding: 20px 10px;
+
+    &:hover {
+      .fadeInTransition(.2s);
+      color: @leeroyGold;
+    }
+  }
+}
 
 // Knowlede hub single post
 // -----------------------
@@ -209,8 +224,13 @@
 .a-singlePostContent__image {
   width: 100%;
   height: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
+}
+
+.a-singlePotContent__imageDesc {
+  margin: 0;
+  font-size: 14px;
+  color: @leeroyBlack;
+  opacity: .7;
 }
 
 .a-singlePostContent__quote {
@@ -398,7 +418,15 @@
   color: @leeroyWhite;
 }
 
-.a-contactForm__icon {
+.a-headerNav__loginButton {
+  a {
+    .btnOutline;
+    padding: 10px 20px !important;
+    font-family: 'proxima_novaregular';
+  }
+}
+
+.a-aboutForm__icon {
   position: absolute;
   width: 80px;
   height: 80px;
@@ -441,6 +469,11 @@
 .a-indexSectionItemCell__content {
   font-size: 16px;
   text-align: center;
+
+  p:last-child {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .a-mobileIndexSectionItemCell__icon {

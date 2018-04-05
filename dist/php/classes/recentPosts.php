@@ -2,14 +2,15 @@
 
 /**
 * Create a list of recent post's.
+* By default the standard Wordpress post's is the post type.
+*
+* this can be changed with the setPostType() method.
 */
 class RecentPosts {
   /**
   * initialize the class.
   */
   function init() {
-    $orderBy = 'date';
-
     switch($this->orderAfter) {
       case 'date':
         $orderBy = 'date';
@@ -34,26 +35,28 @@ class RecentPosts {
       case 'none':
       $orderBy = 'none';
         break;
+
+      default:
+        $orderBy = 'date';
+        break;
     }
 
     $args = array(
-      'numberposts'       => $this->numberOfItems,
-      'offset'            => 0,
-      'category'          => 0,
-      'orderby'           => $orderBy,
-      'order'             => $this->sortingDirection,
-      'include'           => '',
-      'exclude'           => '',
-      'meta_key'          => '',
-      'meta_value'        =>'',
-      'post_type'         => $this->postType,
-      'post_status'       => 'publish',
-      'suppress_filters'  => true
+      'numberposts' => $this->numberOfItems,
+      'orderby'     => $orderBy,
+      'order'       => $this->sortingDirection,
+      'post_type'   => $this->postType
     );
 
     $this->recentPosts = wp_get_recent_posts($args);
 
     echo '<' . $this->containerType . ' class="' . $this->containerClasses . '">';
+      if($this->listTitle != null) {
+        echo '<' . $this->titleElementType . ' class="' . $this->titleClasses . '">';
+          echo $this->listTitle;
+        echo '</' . $this->titleElementType . '>';
+      }
+
       foreach ($this->recentPosts as $recentPost) {
         echo '<' . $this->elementType . ' class="' . $this->elementClasses . '">';
           echo '<a href="' . get_permalink($recentPost['ID']) . '">';
@@ -110,8 +113,8 @@ class RecentPosts {
   * Define the direction of the list.
   *
   * ## Avaliable options
-  * DESC
-  * ASC
+  * - DESC
+  * - ASC
   */
   function setSortingDirection($setSortingDirection) {
     $this->sortingDirection = $setSortingDirection;
@@ -119,24 +122,6 @@ class RecentPosts {
 
   /**
   * What kind of post the list is going to be sorted after.
-  *
-  * Default order is **post**.
-  *
-  * ## Avaliable post types
-  *
-  * - date
-  * - author
-  * - title
-  * - modified
-  * - random
-  * - none
-  */
-  function setOrderAfter($setOrder) {
-    $this->orderAfter = $setOrder;
-  }
-
-  /**
-  * Define what post type that is going to be listed.
   *
   * ## Avaliable sortings
   *
@@ -147,10 +132,46 @@ class RecentPosts {
   * - random
   * - none
   *
-  * Default post type is **date**.
+  * Default order is **date**.
+  */
+  function setOrderAfter($setOrder) {
+    $this->orderAfter = $setOrder;
+  }
+
+  /**
+  * Define which post type that is going to be listed.
+  *
+  * The default post type is **WP post**.
+  *
+  * If a custom post type is created, this can be listed with this class.
   */
   function setPostType($setPType) {
     $this->postType = $setPType;
+  }
+
+  /**
+  * Define a title for the list if this is needed.
+  *
+  * Default the list does not house a title.
+  */
+  function setTitle($setListTitle) {
+    $this->listTitle = $setListTitle;
+  }
+
+  /**
+  * Set the type of element that the title is going to have.
+  *
+  * Default this element is *span*.
+  */
+  function setTitleElementType($setTitleElemType) {
+    $this->titleElementType = $setTitleElemType;
+  }
+
+  /**
+  * Set the class/classes for the title.
+  */
+  function setTitleClasses($setListTitleClasses) {
+    $this->titleClasses = $setListTitleClasses;
   }
 
   private $elementType = 'li';
@@ -162,4 +183,7 @@ class RecentPosts {
   private $sortingDirection = 'DESC';
   private $orderAfter;
   private $postType = 'post';
+  private $listTitle = null;
+  private $titleElementType = 'span';
+  private $titleClasses = '';
 }

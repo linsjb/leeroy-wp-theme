@@ -8,78 +8,6 @@ $query = new WP_Query($args);
 if($query->have_posts()):
   while ($query->have_posts()):
     $query->the_post();
-
-    // Alignment of post title
-    switch(get_field('acfIndSecTitlePref')['alignment']) {
-      case 'left':
-        $titleAlignment = 'a-indexSectionContent__title--left';
-        break;
-
-      case 'center':
-        $titleAlignment = 'a-indexSectionContent__title--center';
-        break;
-
-      case 'right':
-        $titleAlignment = 'a-indexSectionContent__title--right';
-        break;
-    }
-
-    // color of post title
-    switch(get_field('acfIndSecTitlePref')['color']) {
-      case 'black':
-        $titleColor = 'a-textColor--black';
-        break;
-
-      case 'purple':
-        $titleColor = 'a-textColor--purple';
-        break;
-
-      case 'white':
-        $titleColor = 'a-textColor--white';
-        break;
-
-      case 'blue':
-        $titleColor = 'a-textColor--blue';
-        break;
-
-      case 'gold':
-        $titleColor = 'a-textColor--gold';
-        break;
-
-      default:
-        $titleColor = 'a-textColor--black';
-        break;
-    }
-
-    // Color of content text
-    switch(get_field('acfIndSecContPref')['color']) {
-      case 'black':
-        $contentTextColor = 'a-textColor--black';
-        break;
-
-      case 'purple':
-        $contentTextColor = 'a-textColor--purple';
-        break;
-
-      case 'white':
-        $contentTextColor = 'a-textColor--white';
-        break;
-
-      case 'blue':
-        $contentTextColor = 'a-textColor--blue';
-        break;
-
-      case 'gold':
-        $contentTextColor = 'a-textColor--gold';
-        break;
-
-      default:
-        $contentTextColor = 'a-textColor--black';
-        break;
-    }
-
-
-
     $title = new wpContent;
     $title->setContent('title');
 
@@ -92,8 +20,7 @@ if($query->have_posts()):
       $sectionContentClass  ='o-indexSectionContent';
     }
 ?>
-
-    <div class="<?= $sectionParentClass . ' ' . $contentTextColor; ?> col-xs-100" style="<?= pageBackgroundType(); ?>">
+    <div class="<?= $sectionParentClass . ' ' . acfButtonGroup('textColor', 'acfIndSecContPref', 'color'); ?> col-xs-100" style="<?= pageBackgroundType(); ?>">
         <?php pageBackgroundTone() ?>
         <div class="container <?= $sectionContentClass ?>">
           <?php
@@ -113,7 +40,7 @@ if($query->have_posts()):
             // If the content is content. I.e everything accept top content
           } else {
             $title->setElementType('h2');
-            $title->setClasses('a-indexSectionContent__title ' . $titleAlignment . ' ' . $titleColor);
+            $title->setClasses('a-indexSectionContent__title ' . acfButtonGroup('textAlignment', 'acfIndSecTitlePref', 'alignment') . ' ' . acfButtonGroup('textColor', 'acfIndSecTitlePref', 'color'));
             $title->init();
             if(have_rows('acfIndSecContent')) {
               while(have_rows('acfIndSecContent')) {
@@ -121,13 +48,13 @@ if($query->have_posts()):
 
                 switch(get_row_layout()) {
                   case 'acfIndSecText':
-                  $content = new AcfText;
-                  $content->useSubfield();
-                  $content->setObject('acfIndSecTextField');
-                  $content->setElementType('div');
-                  $content->setClasses('m-indexSectionContentText');
-                  $content->init();
-                  break;
+                    $content = new AcfText;
+                    $content->useSubfield();
+                    $content->setObject('acfIndSecTextField');
+                    $content->setElementType('div');
+                    $content->setClasses('m-indexSectionContentText');
+                    $content->init();
+                    break;
 
                   case 'acfIndSecImage':
                     $desktopImage = new AcfImage;
@@ -159,17 +86,18 @@ if($query->have_posts()):
                     $contactIcon->useSubfield();
                     $contactIcon->setObject('acfIndSecContIcon');
                     $contactIcon->useElement();
-                    $contactIcon->setClasses('a-contactForm__icon');
+                    $contactIcon->setClasses('a-aboutForm__icon');
                     $contactIcon->init();
                     break;
 
                   case 'acfIndSecBlogPosts':
                     $postsArgs = array(
-                      'numberposts' => -1,
+                      'numberposts' => 5,
                       'post_type'  => 'post',
                       'meta_key' => 'acfKnowHubPostCaseShow',
                       'meta_value' => true
                     );
+
                     $postsQuery = new WP_Query($postsArgs);
                     if($postsQuery->have_posts()) {
                       $counter = 0;

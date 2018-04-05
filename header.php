@@ -7,7 +7,7 @@
     wp_head();
     $navigation = new Navigation();
     $navigation->setLocation('masterMenu');
-    $navigation->setContainerClasses('m-header__nav m-header__nav--lightTextColour pull-right col-md-80');
+    $navigation->setContainerClasses('m-header__nav pull-right col-md-80');
 
     $mobileNavigation = new Navigation();
     $mobileNavigation->setLocation('mobileMasterMenu');
@@ -25,5 +25,9 @@
   </head>
   <body>
     <div class="container-fluid">
-      <?php include "headerDesktop.php" ?>
-      <?php include "headerMobile.php" ?>
+      <?php
+      if(!is_404()) {
+        include "headerDesktop.php";
+        include "headerMobile.php";
+      }
+      ?>

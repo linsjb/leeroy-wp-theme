@@ -2,13 +2,25 @@
   position: fixed;
 }
 #menu-mastermenu .current-menu-item > a {
-  font-weight: bold !important;
+  font-weight: bolder !important;
 }
 #menu-mobilemastermenu .current-menu-item > a {
   color: #FDFDFD !important;
 }
 .container-fluid {
   padding: 0;
+}
+.visible {
+  visibility: hidden;
+}
+.display {
+  display: inline !important;
+}
+.activeKnowHubMenu {
+  color: #0B4F6C !important;
+}
+.activeKnowHubMenu:after {
+  background-image: url('images/arrowBlue.svg') !important;
 }
 body {
   padding: 0px;
@@ -18,6 +30,7 @@ p,
 a,
 span {
   font-family: 'proxima_novaregular';
+  line-height: 1.6;
 }
 h1 {
   font-family: 'FreightDispProLight-Regular';
@@ -41,6 +54,10 @@ h4 {
   font-weight: normal;
   font-style: normal;
 }
+.container {
+  padding-left: 25px;
+  padding-right: 25px;
+}
 .verticalAlign {
   position: relative;
   top: 50%;
@@ -62,7 +79,7 @@ h4 {
   border-style: solid;
   border-width: 2px;
   border-color: #FDFDFD;
-  padding: 10px 20px;
+  padding: 10px 0;
 }
 /*
 * Filename: o-block.less
@@ -95,12 +112,20 @@ h4 {
   padding-top: 100px;
   padding-left: 25px;
   padding-right: 25px;
+  -moz-animation-duration: .5s;
+  -o-animation-duration: .5s;
+  -webkit-animation-duration: .5s;
+}
+.test {
+  visibility: visible;
+}
+.o-indexSection {
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 .o-indexSectionContent {
-  padding-top: 80px;
   padding-left: 25px;
   padding-right: 25px;
-  padding-bottom: 40px;
 }
 .o-indexSectionContent .caldera-grid {
   padding-top: 30px;
@@ -122,7 +147,7 @@ h4 {
   padding: 0px;
 }
 .o-informationPageBottom {
-  font-size: 16px;
+  font-size: 17px;
   padding-bottom: 120px;
   padding-top: 60px;
 }
@@ -137,6 +162,14 @@ h4 {
 .o-aboutContact {
   padding-bottom: 50px;
 }
+.o-aboutPage {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.o-aboutPageContent {
+  padding-left: 25px;
+  padding-right: 25px;
+}
 .o-footer {
   background-color: #2F2F2F;
   padding-bottom: 100px;
@@ -146,53 +179,74 @@ h4 {
   padding-bottom: 30px;
   background-color: #FDFDFD;
 }
-.o-knowledgeHubCellContent {
-  padding: 10px;
-  position: absolute;
-  bottom: 0;
-}
 .o-knowledgeHubMenu {
   text-align: center;
   border-bottom: 1px solid #cfcfcf;
+  z-index: 1;
+}
+.o-knowledgeHubMenuDropdown {
+  background-color: #0B4F6C;
+  display: none;
+  z-index: 2;
+  -webkit-animation-duration: 0.2s;
+  padding: 5px 0;
+  color: #FDFDFD;
+  font-size: 14px;
+}
+.o-knowledgeHubMenuDropdown span {
+  margin-right: 25px;
 }
 .o-knowledgeHubGrid {
   margin-top: 120px;
   margin-bottom: 80px;
 }
-.o-knowledgeHubMenuDropdown {
-  height: 65px;
-  background-color: #0B4F6C;
-  display: none;
+.o-knowledgeHubCell {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 15px;
+  color: #FDFDFD;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-shadow: 0 3px 3px 0 rgba(233, 233, 233, 0.5);
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+}
+.o-knowledgeHubCellContent {
+  margin-top: auto;
+  padding: 10px;
 }
 .o-knowledgeHubContent {
   margin-top: 40px;
 }
 .o-singlePost {
   padding-top: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 80px;
   background-color: #FDFDFD;
-  margin-bottom: 30px;
   color: #2F2F2F;
   font-size: 16px;
 }
-.visible {
-  visibility: visible;
+.o-error404 {
+  text-align: center;
+  background-color: #ededed;
+  height: 100vh;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.o-error404Content {
+  padding: 25px;
 }
 /*
 * Filename: o-element.less
 * Description: Organism elements in ABEM CSS method
 * Author: Linus Sjöbro
 */
-.o-headerNav__loginButton {
-  border-radius: 8px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #FDFDFD;
-  padding: 10px 20px;
-}
-.o-headerNav__loginButton a {
-  font-family: 'proxima_novaregular';
-}
 /*
 * Filename: o-modifier.less
 * Description: Organism modifiers in ABEM CSS method
@@ -219,6 +273,16 @@ h4 {
   float: right;
   color: #FDFDFD;
 }
+.m-mobileHeaderMenuBtn .hamburger-inner,
+.m-mobileHeaderMenuBtn .hamburger-inner::before,
+.m-mobileHeaderMenuBtn .hamburger-inner::after {
+  background-color: #FDFDFD;
+}
+.m-mobileHeaderMenuBtn:hover .hamburger-inner,
+.m-mobileHeaderMenuBtn:hover .hamburger-inner::before,
+.m-mobileHeaderMenuBtn:hover .hamburger-inner::after {
+  background-color: #FDFDFD;
+}
 .m-indexSectionContentText {
   padding-top: 80px;
 }
@@ -234,14 +298,6 @@ h4 {
 }
 .m-informationPageBottomContent {
   padding-left: 15px;
-  padding-right: 15px;
-}
-.m-informationPageColBottomContent:nth-child(1) {
-  padding-left: 15px;
-  padding-right: 100px;
-}
-.m-informationPageColBottomContent:nth-child(2) {
-  padding-left: 100px;
   padding-right: 15px;
 }
 .m-aboutTimelineContent {
@@ -268,10 +324,14 @@ h4 {
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 125%;
-  padding-left: 15px;
-  padding-right: 15px;
   width: 100%;
   background-color: #442D5E;
+}
+.m-aboutTeamCellInfo {
+  position: absolute;
+  bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .m-aboutContactContent {
   padding-left: 15px;
@@ -294,16 +354,6 @@ h4 {
   margin-bottom: 40px;
   background-color: #ffffff;
 }
-.m-knowledgeHubCell {
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-bottom: 15px;
-  color: #FDFDFD;
-  border: 1px solid #d5d5d5;
-  border-radius: 2px;
-  box-shadow: 0 3px 3px 0 rgba(233, 233, 233, 0.5);
-}
 .m-knowledgehubCellInfo {
   font-size: 14px;
   margin: 0;
@@ -322,6 +372,10 @@ h4 {
   padding-left: 50px;
   padding-right: 50px;
 }
+.m-knowledgeHubMenuDropdownList {
+  margin: 0;
+  padding: 0;
+}
 .m-singlePostLeftColumn {
   height: auto;
   text-align: center;
@@ -331,10 +385,14 @@ h4 {
   padding-right: 15px;
 }
 .m-singlePostContent {
-  line-height: 1.6;
+  font-size: 17px;
 }
 .m-singlePostTags {
   margin-top: 40px;
+}
+.m-singlePostContentImage {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 .m-postAuthor {
   margin-top: 50px;
@@ -357,9 +415,8 @@ h4 {
   padding-left: 15px;
   padding-right: 15px;
 }
-.m-mobileIndexSectionItemCell {
+.m-mobileIndexSectionItemCells {
   margin-top: 20px;
-  margin-bottom: 30px;
 }
 /*
 * Filename: m-element.less
@@ -383,9 +440,10 @@ h4 {
 .m-header__nav ul li {
   list-style: none;
   display: inline;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .m-header__nav ul li a {
+  color: #FDFDFD;
   text-decoration: none;
   font-size: 16px;
   text-align: left;
@@ -397,6 +455,7 @@ h4 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 0.2s;
   -o-transition-timing-function: ease-in-out;
+  padding: 10px 20px;
 }
 .m-header__nav ul li a:hover {
   color: #C9AD74;
@@ -476,9 +535,10 @@ h4 {
   padding: 0;
 }
 .m-knowledgeHubMenu__nav ul li {
+  padding: 20px 10px;
   list-style: none;
   display: inline-block;
-  margin: 35px 25px;
+  margin: 10px 15px;
   font-size: 14px;
   text-decoration: none;
   font-family: 'proxima_novabold';
@@ -525,6 +585,37 @@ h4 {
   margin: 0;
   padding: 0;
 }
+.m-error404__image {
+  width: 100%;
+  max-width: 500px;
+}
+.m-error404__text {
+  color: #2F2F2F;
+  font-size: 30px;
+  font-family: 'proxima_novabold';
+}
+.m-error404__button {
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition: 0.2s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition: 0.2s;
+  -o-transition-timing-function: ease-in-out;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'proxima_novabold';
+  color: #2F2F2F;
+  padding: 15px 20px;
+  border: 4px solid;
+  border-color: #2F2F2F;
+  border-radius: 46px;
+}
+.m-error404__button:hover {
+  color: #C9AD74;
+  border-color: #C9AD74;
+}
 /*
 * Filename: m-modifier.less
 * Description: Molecule modifiers in ABEM CSS method
@@ -533,8 +624,10 @@ h4 {
 .m-header__nav--darkTextColor ul li a {
   color: #424242;
 }
-.m-header__nav--lightTextColour ul li a {
-  color: #FDFDFD;
+.m-mobileHeaderMenuBtn--darkColor .hamburger-inner,
+.m-mobileHeaderMenuBtn--darkColor .hamburger-inner::before,
+.m-mobileHeaderMenuBtn--darkColor .hamburger-inner::after {
+  background-color: #2F2F2F;
 }
 /*
 * Filename: a-block.less
@@ -557,6 +650,10 @@ h4 {
   top: 0;
   width: 100%;
   height: 100%;
+}
+.a-aboutOfficesInfo p:last-child {
+  margin: 0;
+  padding: 0;
 }
 /*
 * Filename: a-element.less
@@ -637,10 +734,8 @@ h4 {
   width: 60px;
   height: 60px;
 }
-.a-aboutPageTeam__header {
-  text-align: center;
-  font-size: 30px;
-  color: #FDFDFD;
+.a-aboutPageSection__header {
+  font-size: 35px;
   margin-bottom: 55px;
 }
 .a-aboutContact__header {
@@ -664,27 +759,45 @@ h4 {
   text-align: center;
 }
 .a-aboutTeam__name {
-  position: absolute;
-  bottom: 8%;
   color: #FDFDFD;
   font-family: 'FreightDispProSemibold-Regular';
   font-size: 18px;
+  margin: 0;
 }
 .a-aboutTeam__position {
-  position: absolute;
-  bottom: 0;
   color: #FDFDFD;
   font-size: 16px;
+  margin: 0;
 }
 .a-knowledgeHubCell__title,
 .a-knowledgeHubCell__caseTitle {
-  font-size: 25px;
   margin: 0;
   padding: 0;
   margin-bottom: 5px;
 }
 .a-knowledgeHubCell__caseTitle:before {
   content: 'Case: ';
+}
+.a-knowledgehubMenuDropdownItem {
+  display: inline-block;
+  list-style: none;
+  margin-right: 5px;
+}
+.a-knowledgehubMenuDropdownItem a {
+  color: #FDFDFD;
+  display: block;
+  padding: 20px 10px;
+}
+.a-knowledgehubMenuDropdownItem a:hover {
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition: 0.2s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition: 0.2s;
+  -o-transition-timing-function: ease-in-out;
+  color: #C9AD74;
 }
 .a-singlePost__title,
 .a-singlePost__caseTitle {
@@ -709,8 +822,12 @@ h4 {
 .a-singlePostContent__image {
   width: 100%;
   height: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
+}
+.a-singlePotContent__imageDesc {
+  margin: 0;
+  font-size: 14px;
+  color: #2F2F2F;
+  opacity: .7;
 }
 .a-singlePostContent__quote {
   font-size: 25px;
@@ -876,7 +993,16 @@ h4 {
   background-color: #442D5E;
   color: #FDFDFD;
 }
-.a-contactForm__icon {
+.a-headerNav__loginButton a {
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #FDFDFD;
+  padding: 10px 0;
+  padding: 10px 20px !important;
+  font-family: 'proxima_novaregular';
+}
+.a-aboutForm__icon {
   position: absolute;
   width: 80px;
   height: 80px;
@@ -913,6 +1039,10 @@ h4 {
   font-size: 16px;
   text-align: center;
 }
+.a-indexSectionItemCell__content p:last-child {
+  margin: 0;
+  padding: 0;
+}
 .a-mobileIndexSectionItemCell__icon {
   height: 100px;
   margin-bottom: 30px;
@@ -922,13 +1052,13 @@ h4 {
 * Description: Atom modifiers in ABEM CSS method
 * Author: Linus Sjöbro
 */
-.a-indexSectionContent__title--left {
+.a-title--left {
   text-align: left;
 }
-.a-indexSectionContent__title--center {
+.a-title--center {
   text-align: center;
 }
-.a-indexSectionContent__title--right {
+.a-title--right {
   text-align: right;
 }
 .a-textColor--black {
@@ -946,13 +1076,13 @@ h4 {
 .a-textColor--gold {
   color: #C9AD74;
 }
-.a-backgroundolor--black {
+.a-backgroundColor--black {
   background-color: #2F2F2F;
 }
-.a-backgroundlor--purple {
+.a-backgroundColor--purple {
   background-color: #442D5E;
 }
-.a-backgroundolor--white {
+.a-backgroundColor--white {
   background-color: #FDFDFD;
 }
 .a-backgroundColor--blue {
@@ -960,6 +1090,29 @@ h4 {
 }
 .a-backgroundColor--gold {
   background-color: #C9AD74;
+}
+.a-fontSize--20 {
+  font-size: 20px;
+}
+.a-fontSize--25 {
+  font-size: 25px;
+}
+.a-fontSize--30 {
+  font-size: 30px;
+}
+.a-fontSize--35 {
+  font-size: 35px;
+}
+.a-fontSize--40 {
+  font-size: 40px;
+}
+.a-knowledgeHubCell__title--fontSize25 {
+  font-size: 25px;
+}
+.a-knowledgeHubCell__title--fontSize45 {
+  font-size: 45px;
+  line-height: 1.3;
+  margin-bottom: 20px;
 }
 .owl-dots {
   padding-top: 30px;
@@ -997,7 +1150,7 @@ h4 {
   .a-footerNav__title {
     margin-bottom: 15px;
   }
-  .a-contactForm__icon {
+  .a-aboutForm__icon {
     bottom: 15px;
     left: 15px;
     width: 50px;
@@ -1023,9 +1176,13 @@ h4 {
   .m-postAuthorInfo {
     margin-top: 25px;
   }
+  .o-informationPageBottomContent {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 }
 @media screen and (min-width: 768px) {
-  .a-contactForm__icon {
+  .a-aboutForm__icon {
     top: 110px;
     right: 90px;
   }
@@ -1038,6 +1195,20 @@ h4 {
   }
   .a-knowledgeHubPostImage {
     height: 100%;
+  }
+  .m-aboutTextColumnContent:nth-child(1) {
+    padding-right: 50px;
+  }
+  .m-aboutTextColumnContent:nth-child(2) {
+    padding-left: 50px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .m-aboutTextColumnContent:nth-child(1) {
+    padding-right: 100px;
+  }
+  .m-aboutTextColumnContent:nth-child(2) {
+    padding-left: 100px;
   }
 }
 .red {

@@ -40,19 +40,28 @@
   padding-top: 100px;
   padding-left: 25px;
   padding-right: 25px;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  -o-animation-duration: .5s;
+  -webkit-animation-duration: .5s;
+
+}
+
+.test {
+  visibility: visible;
 }
 
 // Index section
 // -----------------------
 
 .o-indexSection {
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .o-indexSectionContent {
-  padding-top: 80px;
   padding-left: 25px;
   padding-right: 25px;
-  padding-bottom: 40px;
 
   .caldera-grid {
     padding-top: 30px;
@@ -82,7 +91,7 @@
 }
 
 .o-informationPageBottom {
-  font-size: 16px;
+  font-size: 17px;
   padding-bottom: 120px;
   padding-top: 60px;
 }
@@ -104,6 +113,19 @@
   padding-bottom: 50px;
 }
 
+// About
+// -----------------------
+
+.o-aboutPage {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.o-aboutPageContent {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 // Footer
 // -----------------------
 
@@ -121,15 +143,27 @@
   background-color: @leeroyWhite;
 }
 
-.o-knowledgeHubCellContent {
-  padding: 10px;
-  position: absolute;
-  bottom: 0;
-}
-
 .o-knowledgeHubMenu {
   text-align: center;
   border-bottom: 1px solid #cfcfcf;
+  z-index: 1;
+}
+
+.o-knowledgeHubMenuContent {
+}
+
+.o-knowledgeHubMenuDropdown {
+  background-color: @leeroyBlue;
+  display: none;
+  z-index: 2;
+  -webkit-animation-duration: 0.2s;
+  padding: 5px 0;
+  color: @leeroyWhite;
+  font-size: 14px;
+
+  span {
+    margin-right: 25px;
+  }
 }
 
 .o-knowledgeHubGrid {
@@ -137,33 +171,60 @@
   margin-bottom: 80px;
 }
 
-.o-knowledgeHubIndexGrid {
+.o-knowledgeHubCell {
+ .backgroundPosition;
+  margin-bottom: 15px;
+  color: @leeroyWhite;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-shadow: 0 3px 3px 0 rgba(233, 233, 233, 0.5);
 
+  // We do this to be able to bottom align the content div
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
 }
 
-.o-knowledgeHubMenuDropdown {
-  height: 65px;
-  background-color: @leeroyBlue;
-  display: none;
+.o-knowledgeHubCellContent {
+  margin-top: auto; // A flex way to bottom align the element
+  padding: 10px;
+}
+
+.o-knowledgeHubIndexGrid {
+
 }
 
 .o-knowledgeHubContent {
   margin-top: 40px;
 }
 
-
 // Knowledge hub single post
 // -----------------------
 
 .o-singlePost {
   padding-top: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 80px;
   background-color: @leeroyWhite;
-  margin-bottom: 30px;
   color: @leeroyBlack;
   font-size: 16px;
 }
 
-.visible {
-  visibility: visible;
+// Error 404
+// -----------------------
+
+.o-error404 {
+  text-align: center;
+  background-color: #ededed;
+  height: 100vh;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.o-error404Content {
+  padding: 25px;
 }

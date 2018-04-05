@@ -7,16 +7,16 @@
   </div>
 
   <div class="m-mobileHeaderMenuBtn">
-    <div id="mobileNav" class="hamburger hamburger--collapse">
+    <div id="mobileNavBtn" class="hamburger hamburger--collapse">
       <div class="hamburger-box">
-        <div class="hamburger-inner"></div>
+        <div class="hamburger-inner red"></div>
       </div>
     </div>
   <!-- .m-mobileHeaderMenuBtn -->
   </div>
 </header>
 
-<div id="mobileHeaderMenu" class="o-mobileHeaderMenu col-xs-100 hidden-sm hidden-md hidden-lg">
+<div id="mobileHeaderMenu" class="o-mobileHeaderMenu animated col-xs-100 hidden-sm hidden-md hidden-lg">
   <?php $mobileNavigation->init() ?>
   <!-- .o-mobileHeaderMenu -->
 </div>

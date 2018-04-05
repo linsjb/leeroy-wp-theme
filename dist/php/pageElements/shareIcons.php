@@ -4,7 +4,7 @@ function shareIcons() {
   <ul class="m-singlePostShareList">
     <!-- Facebook icon -->
     <li class="a-singlePostShareList__item">
-      <a href="#" class="a-singlePostShare__link a-singlePostShare__facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink() ?>" class="a-singlePostShare__link a-singlePostShare__facebook">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
           <style type="text/css">
             .svgCircle{fill:none;stroke-width:1.5;}
@@ -38,7 +38,7 @@ function shareIcons() {
 
     <!-- LinkedIn icon -->
     <li class="a-singlePostShareList__item">
-      <a href="#" class="a-singlePostShare__link a-singlePostShare__linkedin">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= get_permalink() ?>e&title=<?= get_the_title() ?>&summary=&source=leeroy.se" class="a-singlePostShare__link a-singlePostShare__linkedin">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
           <style type="text/css">
           .svgCircle{fill:none;stroke-width:1.5;}
@@ -56,7 +56,7 @@ function shareIcons() {
 
     <!-- Google+ icon -->
     <li class="a-singlePostShareList__item">
-      <a href="#" class="a-singlePostShare__link a-singlePostShare__google">
+      <a href="https://plus.google.com/share?url=https://leeroy.se/knowledge-hub/<?= get_the_title() ?>" class="a-singlePostShare__link a-singlePostShare__google">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
           <style type="text/css">
           .svgCircle{fill:none;stroke-width:1.5;}

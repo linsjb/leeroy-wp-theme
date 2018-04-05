@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['user',['User',['../class_user.html',1,'']]]
+  ['taxonomy',['Taxonomy',['../class_taxonomy.html',1,'']]]
 ];

@@ -70,123 +70,185 @@
 "use strict";
 
 
-var _svgColor = __webpack_require__(1);
+var _header = __webpack_require__(1);
+
+var _header2 = _interopRequireDefault(_header);
+
+var _knowledgehub = __webpack_require__(3);
+
+var knowledgehub = _interopRequireWildcard(_knowledgehub);
+
+var _utils = __webpack_require__(4);
+
+var utils = _interopRequireWildcard(_utils);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.onload = function () {
-  (function ($) {
+  (0, _header2.default)();
+  utils.postAuthor();
+  utils.indexCardCarousel();
+};
 
-    var headerLogo = new _svgColor.SvgColor();
-    var headerElement = void 0;
-    var headerNavElement = void 0;
-
-    if (window.innerWidth > 768) {
-      headerElement = $('.o-header');
-      headerNavElement = $('.m-header__nav');
-      headerLogo.setObject('desktopHeaderLogoObj');
-    } else if (window.innerWidth < 768) {
-      headerLogo.setObject('mobileHeaderLogoObj');
-      headerElement = $('.o-mobileHeader');
-      headerNavElement = $('.m-mobileHeader__nav');
-      // let headerNavElement = $('.m-mobileHeader__nav');
-    }
-    headerLogo.setSvgItems('a-leeroyLogo');
-    headerLogo.setColor('#FDFDFD');
-
-    // Mobile menu
-    var mobileHeaderNavigation = document.getElementById('mobileNav');
-    var mobileMenu = document.getElementById('mobileHeaderMenu');
-
-    var testa = true;
-
-    mobileHeaderNavigation.addEventListener('click', function () {
-      mobileMenu.classList.toggle('visible');
-      testa = !testa;
-
-      if (window.pageYOffset > 200) {
-        headerElement.toggleClass('o-header--background');
-      }
-      headerLogo.setColor('#FDFDFD');
-      if (testa) {
-        if (window.pageYOffset < 200) {
-          headerLogo.setColor('#FDFDFD');
-        } else {
-          headerLogo.setColor('#2F2F2F');
-        }
-      }
-    });
-
-    // Menu behaviour withing the scroll
-    window.addEventListener('scroll', function () {
-      if ($(this).scrollTop() > 200) {
-        if (testa) {
-          headerLogo.setColor('#2F2F2F');
-          headerElement.addClass('o-header--background');
-        }
-        if (window.innerWidth >= 768) {
-          headerNavElement.removeClass('m-header__nav--lightTextColour').addClass('m-header__nav--darkTextColor');
-        }
-      } else if ($(this).scrollTop() < 200) {
-        if (testa) {
-          headerLogo.setColor('#FDFDFD');
-          headerElement.removeClass('o-header--background');
-        }
-        if (window.innerWidth >= 768) {
-          headerNavElement.addClass('m-header__nav--lightTextColour').removeClass('m-header__nav--darkTextColor');
-        }
-      }
-    });
-
-    // Knowledge hub menu
-    var test = document.getElementsByClassName('test');
-    var testArray = [];
-    for (var i = 0; i < test.length; i++) {
-      testArray.push(test[i]);
-    }
-
-    var dropdown = document.getElementById('knowledgeHubDropdown');
-    var assignedId = void 0;
-
-    testArray.map(function (arr) {
-      arr.addEventListener('click', function () {
-        dropdown.classList.toggle('visible');
-      });
-    });
-
-    if ($(window).width() >= 768) {
-      var postAuthorHeight = $('#postAuthor').outerHeight(true);
-      var postAuthorDescriptionHeight = $('#postAuthorDesc').outerHeight(true);
-
-      var postAuthorContent = $('#postAuthorContent');
-      var postAuthorContentHeight = postAuthorContent.outerHeight(true);
-      postAuthorContent.css("margin-top", (postAuthorHeight - (postAuthorContentHeight + postAuthorDescriptionHeight)) / 2);
-    }
-  })(jQuery);
-}; /* global jQuery */
-
-
-jQuery(document).ready(function () {
-  jQuery(".owl-carousel").owlCarousel({
-    items: 1,
-    autoHeight: true
-  });
-
-  jQuery('.o-knowledgeHubGrid').masonry({
-    itemSelector: '.m-knowledgeHubCell',
-    percentPosition: true,
-    horizontalOrder: true,
-    gutter: 15
-  });
-});
-
-var knowledgeHubCells = document.getElementsByClassName('m-knowledgeHubCell');
-
-for (var i = 0; i < knowledgeHubCells.length; i++) {
-  var knowledgeHubCell = document.getElementById('cell-' + i);
-  knowledgeHubCell.style.height = knowledgeHubCell.getAttribute('data-imgprops') * knowledgeHubCell.offsetWidth + 'px';
-}
+knowledgehub.grid();
+knowledgehub.cellHeight();
+knowledgehub.menu();
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = headerBehaviour;
+
+var _svgColor = __webpack_require__(2);
+
+/*!
+* trert
+*/
+function headerBehaviour() {
+  (function ($) {
+    var _this = this;
+
+    var headerElement = void 0;
+    var navigationElement = void 0;
+
+    // Variable to control the behaiour of the logo.
+    // This is needed because of the mobile header.
+    var logoBehaviour = true;
+
+    var mobileMenuVisible = false;
+
+    var whiteColor = '#fdfdfd';
+    var blackColor = '#2f2f2f';
+
+    var mobileNavigationButton = document.getElementById('mobileNavBtn');
+    var mobileMenu = document.getElementById('mobileHeaderMenu');
+
+    // How far the user need's to scroll before magic happens.
+    var scrolloffset = 200;
+
+    var headerLogo = new _svgColor.SvgColor();
+
+    var animationEnds = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd';
+    /*
+    * What is the width of the browser?
+    * If the width if equal of greater than 768 (bootstrap col-sm), we will assign the variables the elements of the dektop header and menu.
+    * If the width is less than 768 (bootstrap col-xs), we will assign the variables the elements of the mobile header and menu.
+    */
+    if (window.innerWidth >= 768) {
+      headerElement = $('.o-header');
+      navigationElement = $('.m-header__nav');
+      headerLogo.setObject('desktopHeaderLogoObj');
+    } else if (window.innerWidth < 768) {
+      headerElement = $('.o-mobileHeader');
+      navigationElement = $('.m-mobileHeader__nav');
+      headerLogo.setObject('mobileHeaderLogoObj');
+    }
+
+    headerLogo.setSvgItems('a-leeroyLogo');
+    headerLogo.setColor(whiteColor);
+
+    mobileNavigationButton.addEventListener('click', function () {
+
+      $('#mobileNavBtn').toggleClass('is-active').addClass('test');
+
+      // Animate mobile menu to slide down/up
+      switch (mobileMenuVisible) {
+        case true:
+          $('#mobileHeaderMenu').addClass('slideOutUp').removeClass('slideInDown').one(animationEnds, function () {
+            $(_this).removeClass('test');
+          });
+          break;
+
+        case false:
+          $('#mobileHeaderMenu').addClass('slideInDown').removeClass('slideOutUp').addClass('test');
+          break;
+      }
+
+      logoBehaviour = !logoBehaviour;
+      headerLogo.setColor(whiteColor);
+      mobileMenuVisible = !mobileMenuVisible;
+
+      /*
+      * Have the user scrolled down more than 200 px?
+      * If it's the case. The header background is going to be toggled.
+      * Reason for this is simple. When the mobile menu is open we don't want the header to have a background
+      */
+      if (window.pageYOffset > scrolloffset) {
+        headerElement.toggleClass('o-header--background');
+        $('#mobileNavBtn').toggleClass('m-mobileHeaderMenuBtn--darkColor');
+      }
+      if (logoBehaviour) {
+        if (window.pageYOffset < scrolloffset) {
+          headerLogo.setColor(whiteColor);
+        } else {
+          headerLogo.setColor(blackColor);
+        }
+      }
+    }); // Mobile menu button event listener
+
+
+    /*
+    * Set's the header background and dark text color
+    * in case that the page is not at the top when it's loaded.
+    */
+    if (window.pageYOffset > scrolloffset) {
+      navigationElement.addClass('m-header__nav--darkTextColor');
+      headerElement.addClass('o-header--background');
+      headerLogo.setColor(blackColor);
+    }
+
+    var previous = window.scrollY;
+    var opacity = 100;
+    var up = 0;
+    var res = void 0;
+    // the scroll behaviour
+    window.addEventListener('scroll', function () {
+      res = previous;
+      // Test
+      if (window.scrollY > previous) {
+        var down = res;
+        console.log(down);
+      } else if (window.scrollY < previous) {
+        console.log('up');
+      }
+
+      previous = window.scrollY;
+      if ($(this).scrollTop() > scrolloffset) {
+        if (logoBehaviour) {
+          headerLogo.setColor(blackColor);
+          headerElement.addClass('o-header--background');
+          $('#mobileNavBtn').addClass('m-mobileHeaderMenuBtn--darkColor');
+        }
+
+        if (window.innerWidth >= 768) {
+          navigationElement.addClass('m-header__nav--darkTextColor');
+        }
+      } else if ($(this).scrollTop() < scrolloffset) {
+        if (logoBehaviour) {
+          headerLogo.setColor(whiteColor);
+          headerElement.removeClass('o-header--background');
+          $('#mobileNavBtn').removeClass('m-mobileHeaderMenuBtn--darkColor');
+        }
+
+        if (window.innerWidth >= 768) {
+          navigationElement.removeClass('m-header__nav--darkTextColor');
+        }
+      }
+    });
+  })(jQuery);
+} // headerBahaviour
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -239,6 +301,99 @@ var SvgColor = exports.SvgColor = function () {
 
   return SvgColor;
 }();
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.grid = grid;
+exports.cellHeight = cellHeight;
+exports.menu = menu;
+function grid() {
+  (function ($) {
+    $('.o-knowledgeHubGrid').masonry({
+      itemSelector: '.o-knowledgeHubCell',
+      percentPosition: true,
+      horizontalOrder: true,
+      gutter: 15
+    });
+  })(jQuery);
+}
+
+function cellHeight() {
+  var knowledgeHubCells = document.getElementsByClassName('o-knowledgeHubCell');
+
+  for (var i = 0; i < knowledgeHubCells.length; i++) {
+    var knowledgeHubCell = document.getElementById('cell-' + i);
+    if (knowledgeHubCell.getAttribute('data-imgprops') == 0) {
+      knowledgeHubCell.style.height = 'auto';
+    } else {
+      knowledgeHubCell.style.height = knowledgeHubCell.getAttribute('data-imgprops') * knowledgeHubCell.offsetWidth + 'px';
+    }
+  }
+}
+
+function menu() {
+  var buttons = document.getElementsByClassName('a-knowledgeHubMenuItem');
+  var dropdowns = document.getElementsByClassName('o-knowledgeHubMenuDropdown');
+
+  // Convert buttons variable from HTMLCollection to an Array
+  buttons = Array.from(buttons);
+
+  buttons.map(function (button, index) {
+    button.addEventListener('click', function () {
+      for (var i = 0; i < buttons.length; i++) {
+        if (i != index) {
+          dropdowns[i].classList.remove('display');
+          buttons[i].classList.remove('activeKnowHubMenu');
+        }
+      }
+
+      button.classList.toggle('activeKnowHubMenu');
+      dropdowns[index].classList.toggle('display');
+    });
+  });
+}
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.postAuthor = postAuthor;
+exports.indexCardCarousel = indexCardCarousel;
+function postAuthor() {
+  (function ($) {
+    if ($(window).width() >= 768) {
+      var postAuthorHeight = $('#postAuthor').outerHeight(true);
+      var postAuthorDescriptionHeight = $('#postAuthorDesc').outerHeight(true);
+
+      var postAuthorContent = $('#postAuthorContent');
+      var postAuthorContentHeight = postAuthorContent.outerHeight(true);
+      postAuthorContent.css("margin-top", (postAuthorHeight - (postAuthorContentHeight + postAuthorDescriptionHeight)) / 2);
+    }
+  })(jQuery);
+}
+
+function indexCardCarousel() {
+  (function ($) {
+    $(".owl-carousel").owlCarousel({
+      items: 1,
+      autoHeight: true
+    });
+  })(jQuery);
+}
 
 /***/ })
 /******/ ]);

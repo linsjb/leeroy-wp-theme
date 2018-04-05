@@ -9,9 +9,20 @@
 // Header
 // -----------------------
 .m-header__nav--darkTextColor {
-  ul { li { a { color: @clr-grey-800; } } }
+  ul {
+    li {
+      a {
+        color: @clr-grey-800;
+      }
+    }
+  }
 }
 
-.m-header__nav--lightTextColour {
-  ul { li { a { color: @leeroyWhite; } } }
+
+.m-mobileHeaderMenuBtn--darkColor {
+  .hamburger-inner {
+    &, &::before, &::after {
+      background-color: @leeroyBlack;
+    }
+  }
 }

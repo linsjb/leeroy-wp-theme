@@ -63,7 +63,17 @@ knowledgeHubTop('postsPage');
                   $rowImage->setObject('acfPostImageField');
                   $rowImage->setClasses('a-singlePostContent__image');
                   $rowImage->useElement();
-                  $rowImage->init();
+
+                  $rowImageDesc = new AcfText;
+                  $rowImageDesc->useSubfield();
+                  $rowImageDesc->setObject('acfPostImageDescription');
+                  $rowImageDesc->setElementType('p');
+                  $rowImageDesc->setClasses('a-singlePotContent__imageDesc');
+
+                  echo '<div class="m-singlePostContentImage col-xs-100">';
+                    $rowImage->init();
+                    $rowImageDesc->init();
+                  echo '</div>';
                   break;
 
                 case 'acfPostQuote':

@@ -8,14 +8,14 @@ class Categories {
 
   function init() {
     echo '<' . $this->containerType . ' class="' . $this->containerClasses . '">';
-
+    if($this->listTitle != null) {
+      echo '<' . $this->titleElementType . ' class="' . $this->titleClasses . '">';
+        echo $this->listTitle;
+      echo '</' . $this->titleElementType . '>';
+    }
       foreach ($this->categories as $category) {
-        $categoryId = get_cat_ID($category->name);
-
         echo '<' . $this->elementType . ' class="' . $this->elementClasses . '">';
-          echo '<a href="' . get_category_link($categoryId) . '">';
-            echo $category->name;
-          echo '</a>';
+          echo '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
         echo '</' . $this->elementType . '>';
       }
     echo '</' . $this->containerType . '>';
@@ -37,9 +37,24 @@ class Categories {
     $this->containerClasses = $setContClasses;
   }
 
+  function setTitleElementType($setTitleType) {
+    $this->titleElementType = $setTitleType;
+  }
+
+  function setTitle($setListTitle) {
+    $this->listTitle = $setListTitle;
+  }
+
+  function setTitleClasses($setTitClasses) {
+    $this->titleClasses = $setTitClasses;
+  }
+
   private $elementType = 'li';
   private $elementClasses = '';
   private $containerType = 'ul';
   private $containerClasses = '';
+  private $listTitle = null;
+  private $titleElementType = 'span';
+  private $titleClasses = '';
   private $categories;
 }
