@@ -6,8 +6,9 @@ window.onload = function () {
   headerBehaviour();
   utils.postAuthor();
   utils.indexCardCarousel();
+  utils.showContactFormMessageField();
 }
 
-knowledgehub.grid();
 knowledgehub.cellHeight();
+knowledgehub.grid();
 knowledgehub.menu();

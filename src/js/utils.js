@@ -19,3 +19,10 @@ export function indexCardCarousel() {
     });
   })(jQuery);
 }
+
+export function showContactFormMessageField() {
+  let parentElement = document.getElementsByClassName('indexAddMessage')[0];
+  let checkbox = parentElement.getElementsByTagName('input');
+  console.log(checkbox);
+
+}
