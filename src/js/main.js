@@ -7,6 +7,7 @@ window.onload = function () {
   utils.postAuthor();
   utils.indexCardCarousel();
   utils.showContactFormMessageField();
+  
 }
 
 knowledgehub.cellHeight();
