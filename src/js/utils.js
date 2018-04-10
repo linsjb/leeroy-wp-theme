@@ -21,8 +21,18 @@ export function indexCardCarousel() {
 }
 
 export function showContactFormMessageField() {
-  let parentElement = document.getElementsByClassName('indexAddMessage')[0];
-  let checkbox = parentElement.getElementsByTagName('input');
-  console.log(checkbox);
+  let parentElement = document.getElementsByClassName('m-contactFormCheckbox')[0];
 
+  if(parentElement) {
+    let checkboxId = parentElement.getElementsByTagName('input')[0].id;
+    let checkbox = document.querySelector('#' + checkboxId)
+
+    checkbox.addEventListener('change', () => {
+      if(checkbox.checked) {
+        document.getElementsByClassName('m-contactFormMessage')[0].classList.add('displayBlock');
+      } else {
+        document.getElementsByClassName('m-contactFormMessage')[0].classList.remove('displayBlock');
+      }
+    });
+  }
 }

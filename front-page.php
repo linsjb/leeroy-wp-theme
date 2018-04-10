@@ -80,14 +80,18 @@ if($query->have_posts()):
                     break;
 
                   case 'acfIndSecContactForm':
-                    echo do_shortcode(get_sub_field('acfIndSecContCode'));
+                    echo '<div class="o-contactFormContent col-xs-100 col-sm-80">';
+                      echo do_shortcode(get_sub_field('acfIndSecContCode'));
+                    echo '</div>';
 
-                    $contactIcon = new AcfImage;
-                    $contactIcon->useSubfield();
-                    $contactIcon->setObject('acfIndSecContIcon');
-                    $contactIcon->useElement();
-                    $contactIcon->setClasses('a-aboutForm__icon');
-                    $contactIcon->init();
+                    echo '<div class="o-contactFormIcon col-xs-100 col-sm-20">';
+                      $contactIcon = new AcfImage;
+                      $contactIcon->useSubfield();
+                      $contactIcon->setObject('acfIndSecContIcon');
+                      $contactIcon->useElement();
+                      $contactIcon->setClasses('a-contactForm__icon');
+                      $contactIcon->init();
+                    echo '</div>';
                     break;
 
                   case 'acfIndSecBlogPosts':

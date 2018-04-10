@@ -231,7 +231,7 @@ if(have_posts()):
           $formSectionIcon->useSubfield();
           $formSectionIcon->setObject('acfAboutFormSectionPref', 'icon');
           $formSectionIcon->useElement();
-          $formSectionIcon->setClasses('a-aboutForm__icon');
+          $formSectionIcon->setClasses('a-contactForm__icon');
 
           $formSectionShortcode = new AcfText;
           $formSectionShortcode->useSubfield();
@@ -240,10 +240,19 @@ if(have_posts()):
         <div class="o-aboutPage col-xs-100" style="background-color: <?= get_sub_field('acfAboutFormSectionPref')['backgroundColor'] ?>;">
           <div class="container o-aboutPageContent">
             <?php
-              $formSectionTitle->init();
-              $formSectionIcon->init();
-              echo do_shortcode($formSectionShortcode->init());
+            $formSectionTitle->init();
             ?>
+            <div class="o-contactFormContent col-xs-100 col-sm-80">
+              <?php
+              echo do_shortcode($formSectionShortcode->init());
+              ?>
+            </div>
+
+            <div class="o-contactFormIcon col-xs-100 col-sm-20">
+              <?php
+              $formSectionIcon->init();
+              ?>
+            </div>
           <!-- .o-aboutPageContent -->
           </div>
         <!-- .o-aboutPage -->

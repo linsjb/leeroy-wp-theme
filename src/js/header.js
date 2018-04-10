@@ -100,14 +100,14 @@ export default function headerBehaviour () {
     let res;
     // the scroll behaviour
     window.addEventListener('scroll', function () {
-      res = previous;
-      // Test
-      if(window.scrollY > previous) {
-        let down = res;
-        console.log(down);
-      } else if(window.scrollY < previous) {
-        console.log('up');
-      }
+      // res = previous;
+      // // Test
+      // if(window.scrollY > previous) {
+      //   let down = res;
+      //   console.log(down);
+      // } else if(window.scrollY < previous) {
+      //   console.log('up');
+      // }
 
       previous = window.scrollY;
       if ($(this).scrollTop() > scrolloffset) {

@@ -213,14 +213,14 @@ function headerBehaviour() {
     var res = void 0;
     // the scroll behaviour
     window.addEventListener('scroll', function () {
-      res = previous;
-      // Test
-      if (window.scrollY > previous) {
-        var down = res;
-        console.log(down);
-      } else if (window.scrollY < previous) {
-        console.log('up');
-      }
+      // res = previous;
+      // // Test
+      // if(window.scrollY > previous) {
+      //   let down = res;
+      //   console.log(down);
+      // } else if(window.scrollY < previous) {
+      //   console.log('up');
+      // }
 
       previous = window.scrollY;
       if ($(this).scrollTop() > scrolloffset) {
@@ -398,10 +398,20 @@ function indexCardCarousel() {
 }
 
 function showContactFormMessageField() {
-  var parentElement = document.getElementsByClassName('indexAddMessage')[0];
-  var checkboxName = parentElement.getElementsByTagName('input')[0].name;
-  var checkbox = document.querySelector("input[name=fld_3101807]");
-  console.log(checkbox);
+  var parentElement = document.getElementsByClassName('m-contactFormCheckbox')[0];
+
+  if (parentElement) {
+    var checkboxId = parentElement.getElementsByTagName('input')[0].id;
+    var checkbox = document.querySelector('#' + checkboxId);
+
+    checkbox.addEventListener('change', function () {
+      if (checkbox.checked) {
+        document.getElementsByClassName('m-contactFormMessage')[0].classList.add('displayBlock');
+      } else {
+        document.getElementsByClassName('m-contactFormMessage')[0].classList.remove('displayBlock');
+      }
+    });
+  }
 }
 
 /***/ })
