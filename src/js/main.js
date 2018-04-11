@@ -4,10 +4,11 @@ import * as utils from './utils';
 
 window.onload = function () {
   headerBehaviour();
+  utils.postFlexSlider();
   utils.postAuthor();
   utils.indexCardCarousel();
   utils.showContactFormMessageField();
-  
+
 }
 
 knowledgehub.cellHeight();

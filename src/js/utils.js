@@ -20,6 +20,18 @@ export function indexCardCarousel() {
   })(jQuery);
 }
 
+export function postFlexSlider() {
+  (function ($) {
+    $('#slider').flexslider({
+      animation: "slide",
+      animationLoop: false,
+      slideshow: false,
+      smoothHeight: true,
+    });
+
+  })(jQuery);
+}
+
 export function showContactFormMessageField() {
   let parentElement = document.getElementsByClassName('m-contactFormCheckbox')[0];
 

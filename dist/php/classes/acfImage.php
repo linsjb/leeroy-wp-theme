@@ -132,6 +132,13 @@ class AcfImage {
     return $this->imageObject['sizes'][$this->imageSize . '-width'];
   }
 
+  /**
+  * Get the caption of the image.
+  */
+  function getCaption() {
+    return $this->imageObject['caption'];
+  }
+
   private $objectName;
   private $imageObject;
   private $imageUrl;

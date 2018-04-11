@@ -9,7 +9,7 @@
   <div class="m-mobileHeaderMenuBtn">
     <div id="mobileNavBtn" class="hamburger hamburger--collapse">
       <div class="hamburger-box">
-        <div class="hamburger-inner red"></div>
+        <div class="hamburger-inner"></div>
       </div>
     </div>
   <!-- .m-mobileHeaderMenuBtn -->

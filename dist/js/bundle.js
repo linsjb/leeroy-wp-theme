@@ -15,8 +15,6 @@
 /******/ 			l: false,
 /******/ 			exports: {}
 /******/ 		};
-
-
 /******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
@@ -90,6 +88,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 window.onload = function () {
   (0, _header2.default)();
+  utils.postFlexSlider();
   utils.postAuthor();
   utils.indexCardCarousel();
   utils.showContactFormMessageField();
@@ -376,6 +375,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.postAuthor = postAuthor;
 exports.indexCardCarousel = indexCardCarousel;
+exports.postFlexSlider = postFlexSlider;
 exports.showContactFormMessageField = showContactFormMessageField;
 function postAuthor() {
   (function ($) {
@@ -395,6 +395,17 @@ function indexCardCarousel() {
     $(".owl-carousel").owlCarousel({
       items: 1,
       autoHeight: true
+    });
+  })(jQuery);
+}
+
+function postFlexSlider() {
+  (function ($) {
+    $('#slider').flexslider({
+      animation: "slide",
+      animationLoop: false,
+      slideshow: false,
+      smoothHeight: true
     });
   })(jQuery);
 }

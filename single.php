@@ -64,16 +64,32 @@ knowledgeHubTop('postsPage');
                   $rowImage->setClasses('a-singlePostContent__image');
                   $rowImage->useElement();
 
-                  $rowImageDesc = new AcfText;
-                  $rowImageDesc->useSubfield();
-                  $rowImageDesc->setObject('acfPostImageDescription');
-                  $rowImageDesc->setElementType('p');
-                  $rowImageDesc->setClasses('a-singlePotContent__imageDesc');
-
                   echo '<div class="m-singlePostContentImage col-xs-100">';
                     $rowImage->init();
-                    $rowImageDesc->init();
+                    echo '<p class="a-singlePostContent__imageDesc">' . $rowImage->getCaption() .'</p>';
                   echo '</div>';
+                  break;
+
+                case 'acfPostImageSlider':
+                  $images = get_sub_field('acfPostImageSliderContent')['gallery'];
+                  if($images):
+                ?>
+                    <div class="o-singlePostContentSlider flexslider" id="slider">
+                      <ul class="slides">
+                        <?php
+                        foreach($images as $image) {
+                          echo '<li>';
+                            echo '<img src="' . $image['sizes']['large'] . '"/>';
+                            if($image['caption']) {
+                              echo '<p class="a-singlePostContent__galleryImgDesc">' . $image['caption'] . '</p>';
+                            }
+                          echo '</li>';
+                        }
+                        ?>
+                      </ul>
+                    </div>
+                <?php
+                  endif;
                   break;
 
                 case 'acfPostQuote':
