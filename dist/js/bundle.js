@@ -91,7 +91,6 @@ window.onload = function () {
   utils.postFlexSlider();
   utils.postAuthor();
   utils.indexCardCarousel();
-  utils.showContactFormMessageField();
 };
 
 knowledgehub.cellHeight();
@@ -376,7 +375,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.postAuthor = postAuthor;
 exports.indexCardCarousel = indexCardCarousel;
 exports.postFlexSlider = postFlexSlider;
-exports.showContactFormMessageField = showContactFormMessageField;
 function postAuthor() {
   (function ($) {
     if ($(window).width() >= 768) {
@@ -408,23 +406,6 @@ function postFlexSlider() {
       smoothHeight: true
     });
   })(jQuery);
-}
-
-function showContactFormMessageField() {
-  var parentElement = document.getElementsByClassName('m-contactFormCheckbox')[0];
-
-  if (parentElement) {
-    var checkboxId = parentElement.getElementsByTagName('input')[0].id;
-    var checkbox = document.querySelector('#' + checkboxId);
-
-    checkbox.addEventListener('change', function () {
-      if (checkbox.checked) {
-        document.getElementsByClassName('m-contactFormMessage')[0].classList.add('displayBlock');
-      } else {
-        document.getElementsByClassName('m-contactFormMessage')[0].classList.remove('displayBlock');
-      }
-    });
-  }
 }
 
 /***/ })

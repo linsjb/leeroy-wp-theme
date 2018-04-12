@@ -31,20 +31,3 @@ export function postFlexSlider() {
 
   })(jQuery);
 }
-
-export function showContactFormMessageField() {
-  let parentElement = document.getElementsByClassName('m-contactFormCheckbox')[0];
-
-  if(parentElement) {
-    let checkboxId = parentElement.getElementsByTagName('input')[0].id;
-    let checkbox = document.querySelector('#' + checkboxId)
-
-    checkbox.addEventListener('change', () => {
-      if(checkbox.checked) {
-        document.getElementsByClassName('m-contactFormMessage')[0].classList.add('displayBlock');
-      } else {
-        document.getElementsByClassName('m-contactFormMessage')[0].classList.remove('displayBlock');
-      }
-    });
-  }
-}

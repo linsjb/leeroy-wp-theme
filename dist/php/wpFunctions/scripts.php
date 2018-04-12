@@ -26,7 +26,7 @@ function leeroyScripts() {
   wp_enqueue_script('owlCarousel', get_template_directory_uri() . '/dist/js/owl.carousel.min.js', array('jquery'), '2.2.1', true);
   wp_enqueue_script('Masonry', get_template_directory_uri() . '/dist/js/masonry.pkgd.min.js', array('jquery'), '2.2.1', true);
   wp_enqueue_script('flexslider', get_template_directory_uri() . '/dist/js/jquery.flexslider-min.js', array('jquery'), '2.7.0', true);
-  wp_enqueue_script('leeroyBundle', get_template_directory_uri() . '/dist/js/bundle.js', array('jquery'), '1.0.0', true);
+  wp_enqueue_script('leeroyBundle', get_template_directory_uri() . '/dist/js/bundle.js', array('jquery'), '1.0.1', true);
 }
 
 add_action('wp_enqueue_scripts', 'leeroyScripts');
