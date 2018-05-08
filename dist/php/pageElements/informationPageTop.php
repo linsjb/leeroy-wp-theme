@@ -21,7 +21,11 @@ function informationPageTop($pageType = null) {
     $title->usePostsPage();
   }
 ?>
-    <div id="topElement" class="o-informationPageTop col-xs-100" style="<?= pageBackgroundType($pageType); ?>">
+    <div
+    id="topElement"
+    class="o-informationPageTop col-xs-100"
+    style="<?= pageBackgroundType($pageType); ?>"
+    >
       <?php pageBackgroundTone($pageType) ?>
       <div class="container m-informationPageTopContent">
         <?php

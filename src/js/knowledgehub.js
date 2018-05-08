@@ -15,7 +15,7 @@ export function cellHeight() {
   for (var i = 0; i < knowledgeHubCells.length; i++) {
     let knowledgeHubCell = document.getElementById('cell-' + i);
     if (knowledgeHubCell.getAttribute('data-imgprops') == 0) {
-      knowledgeHubCell.style.height = 'auto';
+      knowledgeHubCell.style.minHeight = '200px';
     } else {
       knowledgeHubCell.style.height = knowledgeHubCell.getAttribute('data-imgprops') * knowledgeHubCell.offsetWidth + 'px';
     }
@@ -23,7 +23,7 @@ export function cellHeight() {
 }
 
 export function menu() {
-  let buttons = document.getElementsByClassName('a-knowledgeHubMenuItem');
+  let buttons = document.getElementsByClassName('a-knowledgeHubMenuList__item');
   let dropdowns = document.getElementsByClassName('o-knowledgeHubMenuDropdown');
 
   // Convert buttons variable from HTMLCollection to an Array

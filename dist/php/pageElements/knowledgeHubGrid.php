@@ -42,9 +42,12 @@ function knowledgeHubGrid($counter) {
   $cellId = "cell-{$counter}";
 ?>
 
-
-  <a class="testar" href="<?php the_permalink()?>">
+  <a href="<?php the_permalink()?>">
     <div id="<?= $cellId ?>" class="o-knowledgeHubCell col-xs-100 col-sm-48 col-md-32" style="<?= $cellBackground ?>;" data-imgprops="<?= $imageProps ?>">
+      <div class="m-knowledgeHubHoverContent">
+        <img src="<?= get_template_directory_uri() . '/images/coffee-cup.png' ?>" alt="" class="m-knowledgeHubHoverContent__icon">
+        <p class="m-knowledgeHubHoverContent__text">Read now</p>
+      </div>
       <?php
       if(get_field('acfPageBackgroundType') == 'image') {
         pageBackgroundTone();

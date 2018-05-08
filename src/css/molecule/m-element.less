@@ -111,47 +111,21 @@
   color: @leeroyBlue;
 }
 
-.m-knowledgeHubMenu__nav {
-  ul {
-    margin: 0;
-    padding: 0;
-
-    li {
-      padding: 20px 10px;
-      list-style: none;
-      display: inline-block;
-      margin: 10px 15px;
-      font-size: 14px;
-      text-decoration: none;
-      font-family: 'proxima_novabold';
-      .fadeInTransition(0.2s);
-      color: @leeroyBlack;
-
-      &:after {
-        .fadeInTransition(0.2s);
-        background-image: url('images/arrowBlack.svg');
-        display: inline-block;
-        width: 15px;
-        height: 15px;
-        position: relative;
-        top: 4px;
-        left: 3px;
-        content: '';
-      }
-
-      &:hover {
-        color: @leeroyBlue;
-        cursor: pointer;
-
-        &:after {
-          background-image: url('images/arrowBlue.svg');
-        }
-      }
-    }
-  }
+.m-knowledgeHubHoverContent__text {
+  z-index: 3;
+  font-size: 18px;
+  font-family: 'proxima_novabold';
+  color: @leeroyBlack;
+  margin-bottom: 5px;
 }
 
-
+.m-knowledgeHubHoverContent__icon {
+  display: grid;
+  justify-self: center;
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+}
 
 // Globals
 // -----------------------

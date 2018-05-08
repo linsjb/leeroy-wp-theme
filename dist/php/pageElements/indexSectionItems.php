@@ -3,7 +3,7 @@ function indexSectionItems() {
   // Desktop cells
   if(have_rows('acfIndSecItemCells')) {
     echo '<div class="row">';
-    // When the counter reach 4, insert a Bootstrap clear fix;
+    // When the counter reach 4, insert a Bootstrap clear fix.
     $clearFixCounter = 0;
     while(have_rows('acfIndSecItemCells')) {
       the_row();
@@ -12,7 +12,7 @@ function indexSectionItems() {
         $icon->useSubfield();
         $icon->useElement();
         $icon->setObject('icon');
-        $icon->setClasses('a-indexSectionItemCell__icon col-xs-10 col-sm-30 col-sm-offset-35');
+        $icon->setClasses('a-indexSectionItemCell__icon');
       }
 
       $title = new AcfText;

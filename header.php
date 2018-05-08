@@ -15,7 +15,7 @@
 
     if(is_front_page()) {
       $logoLinkRel = 'm_PageScroll2id';
-      $logoUrl = '#topElement';
+      $logoUrl = '#top-element';
     } else {
       $logoLinkRel = '';
       $logoUrl = home_url();

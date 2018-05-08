@@ -33,7 +33,7 @@
   &:hover {
     .hamburger-inner {
       &, &::before, &::after {
-        background-color: @leeroyWhite;
+        background-color: @leeroyGold !important;
       }
     }
   }
@@ -59,6 +59,7 @@
   z-index: 2;
   padding-left: 25px;
   padding-right: 25px;
+  margin-bottom: 30px;
 }
 
 .m-informationPageBottomContent {
@@ -120,11 +121,6 @@
 }
 
 
-// NEW ABOUT
-.m-aboutTextContent,
-.m-aboutTextColumnContent {
-}
-
 // Footer
 // -----------------------
 
@@ -176,9 +172,22 @@
   padding: 0;
 }
 
+.m-knowledgeHubMenuNav {
+}
+
+.m-knowledgeHubHoverContent {
+  position: absolute;
+  display: grid;
+  align-self: center;
+  justify-content: center;
+  left: 20px;
+  right: 20px;
+  z-index: 3;
+  opacity: 0;
+}
+
 // Knowledge hub single post
 // -----------------------
-
 
 .m-singlePostLeftColumn {
   height: auto;
@@ -199,8 +208,7 @@
 }
 
 .m-singlePostContentImage {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 // Knowledge hub single post author
@@ -285,6 +293,9 @@
   font-size: 16px;
   padding-left: 15px;
   padding-right: 15px;
+
+  display: grid;
+  justify-items: center;
 }
 
 .m-mobileIndexSectionItemCells {

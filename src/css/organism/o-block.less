@@ -47,10 +47,6 @@
 
 }
 
-.test {
-  visibility: visible;
-}
-
 // Index section
 // -----------------------
 
@@ -88,6 +84,8 @@
   left: 0px;
   min-height: 45vh;
   padding: 0px;
+  display: grid;
+  align-content: end;
 }
 
 .o-informationPageBottom {
@@ -148,6 +146,8 @@
   text-align: center;
   border-bottom: 1px solid #cfcfcf;
   z-index: 1;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .o-knowledgeHubMenuContent {
@@ -175,23 +175,44 @@
 
 .o-knowledgeHubCell {
  .backgroundPosition;
+
   margin-bottom: 15px;
   color: @leeroyWhite;
   border: 1px solid #d5d5d5;
   border-radius: 2px;
   box-shadow: 0 3px 3px 0 rgba(233, 233, 233, 0.5);
 
-  // We do this to be able to bottom align the content div
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  flex-direction: column;
-}
+  align-items: center;
+  align-content: center;
 
-.testar {
-  background-color: red !important;
+  &::after {
+    background-color: @leeroyWhite;
+    position: absolute;
+    content: "";
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.3s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+
   &:hover {
-    background-color: red !important;
+    &::after {
+      transform: scaleY(1);
+      opacity: 0.8;
+    }
+
+    .m-knowledgeHubHoverContent {
+      transition: 200ms;
+      transition-delay: 0.2s;
+      opacity: 1;
+    }
   }
 }
 

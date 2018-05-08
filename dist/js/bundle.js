@@ -121,7 +121,7 @@ function headerBehaviour() {
     var headerElement = void 0;
     var navigationElement = void 0;
 
-    // Variable to control the behaiour of the logo.
+    // Variable to control the behaviour of the logo.
     // This is needed because of the mobile header.
     var logoBehaviour = true;
 
@@ -159,18 +159,18 @@ function headerBehaviour() {
 
     mobileNavigationButton.addEventListener('click', function () {
 
-      $('#mobileNavBtn').toggleClass('is-active').addClass('test');
+      $('#mobileNavBtn').toggleClass('is-active');
 
       // Animate mobile menu to slide down/up
       switch (mobileMenuVisible) {
         case true:
           $('#mobileHeaderMenu').addClass('slideOutUp').removeClass('slideInDown').one(animationEnds, function () {
-            $(_this).removeClass('test');
+            $(_this).css('visibility', 'hidden');
           });
           break;
 
         case false:
-          $('#mobileHeaderMenu').addClass('slideInDown').removeClass('slideOutUp').addClass('test');
+          $('#mobileHeaderMenu').addClass('slideInDown').removeClass('slideOutUp').css('visibility', 'visible');
           break;
       }
 
@@ -207,22 +207,8 @@ function headerBehaviour() {
       headerLogo.setColor(blackColor);
     }
 
-    var previous = window.scrollY;
-    var opacity = 100;
-    var up = 0;
-    var res = void 0;
     // the scroll behaviour
     window.addEventListener('scroll', function () {
-      // res = previous;
-      // // Test
-      // if(window.scrollY > previous) {
-      //   let down = res;
-      //   console.log(down);
-      // } else if(window.scrollY < previous) {
-      //   console.log('up');
-      // }
-
-      previous = window.scrollY;
       if ($(this).scrollTop() > scrolloffset) {
         if (logoBehaviour) {
           headerLogo.setColor(blackColor);
@@ -333,7 +319,7 @@ function cellHeight() {
   for (var i = 0; i < knowledgeHubCells.length; i++) {
     var knowledgeHubCell = document.getElementById('cell-' + i);
     if (knowledgeHubCell.getAttribute('data-imgprops') == 0) {
-      knowledgeHubCell.style.height = 'auto';
+      knowledgeHubCell.style.minHeight = '200px';
     } else {
       knowledgeHubCell.style.height = knowledgeHubCell.getAttribute('data-imgprops') * knowledgeHubCell.offsetWidth + 'px';
     }
@@ -341,7 +327,7 @@ function cellHeight() {
 }
 
 function menu() {
-  var buttons = document.getElementsByClassName('a-knowledgeHubMenuItem');
+  var buttons = document.getElementsByClassName('a-knowledgeHubMenuList__item');
   var dropdowns = document.getElementsByClassName('o-knowledgeHubMenuDropdown');
 
   // Convert buttons variable from HTMLCollection to an Array

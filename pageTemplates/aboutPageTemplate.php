@@ -13,7 +13,7 @@ if(have_posts()):
         case 'acfAboutText':
           $acfGroup = 'acfAboutTextContent';
         ?>
-          <div class="o-aboutPage col-xs-100" style="background-color: <?= get_sub_field('acfAboutTextContent')['backgroundColor'] ?>; color: <?= get_sub_field('acfAboutTextContent')['textColor'] ?>">
+          <div class="o-aboutPage col-xs-100" id="about-leeroy" style="background-color: <?= get_sub_field('acfAboutTextContent')['backgroundColor'] ?>; color: <?= get_sub_field('acfAboutTextContent')['textColor'] ?>">
             <div class="container o-aboutPageContent">
               <?php
               $leftTextContent = new AcfText;
@@ -104,7 +104,7 @@ if(have_posts()):
 
           $tintBackground = get_sub_field('acfAboutTeamSectionPref')['tintColor'];
         ?>
-          <div class="o-aboutPage col-xs-100" style="background-color: <?= get_sub_field('acfAboutTeamSectionPref')['backgroundColor'] ?>">
+          <div class="o-aboutPage col-xs-100" id="the-team" style="background-color: <?= get_sub_field('acfAboutTeamSectionPref')['backgroundColor'] ?>">
             <div class="container o-aboutPageContent">
               <?php
               $teamTitle->init();
@@ -237,7 +237,7 @@ if(have_posts()):
           $formSectionShortcode->useSubfield();
           $formSectionShortcode->setObject('acfAboutFormSectionPref', 'shortcode');
         ?>
-        <div class="o-aboutPage col-xs-100" style="background-color: <?= get_sub_field('acfAboutFormSectionPref')['backgroundColor'] ?>;">
+        <div class="o-aboutPage col-xs-100" id="join-us" style="background-color: <?= get_sub_field('acfAboutFormSectionPref')['backgroundColor'] ?>;">
           <div class="container o-aboutPageContent">
             <?php
             $formSectionTitle->init();

@@ -8,7 +8,7 @@ export default function headerBehaviour () {
     let headerElement;
     let navigationElement;
 
-    // Variable to control the behaiour of the logo.
+    // Variable to control the behaviour of the logo.
     // This is needed because of the mobile header.
     let logoBehaviour = true;
 
@@ -46,18 +46,18 @@ export default function headerBehaviour () {
 
     mobileNavigationButton.addEventListener('click', () => {
 
-      $('#mobileNavBtn').toggleClass('is-active').addClass('test');
+      $('#mobileNavBtn').toggleClass('is-active');
 
       // Animate mobile menu to slide down/up
       switch(mobileMenuVisible) {
         case true:
           $('#mobileHeaderMenu').addClass('slideOutUp').removeClass('slideInDown').one(animationEnds, () =>{
-            $(this).removeClass('test');
+            $(this).css('visibility', 'hidden');
           });
           break;
 
         case false:
-          $('#mobileHeaderMenu').addClass('slideInDown').removeClass('slideOutUp').addClass('test');
+          $('#mobileHeaderMenu').addClass('slideInDown').removeClass('slideOutUp').css('visibility', 'visible');
           break;
       }
 
@@ -94,22 +94,8 @@ export default function headerBehaviour () {
       headerLogo.setColor(blackColor);
     }
 
-    let previous = window.scrollY;
-    let opacity = 100;
-    let up = 0;
-    let res;
     // the scroll behaviour
     window.addEventListener('scroll', function () {
-      // res = previous;
-      // // Test
-      // if(window.scrollY > previous) {
-      //   let down = res;
-      //   console.log(down);
-      // } else if(window.scrollY < previous) {
-      //   console.log('up');
-      // }
-
-      previous = window.scrollY;
       if ($(this).scrollTop() > scrolloffset) {
         if(logoBehaviour) {
           headerLogo.setColor(blackColor);

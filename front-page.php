@@ -15,12 +15,14 @@ if($query->have_posts()):
     if(get_field('acfIndSecContType') == 'topPage') {
       $sectionParentClass   = 'o-indexSectionTop';
       $sectionContentClass  = 'o-indexSectionTopContent';
+      $sectionParentId      = 'top-element';
     } else {
       $sectionParentClass   = 'o-indexSection';
       $sectionContentClass  ='o-indexSectionContent';
+      $sectionParentId      = '';
     }
 ?>
-    <div class="<?= $sectionParentClass . ' ' . acfButtonGroup('textColor', 'acfIndSecContPref', 'color'); ?> col-xs-100" style="<?= pageBackgroundType(); ?>">
+    <div id="<?= $sectionParentId ?>" class="<?= $sectionParentClass . ' ' . acfButtonGroup('textColor', 'acfIndSecContPref', 'color'); ?> col-xs-100" style="<?= pageBackgroundType(); ?>">
         <?php pageBackgroundTone() ?>
         <div class="container <?= $sectionContentClass ?>">
           <?php

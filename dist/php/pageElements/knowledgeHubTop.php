@@ -5,12 +5,12 @@ function knowledgeHubTop($pageType = null) {
 
   <div class="o-knowledgeHubMenu col-xs-100">
     <div class="container o-knowledgeHubMenuContent">
-      <nav class="m-knowledgeHubMenu__nav">
-        <ul>
-          <li class="a-knowledgeHubMenuItem">Categories</li>
-          <li class="a-knowledgeHubMenuItem">Tags</li>
-          <li class="a-knowledgeHubMenuItem">Cases</li>
-          <li class="a-knowledgeHubMenuItem">Latest posts</li>
+      <nav class="m-knowledgeHubMenuNav">
+        <ul class="a-knowledgehubMenuList">
+          <li class="a-knowledgeHubMenuList__item">Categories</li>
+          <li class="a-knowledgeHubMenuList__item">Tags</li>
+          <li class="a-knowledgeHubMenuList__item">Cases</li>
+          <li class="a-knowledgeHubMenuList__item">Latest posts</li>
         </ul>
       </nav>
     <!-- .o-knowledgeHubMenuContent -->

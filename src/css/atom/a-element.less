@@ -78,16 +78,13 @@
 // -----------------------
 .a-informationPage__title {
   margin: 0;
-  position: absolute;
-  bottom: 30%;
   font-size: 65px;
+  margin-bottom: 10px;
   color: @leeroyWhite;
 }
 
 .a-informationPage__slogan {
   font-size: 22px;
-  position: absolute;
-  bottom: 11%;
   color: @leeroyWhite;
 }
 
@@ -188,6 +185,39 @@
     &:hover {
       .fadeInTransition(.2s);
       color: @leeroyGold;
+    }
+  }
+}
+
+.a-knowledgeHubMenuList__item {
+  padding: 20px 10px;
+  list-style: none;
+  display: inline-block;
+  margin: 10px 15px;
+  font-size: 14px;
+  text-decoration: none;
+  font-family: 'proxima_novabold';
+  .fadeInTransition(0.2s);
+  color: @leeroyBlack;
+
+  &:after {
+    .fadeInTransition(0.2s);
+    background-image: url('images/arrowBlack.svg');
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 4px;
+    left: 3px;
+    content: '';
+  }
+
+  &:hover {
+    color: @leeroyBlue;
+    cursor: pointer;
+
+    &:after {
+      background-image: url('images/arrowBlue.svg');
     }
   }
 }
@@ -439,7 +469,7 @@
 
 .a-indexSectionItemCell__icon {
   text-align: center;
-  height: 40%;
+  height: 100px;
   margin-bottom: 30px;
 }
 
@@ -450,8 +480,8 @@
 }
 
 .a-indexSectionItemCell__content {
-  font-size: 16px;
   text-align: center;
+  font-size: 16px;
 
   p:last-child {
     margin: 0;
@@ -460,6 +490,7 @@
 }
 
 .a-mobileIndexSectionItemCell__icon {
-  height: 100px;
+  width: 30% !important;
+  margin-left: 35%;
   margin-bottom: 30px;
 }
