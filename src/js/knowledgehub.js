@@ -2,9 +2,9 @@ export function grid() {
   (function ($) {
     $('.o-knowledgeHubGrid').masonry({
       itemSelector: '.o-knowledgeHubCell',
-      percentPosition: true,
-      horizontalOrder: true,
-      gutter: 15
+      percentPosition:  true,
+      horizontalOrder:  true,
+      gutter:           15
     });
   })(jQuery);
 }
@@ -23,11 +23,8 @@ export function cellHeight() {
 }
 
 export function menu() {
-  let buttons = document.getElementsByClassName('a-knowledgeHubMenuList__item');
+  let buttons = Array.from(document.getElementsByClassName('a-knowledgeHubMenuList__item'));
   let dropdowns = document.getElementsByClassName('o-knowledgeHubMenuDropdown');
-
-  // Convert buttons variable from HTMLCollection to an Array
-  buttons = Array.from(buttons);
 
   buttons.map((button, index) => {
     button.addEventListener('click', () => {

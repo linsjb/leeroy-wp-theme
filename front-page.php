@@ -22,21 +22,21 @@ if($query->have_posts()):
       $sectionParentId      = '';
     }
 ?>
-    <div id="<?= $sectionParentId ?>" class="<?= $sectionParentClass . ' ' . acfButtonGroup('textColor', 'acfIndSecContPref', 'color'); ?> col-xs-100" style="<?= pageBackgroundType(); ?>">
+    <div id="<?= $sectionParentId ?>" class="<?= $sectionParentClass . ' ' . acfButtonGroup('textColor', 'acfIndSecContPref', 'color'); ?> col-xs-24" style="<?= pageBackgroundType(); ?>">
         <?php pageBackgroundTone() ?>
         <div class="container <?= $sectionContentClass ?>">
           <?php
           // If the content is top content
           if(get_field('acfIndSecContType') == 'topPage') {
             $title->setElementType('h1');
-            $title->setClasses('a-indexSectionContent__topTitle col-xs-100 col-sm-80 col-md-60');
+            $title->setClasses('a-indexSectionContent__topTitle col-xs-24 col-sm-6 col-md-16');
             $title->init();
 
             $topContent = new AcfText;
             $topContent->useBreakpoint();
             $topContent->setObject('acfIndSecTopContent');
             $topContent->setElementType('div');
-            $topContent->setClasses('m-indexSectionTopContent col-xs-100 col-sm-80 col-md-60');
+            $topContent->setClasses('m-indexSectionTopContent col-xs-24 col-sm-6 col-md-16');
             $topContent->init();
 
             // If the content is content. I.e everything accept top content
@@ -63,7 +63,7 @@ if($query->have_posts()):
                     $desktopImage->useSubfield();
                     $desktopImage->setObject('acfIndSecDesktopImg');
                     $desktopImage->useElement();
-                    $desktopImage->setClasses('a-indexSectionContent__image col-xs-100 hidden-xs');
+                    $desktopImage->setClasses('a-indexSectionContent__image col-xs-24 hidden-xs');
 
                     $desktopImage->init();
 
@@ -72,7 +72,7 @@ if($query->have_posts()):
                       $mobileImage->useSubfield();
                       $mobileImage->setObject('acfIndSecMobileImg');
                       $mobileImage->useElement();
-                      $mobileImage->setClasses('a-indexSectionMobile__image col-xs-100 hidden-sm hidden-md hidden-lg');
+                      $mobileImage->setClasses('a-indexSectionMobile__image col-xs-24 hidden-sm hidden-md hidden-lg');
                       $mobileImage->init();
                     }
                     break;
@@ -82,11 +82,11 @@ if($query->have_posts()):
                     break;
 
                   case 'acfIndSecContactForm':
-                    echo '<div class="o-contactFormContent col-xs-100 col-sm-80">';
+                    echo '<div class="o-contactFormContent col-xs-24 col-sm-19">';
                       echo do_shortcode(get_sub_field('acfIndSecContCode'));
                     echo '</div>';
 
-                    echo '<div class="o-contactFormIcon col-xs-100 col-sm-20">';
+                    echo '<div class="o-contactFormIcon col-xs-24 col-sm-5">';
                       $contactIcon = new AcfImage;
                       $contactIcon->useSubfield();
                       $contactIcon->setObject('acfIndSecContIcon');
@@ -107,7 +107,7 @@ if($query->have_posts()):
                     $postsQuery = new WP_Query($postsArgs);
                     if($postsQuery->have_posts()) {
                       $counter = 0;
-                      echo '<div class="o-knowledgeHubGrid col-xs-100">';
+                      echo '<div class="o-knowledgeHubGrid col-xs-24">';
                         while($postsQuery->have_posts()) {
                           $postsQuery->the_post();
                           knowledgeHubGrid($counter);
@@ -124,7 +124,7 @@ if($query->have_posts()):
           ?>
         <!-- .container -->
         </div>
-    <!-- .col-xs-100 -->
+    <!-- .col-xs-24 -->
     </div>
 
 <?php

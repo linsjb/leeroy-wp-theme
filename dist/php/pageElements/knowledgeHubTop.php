@@ -3,7 +3,7 @@ function knowledgeHubTop($pageType = null) {
   informationPageTop('postsPage');
 ?>
 
-  <div class="o-knowledgeHubMenu col-xs-100">
+  <div class="o-knowledgeHubMenu col-xs-24">
     <div class="container o-knowledgeHubMenuContent">
       <nav class="m-knowledgeHubMenuNav">
         <ul class="a-knowledgehubMenuList">
@@ -18,7 +18,8 @@ function knowledgeHubTop($pageType = null) {
   <!-- .o-knowledgeHubMenu -->
   </div>
 
-  <div  class="o-knowledgeHubMenuDropdown col-xs-100">
+  <!-- Categories -->
+  <div  class="o-knowledgeHubMenuDropdown col-xs-24">
     <div class="container">
       <?php
       $categories = new Taxonomy;
@@ -34,7 +35,8 @@ function knowledgeHubTop($pageType = null) {
   <!-- .o-knowledgeHubMenuDropdown -->
   </div>
 
-  <div  class="o-knowledgeHubMenuDropdown col-xs-100">
+  <!-- Tags -->
+  <div  class="o-knowledgeHubMenuDropdown col-xs-24">
     <div class="container">
       <?php
       $tags = new Taxonomy;
@@ -50,7 +52,8 @@ function knowledgeHubTop($pageType = null) {
   <!-- .o-knowledgeHubMenuDropdown -->
   </div>
 
-  <div  class="o-knowledgeHubMenuDropdown col-xs-100">
+  <!-- Cases -->
+  <div  class="o-knowledgeHubMenuDropdown col-xs-24">
     <div class="container">
       <?php
       $postsArgs = array(
@@ -78,11 +81,12 @@ function knowledgeHubTop($pageType = null) {
   <!-- .o-knowledgeHubMenuDropdown -->
   </div>
 
-  <div  class="o-knowledgeHubMenuDropdown col-xs-100">
+  <!-- Latest posts -->
+  <div  class="o-knowledgeHubMenuDropdown col-xs-24">
     <div class="container">
       <?php
       $latest = new recentPosts;
-      $latest->setItemsNumber(10);
+      $latest->setItemsNumber(5);
       $latest->setContainerClasses('m-knowledgeHubMenuDropdownList');
       $latest->setElementClasses('a-knowledgehubMenuDropdownItem');
       $latest->setTitle('Latest posts:');

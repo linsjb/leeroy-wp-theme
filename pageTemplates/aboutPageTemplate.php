@@ -13,7 +13,7 @@ if(have_posts()):
         case 'acfAboutText':
           $acfGroup = 'acfAboutTextContent';
         ?>
-          <div class="o-aboutPage col-xs-100" id="about-leeroy" style="background-color: <?= get_sub_field('acfAboutTextContent')['backgroundColor'] ?>; color: <?= get_sub_field('acfAboutTextContent')['textColor'] ?>">
+          <div class="o-aboutPage col-xs-24" id="about-leeroy" style="background-color: <?= get_sub_field('acfAboutTextContent')['backgroundColor'] ?>; color: <?= get_sub_field('acfAboutTextContent')['textColor'] ?>">
             <div class="container o-aboutPageContent">
               <?php
               $leftTextContent = new AcfText;
@@ -22,18 +22,18 @@ if(have_posts()):
               $leftTextContent->setElementType('div');
 
               if(get_sub_field($acfGroup)['columns'] == 'two') {
-                $leftTextContent->setClasses('m-aboutTextColumnContent col-xs-100 col-sm-50');
+                $leftTextContent->setClasses('m-aboutTextColumnContent col-xs-24 col-sm-12');
 
                 $rightTextContent = new AcfText;
                 $rightTextContent->useSubfield();
                 $rightTextContent->setObject($acfGroup, 'rightContent');
                 $rightTextContent->setElementType('div');
-                $rightTextContent->setClasses('m-aboutTextColumnContent col-xs-100 col-sm-50');
+                $rightTextContent->setClasses('m-aboutTextColumnContent col-xs-24 col-sm-12');
 
                 $leftTextContent->init();
                 $rightTextContent->init();
               } else {
-                $leftTextContent->setClasses('m-aboutTextContent col-xs-100');
+                $leftTextContent->setClasses('m-aboutTextContent col-xs-24');
                 $leftTextContent->init();
               }
               ?>
@@ -53,16 +53,16 @@ if(have_posts()):
           $officeIcon->useElement();
           $officeIcon->setClasses('a-aboutOffices__icon');
         ?>
-          <div class="o-aboutPage col-xs-100" style="background-color: <?= get_sub_field('acfAboutOfficesSectionPref')['backgroundColor'] ?>; color: <?= get_sub_field('acfAboutOfficesSectionPref')['textColor'] ?>">
+          <div class="o-aboutPage col-xs-24" style="background-color: <?= get_sub_field('acfAboutOfficesSectionPref')['backgroundColor'] ?>; color: <?= get_sub_field('acfAboutOfficesSectionPref')['textColor'] ?>">
             <div class="container o-aboutPageContent">
 
-              <div class="m-aboutOfficesIcon col-xs-19">
+              <div class="m-aboutOfficesIcon col-xs-4">
                 <?php $officeIcon->init() ?>
               <!-- .m-aboutOfficesIcon -->
               </div>
 
               <?php if(have_rows('acfAboutOfficeOffices')): ?>
-                <div class="col-xs-100 col-sm-60">
+                <div class="col-xs-24 col-sm-16">
                   <?php
                   while(have_rows('acfAboutOfficeOffices')):
                     the_row();
@@ -78,7 +78,7 @@ if(have_posts()):
                     $officeInformation->setElementType('div');
                     $officeInformation->setClasses('a-aboutOfficesInfo');
                   ?>
-                    <div class="m-aboutOfficeCell col-xs-100 col-sm-45 col-sm-offset-5">
+                    <div class="m-aboutOfficeCell col-xs-24 col-sm-10 col-sm-offset-2">
                       <?php
                       $officeTitle->init();
                       $officeInformation->init();
@@ -104,7 +104,7 @@ if(have_posts()):
 
           $tintBackground = get_sub_field('acfAboutTeamSectionPref')['tintColor'];
         ?>
-          <div class="o-aboutPage col-xs-100" id="the-team" style="background-color: <?= get_sub_field('acfAboutTeamSectionPref')['backgroundColor'] ?>">
+          <div class="o-aboutPage col-xs-24" id="the-team" style="background-color: <?= get_sub_field('acfAboutTeamSectionPref')['backgroundColor'] ?>">
             <div class="container o-aboutPageContent">
               <?php
               $teamTitle->init();
@@ -116,11 +116,11 @@ if(have_posts()):
                   $cardImage->useSubfield();
                   $cardImage->setObject('image');
               ?>
-                  <div class="m-aboutTeamCell col-xs-100 col-sm-30 col-md-25">
+                  <div class="m-aboutTeamCell col-xs-24 col-sm-8 col-md-6">
                     <div class="m-aboutTeamCellContent" style="background-image: url('<?= $cardImage->init(); ?>')">
 
                       <?php if(get_sub_field('tintImage')):?>
-                        <div class="a-elementToner col-xs-100" style="background-color: <?= $tintBackground ?>; opacity: <?= get_sub_field('tintOpacity') ?>"></div>
+                        <div class="a-elementToner col-xs-24" style="background-color: <?= $tintBackground ?>; opacity: <?= get_sub_field('tintOpacity') ?>"></div>
                       <?php endif; ?>
 
                       <?php if(!get_sub_field('image')): ?>
@@ -128,7 +128,7 @@ if(have_posts()):
                       <?php endif; ?>
 
                       <!-- Cell information -->
-                      <div class="m-aboutTeamCellInfo col-xs-100">
+                      <div class="m-aboutTeamCellInfo col-xs-24">
                         <p class="a-aboutTeam__name"><?= get_sub_field('name') ?></p>
                         <p class="a-aboutTeam__position"><?= get_sub_field('position') ?></p>
                       <!-- .m-aboutTeamCellInfo -->
@@ -141,7 +141,7 @@ if(have_posts()):
                 <?php endwhile; // have_rows - acfAboutTeamCells ?>
 
                 <!-- Last team cell. Cell with icon and info-text -->
-                <div class="m-aboutTeamCell col-xs-100 col-sm-30 col-md-25">
+                <div class="m-aboutTeamCell col-xs-24 col-sm-8 col-md-6">
                   <div class="m-aboutTeamCellContent" style="background-color: <?= get_sub_field('acfAboutTeamLastCellGroup')['backgroundColor'] ?>">
                     <?php
                     $lastCellIcon = new AcfImage;
@@ -163,7 +163,7 @@ if(have_posts()):
                     $lastCellSubTitle->setElementType('p');
                     $lastCellSubTitle->setClasses('a-aboutTeam__position');
                     ?>
-                    <div class="m-aboutTeamCellInfo col-xs-100">
+                    <div class="m-aboutTeamCellInfo col-xs-24">
                       <?php
                       $lastCellTitle->init();
                       $lastCellSubTitle->init();
@@ -189,7 +189,7 @@ if(have_posts()):
           $imageSectionTitle->setElementType('h2');
           $imageSectionTitle->setClasses('a-aboutPageSection__header ' . acfButtonSubGroup('textAlignment', 'acfAboutImageTitlePref', 'alignment') . ' ' . acfButtonSubGroup('textColor', 'acfAboutImageTitlePref', 'color') . ' ' . acfButtonSubGroup('fontSize', 'acfAboutImageTitlePref', 'size'));
         ?>
-          <div class="o-aboutPage col-xs-100" style="background-color: <?= get_sub_field('acfAboutImageSectionPref')['backgroundColor'] ?>;">
+          <div class="o-aboutPage col-xs-24" style="background-color: <?= get_sub_field('acfAboutImageSectionPref')['backgroundColor'] ?>;">
             <div class="container o-aboutPageContent">
               <?php
               $imageSectionTitle->init();
@@ -199,17 +199,17 @@ if(have_posts()):
               $aboutDesktopImage->useElement();
 
               if(get_sub_field('acfAboutImageGroup')['MobileImageCheck']) {
-                $aboutDesktopImage->setClasses('a-aboutImage__desktopImage col-xs-100 hidden-xs');
+                $aboutDesktopImage->setClasses('a-aboutImage__desktopImage col-xs-24 hidden-xs');
                 $aboutDesktopImage->init();
 
                 $aboutMobileImage = new AcfImage;
                 $aboutMobileImage->useSubfield();
                 $aboutMobileImage->setObject('acfAboutImageGroup', 'mobileImage');
                 $aboutMobileImage->useElement();
-                $aboutMobileImage->setClasses('a-aboutImage__mobileImage col-xs-100 hidden-sm hidden-md hidden-lg');
+                $aboutMobileImage->setClasses('a-aboutImage__mobileImage col-xs-24 hidden-sm hidden-md hidden-lg');
                 $aboutMobileImage->init();
               } else {
-                $aboutDesktopImage->setClasses('a-aboutImage__desktopImage col-xs-100');
+                $aboutDesktopImage->setClasses('a-aboutImage__desktopImage col-xs-24');
                 $aboutDesktopImage->init();
               }
               ?>
@@ -237,18 +237,18 @@ if(have_posts()):
           $formSectionShortcode->useSubfield();
           $formSectionShortcode->setObject('acfAboutFormSectionPref', 'shortcode');
         ?>
-        <div class="o-aboutPage col-xs-100" id="join-us" style="background-color: <?= get_sub_field('acfAboutFormSectionPref')['backgroundColor'] ?>;">
+        <div class="o-aboutPage col-xs-24" id="join-us" style="background-color: <?= get_sub_field('acfAboutFormSectionPref')['backgroundColor'] ?>;">
           <div class="container o-aboutPageContent">
             <?php
             $formSectionTitle->init();
             ?>
-            <div class="o-contactFormContent col-xs-100 col-sm-80">
+            <div class="o-contactFormContent col-xs-24 col-sm-20">
               <?php
               echo do_shortcode($formSectionShortcode->init());
               ?>
             </div>
 
-            <div class="o-contactFormIcon col-xs-100 col-sm-20">
+            <div class="o-contactFormIcon col-xs-24 col-sm-4">
               <?php
               $formSectionIcon->init();
               ?>

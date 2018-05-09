@@ -20,19 +20,19 @@ function informationPageElements() {
 
   informationPageTop();
   ?>
-  <div class="o-informationPageBottom col-xs-100" style="background-color: <?= get_field('acfInfPageContentClrs')['backgroundColor'] ?>; color: <?= get_field('acfInfPageContentClrs')['textColor'] ?>;">
+  <div class="o-informationPageBottom col-xs-24" style="background-color: <?= get_field('acfInfPageContentClrs')['backgroundColor'] ?>; color: <?= get_field('acfInfPageContentClrs')['textColor'] ?>;">
     <div class="container o-informationPageBottomContent">
       <?php if($content['columns'] == 'one'): ?>
-        <div class="m-informationPageBottomContent col-xs-100">
+        <div class="m-informationPageBottomContent col-xs-24">
           <?= $content['leftContent'] ?>
         </div>
 
       <?php elseif($content['columns'] == 'two'): ?>
-          <div class="m-informationPageColBottomContent col-xs-100 col-sm-50">
+          <div class="m-informationPageColBottomContent col-xs-24 col-sm-12">
               <?= $content['leftContent'] ?>
           </div>
 
-          <div class="m-informationPageColBottomContent col-xs-100 col-sm-50">
+          <div class="m-informationPageColBottomContent col-xs-24 col-sm-12">
             <?= $content['rightContent'] ?>
           </div>
       <?php endif; ?>

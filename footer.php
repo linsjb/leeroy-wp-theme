@@ -33,20 +33,20 @@
     $resourcesAcfFields->setPosition('before');
     $resourcesAcfFields->init();
     ?>
-    <div class="o-footer col-xs-100">
+    <div class="o-footer col-xs-24">
       <a rel="<?= $logoLinkRel ?>" href="<?= $logoUrl ?>" class="a-footerLogo__link">
         <object class="a-footerLogo__logo" type="image/svg+xml" data="<?= get_template_directory_uri() . '/images/leeroyStdLogo.svg' ?>"></object>
       </a>
       <p class="m-footer__slogan"><?= get_bloginfo('description') ?></p>
 
       <div class="container m-footerContent">
-        <div class="m-footerInnerContent col-xs-100 col-sm-80 col-sm-offset-10">
-          <div class="m-footerInnerContentCol col-xs-100 col-sm-50">
+        <div class="m-footerInnerContent col-xs-24 col-sm-20 col-sm-offset-3">
+          <div class="m-footerInnerContentCol col-xs-24 col-sm-12">
             <?php $aboutLeeroyNav->init() ?>
           <!-- .m-footerInnerContentCol -->
           </div>
 
-          <div class="m-footerInnerContentCol col-xs-100 col-sm-50">
+          <div class="m-footerInnerContentCol col-xs-24 col-sm-12">
             <?php $resourcesNav->init() ?>
           <!-- .m-footerInnerContentCol -->
           </div>

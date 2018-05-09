@@ -2,7 +2,7 @@
 get_header();
 knowledgeHubTop('postsPage');
 ?>
-<div class="o-singlePost col-xs-100">
+<div class="o-singlePost col-xs-24">
   <div class="container">
     <?php
     if(have_posts()):
@@ -31,12 +31,12 @@ knowledgeHubTop('postsPage');
       $postAuthor->setElementType('span');
       $postAuthor->setClasses('a-singlePostInfo__author');
     ?>
-      <div class="m-singlePostLeftColumn hidden-xs col-sm-5 col-md-offset-7 col-lg-offset-12">
+      <div class="m-singlePostLeftColumn hidden-xs col-sm-2 col-sm-offset-2 col-md-1 col-md-offset-1">
         <?php shareIcons() ?>
       <!-- .m-singlePostLeftColumn -->
       </div>
 
-      <div class="m-singlePostRightColumn col-xs-100 col-sm-95 col-md-80 col-lg-70">
+      <div class="m-singlePostRightColumn col-xs-24 col-sm-20">
         <?php $postTitle->init() ?>
 
         <p class="m-singlePostInfo__text">
@@ -64,7 +64,7 @@ knowledgeHubTop('postsPage');
                   $rowImage->setClasses('a-singlePostContent__image');
                   $rowImage->useElement();
 
-                  echo '<div class="m-singlePostContentImage col-xs-100">';
+                  echo '<div class="m-singlePostContentImage col-xs-24">';
                     $rowImage->init();
                     echo '<p class="a-singlePostContent__imageDesc">' . $rowImage->getCaption() .'</p>';
                   echo '</div>';
@@ -110,7 +110,7 @@ knowledgeHubTop('postsPage');
 
         <?php postAuthor(); ?>
 
-        <div class="m-singlePostTags col-xs-100">
+        <div class="m-singlePostTags col-xs-24">
           <?php
           $counter = 1;
           $tags = get_the_tags();
@@ -132,7 +132,7 @@ knowledgeHubTop('postsPage');
         <!-- .m-singlePostTags -->
         </div>
 
-        <div class="m-singlePostMobileShareIcons col-xs-100 hidden-sm hidden-md hidden-lg">
+        <div class="m-singlePostMobileShareIcons col-xs-24 hidden-sm hidden-md hidden-lg">
           <?php shareIcons() ?>
         <!-- .m-singlePostMobileShareIcons -->
         </div>

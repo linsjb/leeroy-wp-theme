@@ -89,7 +89,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 window.onload = function () {
   (0, _header2.default)();
   utils.postFlexSlider();
-  utils.postAuthor();
   utils.indexCardCarousel();
 };
 
@@ -114,6 +113,11 @@ var _svgColor = __webpack_require__(2);
 /*!
 * trert
 */
+
+var didScroll = void 0;
+var lastScrollTop = 0;
+var delta = 10;
+
 function headerBehaviour() {
   (function ($) {
     var _this = this;
@@ -139,6 +143,7 @@ function headerBehaviour() {
     var headerLogo = new _svgColor.SvgColor();
 
     var animationEnds = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd';
+
     /*
     * What is the width of the browser?
     * If the width if equal of greater than 768 (bootstrap col-sm), we will assign the variables the elements of the dektop header and menu.
@@ -179,8 +184,8 @@ function headerBehaviour() {
       mobileMenuVisible = !mobileMenuVisible;
 
       /*
-      * Have the user scrolled down more than 200 px?
-      * If it's the case. The header background is going to be toggled.
+      * Have the user scrolled down more than scroll offset?
+      * If that's the case. The header background is going to be toggled.
       * Reason for this is simple. When the mobile menu is open we don't want the header to have a background
       */
       if (window.pageYOffset > scrolloffset) {
@@ -207,8 +212,18 @@ function headerBehaviour() {
       headerLogo.setColor(blackColor);
     }
 
-    // the scroll behaviour
+    // Scroll listener
     window.addEventListener('scroll', function () {
+      didScroll = true;
+
+      setInterval(function () {
+        if (didScroll) {
+          hasScrolled();
+          didScroll = false;
+        }
+      }, 250);
+
+      // Control when the header background and color's should change.
       if ($(this).scrollTop() > scrolloffset) {
         if (logoBehaviour) {
           headerLogo.setColor(blackColor);
@@ -231,8 +246,36 @@ function headerBehaviour() {
         }
       }
     });
+
+    // TEST
+    // TEST
+    // TEST
+
+
+    // TEST
+    // TEST
+    // TEST
   })(jQuery);
 } // headerBahaviour
+
+function hasScrolled() {
+  (function ($) {
+
+    var st = $(window).scrollTop();
+    console.log(st);
+    if (Math.abs(lastScrollTop - st) <= delta) {
+      return;
+    }
+
+    if (st > lastScrollTop && st > 20) {
+      console.log('Scrolling down');
+    } else {
+      console.log('Scrolling up');
+    }
+
+    lastScrollTop = st;
+  })(jQuery);
+}
 
 /***/ }),
 /* 2 */
@@ -327,11 +370,8 @@ function cellHeight() {
 }
 
 function menu() {
-  var buttons = document.getElementsByClassName('a-knowledgeHubMenuList__item');
+  var buttons = Array.from(document.getElementsByClassName('a-knowledgeHubMenuList__item'));
   var dropdowns = document.getElementsByClassName('o-knowledgeHubMenuDropdown');
-
-  // Convert buttons variable from HTMLCollection to an Array
-  buttons = Array.from(buttons);
 
   buttons.map(function (button, index) {
     button.addEventListener('click', function () {
@@ -358,22 +398,8 @@ function menu() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.postAuthor = postAuthor;
 exports.indexCardCarousel = indexCardCarousel;
 exports.postFlexSlider = postFlexSlider;
-function postAuthor() {
-  (function ($) {
-    if ($(window).width() >= 768) {
-      var postAuthorHeight = $('#postAuthor').outerHeight(true);
-      var postAuthorDescriptionHeight = $('#postAuthorDesc').outerHeight(true);
-
-      var postAuthorContent = $('#postAuthorContent');
-      var postAuthorContentHeight = postAuthorContent.outerHeight(true);
-      postAuthorContent.css("margin-top", (postAuthorHeight - (postAuthorContentHeight + postAuthorDescriptionHeight)) / 2);
-    }
-  })(jQuery);
-}
-
 function indexCardCarousel() {
   (function ($) {
     $(".owl-carousel").owlCarousel({

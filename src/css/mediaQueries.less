@@ -79,6 +79,10 @@
   .o-contactFormIcon {
     text-align: left;
   }
+
+  .o-knowledgeHubCell {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -109,6 +113,10 @@
       padding-left: 50px;
     }
   }
+
+  .o-knowledgeHubCell {
+    width: ~"calc(50% - 7.5px)";
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -120,5 +128,9 @@
     &:nth-child(2) {
       padding-left: 100px;
     }
+  }
+
+  .o-knowledgeHubCell {
+    width: ~"calc(33.3333% - 10px)";
   }
 }

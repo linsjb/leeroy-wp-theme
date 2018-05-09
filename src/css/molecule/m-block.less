@@ -97,13 +97,14 @@
 
 .m-aboutTeamCell {
   border: 1px solid #1f1f1f;
+  margin: 0; padding: 0;
 }
 
 .m-aboutTeamCellContent {
   .backgroundPosition;
+  background-color: @leeroyPurple;
   padding-bottom: 125%;
   width: 100%;
-  background-color: @leeroyPurple;
 }
 
 .m-aboutTeamCellInfo {
@@ -216,9 +217,15 @@
 
 .m-postAuthor {
   margin-top: 50px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.m-postAuthorContent {
+.m-postAuthorInfo {
+  padding-left: 15px;
 }
 
 // Knowledge hub single post share icons
@@ -300,7 +307,6 @@
 
 .m-mobileIndexSectionItemCells {
   margin-top: 20px;
-
   .owl-dots {
     padding-top: 30px;
 

@@ -3,6 +3,11 @@ import { SvgColor } from './classes/svgColor';
 /*!
 * trert
 */
+
+let didScroll;
+let lastScrollTop = 0;
+let delta = 10;
+
 export default function headerBehaviour () {
   (function ($) {
     let headerElement;
@@ -26,6 +31,7 @@ export default function headerBehaviour () {
     let headerLogo = new SvgColor();
 
     let animationEnds = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd';
+
     /*
     * What is the width of the browser?
     * If the width if equal of greater than 768 (bootstrap col-sm), we will assign the variables the elements of the dektop header and menu.
@@ -66,8 +72,8 @@ export default function headerBehaviour () {
       mobileMenuVisible = !mobileMenuVisible;
 
       /*
-      * Have the user scrolled down more than 200 px?
-      * If it's the case. The header background is going to be toggled.
+      * Have the user scrolled down more than scroll offset?
+      * If that's the case. The header background is going to be toggled.
       * Reason for this is simple. When the mobile menu is open we don't want the header to have a background
       */
       if(window.pageYOffset > scrolloffset) {
@@ -94,8 +100,19 @@ export default function headerBehaviour () {
       headerLogo.setColor(blackColor);
     }
 
-    // the scroll behaviour
+
+    // Scroll listener
     window.addEventListener('scroll', function () {
+      didScroll = true;
+
+      setInterval(function() {
+        if(didScroll) {
+          hasScrolled();
+          didScroll = false;
+        }
+      }, 250);
+
+      // Control when the header background and color's should change.
       if ($(this).scrollTop() > scrolloffset) {
         if(logoBehaviour) {
           headerLogo.setColor(blackColor);
@@ -118,5 +135,35 @@ export default function headerBehaviour () {
         }
       }
     });
+
+    // TEST
+    // TEST
+    // TEST
+
+
+
+
+    // TEST
+    // TEST
+    // TEST
   })(jQuery);
 } // headerBahaviour
+
+function hasScrolled() {
+  (function ($) {
+
+    let st = $(window).scrollTop();
+    console.log(st);
+    if(Math.abs(lastScrollTop - st) <=delta) {
+      return;
+    }
+
+    if(st > lastScrollTop && st > 20) {
+      console.log('Scrolling down');
+    } else {
+      console.log('Scrolling up');
+    }
+
+    lastScrollTop = st;
+  })(jQuery);
+}

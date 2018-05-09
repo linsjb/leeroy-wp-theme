@@ -23,7 +23,7 @@ function informationPageTop($pageType = null) {
 ?>
     <div
     id="topElement"
-    class="o-informationPageTop col-xs-100"
+    class="o-informationPageTop col-xs-24"
     style="<?= pageBackgroundType($pageType); ?>"
     >
       <?php pageBackgroundTone($pageType) ?>

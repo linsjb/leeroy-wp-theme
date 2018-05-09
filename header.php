@@ -7,7 +7,7 @@
     wp_head();
     $navigation = new Navigation();
     $navigation->setLocation('masterMenu');
-    $navigation->setContainerClasses('m-header__nav pull-right col-md-80');
+    $navigation->setContainerClasses('m-header__nav pull-right col-md-19');
 
     $mobileNavigation = new Navigation();
     $mobileNavigation->setLocation('mobileMasterMenu');

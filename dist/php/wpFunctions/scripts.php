@@ -13,7 +13,7 @@ function leeroyScripts() {
   wp_enqueue_style( 'proximaNovaLightItalic', get_template_directory_uri() . '/dist/fonts/PROXIMA_NOVA/proximanova_lightitalic_macroman/stylesheet.css', array() , '', 'all');
   wp_enqueue_style( 'freightDispPro', get_template_directory_uri() . '/dist/fonts/FREIGHT_DISPLAY/MyFontsWebfontsKit.css', array() , '', 'all');
 
-  wp_enqueue_style( 'grid100', get_template_directory_uri() . '/dist/css/grid100.css', array(),'3.2.0', 'all');
+  wp_enqueue_style( 'grid24', get_template_directory_uri() . '/dist/css/grid24.css', array(),'3.2.0', 'all');
   wp_enqueue_style( 'animateCss', get_template_directory_uri() . '/dist/css/animate.min.css', array() , '3.5.2', 'all');
   wp_enqueue_style( 'hamburgers', get_template_directory_uri() . '/dist/css/hamburgers.min.css', array() , '0.9.3', 'all');
   wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/dist/css/flexslider.css', array() , '2.7.0', 'all');

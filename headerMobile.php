@@ -1,4 +1,4 @@
-<header class="o-mobileHeader col-xs-100 hidden-sm hidden-md hidden-lg ">
+<header class="o-mobileHeader col-xs-24 hidden-sm hidden-md hidden-lg ">
   <div class="m-mobileHeaderLogo">
     <a rel="<?= $logoLinkRel ?>" href="<?= $logoUrl ?>" class="a-headerLogo__link">
       <object id="mobileHeaderLogoObj" class="a-headerLogo__logo" type="image/svg+xml" data="<?= get_template_directory_uri() . '/images/leeroyStdLogo.svg' ?>"></object>
@@ -16,7 +16,7 @@
   </div>
 </header>
 
-<div id="mobileHeaderMenu" class="o-mobileHeaderMenu animated col-xs-100 hidden-sm hidden-md hidden-lg">
+<div id="mobileHeaderMenu" class="o-mobileHeaderMenu animated col-xs-24 hidden-sm hidden-md hidden-lg">
   <?php $mobileNavigation->init() ?>
   <!-- .o-mobileHeaderMenu -->
 </div>
