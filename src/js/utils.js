@@ -1,3 +1,5 @@
+// import Underscore from 'underscore';
+
 export function indexCardCarousel() {
   (function ($) {
     $(".owl-carousel").owlCarousel({
@@ -7,14 +9,11 @@ export function indexCardCarousel() {
   })(jQuery);
 }
 
-export function postFlexSlider() {
-  (function ($) {
-    $('#slider').flexslider({
-      animation: "slide",
-      animationLoop: false,
-      slideshow: false,
-      smoothHeight: true,
-    });
-
-  })(jQuery);
-}
+export function postFlexSlider() {(function ($) {
+  $('#slider').flexslider({
+    animation: "slide",
+    animationLoop: false,
+    slideshow: false,
+    smoothHeight: true,
+  });
+})(jQuery);}

@@ -4,8 +4,8 @@
   "description": "Leeroy package.json",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "dev": "webpack -d --watch",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",

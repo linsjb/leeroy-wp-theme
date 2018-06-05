@@ -61,6 +61,8 @@ function pageBackgroundTone($pageType = null) {
   }
 
   if($toneCheck) {
-    echo '<div class="col-xs-100 a-elementToner" style="background-color:' . $toneColor . '; opacity:' . $toneOpacity . '"></div>';
+    echo '
+    <div class="col-xs-24 a-elementToner hideIe" style="background-color:' . $toneColor . '; opacity:' . $toneOpacity . '"></div>
+    ';
   }
 }

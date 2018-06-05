@@ -98,7 +98,7 @@ if($query->have_posts()):
 
                   case 'acfIndSecBlogPosts':
                     $postsArgs = array(
-                      'numberposts' => 5,
+                      'posts_per_page' => 5,
                       'post_type'  => 'post',
                       'meta_key' => 'acfKnowHubPostCaseShow',
                       'meta_value' => true
@@ -110,7 +110,19 @@ if($query->have_posts()):
                       echo '<div class="o-knowledgeHubGrid col-xs-24">';
                         while($postsQuery->have_posts()) {
                           $postsQuery->the_post();
-                          knowledgeHubGrid($counter);
+                          if($counter != 3) {
+                            knowledgeHubGrid($counter);
+                          } else {
+                            echo '
+                              <div id="cell-' . $counter . '" class="o-knowledgeHubCell -static hidden-sm hidden-xs" data-imgprops="-1">
+                                <div class="m-knowledgeHubCellRocket">
+                                  <img src="' . get_template_directory_uri() . '/images/002-startup.svg" alt="Rocket" class="m-knowledgeHubCellRocket__image" />
+                                </div>
+                              </div>
+                            ';
+                            knowledgeHubGrid($counter+1);
+                            $counter++;
+                          }
                           $counter++;
                         }
                       echo '</div>'; // .KnowledgeHubGrid

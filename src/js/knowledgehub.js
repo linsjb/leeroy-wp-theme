@@ -4,7 +4,7 @@ export function grid() {
       itemSelector: '.o-knowledgeHubCell',
       percentPosition:  true,
       horizontalOrder:  true,
-      gutter:           15
+      gutter:           15,
     });
   })(jQuery);
 }
@@ -16,7 +16,10 @@ export function cellHeight() {
     let knowledgeHubCell = document.getElementById('cell-' + i);
     if (knowledgeHubCell.getAttribute('data-imgprops') == 0) {
       knowledgeHubCell.style.minHeight = '200px';
-    } else {
+    } else if(knowledgeHubCell.getAttribute('data-imgprops') == -1) {
+      knowledgeHubCell.style.height = knowledgeHubCell.offsetWidth + 'px';
+    }
+    else {
       knowledgeHubCell.style.height = knowledgeHubCell.getAttribute('data-imgprops') * knowledgeHubCell.offsetWidth + 'px';
     }
   }

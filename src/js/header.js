@@ -1,16 +1,12 @@
 import { SvgColor } from './classes/svgColor';
 
-/*!
-* trert
-*/
-
 let didScroll;
 let lastScrollTop = 0;
 let delta = 10;
+let headerElement;
 
 export default function headerBehaviour () {
   (function ($) {
-    let headerElement;
     let navigationElement;
 
     // Variable to control the behaviour of the logo.
@@ -50,6 +46,7 @@ export default function headerBehaviour () {
     headerLogo.setSvgItems('a-leeroyLogo');
     headerLogo.setColor(whiteColor);
 
+    // Mobile menu button click
     mobileNavigationButton.addEventListener('click', () => {
 
       $('#mobileNavBtn').toggleClass('is-active');
@@ -93,27 +90,33 @@ export default function headerBehaviour () {
     /*
     * Set's the header background and dark text color
     * in case that the page is not at the top when it's loaded.
+    * And only if the page width is > 768 px (bootstrap col-sm).
     */
-    if(window.pageYOffset > scrolloffset) {
-      navigationElement.addClass('m-header__nav--darkTextColor');
-      headerElement.addClass('o-header--background');
-      headerLogo.setColor(blackColor);
+    if(window.innerWidth >= 768) {
+      if(window.pageYOffset > scrolloffset) {
+        navigationElement.addClass('m-header__nav--darkTextColor');
+        headerElement.addClass('o-header--background');
+        headerLogo.setColor(blackColor);
+      }
     }
 
 
     // Scroll listener
     window.addEventListener('scroll', function () {
-      didScroll = true;
 
-      setInterval(function() {
-        if(didScroll) {
-          hasScrolled();
-          didScroll = false;
-        }
-      }, 250);
+        didScroll = true;
+        setInterval(function() {
+          if(didScroll) {
+            if($(this).scrollTop() > 500) {
+              hasScrolled();
+              didScroll = false;
+            }
+          }
+        }, 250);
 
-      // Control when the header background and color's should change.
+      // Has the user scrolled over the scroll offset?
       if ($(this).scrollTop() > scrolloffset) {
+
         if(logoBehaviour) {
           headerLogo.setColor(blackColor);
           headerElement.addClass('o-header--background');
@@ -135,33 +138,23 @@ export default function headerBehaviour () {
         }
       }
     });
-
-    // TEST
-    // TEST
-    // TEST
-
-
-
-
-    // TEST
-    // TEST
-    // TEST
   })(jQuery);
 } // headerBahaviour
 
+
 function hasScrolled() {
   (function ($) {
-
     let st = $(window).scrollTop();
-    console.log(st);
     if(Math.abs(lastScrollTop - st) <=delta) {
       return;
     }
 
     if(st > lastScrollTop && st > 20) {
-      console.log('Scrolling down');
+      // Scrolling down
+      headerElement.removeClass('fadeIn').addClass('animated').addClass('fadeOut');
     } else {
-      console.log('Scrolling up');
+      // Scrolling upp
+      headerElement.removeClass('fadeOut').addClass('fadeIn');
     }
 
     lastScrollTop = st;

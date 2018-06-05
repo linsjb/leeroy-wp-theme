@@ -31,10 +31,12 @@
 
 .a-indexSectionContent__image {
   padding-top: 50px;
+  padding-bottom: 80px;
 }
 
 .a-indexSectionMobile__image {
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .a-indexSectionContent__topTitle {
@@ -86,6 +88,7 @@
 .a-informationPage__slogan {
   font-size: 22px;
   color: @leeroyWhite;
+  z-index: 10;
 }
 
 // About Leeroy
@@ -298,12 +301,7 @@
   color: @leeroyBlue;
 }
 
-.a-singlePostShareList__item {
-  list-style: none;
-  display: inline;
-}
-
-.a-singlePostShare__link {
+.a-singlePostShareListItem__link {
   display: inline-block;
   height: 30px;
   text-align: center;
@@ -318,42 +316,6 @@
     .svgCircle {
       stroke: @secondaryContent;
       .fadeInTransition(0.2s);
-    }
-  }
-}
-
-.a-singlePostShare__facebook:hover {
-  svg {
-    fill: #3b5998;
-    .svgCircle {
-      stroke: #3b5998;
-    }
-  }
-}
-
-.a-singlePostShare__google:hover {
-  svg {
-    fill: #ea4335;
-    .svgCircle {
-      stroke: #ea4335;
-    }
-  }
-}
-
-.a-singlePostShare__twitter:hover {
-  svg {
-    fill: #1da1f2;
-    .svgCircle {
-      stroke: #1da1f2;
-    }
-  }
-}
-
-.a-singlePostShare__linkedin:hover {
-  svg {
-    fill: #00a0dc;
-    .svgCircle {
-      stroke: #00a0dc;
     }
   }
 }
@@ -435,13 +397,6 @@
 
 // Globals
 // -----------------------
-
-.a-elementToner {
-  height: 100%;
-  left: 0px;
-  position: absolute;
-  z-index: 0;
-}
 
 .a-btn {
   border-radius: 8px;

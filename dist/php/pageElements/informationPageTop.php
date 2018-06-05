@@ -21,20 +21,19 @@ function informationPageTop($pageType = null) {
     $title->usePostsPage();
   }
 ?>
-    <div
-    id="topElement"
-    class="o-informationPageTop col-xs-24"
-    style="<?= pageBackgroundType($pageType); ?>"
-    >
+    <div id="topElement" class="o-informationPageTop col-xs-24" style="<?= pageBackgroundType($pageType); ?>">
       <?php pageBackgroundTone($pageType) ?>
-      <div class="container m-informationPageTopContent">
-        <?php
-        $title->init();
-        $slogan->init();
-        ?>
-      <!-- .m-informationPageTopContent -->
+      <div class="container m-informationPageTopContainer">
+        <div class="a-informationPageTopContent">
+          <?php
+          $title->init();
+          $slogan->init();
+          ?>
+          <!-- .a-informationPageTopContent -->
+        </div>
+        <!-- .m-informationPageTopContainer -->
       </div>
-    <!-- .o-informationPageTop -->
+      <!-- .o-informationPageTop -->
     </div>
 <?php
 }

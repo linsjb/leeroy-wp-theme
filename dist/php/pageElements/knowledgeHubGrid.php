@@ -44,7 +44,7 @@ function knowledgeHubGrid($counter) {
 ?>
 
   <a href="<?php the_permalink()?>">
-    <div id="<?= $cellId ?>" class="o-knowledgeHubCell" style="<?= $cellBackground ?>;" data-imgprops="<?= $imageProps ?>">
+    <div id="<?= $cellId ?>" class="o-knowledgeHubCell -dynamic" style="<?= $cellBackground ?>;" data-imgprops="<?= $imageProps ?>">
       <div class="m-knowledgeHubHoverContent">
         <img src="<?= get_template_directory_uri() . '/images/coffee-cup.svg' ?>" alt="" class="m-knowledgeHubHoverContent__icon">
         <p class="m-knowledgeHubHoverContent__text">Read now</p>
@@ -63,5 +63,6 @@ function knowledgeHubGrid($counter) {
     </div>
   </a>
 <?php
+
 }
 ?>

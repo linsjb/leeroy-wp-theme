@@ -5,12 +5,23 @@
   position: fixed;
 }
 
-#menu-mastermenu .current-menu-item > a{
-  font-weight: bolder !important;
+#menu-mastermenu {
+
+  .current_page_item,
+  .current_page_parent {
+    a {
+      font-weight: bolder !important;
+    }
+  }
 }
 
-#menu-mobilemastermenu .current-menu-item > a{
-  color: @leeroyWhite !important;
+#menu-mobilemastermenu {
+  .current_page_item,
+  .current_page_parent {
+    a {
+      color: @leeroyWhite !important;
+    }
+  }
 }
 
 // Caldera form
@@ -156,4 +167,18 @@ h4 {
   border-width: 2px;
   border-color: @leeroyWhite;
   padding: 10px 0;
+}
+
+.animationDuration(@duration) {
+  animation-duration: @duration;
+  -webkit-animation-duration: @duration;
+  -moz-animation-duration: @duration;
+  -o-animation-duration: @duration;
+}
+
+.animationDelay(@delay) {
+  animation-delay: @delay;
+  -webkit-animation-delay: @delay;
+  -moz-animation-delay: @delay;
+  -o-animation-delay: @delay;
 }

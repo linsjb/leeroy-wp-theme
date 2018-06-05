@@ -134,3 +134,10 @@
     width: ~"calc(33.3333% - 10px)";
   }
 }
+
+// IE 10 specific stuffs
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .a-elementToner {
+    display: none;
+  }
+}

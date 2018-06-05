@@ -65,360 +65,63 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/*!************************!*\
+  !*** ./src/js/main.js ***!
+  \************************/
+/*! dynamic exports provided */
+/*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _header = __webpack_require__(1);
-
-var _header2 = _interopRequireDefault(_header);
-
-var _knowledgehub = __webpack_require__(3);
-
-var knowledgehub = _interopRequireWildcard(_knowledgehub);
-
-var _utils = __webpack_require__(4);
-
-var utils = _interopRequireWildcard(_utils);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-window.onload = function () {
-  (0, _header2.default)();
-  utils.postFlexSlider();
-  utils.indexCardCarousel();
-};
-
-knowledgehub.cellHeight();
-knowledgehub.grid();
-knowledgehub.menu();
+eval("\n\nvar _header = __webpack_require__(/*! ./header */ 1);\n\nvar _header2 = _interopRequireDefault(_header);\n\nvar _knowledgehub = __webpack_require__(/*! ./knowledgehub */ 3);\n\nvar knowledgehub = _interopRequireWildcard(_knowledgehub);\n\nvar _utils = __webpack_require__(/*! ./utils */ 4);\n\nvar utils = _interopRequireWildcard(_utils);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nwindow.onload = function () {\n  (0, _header2.default)();\n  utils.postFlexSlider();\n  utils.indexCardCarousel();\n};\n\nknowledgehub.cellHeight();\nknowledgehub.grid();\nknowledgehub.menu();//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9zcmMvanMvbWFpbi5qcz82OTFmIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBoZWFkZXJCZWhhdmlvdXIgZnJvbSAnLi9oZWFkZXInO1xuaW1wb3J0ICogYXMga25vd2xlZGdlaHViIGZyb20gJy4va25vd2xlZGdlaHViJztcbmltcG9ydCAqIGFzIHV0aWxzIGZyb20gJy4vdXRpbHMnO1xuXG53aW5kb3cub25sb2FkID0gZnVuY3Rpb24oKSB7XG4gIGhlYWRlckJlaGF2aW91cigpO1xuICB1dGlscy5wb3N0RmxleFNsaWRlcigpO1xuICB1dGlscy5pbmRleENhcmRDYXJvdXNlbCgpO1xufVxuXG4gIGtub3dsZWRnZWh1Yi5jZWxsSGVpZ2h0KCk7XG4gIGtub3dsZWRnZWh1Yi5ncmlkKCk7XG4gIGtub3dsZWRnZWh1Yi5tZW51KCk7XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gc3JjL2pzL21haW4uanMiXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQTs7O0FBQUE7QUFDQTtBQURBO0FBQ0E7QUFBQTtBQUNBO0FBREE7QUFDQTs7Ozs7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///0\n");
 
 /***/ }),
 /* 1 */
+/*!**************************!*\
+  !*** ./src/js/header.js ***!
+  \**************************/
+/*! dynamic exports provided */
+/*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = headerBehaviour;
-
-var _svgColor = __webpack_require__(2);
-
-/*!
-* trert
-*/
-
-var didScroll = void 0;
-var lastScrollTop = 0;
-var delta = 10;
-
-function headerBehaviour() {
-  (function ($) {
-    var _this = this;
-
-    var headerElement = void 0;
-    var navigationElement = void 0;
-
-    // Variable to control the behaviour of the logo.
-    // This is needed because of the mobile header.
-    var logoBehaviour = true;
-
-    var mobileMenuVisible = false;
-
-    var whiteColor = '#fdfdfd';
-    var blackColor = '#2f2f2f';
-
-    var mobileNavigationButton = document.getElementById('mobileNavBtn');
-    var mobileMenu = document.getElementById('mobileHeaderMenu');
-
-    // How far the user need's to scroll before magic happens.
-    var scrolloffset = 200;
-
-    var headerLogo = new _svgColor.SvgColor();
-
-    var animationEnds = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd';
-
-    /*
-    * What is the width of the browser?
-    * If the width if equal of greater than 768 (bootstrap col-sm), we will assign the variables the elements of the dektop header and menu.
-    * If the width is less than 768 (bootstrap col-xs), we will assign the variables the elements of the mobile header and menu.
-    */
-    if (window.innerWidth >= 768) {
-      headerElement = $('.o-header');
-      navigationElement = $('.m-header__nav');
-      headerLogo.setObject('desktopHeaderLogoObj');
-    } else if (window.innerWidth < 768) {
-      headerElement = $('.o-mobileHeader');
-      navigationElement = $('.m-mobileHeader__nav');
-      headerLogo.setObject('mobileHeaderLogoObj');
-    }
-
-    headerLogo.setSvgItems('a-leeroyLogo');
-    headerLogo.setColor(whiteColor);
-
-    mobileNavigationButton.addEventListener('click', function () {
-
-      $('#mobileNavBtn').toggleClass('is-active');
-
-      // Animate mobile menu to slide down/up
-      switch (mobileMenuVisible) {
-        case true:
-          $('#mobileHeaderMenu').addClass('slideOutUp').removeClass('slideInDown').one(animationEnds, function () {
-            $(_this).css('visibility', 'hidden');
-          });
-          break;
-
-        case false:
-          $('#mobileHeaderMenu').addClass('slideInDown').removeClass('slideOutUp').css('visibility', 'visible');
-          break;
-      }
-
-      logoBehaviour = !logoBehaviour;
-      headerLogo.setColor(whiteColor);
-      mobileMenuVisible = !mobileMenuVisible;
-
-      /*
-      * Have the user scrolled down more than scroll offset?
-      * If that's the case. The header background is going to be toggled.
-      * Reason for this is simple. When the mobile menu is open we don't want the header to have a background
-      */
-      if (window.pageYOffset > scrolloffset) {
-        headerElement.toggleClass('o-header--background');
-        $('#mobileNavBtn').toggleClass('m-mobileHeaderMenuBtn--darkColor');
-      }
-      if (logoBehaviour) {
-        if (window.pageYOffset < scrolloffset) {
-          headerLogo.setColor(whiteColor);
-        } else {
-          headerLogo.setColor(blackColor);
-        }
-      }
-    }); // Mobile menu button event listener
-
-
-    /*
-    * Set's the header background and dark text color
-    * in case that the page is not at the top when it's loaded.
-    */
-    if (window.pageYOffset > scrolloffset) {
-      navigationElement.addClass('m-header__nav--darkTextColor');
-      headerElement.addClass('o-header--background');
-      headerLogo.setColor(blackColor);
-    }
-
-    // Scroll listener
-    window.addEventListener('scroll', function () {
-      didScroll = true;
-
-      setInterval(function () {
-        if (didScroll) {
-          hasScrolled();
-          didScroll = false;
-        }
-      }, 250);
-
-      // Control when the header background and color's should change.
-      if ($(this).scrollTop() > scrolloffset) {
-        if (logoBehaviour) {
-          headerLogo.setColor(blackColor);
-          headerElement.addClass('o-header--background');
-          $('#mobileNavBtn').addClass('m-mobileHeaderMenuBtn--darkColor');
-        }
-
-        if (window.innerWidth >= 768) {
-          navigationElement.addClass('m-header__nav--darkTextColor');
-        }
-      } else if ($(this).scrollTop() < scrolloffset) {
-        if (logoBehaviour) {
-          headerLogo.setColor(whiteColor);
-          headerElement.removeClass('o-header--background');
-          $('#mobileNavBtn').removeClass('m-mobileHeaderMenuBtn--darkColor');
-        }
-
-        if (window.innerWidth >= 768) {
-          navigationElement.removeClass('m-header__nav--darkTextColor');
-        }
-      }
-    });
-
-    // TEST
-    // TEST
-    // TEST
-
-
-    // TEST
-    // TEST
-    // TEST
-  })(jQuery);
-} // headerBahaviour
-
-function hasScrolled() {
-  (function ($) {
-
-    var st = $(window).scrollTop();
-    console.log(st);
-    if (Math.abs(lastScrollTop - st) <= delta) {
-      return;
-    }
-
-    if (st > lastScrollTop && st > 20) {
-      console.log('Scrolling down');
-    } else {
-      console.log('Scrolling up');
-    }
-
-    lastScrollTop = st;
-  })(jQuery);
-}
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = headerBehaviour;\n\nvar _svgColor = __webpack_require__(/*! ./classes/svgColor */ 2);\n\nvar didScroll = void 0;\nvar lastScrollTop = 0;\nvar delta = 10;\nvar headerElement = void 0;\n\nfunction headerBehaviour() {\n  (function ($) {\n    var _this = this;\n\n    var navigationElement = void 0;\n\n    // Variable to control the behaviour of the logo.\n    // This is needed because of the mobile header.\n    var logoBehaviour = true;\n\n    var mobileMenuVisible = false;\n\n    var whiteColor = '#fdfdfd';\n    var blackColor = '#2f2f2f';\n\n    var mobileNavigationButton = document.getElementById('mobileNavBtn');\n    var mobileMenu = document.getElementById('mobileHeaderMenu');\n\n    // How far the user need's to scroll before magic happens.\n    var scrolloffset = 200;\n\n    var headerLogo = new _svgColor.SvgColor();\n\n    var animationEnds = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd';\n\n    /*\n    * What is the width of the browser?\n    * If the width if equal of greater than 768 (bootstrap col-sm), we will assign the variables the elements of the dektop header and menu.\n    * If the width is less than 768 (bootstrap col-xs), we will assign the variables the elements of the mobile header and menu.\n    */\n    if (window.innerWidth >= 768) {\n      headerElement = $('.o-header');\n      navigationElement = $('.m-header__nav');\n      headerLogo.setObject('desktopHeaderLogoObj');\n    } else if (window.innerWidth < 768) {\n      headerElement = $('.o-mobileHeader');\n      navigationElement = $('.m-mobileHeader__nav');\n      headerLogo.setObject('mobileHeaderLogoObj');\n    }\n\n    headerLogo.setSvgItems('a-leeroyLogo');\n    headerLogo.setColor(whiteColor);\n\n    // Mobile menu button click\n    mobileNavigationButton.addEventListener('click', function () {\n\n      $('#mobileNavBtn').toggleClass('is-active');\n\n      // Animate mobile menu to slide down/up\n      switch (mobileMenuVisible) {\n        case true:\n          $('#mobileHeaderMenu').addClass('slideOutUp').removeClass('slideInDown').one(animationEnds, function () {\n            $(_this).css('visibility', 'hidden');\n          });\n          break;\n\n        case false:\n          $('#mobileHeaderMenu').addClass('slideInDown').removeClass('slideOutUp').css('visibility', 'visible');\n          break;\n      }\n\n      logoBehaviour = !logoBehaviour;\n      headerLogo.setColor(whiteColor);\n      mobileMenuVisible = !mobileMenuVisible;\n\n      /*\n      * Have the user scrolled down more than scroll offset?\n      * If that's the case. The header background is going to be toggled.\n      * Reason for this is simple. When the mobile menu is open we don't want the header to have a background\n      */\n      if (window.pageYOffset > scrolloffset) {\n        headerElement.toggleClass('o-header--background');\n        $('#mobileNavBtn').toggleClass('m-mobileHeaderMenuBtn--darkColor');\n      }\n      if (logoBehaviour) {\n        if (window.pageYOffset < scrolloffset) {\n          headerLogo.setColor(whiteColor);\n        } else {\n          headerLogo.setColor(blackColor);\n        }\n      }\n    }); // Mobile menu button event listener\n\n\n    /*\n    * Set's the header background and dark text color\n    * in case that the page is not at the top when it's loaded.\n    * And only if the page width is > 768 px (bootstrap col-sm).\n    */\n    if (window.innerWidth >= 768) {\n      if (window.pageYOffset > scrolloffset) {\n        navigationElement.addClass('m-header__nav--darkTextColor');\n        headerElement.addClass('o-header--background');\n        headerLogo.setColor(blackColor);\n      }\n    }\n\n    // Scroll listener\n    window.addEventListener('scroll', function () {\n\n      didScroll = true;\n      setInterval(function () {\n        if (didScroll) {\n          if ($(this).scrollTop() > 500) {\n            hasScrolled();\n            didScroll = false;\n          }\n        }\n      }, 250);\n\n      // Has the user scrolled over the scroll offset?\n      if ($(this).scrollTop() > scrolloffset) {\n\n        if (logoBehaviour) {\n          headerLogo.setColor(blackColor);\n          headerElement.addClass('o-header--background');\n          $('#mobileNavBtn').addClass('m-mobileHeaderMenuBtn--darkColor');\n        }\n\n        if (window.innerWidth >= 768) {\n          navigationElement.addClass('m-header__nav--darkTextColor');\n        }\n      } else if ($(this).scrollTop() < scrolloffset) {\n        if (logoBehaviour) {\n          headerLogo.setColor(whiteColor);\n          headerElement.removeClass('o-header--background');\n          $('#mobileNavBtn').removeClass('m-mobileHeaderMenuBtn--darkColor');\n        }\n\n        if (window.innerWidth >= 768) {\n          navigationElement.removeClass('m-header__nav--darkTextColor');\n        }\n      }\n    });\n  })(jQuery);\n} // headerBahaviour\n\n\nfunction hasScrolled() {\n  (function ($) {\n    var st = $(window).scrollTop();\n    if (Math.abs(lastScrollTop - st) <= delta) {\n      return;\n    }\n\n    if (st > lastScrollTop && st > 20) {\n      // Scrolling down\n      headerElement.removeClass('fadeIn').addClass('animated').addClass('fadeOut');\n    } else {\n      // Scrolling upp\n      headerElement.removeClass('fadeOut').addClass('fadeIn');\n    }\n\n    lastScrollTop = st;\n  })(jQuery);\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMS5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9zcmMvanMvaGVhZGVyLmpzPzJmMTUiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgU3ZnQ29sb3IgfSBmcm9tICcuL2NsYXNzZXMvc3ZnQ29sb3InO1xuXG5sZXQgZGlkU2Nyb2xsO1xubGV0IGxhc3RTY3JvbGxUb3AgPSAwO1xubGV0IGRlbHRhID0gMTA7XG5sZXQgaGVhZGVyRWxlbWVudDtcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gaGVhZGVyQmVoYXZpb3VyICgpIHtcbiAgKGZ1bmN0aW9uICgkKSB7XG4gICAgbGV0IG5hdmlnYXRpb25FbGVtZW50O1xuXG4gICAgLy8gVmFyaWFibGUgdG8gY29udHJvbCB0aGUgYmVoYXZpb3VyIG9mIHRoZSBsb2dvLlxuICAgIC8vIFRoaXMgaXMgbmVlZGVkIGJlY2F1c2Ugb2YgdGhlIG1vYmlsZSBoZWFkZXIuXG4gICAgbGV0IGxvZ29CZWhhdmlvdXIgPSB0cnVlO1xuXG4gICAgbGV0IG1vYmlsZU1lbnVWaXNpYmxlID0gZmFsc2U7XG5cbiAgICBsZXQgd2hpdGVDb2xvciA9ICcjZmRmZGZkJztcbiAgICBsZXQgYmxhY2tDb2xvciA9ICcjMmYyZjJmJztcblxuICAgIGxldCBtb2JpbGVOYXZpZ2F0aW9uQnV0dG9uID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21vYmlsZU5hdkJ0bicpO1xuICAgIGxldCBtb2JpbGVNZW51ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21vYmlsZUhlYWRlck1lbnUnKTtcblxuICAgIC8vIEhvdyBmYXIgdGhlIHVzZXIgbmVlZCdzIHRvIHNjcm9sbCBiZWZvcmUgbWFnaWMgaGFwcGVucy5cbiAgICBsZXQgc2Nyb2xsb2Zmc2V0ID0gMjAwO1xuXG4gICAgbGV0IGhlYWRlckxvZ28gPSBuZXcgU3ZnQ29sb3IoKTtcblxuICAgIGxldCBhbmltYXRpb25FbmRzID0gJ2FuaW1hdGlvbmVuZCBvQW5pbWF0aW9uRW5kIG1vekFuaW1hdGlvbkVuZCB3ZWJraXRBbmltYXRpb25FbmQnO1xuXG4gICAgLypcbiAgICAqIFdoYXQgaXMgdGhlIHdpZHRoIG9mIHRoZSBicm93c2VyP1xuICAgICogSWYgdGhlIHdpZHRoIGlmIGVxdWFsIG9mIGdyZWF0ZXIgdGhhbiA3NjggKGJvb3RzdHJhcCBjb2wtc20pLCB3ZSB3aWxsIGFzc2lnbiB0aGUgdmFyaWFibGVzIHRoZSBlbGVtZW50cyBvZiB0aGUgZGVrdG9wIGhlYWRlciBhbmQgbWVudS5cbiAgICAqIElmIHRoZSB3aWR0aCBpcyBsZXNzIHRoYW4gNzY4IChib290c3RyYXAgY29sLXhzKSwgd2Ugd2lsbCBhc3NpZ24gdGhlIHZhcmlhYmxlcyB0aGUgZWxlbWVudHMgb2YgdGhlIG1vYmlsZSBoZWFkZXIgYW5kIG1lbnUuXG4gICAgKi9cbiAgICBpZih3aW5kb3cuaW5uZXJXaWR0aCA+PSA3NjgpIHtcbiAgICAgIGhlYWRlckVsZW1lbnQgPSAkKCcuby1oZWFkZXInKTtcbiAgICAgIG5hdmlnYXRpb25FbGVtZW50ID0gJCgnLm0taGVhZGVyX19uYXYnKTtcbiAgICAgIGhlYWRlckxvZ28uc2V0T2JqZWN0KCdkZXNrdG9wSGVhZGVyTG9nb09iaicpO1xuICAgIH0gZWxzZSBpZih3aW5kb3cuaW5uZXJXaWR0aCA8IDc2OCkge1xuICAgICAgaGVhZGVyRWxlbWVudCA9ICQoJy5vLW1vYmlsZUhlYWRlcicpO1xuICAgICAgbmF2aWdhdGlvbkVsZW1lbnQgPSAkKCcubS1tb2JpbGVIZWFkZXJfX25hdicpO1xuICAgICAgaGVhZGVyTG9nby5zZXRPYmplY3QoJ21vYmlsZUhlYWRlckxvZ29PYmonKTtcbiAgICB9XG5cbiAgICBoZWFkZXJMb2dvLnNldFN2Z0l0ZW1zKCdhLWxlZXJveUxvZ28nKTtcbiAgICBoZWFkZXJMb2dvLnNldENvbG9yKHdoaXRlQ29sb3IpO1xuXG4gICAgLy8gTW9iaWxlIG1lbnUgYnV0dG9uIGNsaWNrXG4gICAgbW9iaWxlTmF2aWdhdGlvbkJ1dHRvbi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHtcblxuICAgICAgJCgnI21vYmlsZU5hdkJ0bicpLnRvZ2dsZUNsYXNzKCdpcy1hY3RpdmUnKTtcblxuICAgICAgLy8gQW5pbWF0ZSBtb2JpbGUgbWVudSB0byBzbGlkZSBkb3duL3VwXG4gICAgICBzd2l0Y2gobW9iaWxlTWVudVZpc2libGUpIHtcbiAgICAgICAgY2FzZSB0cnVlOlxuICAgICAgICAgICQoJyNtb2JpbGVIZWFkZXJNZW51JykuYWRkQ2xhc3MoJ3NsaWRlT3V0VXAnKS5yZW1vdmVDbGFzcygnc2xpZGVJbkRvd24nKS5vbmUoYW5pbWF0aW9uRW5kcywgKCkgPT57XG4gICAgICAgICAgICAkKHRoaXMpLmNzcygndmlzaWJpbGl0eScsICdoaWRkZW4nKTtcbiAgICAgICAgICB9KTtcbiAgICAgICAgICBicmVhaztcblxuICAgICAgICBjYXNlIGZhbHNlOlxuICAgICAgICAgICQoJyNtb2JpbGVIZWFkZXJNZW51JykuYWRkQ2xhc3MoJ3NsaWRlSW5Eb3duJykucmVtb3ZlQ2xhc3MoJ3NsaWRlT3V0VXAnKS5jc3MoJ3Zpc2liaWxpdHknLCAndmlzaWJsZScpO1xuICAgICAgICAgIGJyZWFrO1xuICAgICAgfVxuXG4gICAgICBsb2dvQmVoYXZpb3VyID0gIWxvZ29CZWhhdmlvdXI7XG4gICAgICBoZWFkZXJMb2dvLnNldENvbG9yKHdoaXRlQ29sb3IpO1xuICAgICAgbW9iaWxlTWVudVZpc2libGUgPSAhbW9iaWxlTWVudVZpc2libGU7XG5cbiAgICAgIC8qXG4gICAgICAqIEhhdmUgdGhlIHVzZXIgc2Nyb2xsZWQgZG93biBtb3JlIHRoYW4gc2Nyb2xsIG9mZnNldD9cbiAgICAgICogSWYgdGhhdCdzIHRoZSBjYXNlLiBUaGUgaGVhZGVyIGJhY2tncm91bmQgaXMgZ29pbmcgdG8gYmUgdG9nZ2xlZC5cbiAgICAgICogUmVhc29uIGZvciB0aGlzIGlzIHNpbXBsZS4gV2hlbiB0aGUgbW9iaWxlIG1lbnUgaXMgb3BlbiB3ZSBkb24ndCB3YW50IHRoZSBoZWFkZXIgdG8gaGF2ZSBhIGJhY2tncm91bmRcbiAgICAgICovXG4gICAgICBpZih3aW5kb3cucGFnZVlPZmZzZXQgPiBzY3JvbGxvZmZzZXQpIHtcbiAgICAgICAgaGVhZGVyRWxlbWVudC50b2dnbGVDbGFzcygnby1oZWFkZXItLWJhY2tncm91bmQnKTtcbiAgICAgICAgJCgnI21vYmlsZU5hdkJ0bicpLnRvZ2dsZUNsYXNzKCdtLW1vYmlsZUhlYWRlck1lbnVCdG4tLWRhcmtDb2xvcicpO1xuICAgICAgfVxuICAgICAgaWYobG9nb0JlaGF2aW91cikge1xuICAgICAgICBpZih3aW5kb3cucGFnZVlPZmZzZXQgPCBzY3JvbGxvZmZzZXQpIHtcbiAgICAgICAgICBoZWFkZXJMb2dvLnNldENvbG9yKHdoaXRlQ29sb3IpO1xuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgIGhlYWRlckxvZ28uc2V0Q29sb3IoYmxhY2tDb2xvcik7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9KTsgLy8gTW9iaWxlIG1lbnUgYnV0dG9uIGV2ZW50IGxpc3RlbmVyXG5cblxuICAgIC8qXG4gICAgKiBTZXQncyB0aGUgaGVhZGVyIGJhY2tncm91bmQgYW5kIGRhcmsgdGV4dCBjb2xvclxuICAgICogaW4gY2FzZSB0aGF0IHRoZSBwYWdlIGlzIG5vdCBhdCB0aGUgdG9wIHdoZW4gaXQncyBsb2FkZWQuXG4gICAgKiBBbmQgb25seSBpZiB0aGUgcGFnZSB3aWR0aCBpcyA+IDc2OCBweCAoYm9vdHN0cmFwIGNvbC1zbSkuXG4gICAgKi9cbiAgICBpZih3aW5kb3cuaW5uZXJXaWR0aCA+PSA3NjgpIHtcbiAgICAgIGlmKHdpbmRvdy5wYWdlWU9mZnNldCA+IHNjcm9sbG9mZnNldCkge1xuICAgICAgICBuYXZpZ2F0aW9uRWxlbWVudC5hZGRDbGFzcygnbS1oZWFkZXJfX25hdi0tZGFya1RleHRDb2xvcicpO1xuICAgICAgICBoZWFkZXJFbGVtZW50LmFkZENsYXNzKCdvLWhlYWRlci0tYmFja2dyb3VuZCcpO1xuICAgICAgICBoZWFkZXJMb2dvLnNldENvbG9yKGJsYWNrQ29sb3IpO1xuICAgICAgfVxuICAgIH1cblxuXG4gICAgLy8gU2Nyb2xsIGxpc3RlbmVyXG4gICAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3Njcm9sbCcsIGZ1bmN0aW9uICgpIHtcblxuICAgICAgICBkaWRTY3JvbGwgPSB0cnVlO1xuICAgICAgICBzZXRJbnRlcnZhbChmdW5jdGlvbigpIHtcbiAgICAgICAgICBpZihkaWRTY3JvbGwpIHtcbiAgICAgICAgICAgIGlmKCQodGhpcykuc2Nyb2xsVG9wKCkgPiA1MDApIHtcbiAgICAgICAgICAgICAgaGFzU2Nyb2xsZWQoKTtcbiAgICAgICAgICAgICAgZGlkU2Nyb2xsID0gZmFsc2U7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgfVxuICAgICAgICB9LCAyNTApO1xuXG4gICAgICAvLyBIYXMgdGhlIHVzZXIgc2Nyb2xsZWQgb3ZlciB0aGUgc2Nyb2xsIG9mZnNldD9cbiAgICAgIGlmICgkKHRoaXMpLnNjcm9sbFRvcCgpID4gc2Nyb2xsb2Zmc2V0KSB7XG5cbiAgICAgICAgaWYobG9nb0JlaGF2aW91cikge1xuICAgICAgICAgIGhlYWRlckxvZ28uc2V0Q29sb3IoYmxhY2tDb2xvcik7XG4gICAgICAgICAgaGVhZGVyRWxlbWVudC5hZGRDbGFzcygnby1oZWFkZXItLWJhY2tncm91bmQnKTtcbiAgICAgICAgICAkKCcjbW9iaWxlTmF2QnRuJykuYWRkQ2xhc3MoJ20tbW9iaWxlSGVhZGVyTWVudUJ0bi0tZGFya0NvbG9yJyk7XG4gICAgICAgIH1cblxuICAgICAgICBpZih3aW5kb3cuaW5uZXJXaWR0aCA+PSA3NjgpIHtcbiAgICAgICAgICBuYXZpZ2F0aW9uRWxlbWVudC5hZGRDbGFzcygnbS1oZWFkZXJfX25hdi0tZGFya1RleHRDb2xvcicpO1xuICAgICAgICB9XG4gICAgICB9IGVsc2UgaWYgKCQodGhpcykuc2Nyb2xsVG9wKCkgPCBzY3JvbGxvZmZzZXQpIHtcbiAgICAgICAgaWYobG9nb0JlaGF2aW91cikge1xuICAgICAgICAgIGhlYWRlckxvZ28uc2V0Q29sb3Iod2hpdGVDb2xvcik7XG4gICAgICAgICAgaGVhZGVyRWxlbWVudC5yZW1vdmVDbGFzcygnby1oZWFkZXItLWJhY2tncm91bmQnKTtcbiAgICAgICAgICAkKCcjbW9iaWxlTmF2QnRuJykucmVtb3ZlQ2xhc3MoJ20tbW9iaWxlSGVhZGVyTWVudUJ0bi0tZGFya0NvbG9yJyk7XG4gICAgICAgIH1cblxuICAgICAgICBpZih3aW5kb3cuaW5uZXJXaWR0aCA+PSA3NjgpIHtcbiAgICAgICAgICBuYXZpZ2F0aW9uRWxlbWVudC5yZW1vdmVDbGFzcygnbS1oZWFkZXJfX25hdi0tZGFya1RleHRDb2xvcicpO1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfSk7XG4gIH0pKGpRdWVyeSk7XG59IC8vIGhlYWRlckJhaGF2aW91clxuXG5cbmZ1bmN0aW9uIGhhc1Njcm9sbGVkKCkge1xuICAoZnVuY3Rpb24gKCQpIHtcbiAgICBsZXQgc3QgPSAkKHdpbmRvdykuc2Nyb2xsVG9wKCk7XG4gICAgaWYoTWF0aC5hYnMobGFzdFNjcm9sbFRvcCAtIHN0KSA8PWRlbHRhKSB7XG4gICAgICByZXR1cm47XG4gICAgfVxuXG4gICAgaWYoc3QgPiBsYXN0U2Nyb2xsVG9wICYmIHN0ID4gMjApIHtcbiAgICAgIC8vIFNjcm9sbGluZyBkb3duXG4gICAgICBoZWFkZXJFbGVtZW50LnJlbW92ZUNsYXNzKCdmYWRlSW4nKS5hZGRDbGFzcygnYW5pbWF0ZWQnKS5hZGRDbGFzcygnZmFkZU91dCcpO1xuICAgIH0gZWxzZSB7XG4gICAgICAvLyBTY3JvbGxpbmcgdXBwXG4gICAgICBoZWFkZXJFbGVtZW50LnJlbW92ZUNsYXNzKCdmYWRlT3V0JykuYWRkQ2xhc3MoJ2ZhZGVJbicpO1xuICAgIH1cblxuICAgIGxhc3RTY3JvbGxUb3AgPSBzdDtcbiAgfSkoalF1ZXJ5KTtcbn1cblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyBzcmMvanMvaGVhZGVyLmpzIl0sIm1hcHBpbmdzIjoiOzs7OztBQU9BO0FBQ0E7QUFSQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUNBO0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Ozs7O0FBS0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQVRBO0FBQ0E7QUFXQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7OztBQUtBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7Ozs7QUFLQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///1\n");
 
 /***/ }),
 /* 2 */
+/*!************************************!*\
+  !*** ./src/js/classes/svgColor.js ***!
+  \************************************/
+/*! dynamic exports provided */
+/*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var SvgColor = exports.SvgColor = function () {
-  function SvgColor() {
-    _classCallCheck(this, SvgColor);
-
-    this.state = {
-      object: '',
-      svgItems: '',
-      onLoad: false,
-      color: ''
-    };
-  }
-
-  _createClass(SvgColor, [{
-    key: 'setObject',
-    value: function setObject(setObj) {
-      this.state.object = document.getElementById(setObj);
-    }
-  }, {
-    key: 'setSvgItems',
-    value: function setSvgItems(setSvgItm) {
-      this.state.svgItems = this.state.object.contentDocument.getElementsByClassName(setSvgItm);
-    }
-  }, {
-    key: 'setColor',
-    value: function setColor(setClr) {
-      this.state.color = setClr;
-      for (var i = 0; i < this.state.svgItems.length; i++) {
-        this.state.svgItems[i].style.fill = this.state.color;
-      }
-    }
-  }, {
-    key: 'onLoad',
-    value: function onLoad(setLoad) {
-      this.state.onLoad = setLoad;
-    }
-  }]);
-
-  return SvgColor;
-}();
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar SvgColor = exports.SvgColor = function () {\n  function SvgColor() {\n    _classCallCheck(this, SvgColor);\n\n    this.state = {\n      object: '',\n      svgItems: '',\n      onLoad: false,\n      color: ''\n    };\n  }\n\n  _createClass(SvgColor, [{\n    key: 'setObject',\n    value: function setObject(setObj) {\n      this.state.object = document.getElementById(setObj);\n    }\n  }, {\n    key: 'setSvgItems',\n    value: function setSvgItems(setSvgItm) {\n      this.state.svgItems = this.state.object.contentDocument.getElementsByClassName(setSvgItm);\n    }\n  }, {\n    key: 'setColor',\n    value: function setColor(setClr) {\n      this.state.color = setClr;\n      for (var i = 0; i < this.state.svgItems.length; i++) {\n        this.state.svgItems[i].style.fill = this.state.color;\n      }\n    }\n  }, {\n    key: 'onLoad',\n    value: function onLoad(setLoad) {\n      this.state.onLoad = setLoad;\n    }\n  }]);\n\n  return SvgColor;\n}();//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMi5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9zcmMvanMvY2xhc3Nlcy9zdmdDb2xvci5qcz9kNThkIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjbGFzcyBTdmdDb2xvciB7XG4gIGNvbnN0cnVjdG9yICgpIHtcbiAgICB0aGlzLnN0YXRlID0ge1xuICAgICAgb2JqZWN0OiAnJyxcbiAgICAgIHN2Z0l0ZW1zOiAnJyxcbiAgICAgIG9uTG9hZDogZmFsc2UsXG4gICAgICBjb2xvcjogJydcbiAgICB9O1xuICB9XG5cbiAgc2V0T2JqZWN0IChzZXRPYmopIHtcbiAgICB0aGlzLnN0YXRlLm9iamVjdCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKHNldE9iaik7XG4gIH1cblxuICBzZXRTdmdJdGVtcyAoc2V0U3ZnSXRtKSB7XG4gICAgdGhpcy5zdGF0ZS5zdmdJdGVtcyA9IHRoaXMuc3RhdGUub2JqZWN0LmNvbnRlbnREb2N1bWVudC5nZXRFbGVtZW50c0J5Q2xhc3NOYW1lKHNldFN2Z0l0bSk7XG4gIH1cblxuICBzZXRDb2xvciAoc2V0Q2xyKSB7XG4gICAgdGhpcy5zdGF0ZS5jb2xvciA9IHNldENscjtcbiAgICBmb3IgKGxldCBpID0gMDsgaSA8IHRoaXMuc3RhdGUuc3ZnSXRlbXMubGVuZ3RoOyBpKyspIHtcbiAgICAgIHRoaXMuc3RhdGUuc3ZnSXRlbXNbaV0uc3R5bGUuZmlsbCA9IHRoaXMuc3RhdGUuY29sb3I7XG4gICAgfVxuICB9XG5cbiAgb25Mb2FkIChzZXRMb2FkKSB7XG4gICAgdGhpcy5zdGF0ZS5vbkxvYWQgPSBzZXRMb2FkO1xuICB9XG59XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gc3JjL2pzL2NsYXNzZXMvc3ZnQ29sb3IuanMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQTtBQUNBO0FBQUE7QUFDQTtBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFKQTtBQU1BO0FBQ0E7OztBQUNBO0FBQ0E7QUFDQTs7O0FBRUE7QUFDQTtBQUNBOzs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7OztBQUVBO0FBQ0E7QUFDQTs7OztBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///2\n");
 
 /***/ }),
 /* 3 */
+/*!********************************!*\
+  !*** ./src/js/knowledgehub.js ***!
+  \********************************/
+/*! dynamic exports provided */
+/*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.grid = grid;
-exports.cellHeight = cellHeight;
-exports.menu = menu;
-function grid() {
-  (function ($) {
-    $('.o-knowledgeHubGrid').masonry({
-      itemSelector: '.o-knowledgeHubCell',
-      percentPosition: true,
-      horizontalOrder: true,
-      gutter: 15
-    });
-  })(jQuery);
-}
-
-function cellHeight() {
-  var knowledgeHubCells = document.getElementsByClassName('o-knowledgeHubCell');
-
-  for (var i = 0; i < knowledgeHubCells.length; i++) {
-    var knowledgeHubCell = document.getElementById('cell-' + i);
-    if (knowledgeHubCell.getAttribute('data-imgprops') == 0) {
-      knowledgeHubCell.style.minHeight = '200px';
-    } else {
-      knowledgeHubCell.style.height = knowledgeHubCell.getAttribute('data-imgprops') * knowledgeHubCell.offsetWidth + 'px';
-    }
-  }
-}
-
-function menu() {
-  var buttons = Array.from(document.getElementsByClassName('a-knowledgeHubMenuList__item'));
-  var dropdowns = document.getElementsByClassName('o-knowledgeHubMenuDropdown');
-
-  buttons.map(function (button, index) {
-    button.addEventListener('click', function () {
-      for (var i = 0; i < buttons.length; i++) {
-        if (i != index) {
-          dropdowns[i].classList.remove('display');
-          buttons[i].classList.remove('activeKnowHubMenu');
-        }
-      }
-
-      button.classList.toggle('activeKnowHubMenu');
-      dropdowns[index].classList.toggle('display');
-    });
-  });
-}
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.grid = grid;\nexports.cellHeight = cellHeight;\nexports.menu = menu;\nfunction grid() {\n  (function ($) {\n    $('.o-knowledgeHubGrid').masonry({\n      itemSelector: '.o-knowledgeHubCell',\n      percentPosition: true,\n      horizontalOrder: true,\n      gutter: 15\n    });\n  })(jQuery);\n}\n\nfunction cellHeight() {\n  var knowledgeHubCells = document.getElementsByClassName('o-knowledgeHubCell');\n\n  for (var i = 0; i < knowledgeHubCells.length; i++) {\n    var knowledgeHubCell = document.getElementById('cell-' + i);\n    if (knowledgeHubCell.getAttribute('data-imgprops') == 0) {\n      knowledgeHubCell.style.minHeight = '200px';\n    } else if (knowledgeHubCell.getAttribute('data-imgprops') == -1) {\n      knowledgeHubCell.style.height = knowledgeHubCell.offsetWidth + 'px';\n    } else {\n      knowledgeHubCell.style.height = knowledgeHubCell.getAttribute('data-imgprops') * knowledgeHubCell.offsetWidth + 'px';\n    }\n  }\n}\n\nfunction menu() {\n  var buttons = Array.from(document.getElementsByClassName('a-knowledgeHubMenuList__item'));\n  var dropdowns = document.getElementsByClassName('o-knowledgeHubMenuDropdown');\n\n  buttons.map(function (button, index) {\n    button.addEventListener('click', function () {\n      for (var i = 0; i < buttons.length; i++) {\n        if (i != index) {\n          dropdowns[i].classList.remove('display');\n          buttons[i].classList.remove('activeKnowHubMenu');\n        }\n      }\n\n      button.classList.toggle('activeKnowHubMenu');\n      dropdowns[index].classList.toggle('display');\n    });\n  });\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9zcmMvanMva25vd2xlZGdlaHViLmpzP2I0YzEiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGZ1bmN0aW9uIGdyaWQoKSB7XG4gIChmdW5jdGlvbiAoJCkge1xuICAgICQoJy5vLWtub3dsZWRnZUh1YkdyaWQnKS5tYXNvbnJ5KHtcbiAgICAgIGl0ZW1TZWxlY3RvcjogJy5vLWtub3dsZWRnZUh1YkNlbGwnLFxuICAgICAgcGVyY2VudFBvc2l0aW9uOiAgdHJ1ZSxcbiAgICAgIGhvcml6b250YWxPcmRlcjogIHRydWUsXG4gICAgICBndXR0ZXI6ICAgICAgICAgICAxNSxcbiAgICB9KTtcbiAgfSkoalF1ZXJ5KTtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGNlbGxIZWlnaHQoKSB7XG4gIGxldCBrbm93bGVkZ2VIdWJDZWxscyA9IGRvY3VtZW50LmdldEVsZW1lbnRzQnlDbGFzc05hbWUoJ28ta25vd2xlZGdlSHViQ2VsbCcpO1xuXG4gIGZvciAodmFyIGkgPSAwOyBpIDwga25vd2xlZGdlSHViQ2VsbHMubGVuZ3RoOyBpKyspIHtcbiAgICBsZXQga25vd2xlZGdlSHViQ2VsbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjZWxsLScgKyBpKTtcbiAgICBpZiAoa25vd2xlZGdlSHViQ2VsbC5nZXRBdHRyaWJ1dGUoJ2RhdGEtaW1ncHJvcHMnKSA9PSAwKSB7XG4gICAgICBrbm93bGVkZ2VIdWJDZWxsLnN0eWxlLm1pbkhlaWdodCA9ICcyMDBweCc7XG4gICAgfSBlbHNlIGlmKGtub3dsZWRnZUh1YkNlbGwuZ2V0QXR0cmlidXRlKCdkYXRhLWltZ3Byb3BzJykgPT0gLTEpIHtcbiAgICAgIGtub3dsZWRnZUh1YkNlbGwuc3R5bGUuaGVpZ2h0ID0ga25vd2xlZGdlSHViQ2VsbC5vZmZzZXRXaWR0aCArICdweCc7XG4gICAgfVxuICAgIGVsc2Uge1xuICAgICAga25vd2xlZGdlSHViQ2VsbC5zdHlsZS5oZWlnaHQgPSBrbm93bGVkZ2VIdWJDZWxsLmdldEF0dHJpYnV0ZSgnZGF0YS1pbWdwcm9wcycpICoga25vd2xlZGdlSHViQ2VsbC5vZmZzZXRXaWR0aCArICdweCc7XG4gICAgfVxuICB9XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBtZW51KCkge1xuICBsZXQgYnV0dG9ucyA9IEFycmF5LmZyb20oZG9jdW1lbnQuZ2V0RWxlbWVudHNCeUNsYXNzTmFtZSgnYS1rbm93bGVkZ2VIdWJNZW51TGlzdF9faXRlbScpKTtcbiAgbGV0IGRyb3Bkb3ducyA9IGRvY3VtZW50LmdldEVsZW1lbnRzQnlDbGFzc05hbWUoJ28ta25vd2xlZGdlSHViTWVudURyb3Bkb3duJyk7XG5cbiAgYnV0dG9ucy5tYXAoKGJ1dHRvbiwgaW5kZXgpID0+IHtcbiAgICBidXR0b24uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoKSA9PiB7XG4gICAgICBmb3IgKHZhciBpID0gMDsgaSA8IGJ1dHRvbnMubGVuZ3RoOyBpKyspIHtcbiAgICAgICAgaWYoaSAhPSBpbmRleCkge1xuICAgICAgICAgIGRyb3Bkb3duc1tpXS5jbGFzc0xpc3QucmVtb3ZlKCdkaXNwbGF5Jyk7XG4gICAgICAgICAgYnV0dG9uc1tpXS5jbGFzc0xpc3QucmVtb3ZlKCdhY3RpdmVLbm93SHViTWVudScpO1xuICAgICAgICB9XG4gICAgICB9XG5cbiAgICAgIGJ1dHRvbi5jbGFzc0xpc3QudG9nZ2xlKCdhY3RpdmVLbm93SHViTWVudScpO1xuICAgICAgZHJvcGRvd25zW2luZGV4XS5jbGFzc0xpc3QudG9nZ2xlKCdkaXNwbGF5Jyk7XG4gICAgfSk7XG4gIH0pO1xufVxuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIHNyYy9qcy9rbm93bGVkZ2VodWIuanMiXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUE7QUFXQTtBQWdCQTtBQTNCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUpBO0FBTUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///3\n");
 
 /***/ }),
 /* 4 */
+/*!*************************!*\
+  !*** ./src/js/utils.js ***!
+  \*************************/
+/*! dynamic exports provided */
+/*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.indexCardCarousel = indexCardCarousel;
-exports.postFlexSlider = postFlexSlider;
-function indexCardCarousel() {
-  (function ($) {
-    $(".owl-carousel").owlCarousel({
-      items: 1,
-      autoHeight: true
-    });
-  })(jQuery);
-}
-
-function postFlexSlider() {
-  (function ($) {
-    $('#slider').flexslider({
-      animation: "slide",
-      animationLoop: false,
-      slideshow: false,
-      smoothHeight: true
-    });
-  })(jQuery);
-}
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.indexCardCarousel = indexCardCarousel;\nexports.postFlexSlider = postFlexSlider;\n// import Underscore from 'underscore';\n\nfunction indexCardCarousel() {\n  (function ($) {\n    $(\".owl-carousel\").owlCarousel({\n      items: 1,\n      autoHeight: true\n    });\n  })(jQuery);\n}\n\nfunction postFlexSlider() {\n  (function ($) {\n    $('#slider').flexslider({\n      animation: \"slide\",\n      animationLoop: false,\n      slideshow: false,\n      smoothHeight: true\n    });\n  })(jQuery);\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9zcmMvanMvdXRpbHMuanM/M2M5MCJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBpbXBvcnQgVW5kZXJzY29yZSBmcm9tICd1bmRlcnNjb3JlJztcblxuZXhwb3J0IGZ1bmN0aW9uIGluZGV4Q2FyZENhcm91c2VsKCkge1xuICAoZnVuY3Rpb24gKCQpIHtcbiAgICAkKFwiLm93bC1jYXJvdXNlbFwiKS5vd2xDYXJvdXNlbCh7XG4gICAgICBpdGVtczogMSxcbiAgICAgIGF1dG9IZWlnaHQ6IHRydWVcbiAgICB9KTtcbiAgfSkoalF1ZXJ5KTtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIHBvc3RGbGV4U2xpZGVyKCkgeyhmdW5jdGlvbiAoJCkge1xuICAkKCcjc2xpZGVyJykuZmxleHNsaWRlcih7XG4gICAgYW5pbWF0aW9uOiBcInNsaWRlXCIsXG4gICAgYW5pbWF0aW9uTG9vcDogZmFsc2UsXG4gICAgc2xpZGVzaG93OiBmYWxzZSxcbiAgICBzbW9vdGhIZWlnaHQ6IHRydWUsXG4gIH0pO1xufSkoalF1ZXJ5KTt9XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gc3JjL2pzL3V0aWxzLmpzIl0sIm1hcHBpbmdzIjoiOzs7OztBQUVBO0FBU0E7QUFYQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUZBO0FBSUE7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFKQTtBQU1BO0FBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///4\n");
 
 /***/ })
 /******/ ]);

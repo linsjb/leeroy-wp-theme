@@ -3,8 +3,8 @@ function shareIcons() {
 ?>
   <ul class="m-singlePostShareList">
     <!-- Facebook icon -->
-    <li class="a-singlePostShareList__item">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink() ?>" class="a-singlePostShare__link a-singlePostShare__facebook">
+    <li class="a-singlePostShareListItem">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink() ?>" class="a-singlePostShareListItem__link -facebook">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
           <style type="text/css">
             .svgCircle{fill:none;stroke-width:1.5;}
@@ -18,9 +18,9 @@ function shareIcons() {
     </li>
 
     <!-- Twitter icons -->
-    <li class="a-singlePostShareList__item">
-      <a href="https://twitter.com/share?text=<?= the_title() ?>&url=<?= get_permalink() ?>" class="a-singlePostShare__link a-singlePostShare__twitter">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+    <li class="a-singlePostShareListItem">
+      <a href="https://twitter.com/share?text=<?= the_title() ?>&url=<?= get_permalink() ?>" class="a-singlePostShareListItem__link -twitter">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
           <style type="text/css">
           .svgCircle{fill:none;stroke-width:1.5;}
           </style>
@@ -37,8 +37,8 @@ function shareIcons() {
     </li>
 
     <!-- LinkedIn icon -->
-    <li class="a-singlePostShareList__item">
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= get_permalink() ?>e&title=<?= the_title() ?>&summary=&source=leeroy.se" class="a-singlePostShare__link a-singlePostShare__linkedin">
+    <li class="a-singlePostShareListItem">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= get_permalink() ?>e&title=<?= the_title() ?>&summary=&source=leeroy.se" class="a-singlePostShareListItem__link -linkedin">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
           <style type="text/css">
           .svgCircle{fill:none;stroke-width:1.5;}
@@ -55,8 +55,8 @@ function shareIcons() {
     </li>
 
     <!-- Google+ icon -->
-    <li class="a-singlePostShareList__item">
-      <a href="https://plus.google.com/share?url=<?= get_permalink() ?>" class="a-singlePostShare__link a-singlePostShare__google">
+    <li class="a-singlePostShareListItem">
+      <a href="https://plus.google.com/share?url=<?= get_permalink() ?>" class="a-singlePostShareListItem__link -google">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
           <style type="text/css">
           .svgCircle{fill:none;stroke-width:1.5;}
