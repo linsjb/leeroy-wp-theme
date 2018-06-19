@@ -1,13 +1,6 @@
 // import Underscore from 'underscore';
 
-export function indexCardCarousel() {
-  (function ($) {
-    $(".owl-carousel").owlCarousel({
-      items: 1,
-      autoHeight: true
-    });
-  })(jQuery);
-}
+
 
 export function postFlexSlider() {(function ($) {
   $('#slider').flexslider({
@@ -17,3 +10,21 @@ export function postFlexSlider() {(function ($) {
     smoothHeight: true,
   });
 })(jQuery);}
+
+export function formPopup() {
+  let closeButton = document.getElementsByClassName('a-popupFormContent__close')[0];
+  let openButtons = Array.from(document.getElementsByClassName('a-twoColumnsProductPage__button'));
+
+  openButtons.map((button) => {
+    button.addEventListener('click', function() {
+      document.getElementsByClassName('o-popupForm')[0].style.display = 'block';
+      document.getElementsByClassName('o-formPopupCover')[0].style.display = 'block';
+
+    });
+  });
+
+  closeButton.addEventListener('click', function() {
+    document.getElementsByClassName('o-popupForm')[0].style.display = 'none';
+    document.getElementsByClassName('o-formPopupCover')[0].style.display = 'none';
+  });
+}

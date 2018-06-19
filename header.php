@@ -7,7 +7,7 @@
     wp_head();
     $navigation = new Navigation();
     $navigation->setLocation('masterMenu');
-    $navigation->setContainerClasses('m-header__nav pull-right col-md-19');
+    $navigation->setContainerClasses('m-header__nav col-sm-21');
 
     $mobileNavigation = new Navigation();
     $mobileNavigation->setLocation('mobileMasterMenu');
@@ -20,7 +20,6 @@
       $logoLinkRel = '';
       $logoUrl = home_url();
     }
-
     ?>
 
   </head>

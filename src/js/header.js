@@ -5,7 +5,7 @@ let lastScrollTop = 0;
 let delta = 10;
 let headerElement;
 
-export default function headerBehaviour () {
+export default function headerBehaviour() {
   (function ($) {
     let navigationElement;
 
@@ -152,6 +152,10 @@ function hasScrolled() {
     if(st > lastScrollTop && st > 20) {
       // Scrolling down
       headerElement.removeClass('fadeIn').addClass('animated').addClass('fadeOut');
+
+      // Handle the language selector popup when header disapears, if it's open.
+      // $('.o-languageSelector').removeClass('slideOutUp').removeClass('slideInDown').addClass('slideOutUp');
+      // document.getElementById('languageSelectorBlanket').style.visibility = 'hidden';
     } else {
       // Scrolling upp
       headerElement.removeClass('fadeOut').addClass('fadeIn');

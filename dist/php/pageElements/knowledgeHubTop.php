@@ -9,7 +9,6 @@ function knowledgeHubTop($pageType = null) {
         <ul class="a-knowledgehubMenuList">
           <li class="a-knowledgeHubMenuList__item">Categories</li>
           <li class="a-knowledgeHubMenuList__item">Tags</li>
-          <li class="a-knowledgeHubMenuList__item">Cases</li>
           <li class="a-knowledgeHubMenuList__item">Latest posts</li>
         </ul>
       </nav>
@@ -46,35 +45,6 @@ function knowledgeHubTop($pageType = null) {
       $tags->setTitle('Tags:');
       $tags->setTitleClasses('a-knowledgeHubMenuDropdownTitle');
       $tags->init();
-      ?>
-    <!-- .container -->
-    </div>
-  <!-- .o-knowledgeHubMenuDropdown -->
-  </div>
-
-  <!-- Cases -->
-  <div  class="o-knowledgeHubMenuDropdown col-xs-24">
-    <div class="container">
-      <?php
-      $postsArgs = array(
-        'post_type'  => 'post',
-        'meta_key' => 'acfKnowHubPostCase',
-        'meta_value' => true
-      );
-
-      $postsQuery = new WP_Query($postsArgs);
-      if($postsQuery->have_posts()) {
-        echo '<ul class="m-knowledgeHubMenuDropdownList">';
-          echo '<span class="a-knowledgeHubMenuDropdownTitle">Cases:</span>';
-          while($postsQuery->have_posts()) {
-            $postsQuery->the_post();
-            echo '<li class="a-knowledgehubMenuDropdownItem">';
-              echo '<a href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
-            echo '</li>';
-          }
-        echo '</ul>';
-      }
-      wp_reset_postdata();
       ?>
     <!-- .container -->
     </div>

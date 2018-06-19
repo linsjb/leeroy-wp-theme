@@ -10,66 +10,51 @@ if(have_posts()):
     while(have_rows('acfAboutFlexContent')):
       the_row();
       switch(get_row_layout()) {
+
+        // Text content
+        // -------------------------------------------------
+        // -------------------------------------------------
         case 'acfAboutText':
-          $acfGroup = 'acfAboutTextContent';
-        ?>
-          <div class="o-aboutPage col-xs-24" id="about-leeroy" style="background-color: <?= get_sub_field('acfAboutTextContent')['backgroundColor'] ?>; color: <?= get_sub_field('acfAboutTextContent')['textColor'] ?>">
-            <div class="container o-aboutPageContent">
-              <?php
-              $leftTextContent = new AcfText;
-              $leftTextContent->useSubfield();
-              $leftTextContent->setObject($acfGroup, 'leftContent');
-              $leftTextContent->setElementType('div');
+          $textSectionBackgroundColor = acfButtonGroup('backgroundColor', 'acfAboutTextSecPref', 'backgroundColor', null, true);
 
-              if(get_sub_field($acfGroup)['columns'] == 'two') {
-                $leftTextContent->setClasses('m-aboutTextColumnContent col-xs-24 col-sm-12');
+          echo '<div class="o-aboutPage col-xs-24 ' . $textSectionBackgroundColor . '" id="about-leeroy">';
+            $aboutText = new AcfText;
+            $aboutText->useSubfield();
+            $aboutText->setObject('acfAboutTextCont');
+            $aboutText->setElementType('div');
 
-                $rightTextContent = new AcfText;
-                $rightTextContent->useSubfield();
-                $rightTextContent->setObject($acfGroup, 'rightContent');
-                $rightTextContent->setElementType('div');
-                $rightTextContent->setClasses('m-aboutTextColumnContent col-xs-24 col-sm-12');
+            $aboutTextColor = acfButtonGroup('textColor', 'acfAboutTextPref', 'color', null, true);
+            $aboutTextAlignment = acfButtonGroup('textAlignment', 'acfAboutTextPref', 'alignment', null, true);
+            $aboutTextSize = acfButtonGroup('fontSize', 'acfAboutTextPref', 'size', null, true);
+            $aboutText->setClasses('container m-aboutPageContent ' . $aboutTextColor .  ' ' . $aboutTextAlignment .  ' ' . $aboutTextSize);
+            $aboutText->init();
+          echo '</div>'; // .o.aboutPage
 
-                $leftTextContent->init();
-                $rightTextContent->init();
-              } else {
-                $leftTextContent->setClasses('m-aboutTextContent col-xs-24');
-                $leftTextContent->init();
-              }
-              ?>
-            <!-- .o-aboutPageContent -->
-            </div>
-          <!-- .o-aboutPage -->
-          </div>
-          <?php
           break; // case - acfAboutText
 
         case 'acfAboutOffices':
-          $acfSecPrefGroup = 'acfAboutOfficesSectionPref';
-
           $officeIcon = new AcfImage;
           $officeIcon->useSubfield();
-          $officeIcon->setObject($acfSecPrefGroup, 'icon');
+          $officeIcon->setObject('acfAboutOfficesPref', 'icon');
           $officeIcon->useElement();
           $officeIcon->setClasses('a-aboutOffices__icon');
-        ?>
-          <div class="o-aboutPage col-xs-24" style="background-color: <?= get_sub_field('acfAboutOfficesSectionPref')['backgroundColor'] ?>; color: <?= get_sub_field('acfAboutOfficesSectionPref')['textColor'] ?>">
-            <div class="container o-aboutPageContent">
 
-              <div class="m-aboutOfficesIcon col-xs-4">
-                <?php $officeIcon->init() ?>
-              <!-- .m-aboutOfficesIcon -->
-              </div>
+          $officesSectionBackgoudColor = acfButtonGroup('backgroundColor', 'acfAboutOfficesSecPref', 'backgroundColor', null, true);
+          echo '<div class="o-aboutPage col-xs-24 ' . $officesSectionBackgoudColor . '">';
+            echo '<div class="container o-aboutPageContent">';
 
-              <?php if(have_rows('acfAboutOfficeOffices')): ?>
-                <div class="col-xs-24 col-sm-16">
-                  <?php
-                  while(have_rows('acfAboutOfficeOffices')):
+              echo '<div class="m-aboutOfficesIcon col-xs-4">';
+               $officeIcon->init();
+              echo '</div>'; // .m-aboutOfficesIcon
+
+              if(have_rows('acfAboutOfficesContent')) {
+                echo '<div class="col-xs-24 col-sm-16">';
+                  while(have_rows('acfAboutOfficesContent')) {
                     the_row();
                     $officeTitle = new AcfText;
                     $officeTitle->useSubfield();
                     $officeTitle->setObject('title');
-                    $officeTitle->setElementType('h2');
+                    $officeTitle->setElementType('p');
                     $officeTitle->setClasses('a-aboutOffice__title');
 
                     $officeInformation = new AcfText;
@@ -77,117 +62,28 @@ if(have_posts()):
                     $officeInformation->setObject('information');
                     $officeInformation->setElementType('div');
                     $officeInformation->setClasses('a-aboutOfficesInfo');
-                  ?>
-                    <div class="m-aboutOfficeCell col-xs-24 col-sm-10 col-sm-offset-2">
-                      <?php
+
+                    echo '<div class="m-aboutOfficeCell col-xs-24 col-sm-10 col-sm-offset-2">';
                       $officeTitle->init();
                       $officeInformation->init();
-                      ?>
-                    <!-- .m-aboutOfficeCell  -->
-                    </div>
-                  <?php endwhile; // have_rows - acfAboutOfficeOffices ?>
-                </div>
-              <?php endif; // have_rows - acfAboutOfficeOffices ?>
-            <!-- .o-aboutPageContent -->
-            </div>
-          <!-- .o-aboutPage -->
-          </div>
-        <?php
-          break; // case - acfAboutOffices
-
-        case 'acfAboutTeam':
-          $teamTitle = new AcfText;
-          $teamTitle->useSubfield();
-          $teamTitle->setObject('acfAboutTeamTitlePref', 'title');
-          $teamTitle->setElementType('h2');
-          $teamTitle->setClasses('a-aboutPageSection__header ' . acfButtonSubGroup('textAlignment', 'acfAboutTeamTitlePref', 'alignment') . ' ' . acfButtonSubGroup('textColor', 'acfAboutTeamTitlePref', 'color') . ' ' . acfButtonSubGroup('fontSize', 'acfAboutTeamTitlePref', 'size'));
-
-          $tintBackground = get_sub_field('acfAboutTeamSectionPref')['tintColor'];
-        ?>
-          <div class="o-aboutPage col-xs-24" id="the-team" style="background-color: <?= get_sub_field('acfAboutTeamSectionPref')['backgroundColor'] ?>">
-            <div class="container o-aboutPageContent">
-              <?php
-              $teamTitle->init();
-              if(have_rows('acfAboutTeamCells')):
-                while(have_rows('acfAboutTeamCells')):
-                  the_row();
-                  $cardImage = new AcfImage;
-                  $cardImage->setSize('mediumLarge');
-                  $cardImage->useSubfield();
-                  $cardImage->setObject('image');
-              ?>
-                  <div class="m-aboutTeamCell col-xs-24 col-sm-8 col-md-6">
-                    <div class="m-aboutTeamCellContent" style="background-image: url('<?= $cardImage->init(); ?>')">
-
-                      <?php if(get_sub_field('tintImage')):?>
-                        <div class="a-elementToner col-xs-24" style="background-color: <?= $tintBackground ?>; opacity: <?= get_sub_field('tintOpacity') ?>"></div>
-                      <?php endif; ?>
-
-                      <?php if(!get_sub_field('image')): ?>
-                        <p class="a-aboutTeam__noPicText">Image coming soon</p>
-                      <?php endif; ?>
-
-                      <!-- Cell information -->
-                      <div class="m-aboutTeamCellInfo col-xs-24">
-                        <p class="a-aboutTeam__name"><?= get_sub_field('name') ?></p>
-                        <p class="a-aboutTeam__position"><?= get_sub_field('position') ?></p>
-                      <!-- .m-aboutTeamCellInfo -->
-                      </div>
-
-                    <!-- .m-aboutTeamCellContent -->
-                    </div>
-                  <!-- .m-aboutTeamCell -->
-                  </div>
-                <?php endwhile; // have_rows - acfAboutTeamCells ?>
-
-                <!-- Last team cell. Cell with icon and info-text -->
-                <div class="m-aboutTeamCell col-xs-24 col-sm-8 col-md-6">
-                  <div class="m-aboutTeamCellContent" style="background-color: <?= get_sub_field('acfAboutTeamLastCellGroup')['backgroundColor'] ?>">
-                    <?php
-                    $lastCellIcon = new AcfImage;
-                    $lastCellIcon->useSubfield();
-                    $lastCellIcon->setObject('acfAboutTeamLastCellGroup', 'icon');
-                    $lastCellIcon->useElement();
-                    $lastCellIcon->setClasses('a-aboutTeamLastCell__icon');
-                    $lastCellIcon->init();
-
-                    $lastCellTitle = new AcfText;
-                    $lastCellTitle->useSubfield();
-                    $lastCellTitle->setObject('acfAboutTeamLastCellGroup', 'textRowOne');
-                    $lastCellTitle->setElementType('p');
-                    $lastCellTitle->setClasses('a-aboutTeam__name');
-
-                    $lastCellSubTitle = new AcfText;
-                    $lastCellSubTitle->useSubfield();
-                    $lastCellSubTitle->setObject('acfAboutTeamLastCellGroup', 'textRowTwo');
-                    $lastCellSubTitle->setElementType('p');
-                    $lastCellSubTitle->setClasses('a-aboutTeam__position');
-                    ?>
-                    <div class="m-aboutTeamCellInfo col-xs-24">
-                      <?php
-                      $lastCellTitle->init();
-                      $lastCellSubTitle->init();
-                      ?>
-                    <!-- .m-aboutTeamCellInfo -->
-                    </div>
-                  <!-- .m-aboutTeamCellContent -->
-                  </div>
-                <!-- .m-aboutTeamCell -->
-                </div>
-              <?php endif; // have_rows - acfAboutTeamCells ?>
-            <!-- .o-aboutPageContent -->
-            </div>
-          <!-- .o-aboutPage -->
-          </div>
-        <?php
-          break; // case - acfAboutTeam
+                    echo '</div>'; //.m-aboutOfficeCell
+                  }
+                  echo '</div>'; // .col-xs-24
+              }
+            echo '</div>'; // .o-aboutPageContent
+          echo '</div>'; // .o-aboutPage
+          break;
 
         case 'acfAboutImage':
           $imageSectionTitle = new AcfText;
           $imageSectionTitle->useSubfield();
           $imageSectionTitle->setObject('acfAboutImageTitlePref', 'title');
-          $imageSectionTitle->setElementType('h2');
-          $imageSectionTitle->setClasses('a-aboutPageSection__header ' . acfButtonSubGroup('textAlignment', 'acfAboutImageTitlePref', 'alignment') . ' ' . acfButtonSubGroup('textColor', 'acfAboutImageTitlePref', 'color') . ' ' . acfButtonSubGroup('fontSize', 'acfAboutImageTitlePref', 'size'));
+          $imageSectionTitle->setElementType();
+
+          $imageSectionTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutImageTitlePref', 'alignment', null, true);
+          $imageSectionTitleColor = acfButtonGroup('textColor', 'acfAboutImageTitlePref', 'color', null, true);
+
+          $imageSectionTitle->setClasses('a-aboutPageSection__header ' . $imageSectionTitleAlignment . ' ' . $imageSectionTitleColor);
         ?>
           <div class="o-aboutPage col-xs-24" style="background-color: <?= get_sub_field('acfAboutImageSectionPref')['backgroundColor'] ?>;">
             <div class="container o-aboutPageContent">
@@ -220,45 +116,51 @@ if(have_posts()):
         <?php
           break; // case - acfAboutImage
 
-        case 'acfAboutContact':
+        case 'acfAboutForm':
           $formSectionTitle = new AcfText;
           $formSectionTitle->useSubfield();
-          $formSectionTitle->setObject('acfAboutImageFormPref', 'title');
-          $formSectionTitle->setElementType('h2');
-          $formSectionTitle->setClasses('a-aboutPageSection__header ' . acfButtonSubGroup('textAlignment', 'acfAboutImageFormPref', 'alignment') . ' ' . acfButtonSubGroup('textColor', 'acfAboutImageFormPref', 'color') . ' ' . acfButtonSubGroup('fontSize', 'acfAboutImageFormPref', 'size'));
+          $formSectionTitle->setObject('acfAboutFormTitlePref', 'title');
+          $formSectionTitle->setElementType('h3');
+
+          $formSectionTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutFormTitlePref', 'alignment', null, true);
+          $formSectionTitleTextColor = acfButtonGroup('textColor', 'acfAboutFormTitlePref', 'color', null, true);
+          $formSectionTitle->setClasses('a-aboutPageSection__header ' . $formSectionTitleAlignment . ' ' . $formSectionTitleTextColor . ' ');
 
           $formSectionIcon = new AcfImage;
           $formSectionIcon->useSubfield();
-          $formSectionIcon->setObject('acfAboutFormSectionPref', 'icon');
+          $formSectionIcon->setObject('acfAboutFormSecPref', 'icon');
           $formSectionIcon->useElement();
           $formSectionIcon->setClasses('a-contactForm__icon');
 
           $formSectionShortcode = new AcfText;
           $formSectionShortcode->useSubfield();
-          $formSectionShortcode->setObject('acfAboutFormSectionPref', 'shortcode');
-        ?>
-        <div class="o-aboutPage col-xs-24" id="join-us" style="background-color: <?= get_sub_field('acfAboutFormSectionPref')['backgroundColor'] ?>;">
-          <div class="container o-aboutPageContent">
-            <?php
-            $formSectionTitle->init();
-            ?>
-            <div class="o-contactFormContent col-xs-24 col-sm-20">
-              <?php
-              echo do_shortcode($formSectionShortcode->init());
-              ?>
-            </div>
+          $formSectionShortcode->setObject('acfAboutFormShortcode');
 
-            <div class="o-contactFormIcon col-xs-24 col-sm-4">
-              <?php
-              $formSectionIcon->init();
-              ?>
-            </div>
-          <!-- .o-aboutPageContent -->
-          </div>
-        <!-- .o-aboutPage -->
-        </div>
-        <?php
+          $aboutSectionBackgroundColor = acfButtonGroup('backgroundColor', 'acfAboutFormSecPref', 'backgroundColor', null, true);
+          echo '<div class="o-aboutPage col-xs-24 ' . $aboutSectionBackgroundColor . '" id="join-us">';
+            echo '<div class="container o-aboutPageContent">';
+              $formSectionTitle->init();
+
+              echo '<div class="o-contactFormContent col-xs-24 col-sm-20">';
+                echo do_shortcode($formSectionShortcode->init());
+              echo '</div>';
+
+              echo '<div class="o-contactFormIcon col-xs-24 col-sm-4">';
+                $formSectionIcon->init();
+              echo '</div>'; // .o-contactFormIcon
+            echo '</div>'; // .o-aboutPageContent
+          echo '</div>'; // .o-aboutPage
           break; // case - acfAboutContact
+
+        case 'acfAboutDynCells':
+          $dynamicCellsSectionBackgroundColor = acfButtonGroup('backgroundColor', 'acfAbvoutDynCellsSecPref', 'backgroundColor', null, true);
+
+          echo '<div class="o-aboutPage col-xs-24 ' . $dynamicCellsSectionBackgroundColor . '" id="about-leeroy">';
+            echo '<div class="container">';
+              dynamicCells();
+            echo '</div>';
+          echo '</div>';
+          break;
       } // Switch
     endwhile; // have_rows - acfAboutFlexContent
   endif; // have_rows - acfAboutFlexContent

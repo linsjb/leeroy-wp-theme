@@ -21,42 +21,29 @@
   pointer-events: none;
 }
 
+
 // Index section
 // -----------------------
-
-.a-indexSectionContent__title {
-  font-size: 30px;
-  margin-bottom: 20px;
-}
-
-.a-indexSectionContent__image {
-  padding-top: 50px;
-  padding-bottom: 80px;
-}
 
 .a-indexSectionMobile__image {
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
-.a-indexSectionContent__topTitle {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 35px;
-  font-size: 45px;
-  padding-left: 35px;
-  padding-right: 35px;
-  line-height: 1.29;
+.a-indexSectionTopContent__tagline {
+  position: relative;
+  z-index: 10;
+
 }
 
-.a-indexSectionContent__topContent {
-  margin: 0;
-  font-size: 20px;
-  padding-left: 25px;
-  padding-right: 25px;
-  font-size: 20px;
+.a-listContent__decoration {
+  margin-right: 10px;
 }
 
+.a-listContent__item {
+  list-style: none;
+  margin-bottom: 5px;
+}
 
 // Footer
 // -----------------------
@@ -80,7 +67,6 @@
 // -----------------------
 .a-informationPage__title {
   margin: 0;
-  font-size: 65px;
   margin-bottom: 10px;
   color: @leeroyWhite;
 }
@@ -119,35 +105,51 @@
   margin-bottom: 30px;
 }
 
-.a-aboutTeamLastCell__icon {
-  width: 50%;
-  left: 25%;
-  position: absolute;
-  top: 26%;
+// Products
+.a-twoColumnsProductPage__title {
+  margin: 0;
+  padding: 0;
 }
 
-.a-aboutTeam__noPicText {
-  position: absolute;
+.a-twoColumnsProductPage__image {
   width: 100%;
-  top: 38%;
-  left: 0;
-  font-size: 13px;
-  color: @secondaryContent;
-  text-align: center;
+  height: 100%;
 }
 
-.a-aboutTeam__name {
-  color: @leeroyWhite;
-  font-family: 'FreightDispProSemibold-Regular';
-  font-size: 18px;
+.a-popupFormContent__title {
+  padding: 0;
   margin: 0;
+  color: @leeroyPurple;
+  margin-bottom: 25px;
 }
 
-.a-aboutTeam__position {
-  color: @leeroyWhite;
-  font-size: 16px;
-  margin: 0;
+.a-popupFormContent__close {
+  color: @leeroyBlack;
+  font-size: 24px;
+  font-weight: bold;
+  .fadeInTransition(200ms);
+
+  &:hover {
+    cursor: pointer;
+    color: @leeroyGold;
+    .fadeInTransition(200ms);
+  }
 }
+
+
+.a-twoColumnsProductPage__subtitle {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 15px;
+  font-family: 'proxima_novaitalic';
+}
+
+.a-twoColumnsProductPage__button {
+  width: 150px;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
 
 // Knowledge hub
 // -----------------------
@@ -403,6 +405,7 @@
   box-shadow: none;
   padding: 10px 20px;
   font-family: 'proxima_novaregular' !important;
+  text-decoration: none;
 }
 
 .a-btnPurple {
@@ -423,32 +426,4 @@
   width: 80px;
   height: 80px;
   // Position is controlled with media queries!
-}
-
-.a-indexSectionItemCell__icon {
-  text-align: center;
-  height: 100px;
-  margin-bottom: 30px;
-}
-
-.a-indexSectionItemCell__title {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.a-indexSectionItemCell__content {
-  text-align: center;
-  font-size: 16px;
-
-  p:last-child {
-    margin: 0;
-    padding: 0;
-  }
-}
-
-.a-mobileIndexSectionItemCell__icon {
-  width: 30% !important;
-  margin-left: 35%;
-  margin-bottom: 30px;
 }

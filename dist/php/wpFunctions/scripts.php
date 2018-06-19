@@ -11,6 +11,7 @@ function leeroyScripts() {
   wp_enqueue_style( 'proximaNovaSemibold', get_template_directory_uri() . '/dist/fonts/PROXIMA_NOVA/proximanova_semibold_macroman/stylesheet.css', array() , '', 'all');
   wp_enqueue_style( 'proximaNovaBold', get_template_directory_uri() . '/dist/fonts/PROXIMA_NOVA/proximanova_bold_macroman/stylesheet.css', array() , '', 'all');
   wp_enqueue_style( 'proximaNovaLightItalic', get_template_directory_uri() . '/dist/fonts/PROXIMA_NOVA/proximanova_lightitalic_macroman/stylesheet.css', array() , '', 'all');
+  wp_enqueue_style( 'proximaNovaItalic', get_template_directory_uri() . '/dist/fonts/PROXIMA_NOVA/proximanova_italic_macroman/stylesheet.css', array() , '', 'all');
   wp_enqueue_style( 'freightDispPro', get_template_directory_uri() . '/dist/fonts/FREIGHT_DISPLAY/MyFontsWebfontsKit.css', array() , '', 'all');
 
   wp_enqueue_style( 'grid24', get_template_directory_uri() . '/dist/css/grid24.css', array(),'3.2.0', 'all');

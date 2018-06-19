@@ -13,6 +13,29 @@
   padding: 15px;
 }
 
+.m-headerLanguage {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.m-languageSelectorList {
+  width: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: @leeroyGrey;
+  margin: 0;
+}
+
 // Mobile header
 // -----------------------
 
@@ -43,14 +66,33 @@
 // -----------------------
 
 .m-indexSectionContentText {
-  padding-top: 80px;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
-.m-indexSectionTopContent {
-  padding-left: 25px;
-  padding-right: 120px;
-  font-size: 20px;
+.m-indexSectionTop {
+  padding: 0;
+  margin-bottom: 25px;
 }
+
+.m-indexSectionSubtitleContent {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.m-indexSectionDynamiCellsContent {
+  padding-bottom: 20px;
+}
+
+.m-dynamicCell {
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.m-indexSectionButton {
+  padding-top: 20px;
+}
+
 
 // Information page
 // -----------------------
@@ -63,8 +105,24 @@
   padding-right: 15px;
 }
 
+
+// Products
+.m-productsPageContent {
+}
+
+.m-popupFormContent {
+  background: @leeroyWhite;
+  padding: 25px;
+  border-radius: 9px;
+}
+
 // About
 // -----------------------
+
+.m-aboutPageContent {
+  padding-left: 25px;
+  padding-right: 25px;
+}
 
 .m-aboutTimelineContent {
   padding-left: 15px;
@@ -89,25 +147,6 @@
   padding-bottom: 90px;
   padding-top: 60px;
   // Left and right padding is controlled with media queries
-}
-
-.m-aboutTeamCell {
-  border: 1px solid #1f1f1f;
-  margin: 0; padding: 0;
-}
-
-.m-aboutTeamCellContent {
-  .backgroundPosition;
-  background-color: @leeroyPurple;
-  padding-bottom: 125%;
-  width: 100%;
-}
-
-.m-aboutTeamCellInfo {
-  position: absolute;
-  bottom: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 .m-aboutContactContent {
@@ -303,38 +342,3 @@
 
 // Globals
 // -----------------------
-
-.m-indexSectionItemCell {
-  text-align: center;
-  margin-top: 100px;
-  font-size: 16px;
-  padding-left: 15px;
-  padding-right: 15px;
-
-  display: grid;
-  justify-items: center;
-}
-
-.m-mobileIndexSectionItemCells {
-  margin-top: 20px;
-  .owl-dots {
-    padding-top: 30px;
-
-    .owl-dot {
-      span {
-        background: #ffffff !important;
-        width: 9px !important;
-        height: 9px !important;
-      }
-    }
-
-    .active {
-      span {
-        background: @leeroyGold !important;
-        width: 12px !important;
-        height: 12px !important;
-
-      }
-    }
-  }
-}

@@ -24,12 +24,19 @@ class AcfImage {
   }
 
   /**
+  * Use an element for the class
   *
+  * This means that the init does not need to be declared inside a img tag.
   */
   function useElement() {
     $this->useElement = true;
   }
 
+  /**
+  * Use the class as a sub-field.
+  * **IMPORTANT**
+  * This medthod need's to be declared before setObject()!
+  */
   function useSubfield() {
     $this->subfield = true;
   }

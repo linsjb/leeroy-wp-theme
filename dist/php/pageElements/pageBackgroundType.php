@@ -12,60 +12,10 @@ function pageBackgroundType($pageType = null) {
 
   if($pageType == 'postsPage') {
     $backgroundType = get_field('acfPageBackgroundType', get_option('page_for_posts'));
-
-    switch(get_field('acfPageBackgroundColor', get_option('page_for_posts'))) {
-      case 'black':
-        $backgroundColor = '#2F2F2F';
-        break;
-
-      case 'purple':
-        $backgroundColor = '#442D5E';
-        break;
-
-      case 'white':
-        $backgroundColor = '#FDFDFD';
-        break;
-
-      case 'blue':
-        $backgroundColor = '#0B4F6C';
-        break;
-
-      case 'gold':
-        $backgroundColor = '#C9AD74';
-        break;
-
-      default:
-        $backgroundColor = '#2F2F2F';
-        break;
-    }
-
+    $backgroundColor = acfButtonGroup('backgroundColor', 'acfPageBackgroundColor', null, 'page_for_posts');
   } else {
     $backgroundType = get_field('acfPageBackgroundType');
-    switch(get_field('acfPageBackgroundColor')) {
-      case 'black':
-        $backgroundColor = '#2F2F2F';
-        break;
-
-      case 'purple':
-        $backgroundColor = '#442D5E';
-        break;
-
-      case 'white':
-        $backgroundColor = '#FDFDFD';
-        break;
-
-      case 'blue':
-        $backgroundColor = '#0B4F6C';
-        break;
-
-      case 'gold':
-        $backgroundColor = '#C9AD74';
-        break;
-
-      default:
-        $backgroundColor = '#2F2F2F';
-        break;
-    }
+    $backgroundColor = acfButtonGroup('backgroundColor', 'acfPageBackgroundColor');
   }
 
   // What kind of background is set for the page
@@ -79,10 +29,8 @@ function pageBackgroundType($pageType = null) {
 
     $backgroundImageUrl->setObject('acfPageBackgroundImage');
 
-    $backgroundImage = 'url(' . $backgroundImageUrl->init() . '); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover';
+    return 'background: url(' . $backgroundImageUrl->init() . '); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;';
   } else {
-    $backgroundImage =  $backgroundColor;
+    return  'background: ' . $backgroundColor . ';';
   }
-
-  return 'background: ' . $backgroundImage . ';';
 }

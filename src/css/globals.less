@@ -42,7 +42,11 @@
   visibility: hidden;
 }
 
-.kalle {
+.visibilityHidden {
+  visibility: hidden;
+}
+
+.visibilityVisible {
   visibility: visible;
 }
 
@@ -68,35 +72,52 @@ body {
   margin: 0px;
 }
 
-
 p, a, span {
   font-family: 'proxima_novaregular';
   line-height: 1.6;
+  margin: 5px;
 }
 
 h1 {
   font-family: 'FreightDispProLight-Regular';
   font-weight: normal;
   font-style: normal;
-
+  font-size: 45px;
+  margin: 0;
+  padding: 0;
 }
 
-h2, h5 {
+h2 {
   font-family: 'proxima_novasemibold';
   font-weight: normal;
-  margin: 0; padding: 0;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
 }
 
 h3 {
-  font-family: 'FreightDispProSemibold-Regular';
+  font-family: 'proxima_novasemibold';
   font-weight: normal;
   font-style: normal;
+  font-size: 25px;
 }
 
 h4 {
   font-family: 'FreightDispProBook-Regular';
   font-weight: normal;
   font-style: normal;
+  font-size: 22px;
+}
+
+h5 {
+  font-family: 'proxima_novasemibold';
+  font-weight: normal;
+  font-size: 18px;
+  letter-spacing: 0.1px;
+}
+
+h6 {
+  font-size: 10px;
 }
 
 .container {
@@ -126,6 +147,7 @@ h4 {
 @leeroyBlue:        #0B4F6C;
 @leeroyPurple:      #442D5E;
 @leeroyGold:        #C9AD74;
+@leeroyGrey:        #f4f4f4;
 
 @pureWhite:         #ffffff;
 @secondaryContent:  #aaaaaa;
