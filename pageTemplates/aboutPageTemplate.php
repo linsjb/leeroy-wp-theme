@@ -39,8 +39,9 @@ if(have_posts()):
           $officeIcon->useElement();
           $officeIcon->setClasses('a-aboutOffices__icon');
 
-          $officesSectionBackgoudColor = acfButtonGroup('backgroundColor', 'acfAboutOfficesSecPref', 'backgroundColor', null, true);
-          echo '<div class="o-aboutPage col-xs-24 ' . $officesSectionBackgoudColor . '">';
+          $officesSectionBackgroundColor = acfButtonGroup('backgroundColor', 'acfAboutOfficesSecPref', 'backgroundColor', null, true);
+          $officeSectionTextColor = acfButtonGroup('textColor', 'acfAboutOfficesPref', 'color', null, true);
+          echo '<div class="o-aboutPage col-xs-24 ' . $officesSectionBackgroundColor . '">';
             echo '<div class="container o-aboutPageContent">';
 
               echo '<div class="m-aboutOfficesIcon col-xs-4">';
@@ -55,13 +56,13 @@ if(have_posts()):
                     $officeTitle->useSubfield();
                     $officeTitle->setObject('title');
                     $officeTitle->setElementType('p');
-                    $officeTitle->setClasses('a-aboutOffice__title');
+                    $officeTitle->setClasses('a-aboutOffice__title ' . $officeSectionTextColor);
 
                     $officeInformation = new AcfText;
                     $officeInformation->useSubfield();
                     $officeInformation->setObject('information');
                     $officeInformation->setElementType('div');
-                    $officeInformation->setClasses('a-aboutOfficesInfo');
+                    $officeInformation->setClasses('a-aboutOfficesInfo ' . $officeSectionTextColor);
 
                     echo '<div class="m-aboutOfficeCell col-xs-24 col-sm-10 col-sm-offset-2">';
                       $officeTitle->init();
