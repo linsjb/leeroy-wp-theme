@@ -9,7 +9,7 @@ function knowledgeHubTop($pageType = null) {
         <ul class="a-knowledgehubMenuList">
           <li class="a-knowledgeHubMenuList__item">Categories</li>
           <li class="a-knowledgeHubMenuList__item">Tags</li>
-          <li class="a-knowledgeHubMenuList__item">Latest posts</li>
+          <!-- <li class="a-knowledgeHubMenuList__item">Latest posts</li> -->
         </ul>
       </nav>
     <!-- .o-knowledgeHubMenuContent -->
