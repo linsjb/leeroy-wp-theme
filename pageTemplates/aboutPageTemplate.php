@@ -4,10 +4,12 @@
  * Description: Page template for about page.
  */
 get_header();
-if(have_posts()):
+
+if(have_posts()) {
   informationPageTop();
-  if(have_rows('acfAboutFlexContent')):
-    while(have_rows('acfAboutFlexContent')):
+
+  if(have_rows('acfAboutFlexContent')) {
+    while(have_rows('acfAboutFlexContent')) {
       the_row();
       switch(get_row_layout()) {
 
@@ -24,9 +26,8 @@ if(have_posts()):
             $aboutText->setElementType('div');
 
             $aboutTextColor = acfButtonGroup('textColor', 'acfAboutTextPref', 'color', null, true);
-            $aboutTextAlignment = acfButtonGroup('textAlignment', 'acfAboutTextPref', 'alignment', null, true);
             $aboutTextSize = acfButtonGroup('fontSize', 'acfAboutTextPref', 'size', null, true);
-            $aboutText->setClasses('container m-aboutPageContent ' . $aboutTextColor .  ' ' . $aboutTextAlignment .  ' ' . $aboutTextSize);
+            $aboutText->setClasses('container m-aboutPageContent ' . $aboutTextColor .  ' ' . $aboutTextSize);
             $aboutText->init();
           echo '</div>'; // .o.aboutPage
 
@@ -85,10 +86,9 @@ if(have_posts()):
           $imageSectionTitleColor = acfButtonGroup('textColor', 'acfAboutImageTitlePref', 'color', null, true);
 
           $imageSectionTitle->setClasses('a-aboutPageSection__header ' . $imageSectionTitleAlignment . ' ' . $imageSectionTitleColor);
-        ?>
-          <div class="o-aboutPage col-xs-24" style="background-color: <?= get_sub_field('acfAboutImageSectionPref')['backgroundColor'] ?>;">
-            <div class="container o-aboutPageContent">
-              <?php
+
+          echo '<div class="o-aboutPage col-xs-24" style="background-color:' . get_sub_field('acfAboutImageSectionPref')['backgroundColor'] . '">';
+            echo '<div class="container o-aboutPageContent">';
               $imageSectionTitle->init();
               $aboutDesktopImage = new AcfImage;
               $aboutDesktopImage->useSubfield();
@@ -109,12 +109,9 @@ if(have_posts()):
                 $aboutDesktopImage->setClasses('a-aboutImage__desktopImage col-xs-24');
                 $aboutDesktopImage->init();
               }
-              ?>
-            <!-- .o-aboutPageContent -->
-            </div>
-          <!-- .o-aboutPage -->
-          </div>
-        <?php
+            echo '</div>'; // .o-aboutPageContent
+          echo '</div>'; // .o-aboutPage
+
           break; // case - acfAboutImage
 
         case 'acfAboutForm':
@@ -162,12 +159,10 @@ if(have_posts()):
             echo '</div>';
           echo '</div>';
           break;
-      } // Switch
-    endwhile; // have_rows - acfAboutFlexContent
-  endif; // have_rows - acfAboutFlexContent
-?>
+      }
+    }
+  }
+}
 
-<?php
-endif; // have_posts - Wordpress content main loop
 get_footer();
 ?>

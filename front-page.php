@@ -44,7 +44,7 @@ if($query->have_posts()):
               $overlappingImage->setObject('acfIndSecTopContOverImg', 'image');
               $overlappingImage->setSize('large');
               $overlappingImage->useElement();
-              $overlappingImage->setClasses('m-indexSectionTopContent__overlappingImage  col-xs-24 col-sm-18 col-sm-offset-3');
+              $overlappingImage->setClasses('m-indexSectionTopContent__overlappingImage  col-xs-24 col-sm-20 col-sm-offset-2');
 
               $tagline = new AcfText;
               $tagline->useSubfield();
@@ -65,7 +65,7 @@ if($query->have_posts()):
                   if(get_sub_field('acfIndSecTopContImg')['tintImage']) {
                     echo '<div class="col-xs-24 a-elementTint ' . $sectionImageTintOpacity . ' ' . $sectionImageTintColor .'"></div>';
                   }
-                  echo '<div class="container">';
+                  echo '<div class="container r">';
                   if(!$titleUsed) {
                     $title->init();
                   }
@@ -224,7 +224,7 @@ if($query->have_posts()):
             // -------------------------------------------------
             // -------------------------------------------------
             case 'acfIndSecDynCells':
-              echo '<div class="container m-indexSectionDynamiCellsContent">';
+              echo '<div class="container m-indexSectionDynamicCellsContent">';
 
                 if(!$titleUsed) {
                   $title->init();
@@ -262,7 +262,7 @@ if($query->have_posts()):
                 }
                 $titleUsed = true;
 
-                textList();
+                textList('-indexLineHeight');
 
               echo '</div>'; // .m-indexSectionList
               break;

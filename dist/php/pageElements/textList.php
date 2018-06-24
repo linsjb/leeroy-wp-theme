@@ -1,5 +1,5 @@
 <?php
-function textList() {
+function textList($lineHeightClass) {
   $useDecorator = false;
 
   $listAlignment = acfButtonGroup('textAlignment', 'acfListPref', 'alignment', null, true);
@@ -17,7 +17,7 @@ function textList() {
   }
 
   if(have_rows('acfListCont')) {
-    echo '<ul class="a-listContent ' . $listAlignment . ' ' . $listFontSize . ' ' . $listTextColor .  '">';
+    echo '<ul class="a-listContent ' . $listAlignment . ' ' . $listFontSize . ' ' . $listTextColor . ' ' . $lineHeightClass . '">';
     while(have_rows('acfListCont')) {
       the_row();
         echo '<li class="a-listContent__item">';

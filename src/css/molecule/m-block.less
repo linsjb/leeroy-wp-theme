@@ -39,25 +39,25 @@
 // Mobile header
 // -----------------------
 
+.m-mobileHeaderLogo {
+  height: @mobileHeaderHeight;
+}
+
 .m-mobileHeaderMenuBtn {
   position: absolute;
   height: 100%;
+  top: 3px;
   right: 25px;
   width: @mobileHeaderHeight;
-  float: right;
   color: @leeroyWhite;
+
+  .hamburger {
+    margin: 0;
+  }
 
   .hamburger-inner {
     &, &::before, &::after {
       background-color: @leeroyWhite;
-    }
-  }
-
-  &:hover {
-    .hamburger-inner {
-      &, &::before, &::after {
-        // background-color: @leeroyBlack !important; // TODO: Ta bort
-      }
     }
   }
 }
@@ -80,14 +80,27 @@
   margin-bottom: 20px;
 }
 
-.m-indexSectionDynamiCellsContent {
+.m-indexSectionDynamicCellsContent {
   padding-bottom: 20px;
 }
 
+.m-dynamicLink {
+  margin: 0;
+}
+
 .m-dynamicCell {
-  max-height: 60px;
+  height: 60px;
   margin-bottom: 15px;
   text-align: center;
+  margin: 0;
+  margin-bottom: 25px;
+
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  justify-content: center;
+  align-content: center;
 }
 
 .m-indexSectionButton {

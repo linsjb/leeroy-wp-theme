@@ -49,7 +49,7 @@
                   if(get_sub_field('ContentPosition')) {
                     $twoColTitle->init();
                     $twoColSubtitle->init();
-                    textList();
+                    textList('-productsLineHeight');
                     echo '<button class="a-twoColumnsProductPage__button a-btn -btnPurple">Book a demo</button>';
                   } else {
                     $twoColImage->init();
@@ -62,7 +62,7 @@
                   } else {
                     $twoColTitle->init();
                     $twoColSubtitle->init();
-                    textList();
+                    textList('-productsLineHeight');
                     echo '<button class="a-twoColumnsProductPage__button a-btn -btnPurple">Book a demo</button>';
                   }
                 echo '</div>'; // .m-procuttsPageRightColumn
@@ -73,17 +73,17 @@
 
         case 'acfProdOneCol':
           $oneColumnBackgroundColor = acfButtonGroup('backgroundColor', 'acfProdOneColSecPref', 'backgroundColor', null, true);
-          $oneColumnTextColor = acfButtonGroup('textColor', 'acfProdOneColSecPref', 'textColor', null, true);
-          echo '<div class="o-productsPage col-xs-24 ' . $oneColumnBackgroundColor . ' ' . $oneColumnTextColor .'">';
+
+          echo '<div class="o-productsPage col-xs-24 ' . $oneColumnBackgroundColor .'">';
             echo '<div class="container m-productsPageOneColumnContent">';
               $oneColumnContentText = new AcfText;
               $oneColumnContentText->useSubfield();
               $oneColumnContentText->setObject('acfProdOneColTextCont');
               $oneColumnContentText->setElementType('div');
 
-              $oneColumnContentTextAlignment = acfButtonGroup('textAlignment', 'acfProOneColTextPref', 'alignment', null, true);
-              $oneColumnContentTextColor = acfButtonGroup('fontSize', 'acfProOneColTextPref', 'alignment', null, true);
-              $oneColumnContentText->setClasses($oneColumnContentTextColor .  ' ' . $oneColumnContentTextAlignment);
+              $oneColumnTextColor = acfButtonGroup('textColor', 'acfProOneColTextPref', 'color', null, true);
+              $oneColumnTextSize = acfButtonGroup('textSize', 'acfProOneColTextPref', 'size', null, true);
+              $oneColumnContentText->setClasses($oneColumnTextColor . ' ' . $oneColumnTextSize);
               $oneColumnContentText->init();
 
               $oneContentImage = new AcfImage;

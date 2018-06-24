@@ -1,17 +1,21 @@
 <?php
 function dynamicCells() {
-  $numOfCols = get_sub_field('acfDynCellsPref')['cellsPerRow'];
-  $cellWidth = cellWidth($numOfCols);
-  $boostrapClass = 'col-xs-' . $cellWidth;
+  $numberOfCells = count(get_sub_field('acfDynCellsContent'));
+  $cellCounter = 0;
 
-  if($numOfCols == 5) {
-    // "pusher"-element to center the cell's when we have five celläs per row
-    echo '<div class="col-xs-2"></div>';
+
+  // TODO: Fixa uträkningen så att det alltid blir rätt förskjutning beroende på hur många celler det är
+  $col = 'col-sm-' . (24 - (4 * $numberOfCells))/2;
+  if($numberOfCells < 6) {
+    echo '<div class="FINDME hidden-xs ' . $col . '"></div>';
   }
 
   if(have_rows('acfDynCellsContent')) {
     while(have_rows('acfDynCellsContent')) {
       the_row();
+
+      $cellCounter++;
+
       $dynamicCellImage = new AcfImage;
       $dynamicCellImage->useSubfield();
       $dynamicCellImage->setObject('icon');
@@ -19,14 +23,18 @@ function dynamicCells() {
       $dynamicCellImage->setClasses('m-dynamicCell__image');
       $dynamicCellImage->useElement();
 
+      if($cellCounter == $numberOfCells && $cellCounter%2 == 1) {
+        echo '<div class="hidden sm-hidden-md hidden-lg col-xs-6"></div>';
+      }
+
       if(get_sub_field('link')) {
-        echo '<a href="' . get_sub_field('linkTo')['url'] . '">';
-          echo '<div class="m-dynamicCell ' . $boostrapClass . '">';
+        echo '<a href="' . get_sub_field('linkTo')['url'] . '" class="m-dynamicLink">';
+          echo '<div class="m-dynamicCell col-xs-12 col-sm-4">';
             $dynamicCellImage->init();
           echo '</div>'; // .m-dynamicCell
         echo '</a>';
       } else {
-        echo '<div class="m-dynamicCell ' . $boostrapClass . '">';
+        echo '<div class="m-dynamicCell col-xs-12 col-sm-4">';
         $dynamicCellImage->init();
         echo '</div>'; // .m-dynamicCell
       }
@@ -53,7 +61,7 @@ function cellWidth($numberOfCells) {
       break;
 
     case 5:
-      return 4;
+      return 5;
       break;
 
     case 6:
