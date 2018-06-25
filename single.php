@@ -46,7 +46,7 @@ knowledgeHubTop('postsPage');
           <?php $postDate->init() ?> by <?php $postAuthor->init() ?>
         </p>
 
-        <div class="m-singlePostContent">
+        <div class="m-singlePostContent col-xs-24">
           <?php
           if(have_rows('acfPostFlexContent')) {
             while(have_rows('acfPostFlexContent')) {
@@ -56,50 +56,23 @@ knowledgeHubTop('postsPage');
                   echo the_sub_field('acfPostTextField');
                   break;
 
-                case 'acfPostImage':
-                  $rowImage = new AcfImage;
-                  $rowImage->useSubfield();
-                  $rowImage->setSize('large');
-                  $rowImage->setObject('acfPostImageField');
-                  $rowImage->setClasses('a-singlePostContent__image');
-                  $rowImage->useElement();
-
-                  echo '<div class="m-singlePostContentImage col-xs-24">';
-                    $rowImage->init();
-                    echo '<p class="a-singlePostContent__imageDesc">' . $rowImage->getCaption() .'</p>';
-                  echo '</div>';
-                  break;
-
                 case 'acfPostImageSlider':
                   $images = get_sub_field('acfPostImageSliderContent')['gallery'];
-                  if($images):
-                ?>
-                    <div class="o-singlePostContentSlider flexslider" id="slider">
-                      <ul class="slides">
-                        <?php
-                        foreach($images as $image) {
-                          echo '<li>';
-                            echo '<img src="' . $image['sizes']['large'] . '"/>';
-                            if($image['caption']) {
-                              echo '<p class="a-singlePostContent__galleryImgDesc">' . $image['caption'] . '</p>';
-                            }
-                          echo '</li>';
-                        }
-                        ?>
-                      </ul>
-                    </div>
-                <?php
-                  endif;
-                  break;
+                  if($images) {
+                    echo '<div class="o-singlePostContentSlider flexslider" id="slider">';
+                      echo '<ul class="slides">';
 
-                case 'acfPostQuote':
-                  $rowQuote = new AcfText;
-                  $rowQuote->useSubfield();
-                  $rowQuote->setObject('acfPostQuoteField');
-                  $rowQuote->setClasses('a-singlePostContent__quote');
-                  $rowQuote->setElementType('h3');
-                  $rowQuote->useBreakpoint();
-                  $rowQuote->init();
+                      foreach($images as $image) {
+                        echo '<li>';
+                        echo '<img src="' . $image['sizes']['large'] . '"/>';
+                        if($image['caption']) {
+                          echo '<p class="a-singlePostContent__galleryImgDesc">' . $image['caption'] . '</p>';
+                        }
+                        echo '</li>';
+                      }
+                      echo '</ul>';
+                    echo '</div>';
+                  }
                   break;
               }
             }

@@ -259,21 +259,62 @@
 }
 
 .m-singlePostRightColumn {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 45px;
+  padding-right: 0px;
 }
 
 .m-singlePostContent {
   font-size: 17px;
+  margin: 0;
+  padding: 0;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  // Large img-size in the wysiwyg-editor
+  .size-large {
+    width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    font-size: 25px;
+    font-family: 'proxima_novabold';
+    font-weight: bold;
+    color: @leeroyBlue;
+  }
+
+  a {
+    color: @leeroyPurple;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0;
+    .fadeInTransition(200ms);
+
+    &:hover {
+      .fadeInTransition(200ms);
+      color: @leeroyGold;
+    }
+  }
+
+  // Image's description
+  .wp-caption-text {
+    margin: 0;
+    .imageDescription;
+  }
 }
 
 .m-singlePostTags {
   margin-top: 40px;
 }
 
-.m-singlePostContentImage {
-  margin-bottom: 20px;
-}
 
 // Knowledge hub single post author
 // -----------------------
@@ -303,7 +344,7 @@
 
   ul {
     li {
-      margin-left: 20px;
+      margin-right: 10px;
     }
   }
 }

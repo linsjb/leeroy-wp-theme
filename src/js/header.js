@@ -100,19 +100,8 @@ export default function headerBehaviour() {
       }
     }
 
-
     // Scroll listener
     window.addEventListener('scroll', function () {
-
-        didScroll = true;
-        setInterval(function() {
-          if(didScroll) {
-            if($(this).scrollTop() > 500) {
-              hasScrolled();
-              didScroll = false;
-            }
-          }
-        }, 250);
 
       // Has the user scrolled over the scroll offset?
       if ($(this).scrollTop() > scrolloffset) {
@@ -140,27 +129,3 @@ export default function headerBehaviour() {
     });
   })(jQuery);
 } // headerBahaviour
-
-
-function hasScrolled() {
-  (function ($) {
-    let st = $(window).scrollTop();
-    if(Math.abs(lastScrollTop - st) <=delta) {
-      return;
-    }
-
-    if(st > lastScrollTop && st > 20) {
-      // Scrolling down
-      headerElement.removeClass('fadeIn').addClass('animated').addClass('fadeOut');
-
-      // Handle the language selector popup when header disapears, if it's open.
-      // $('.o-languageSelector').removeClass('slideOutUp').removeClass('slideInDown').addClass('slideOutUp');
-      // document.getElementById('languageSelectorBlanket').style.visibility = 'hidden';
-    } else {
-      // Scrolling upp
-      headerElement.removeClass('fadeOut').addClass('fadeIn');
-    }
-
-    lastScrollTop = st;
-  })(jQuery);
-}
