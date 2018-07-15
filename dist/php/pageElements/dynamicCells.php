@@ -7,7 +7,7 @@ function dynamicCells() {
   // TODO: Fixa uträkningen så att det alltid blir rätt förskjutning beroende på hur många celler det är
   $col = 'col-sm-' . (24 - (4 * $numberOfCells))/2;
   if($numberOfCells < 6) {
-    echo '<div class="FINDME hidden-xs ' . $col . '"></div>';
+    echo '<div class="hidden-xs ' . $col . '"></div>';
   }
 
   if(have_rows('acfDynCellsContent')) {
@@ -18,10 +18,17 @@ function dynamicCells() {
 
       $dynamicCellImage = new AcfImage;
       $dynamicCellImage->useSubfield();
-      $dynamicCellImage->setObject('icon');
+      $dynamicCellImage->setObject('logo');
       $dynamicCellImage->setSize('medium');
-      $dynamicCellImage->setClasses('m-dynamicCell__image');
+      $dynamicCellImage->setClasses('m-dynamicCell__image -nonHover');
       $dynamicCellImage->useElement();
+
+      $dynamicCellHoverImage = new AcfImage;
+      $dynamicCellHoverImage->useSubfield();
+      $dynamicCellHoverImage->setObject('hoverLogo');
+      $dynamicCellHoverImage->setSize('medium');
+      $dynamicCellHoverImage->setClasses('m-dynamicCell__image -hover');
+      $dynamicCellHoverImage->useElement();
 
       if($cellCounter == $numberOfCells && $cellCounter%2 == 1) {
         echo '<div class="hidden sm-hidden-md hidden-lg col-xs-6"></div>';
@@ -31,6 +38,7 @@ function dynamicCells() {
         echo '<a href="' . get_sub_field('linkTo')['url'] . '" class="m-dynamicLink">';
           echo '<div class="m-dynamicCell col-xs-12 col-sm-4">';
             $dynamicCellImage->init();
+            $dynamicCellHoverImage->init();
           echo '</div>'; // .m-dynamicCell
         echo '</a>';
       } else {

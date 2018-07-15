@@ -74,6 +74,7 @@ body {
 
 p, a, span {
   font-family: 'proxima_novaregular';
+  text-decoration: none;
   line-height: 1.6;
   margin: 5px;
 }
@@ -85,6 +86,10 @@ h1 {
   font-size: 45px;
   margin: 0;
   padding: 0;
+
+  @media screen and (max-width: 767px) {
+    font-size: 30px;
+  }
 }
 
 h2 {
@@ -100,6 +105,10 @@ h3 {
   font-weight: normal;
   font-style: normal;
   font-size: 25px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+  }
 }
 
 h4 {
@@ -107,6 +116,10 @@ h4 {
   font-weight: normal;
   font-style: normal;
   font-size: 22px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 16px;
+  }
 }
 
 h5 {
@@ -121,8 +134,8 @@ h6 {
 }
 
 .container {
-  padding-left: 25px;
-  padding-right: 25px;
+  // padding-left: 25px;
+  // padding-right: 25px;
 }
 
 .contactFormLabels {
@@ -138,17 +151,19 @@ h6 {
 }
 
 // Global variables
-@headerHeight: 70px;
+@headerHeight: 60px;
 @mobileHeaderHeight: 60px;
 
 // Global colors
 @leeroyWhite:       #FDFDFD;
 @leeroyBlack:       #2F2F2F;
 @leeroyBlue:        #0B4F6C;
+@leeroyDarkBlue:    #072E3F;
 @leeroyPurple:      #442D5E;
+@leeroyDarkPurple:  #2A1B3B;
 @leeroyGold:        #C9AD74;
+@leeroyDarkGold:    #806E4A;
 @leeroyGrey:        #f4f4f4;
-
 @pureWhite:         #ffffff;
 @secondaryContent:  #aaaaaa;
 

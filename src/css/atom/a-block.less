@@ -9,11 +9,9 @@
 // Index sections
 // -----------------------
 
-.a-indexSectionTopContent {
-}
-
-.a-indexSectionTopContentSectionImage {
-  padding-top: 7%;
+.a-topIndexSectionContent {
+  position: absolute;
+  bottom: 0;
 }
 
 .a-knowledgeHubPostImage {
@@ -62,19 +60,20 @@
   position: absolute;
   margin-top: 10%;
   z-index: 3;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
   bottom: 30px;
 }
 
 // Products
 .a-twoColumnsProductPage {
+  display: -webkit-flex;
+  display: -ms-flex;
   display: flex;
- justify-content: center;
- flex-direction: column;
- text-align: left;
-
- padding: 15px;
+  flex-flow: column nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .a-popupFormTopLeft {
@@ -96,6 +95,16 @@
     width: 35px;
   }
 }
+
+// Footer
+// -----------------------
+.a-footerContentColumnLink {
+  text-decoration: none;
+  color: @leeroyWhite;
+  margin: 0;
+  padding: 0;
+}
+
 
 // Globals
 // -----------------------

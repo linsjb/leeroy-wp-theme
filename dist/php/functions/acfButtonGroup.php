@@ -57,6 +57,10 @@ function acfButtonGroup($type, $acfObject, $acfGroupObject = null, $options = nu
       return height($field);
       break;
 
+    case 'mobileHeight':
+      return mobileHeight($field);
+      break;
+
     case 'width':
       return width($field);
       break;
@@ -172,38 +176,6 @@ function fontSize($field) {
   }
 }
 
-// function backgroundColor($field) {
-//   switch($field) {
-//     case 'black':
-//       return '#2F2F2F';
-//       break;
-//
-//     case 'grey':
-//       return '#f4f4f4';
-//       break;
-//
-//     case 'purple':
-//       return '#442D5E';
-//       break;
-//
-//     case 'white':
-//       return '#FDFDFD';
-//       break;
-//
-//     case 'blue':
-//       return '#0B4F6C';
-//       break;
-//
-//     case 'gold':
-//       return '#C9AD74';
-//       break;
-//
-//     default:
-//       return '#2F2F2F';
-//       break;
-//   }
-// }
-
 function backgroundColor($field) {
   switch($field) {
     case 'black':
@@ -293,6 +265,30 @@ function height($field) {
   }
 }
 
+function mobileHeight($field) {
+  switch($field) {
+    case '20':
+      return '-mobileVerticalHeight20';
+      break;
+
+    case '40':
+      return '-mobileVerticalHeight40';
+      break;
+
+    case '60':
+      return '-mobileVerticalHeight60';
+      break;
+
+    case '80':
+      return '-mobileVerticalHeight80';
+      break;
+
+    case '100':
+      return '-mobileVerticalHeight100';
+      break;
+  }
+}
+
 function width($field) {
   switch($field) {
     case '20':
@@ -321,6 +317,14 @@ function buttonColor($field) {
   switch($field) {
     case 'purple':
       return '-btnPurple';
+      break;
+
+    case 'gold':
+      return '-btnGold';
+      break;
+
+    case 'blue':
+      return '-btnBlue';
       break;
 
     default;

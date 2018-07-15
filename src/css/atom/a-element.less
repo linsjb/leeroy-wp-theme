@@ -53,14 +53,61 @@
   font-size: 18px;
 }
 
-.a-footerLogo__link {
-  display: block;
+.a-footerContentColumnLink__title {
+  text-decoration: none;
+  .fadeInTransition(200ms);
+  margin: 0;
+  @media screen and (max-width: 767px) {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 35px;
+  }
+
+  color: @leeroyWhite;
+
+  &:hover {
+    text-decoration: none;
+    .fadeInTransition(200ms);
+    color: @leeroyGold;
+  }
 }
 
-.a-footerLogo__logo {
-  height: 30px;
-  padding-left: 40px;
-  pointer-events: none;
+.a-footerContentColumn__nav {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  text-align: left;
+
+  @media screen and (max-width: 767px) {
+    margin-left: 40px;
+  }
+
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+
+      a {
+        font-size: 18px;
+        .fadeInTransition(200ms);
+        margin: 0;
+        color: @leeroyWhite;
+
+        &:hover {
+          color: @leeroyGold;
+        }
+      }
+    }
+  }
 }
 
 // Information page
@@ -113,30 +160,9 @@
 }
 
 .a-twoColumnsProductPage__image {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  // height: 100%;
 }
-
-.a-popupFormContent__title {
-  padding: 0;
-  margin: 0;
-  color: @leeroyPurple;
-  margin-bottom: 25px;
-}
-
-.a-popupFormContent__close {
-  color: @leeroyBlack;
-  font-size: 24px;
-  font-weight: bold;
-  .fadeInTransition(200ms);
-
-  &:hover {
-    cursor: pointer;
-    color: @leeroyGold;
-    .fadeInTransition(200ms);
-  }
-}
-
 
 .a-twoColumnsProductPage__subtitle {
   margin: 0;
@@ -149,8 +175,24 @@
   width: 150px;
   font-size: 14px;
   margin-top: 15px;
+display: -webkit-flex;
+display: -ms-flex;
+display: flex;
+justify-content: center;
 }
 
+.a-popupFormContent__title {
+  padding: 0;
+  margin: 0;
+  color: @leeroyPurple;
+  margin-bottom: 25px;
+}
+
+.a-popupFormContent__close {
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 // Knowledge hub
 // -----------------------

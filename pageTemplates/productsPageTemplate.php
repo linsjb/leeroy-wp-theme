@@ -4,8 +4,14 @@
  * Description: Page template for products.
  */
  get_header();
+ ?>
+ <script type="text/javascript">
+   let pageLocation = 'products';
+ </script>
+ <?php
  if(have_posts()) {
    informationPageTop();
+   $counter = 0;
    if(have_rows('acfProdCont')) {
      while(have_rows('acfProdCont')) {
        the_row();
@@ -34,40 +40,37 @@
            $twoColImage->useElement();
            $twoColImage->setClasses('a-twoColumnsProductPage__image');
 
-           if(get_sub_field('ContentPosition')) {
-             $leftColumnWidth = 'col-sm-15';
-             $rightColumnWidth = 'col-sm-9';
+
+           // Alternate the text and image left and right
+           if($counter % 2 == 1) {
+             $textColumnPosition = ' col-sm-pull-9 ';
+             $textColumnOffset = ' ';
+             $imageColumnPosition = ' col-sm-push-15 ';
+             $buttonPosition = ' ';
            } else {
-             $leftColumnWidth = 'col-sm-9';
-             $rightColumnWidth = 'col-sm-15';
+             $textColumnPosition = ' ';
+             $textColumnOffset = ' col-md-offset-2 ';
+             $imageColumnPosition  = ' ';
+             $buttonPosition = ' -right ';
            }
 
             echo '<div class="o-productsPage col-xs-24 ' . $twoColBackgroundColor . ' ' . $twoColTextColor .'">';
               echo '<div class="container m-productsPageContent">';
+                // Image column
+                echo '<div class="a-twoColumnsProductPage -image col-xs-24 col-sm-9' . $imageColumnPosition . '">';
+                $twoColImage->init();
+                echo '</div>'; // .a-twoColumnsProductPage
 
-                echo '<div class="a-twoColumnsProductPage col-xs-24 ' . $leftColumnWidth . '">';
-                  if(get_sub_field('ContentPosition')) {
-                    $twoColTitle->init();
-                    $twoColSubtitle->init();
-                    textList('-productsLineHeight');
-                    echo '<button class="a-twoColumnsProductPage__button a-btn -btnPurple">Book a demo</button>';
-                  } else {
-                    $twoColImage->init();
-                  }
-                echo '</div>'; // .m-productsPageLeftColumn
+                // Text column
+                echo '<div class="a-twoColumnsProductPage col-xs-24 col-sm-15 col-md-13' . $textColumnOffset . $textColumnPosition . '">';
+                  $twoColTitle->init();
+                  $twoColSubtitle->init();
+                  textList('-productsLineHeight');
+                  echo '<button class="a-twoColumnsProductPage__button' . $buttonPosition . 'a-btn -btnPurple pull-right">Book a demo</button>';
+                echo '</div>'; // .a-twoColumnsProductPage
 
-                echo '<div class="a-twoColumnsProductPage col-xs-24 ' . $rightColumnWidth . '">';
-                  if(get_sub_field('ContentPosition')) {
-                    $twoColImage->init();
-                  } else {
-                    $twoColTitle->init();
-                    $twoColSubtitle->init();
-                    textList('-productsLineHeight');
-                    echo '<button class="a-twoColumnsProductPage__button a-btn -btnPurple">Book a demo</button>';
-                  }
-                echo '</div>'; // .m-procuttsPageRightColumn
 
-              echo '</div>'; // .container
+              echo '</div>'; // .m-productsPageContent
             echo '</div>'; // .o-productsPage
             break;
 
@@ -96,10 +99,12 @@
           echo '</div>'; // .o-productsPage
           break;
        } // Switch
+
+       $counter++;
      }
    }
 
-   formPopup();
+   formPopup(get_field('acfOptProdPopupTitle', 'option'), get_field('acfOptProdPopupShortCode', 'options'));
  }
  get_footer();
  ?>

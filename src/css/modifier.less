@@ -123,6 +123,36 @@
   min-height: 100vh;
 }
 
+.-mobileVerticalHeight20 {
+  @media screen and (max-width: 767px) {
+    min-height: 20vh;
+  }
+}
+
+.-mobileVerticalHeight40 {
+  @media screen and (max-width: 767px) {
+    min-height: 40vh;
+  }
+}
+
+.-mobileVerticalHeight60 {
+  @media screen and (max-width: 767px) {
+    min-height: 60vh;
+  }
+}
+
+.-mobileVerticalHeight80 {
+  @media screen and (max-width: 767px) {
+    min-height: 80vh;
+  }
+}
+
+.-mobileVerticalHeight100 {
+  @media screen and (max-width: 767px) {
+    min-height: 100vh;
+  }
+}
+
 .-width20 {
   width: 20%;
 }
@@ -148,6 +178,36 @@
   background-color: @leeroyPurple;
   color: @leeroyWhite;
   border: solid 0.9px #ffffff;
+  .fadeInTransition(200ms);
+
+  &:hover {
+    .fadeInTransition(200ms);
+    background-color: @leeroyDarkPurple;
+  }
+}
+
+.-btnBlue {
+  background-color: @leeroyBlue;
+  color: @leeroyWhite;
+  border: solid 0.9px #ffffff;
+  .fadeInTransition(200ms);
+
+  &:hover {
+    .fadeInTransition(200ms);
+    background-color: @leeroyDarkBlue;
+  }
+}
+
+.-btnGold {
+  background-color: @leeroyGold;
+  color: @leeroyWhite;
+  border: solid 0.9px #ffffff;
+  .fadeInTransition(200ms);
+
+  &:hover {
+    .fadeInTransition(200ms);
+    background-color: @leeroyDarkGold;
+  }
 }
 
 .-opacity20 {

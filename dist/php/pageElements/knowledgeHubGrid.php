@@ -1,4 +1,6 @@
 <?php
+// Creates a grid of blog-posts.
+// Function call need's to be inside the loop!
 function knowledgeHubGrid($counter) {
   $postImage = new AcfImage;
   $postImage->setSize('large');

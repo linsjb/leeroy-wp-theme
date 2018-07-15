@@ -1,8 +1,13 @@
 <?php
 get_header();
+?>
+<script type="text/javascript">
+  let pageLocation = 'index';
+</script>
+<?php
 $args = array(
-  'post_type'     => 'sm_indexsections',
-  'posts_per_page' => 20
+  'post_type'       => 'sm_indexsections',
+  'posts_per_page'  => 0
 );
 $query = new WP_Query($args);
 if($query->have_posts()):
@@ -21,6 +26,7 @@ if($query->have_posts()):
         while(have_rows('acfIndCont')) {
           the_row();
 
+          // Set title element type and class depending on content type.
           if(get_row_layout() == 'acfIndSecTopCont') {
             $title->setElementType('h1');
             $title->setClasses('o-indexSectionContent__topTitle ' . $titleAlignment . ' ' . $titleColor);
@@ -44,40 +50,39 @@ if($query->have_posts()):
               $overlappingImage->setObject('acfIndSecTopContOverImg', 'image');
               $overlappingImage->setSize('large');
               $overlappingImage->useElement();
-              $overlappingImage->setClasses('m-indexSectionTopContent__overlappingImage  col-xs-24 col-sm-20 col-sm-offset-2');
-
-              $tagline = new AcfText;
-              $tagline->useSubfield();
-              $tagline->setObject('acfIndSecTopContTag', 'text');
-              $tagline->setElementType('h3');
-
-              $taglineAlignment = acfButtonGroup('textAlignment', 'acfIndSecTopContTag', 'alignment', null, true);
-              $taglineColor = acfButtonGroup('textColor', 'acfIndSecTopContTag', 'color', null, true);
-              $tagline->setClasses('a-indexSectionTopContent__tagline ' . $taglineAlignment .  ' ' . $taglineColor);
-
-              $sectionImageHeight = acfButtonGroup('height', 'acfIndSecTopContImg', 'imageHeight', null, true);
+              $overlappingImage->setClasses('m-indexSectionTopContent__image col-xs-24 col-sm-20 col-sm-offset-2');
 
               $sectionImageTintOpacity = acfButtonGroup('opacity', 'acfIndSecTopContImg', 'tintOpacity', null, true);
               $sectionImageTintColor = acfButtonGroup('backgroundColor', 'acfIndSecTopContImg', 'tintColor', null, true);
 
-              echo '<div class="m-indexSectionTop col-xs-24">';
-                echo '<div class="a-indexSectionTopContentSectionImage col-xs-24 ' . $sectionImageHeight . '" style="background: url(' . $contentImage->init() . '); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;">';
+              echo '<div class="m-topIndexSection">';
+                echo '<div class="blue m-topIndexSection__image col-xs-24" style="background: url(' . $contentImage->init() . '); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;">';
                   if(get_sub_field('acfIndSecTopContImg')['tintImage']) {
                     echo '<div class="col-xs-24 a-elementTint ' . $sectionImageTintOpacity . ' ' . $sectionImageTintColor .'"></div>';
                   }
-                  echo '<div class="container r">';
-                  if(!$titleUsed) {
-                    $title->init();
-                  }
-                  $titleUsed = true;
-                    $tagline->init();
-                  echo '</div>'; // .container
-                echo '</div>'; // .a-indexSectionTopContentSectionImage
+                echo '</div>'; // .m-topIndexSection__image
 
-                echo '<div class="container a-indexSectionTopContent">';
-                  $overlappingImage->init();
-                echo '</div>';// .a-indexSectionTopContent
-              echo '</div>'; // .m-indexSectionTop
+                // Overlaping element
+                echo '<div class="a-topIndexSectionContent col-xs-24">';
+                  echo '<div class="container">';
+                    if(!$titleUsed) {
+                      $title->init();
+                    }
+                    $titleUsed = true;
+
+                    if(get_sub_field('acfIndSecTopContTag')['useTagline']) {
+                      $taglineAlignment = acfButtonGroup('textAlignment', 'acfIndSecTopContTag', 'alignment', null, true);
+                      $taglineColor = acfButtonGroup('textColor', 'acfIndSecTopContTag', 'color', null, true);
+
+                      echo '<h3 class="a-indexSectionTopContent__tagline ' . $taglineAlignment . ' ' . $taglineColor . '">';
+                        echo get_bloginfo('description');
+                      echo '</h3>';
+                    }
+
+                    $overlappingImage->init();
+                  echo '</div>'; //.container
+                echo '</div>';// .a-topIndexSectionContent
+              echo '</div>';// .m-topIndexSection
               break;
 
             // Section text
@@ -159,21 +164,21 @@ if($query->have_posts()):
             // -------------------------------------------------
             // -------------------------------------------------
             case 'acfIndSecBlogPosts':
-              $postsArgs = array(
-                'posts_per_page' => 5,
-                'post_type'  => 'post',
-                'meta_key' => 'acfKnowHubPostCaseShow',
-                'meta_value' => true
-              );
-
-              $postsQuery = new WP_Query($postsArgs);
-
               echo '<div class="container m-indexSectionBlogPost">';
 
                 if(!$titleUsed) {
                   $title->init();
                 }
                 $titleUsed = true;
+
+                $postsArgs = array(
+                  'posts_per_page'  => 5,
+                  'post_type'       => 'post',
+                  'meta_key'        => 'acfKnowHubPostCaseShow',
+                  'meta_value'      => true
+                );
+
+                $postsQuery = new WP_Query($postsArgs);
 
                 if($postsQuery->have_posts()) {
                   $counter = 0;
@@ -195,10 +200,11 @@ if($query->have_posts()):
                       }
                       $counter++;
                     }
-                    wp_reset_postdata();
                   echo '</div>'; // .KnowledgeHubGrid
                 echo '</div>'; // .container
               }
+              // wp_reset_query();
+              wp_reset_postdata();
               break;
 
             // Subtitle
@@ -244,7 +250,7 @@ if($query->have_posts()):
               $buttonColor = acfButtonGroup('buttonColor', 'acfIndSecBtnPref', 'color', null, true);
 
               echo '
-                <div class="container ' . $buttonAlignment . ' m-indexSectionButton">
+                <div class="container m-indexSectionButton ' . $buttonAlignment . '">
                   <a href="' . get_sub_field('acfIndSecBtnPref')['link'] . '" class ="a-btn ' . $buttonColor . '"/>'
                   . get_sub_field('acfIndSecBtnPref')['name'] .'
                   </a>
@@ -277,5 +283,6 @@ if($query->have_posts()):
   endwhile;
 endif;
 wp_reset_postdata();
+// wp_reset_query();
 get_footer();
 ?>

@@ -1,5 +1,10 @@
 <?php
 get_header();
+?>
+<script type="text/javascript">
+  let pageLocation = 'home';
+</script>
+<?php
 knowledgeHubTop();
 ?>
 
@@ -11,7 +16,7 @@ knowledgeHubTop();
       echo '<div class="o-knowledgeHubGrid col-xs-24">';
         while (have_posts()) {
           the_post();
-            knowledgeHubGrid($counter);
+          knowledgeHubGrid($counter);
           $counter++;
         }
       echo '</div>';

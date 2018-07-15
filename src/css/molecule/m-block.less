@@ -70,9 +70,8 @@
   margin-bottom: 30px;
 }
 
-.m-indexSectionTop {
-  padding: 0;
-  margin-bottom: 25px;
+.m-topIndexSection {
+  position: relative;
 }
 
 .m-indexSectionSubtitleContent {
@@ -90,10 +89,9 @@
 
 .m-dynamicCell {
   height: 60px;
-  margin-bottom: 15px;
   text-align: center;
   margin: 0;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 
   display: -webkit-flex;
   display: -ms-flex;
@@ -119,11 +117,6 @@
   padding-right: 15px;
 }
 
-
-// Products
-.m-productsPageContent {
-}
-
 .m-popupFormContent {
   background: @leeroyWhite;
   padding: 25px;
@@ -134,8 +127,6 @@
 // -----------------------
 
 .m-aboutPageContent {
-  padding-left: 25px;
-  padding-right: 25px;
 }
 
 .m-aboutTimelineContent {
@@ -170,20 +161,14 @@
   position: relative;
 }
 
-
 // Footer
 // -----------------------
-
-.m-footerContent {
-  padding-left: 25px;
-  padding-right: 25px;
+.m-footerLogo {
+  display: block;
 }
 
-// .m-footerInnerContent {
-// }
-
-.m-footerInnerContentCol {
-  height: 180px;
+.m-footerContentColumn {
+  text-align: center;
 }
 
 // Knowledge hub
@@ -275,7 +260,7 @@
 
   img {
     margin-top: 20px;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
   }
 
   // Large img-size in the wysiwyg-editor
@@ -309,6 +294,7 @@
   .wp-caption-text {
     margin: 0;
     .imageDescription;
+    margin-bottom: 20px;
   }
 }
 

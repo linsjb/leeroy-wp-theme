@@ -85,15 +85,37 @@
 
 // Index sections
 // -----------------------
-.m-indexSectionTopContent__overlappingImage {
-  // margin: 0 auto;
-  margin-top: -25%;
-  z-index: 8;
+.m-topIndexSection__image {
+  padding: 0;
+
+  @media screen and (max-width: 767px) {
+    height: 60vh;
+  }
+
+  @media screen and(min-width: 768px) {
+    height: 80vh;
+  }
 }
 
 .m-dynamicCell__image {
+  max-height: 100%;
   max-width: 90%;
   align-self: center;
+  position: absolute;
+}
+
+.m-dynamicLink {
+  &:hover {
+    .m-dynamicCell__image.-nonHover {
+      transition-delay: 300ms;
+       opacity: 0;
+    }
+
+    .m-dynamicCell__image.-hover {
+      opacity: 1;
+      .fadeInTransition(300ms);
+    }
+  }
 }
 
 // Products
@@ -108,44 +130,16 @@
 
 // Footer
 // -----------------------
-.m-footer__logo {
+.m-footerLogo__img {
   height: 30px;
   padding-left: 40px;
-  font-size: 18px;
+  pointer-events: none;
 }
 
-.m-footer__slogan {
+.m-footerContentColumn__title {
   color: @leeroyWhite;
-  font-size: 20px;
-  padding-left: 40px;
-  font-family: 'proxima_novalight_italic';
-}
-
-.m-footer__nav {
-  padding-left: 15px;
-  padding-left: 15px;
-  padding-top: 15px;
-  ul {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    left: 35%;
-    padding-left: 5px;
-    li {
-      list-style: none;
-      margin-bottom: 15px;
-      a {
-        font-size: 18px;
-        text-decoration: none;
-        .fadeInTransition(0.2s);
-        color: @leeroyWhite;
-
-        &:hover {
-          color: @leeroyGold;
-        }
-      }
-    }
-  }
+  margin: 0;
+  margin-bottom: 35px;
 }
 
 // Knowledge hub

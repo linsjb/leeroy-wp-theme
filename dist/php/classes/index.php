@@ -10,4 +10,4 @@ require_once 'user.php';
 require_once 'recentPosts.php';
 require_once 'customPostType.php';
 require_once 'customPostTaxonomy.php';
-require_once 'navigationRegistration.php';
+require_once 'navLocationRegistration.php';

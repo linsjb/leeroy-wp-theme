@@ -1,5 +1,10 @@
 <?php
 get_header();
+?>
+<script type="text/javascript">
+  let pageLocation = 'single';
+</script>
+<?php
 knowledgeHubTop('postsPage');
 ?>
 <div class="o-singlePost col-xs-24">

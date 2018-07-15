@@ -31,3 +31,12 @@
   color: @leeroyBlue;
   font-weight: bold;
 }
+
+.m-dynamicCell__image.-nonHover {
+  opacity: 1;
+}
+
+.m-dynamicCell__image.-hover {
+  opacity: 0;
+  .fadeInTransition(300ms);
+}

@@ -4,6 +4,11 @@
  * Description: Page template for about page.
  */
 get_header();
+?>
+<script type="text/javascript">
+  let pageLocation = 'about';
+</script>
+<?php
 
 if(have_posts()) {
   informationPageTop();

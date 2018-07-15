@@ -1,7 +1,5 @@
 // import Underscore from 'underscore';
 
-
-
 export function postFlexSlider() {(function ($) {
   $('#slider').flexslider({
     animation: "slide",
@@ -11,20 +9,21 @@ export function postFlexSlider() {(function ($) {
   });
 })(jQuery);}
 
-export function formPopup() {
-  let closeButton = document.getElementsByClassName('a-popupFormContent__close')[0];
-  let openButtons = Array.from(document.getElementsByClassName('a-twoColumnsProductPage__button'));
+export function indexTopContent() {
+  if(pageLocation == 'index') {
+    let topSection = document.getElementsByClassName('m-topIndexSection')[0];
+    let contentMiddle = document.getElementsByClassName('a-topIndexSectionContent')[0].offsetHeight/2;
+    let topSectionImage = document.getElementsByClassName('m-topIndexSection__image')[0];
 
-  openButtons.map((button) => {
-    button.addEventListener('click', function() {
-      document.getElementsByClassName('o-popupForm')[0].style.display = 'block';
-      document.getElementsByClassName('o-formPopupCover')[0].style.display = 'block';
-
-    });
-  });
-
-  closeButton.addEventListener('click', function() {
-    document.getElementsByClassName('o-popupForm')[0].style.display = 'none';
-    document.getElementsByClassName('o-formPopupCover')[0].style.display = 'none';
-  });
+    if(window.document.documentElement.clientHeight < 560) {
+      topSection.style.height = window.innerHeight + contentMiddle + 'px';
+      topSectionImage.style.height = '100vh';
+    } else {
+      if(window.document.documentElement.clientWidth < 768) {
+        topSection.style.height = window.innerHeight + contentMiddle - window.innerHeight*0.6 + 'px';
+      } else {
+        topSection.style.height = window.innerHeight + contentMiddle - window.innerHeight*0.4 + 'px';
+      }
+    }
+  }
 }

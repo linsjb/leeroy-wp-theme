@@ -1,5 +1,10 @@
 <?php
 get_header();
+?>
+<script type="text/javascript">
+  let pageLocation = 'archive';
+</script>
+<?php
 informationPageTop('postsPage');
 
 if(is_category()) {

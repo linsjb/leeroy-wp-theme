@@ -5,12 +5,15 @@ class AcfMenuFields {
   }
 
   function menus($menuItems, $args) {
-    $menu = wp_get_nav_menu_object($args->menu);
-
+    // $this->menu = wp_get_nav_menu_object($args->menu);
     if($args->theme_location == $this->menuObject) {
-      $fieldData = get_field($this->acfObject, $menu);
-
-      $processedField = '<' . $this->elementType . ' class="' . $this->elementClasses . '">' . $fieldData . '</' . $this->elementType . '>';
+      if($this->url != null) {
+        $processedField = '<a class="' . $this->urlClasses . '" href="' . $this->url . '">'
+          . '<' . $this->elementType . ' class="' . $this->elementClasses . '">' . $this->fieldObject . '</' . $this->elementType . '>'
+        . '</a>';
+      } else {
+        $processedField = '<' . $this->elementType . ' class="' . $this->elementClasses . '">' . $this->fieldObject . '</' . $this->elementType . '>';
+      }
 
       switch($this->position) {
         case 'before':
@@ -22,14 +25,29 @@ class AcfMenuFields {
           break;
 
         default:
-          echo "Wrong position in setPosition, or the method is not defined!";
+          echo "Wrong position in setPosition().";
           break;
       }
     }
     return $menuItems;
   }
 
-  function setAcfObject($stringPhrase) { $this->acfObject = $stringPhrase; }
+
+  function setField($fieldObj) {
+    if($this->optionsPage) {
+      $this->fieldObject = get_field($fieldObj, 'option');
+    } else {
+      $this->fieldObject = get_field($fieldObj);
+    }
+  }
+
+  function setSubfield($fieldSubObj) {
+    if($this->optionsPage) {
+      $this->fieldObject = get_sub_field($fieldSubObj, 'option');
+    } else {
+      $this->fieldObject = get_sub_field($fieldSubObj);
+    }
+  }
 
   function setMenuObject($stringPhrase) { $this->menuObject = $stringPhrase; }
 
@@ -39,9 +57,21 @@ class AcfMenuFields {
 
   function setPosition($stringPhrase) { $this->position = $stringPhrase; }
 
+  function setUrl($stringPhrase) { $this->url = $stringPhrase; }
+
+  function setUrlClasses($stringPhrase) { $this->urlClasses = $stringPhrase; }
+
+
+  function setOptionsPage() { $this->optionsPage = true; }
+
   private $elementClasses;
   private $elementType;
-  private $acfObject;
+  private $fieldObject;
   private $menuObject;
-  private $position;
+  private $position = 'before';
+  private $url = null;
+  private $urlClasses = '';
+  private $subfield = false;
+  private $menu;
+  private $optionsPage = false;
 }

@@ -9,54 +9,62 @@
       $logoLinkRel = '';
     }
 
-    $aboutLeeroyNav = new Navigation;
-    $aboutLeeroyNav->setLocation('aboutLeeroy');
-    $aboutLeeroyNav->setContainerClasses('m-footer__nav');
-
-    $aboutLeeroyAcfFields = new AcfMenuFields;
-    $aboutLeeroyAcfFields->setElementType('h5');
-    $aboutLeeroyAcfFields->setElementClasses('a-footerNav__title');
-    $aboutLeeroyAcfFields->setMenuObject('aboutLeeroy');
-    $aboutLeeroyAcfFields->setAcfObject('acfFooterMenuTitle');
-    $aboutLeeroyAcfFields->setPosition('before');
-    $aboutLeeroyAcfFields->init();
-
-    $resourcesNav = new Navigation;
-    $resourcesNav->setLocation('resources');
-    $resourcesNav->setContainerClasses('m-footer__nav');
-
-    $resourcesAcfFields = new AcfMenuFields;
-    $resourcesAcfFields->setElementType('h5');
-    $resourcesAcfFields->setElementClasses('a-footerNav__title');
-    $resourcesAcfFields->setMenuObject('resources');
-    $resourcesAcfFields->setAcfObject('acfFooterMenuTitle');
-    $resourcesAcfFields->setPosition('before');
-    $resourcesAcfFields->init();
+    $footerBackgroundColor = get_field('acfFooterPref', 'options')['backgroundColor'];
     ?>
-    <div class="o-footer col-xs-24">
-      <a rel="<?= $logoLinkRel ?>" href="<?= $logoUrl ?>" class="a-footerLogo__link">
-        <object class="a-footerLogo__logo" type="image/svg+xml" data="<?= get_template_directory_uri() . '/images/leeroyStdLogo.svg' ?>"></object>
+    <div class="o-footer col-xs-24 <?= $footerBackgroundColor ?>">
+      <a rel="<?= $logoLinkRel ?>" href="<?= $logoUrl ?>" class="m-footerLogo">
+        <object class="m-footerLogo__img" type="image/svg+xml" data="<?= get_template_directory_uri() . '/images/leeroyStdLogo.svg' ?>"></object>
       </a>
-      <p class="m-footer__slogan"><?= get_bloginfo('description') ?></p>
+      <p class="o-footer__slogan"><?= get_bloginfo('description') ?></p>
 
-      <div class="container m-footerContent">
-        <div class="m-footerInnerContent col-xs-24 col-sm-20 col-sm-offset-3">
-          <div class="m-footerInnerContentCol col-xs-24 col-sm-12">
-            <?php $aboutLeeroyNav->init() ?>
-          <!-- .m-footerInnerContentCol -->
-          </div>
+      <div class="container">
+        <?php
+        if(have_rows('acfFooterMenuPref', 'option')) {
+          while(have_rows('acfFooterMenuPref', 'option')) {
+            the_row();
 
-          <div class="m-footerInnerContentCol col-xs-24 col-sm-12">
-            <?php $resourcesNav->init() ?>
-          <!-- .m-footerInnerContentCol -->
-          </div>
-        <!-- .m-footerInnerContent -->
-        </div>
-      <!-- .m-footerContent -->
+            $numOfMenus = count(get_sub_field('acfFooterMenus'));
+            $footerColumnWidth = 'col-sm-' . (24/$numOfMenus);
+
+            if(have_rows('acfFooterMenus')) {
+              while(have_rows('acfFooterMenus')) {
+                the_row();
+                ?>
+                <div class="m-footerContentColumn col-xs-24 <?= $footerColumnWidth ?>">
+                  <?php
+                  $wpMenu = new Navigation;
+                  $wpMenu->setContainerClasses('a-footerContentColumn__nav');
+                  $wpMenu->setLocation(get_sub_field('location'));
+
+                  $navTitle = new AcfMenuFields;
+                  $navTitle->setSubField('title');
+                  $navTitle->setElementType('h5');
+                  $navTitle->setMenuObject(get_sub_field('location'));
+                  $navTitle->init();
+
+                  if(get_sub_field('useTitleLink')) {
+                      $navTitle->setUrl(get_sub_field('titleLink')['url']);
+                      $navTitle->setUrlClasses('a-footerContentColumnLink');
+                      $navTitle->setElementClasses('a-footerContentColumnLink__title');
+                  } else {
+                    $navTitle->setElementClasses('m-footerContentColumn__title');
+                  }
+                  $wpMenu->init();
+
+                  ?>
+                  <!-- .m-footerContentColumn -->
+                </div>
+                <?php
+              }
+            }
+          }
+        }
+        ?>
+        <!-- .container -->
       </div>
-    <!-- .o-footer -->
+      <!-- .o-footer -->
     </div>
-  <!-- .container-fluid -->
+    <!-- .container-fluid -->
   </div>
 </body>
 </html>
