@@ -25,8 +25,8 @@ function textList($lineHeightClass) {
           if($useDecorator) {
             $listDecorator->init();
           }
-
-          switch($language) {
+          if(get_field('acfListSecLang')) {
+            switch($language) {
               case 'en':
                 the_sub_field('rowEng');
                 break;
@@ -39,7 +39,10 @@ function textList($lineHeightClass) {
                 the_sub_field('rowSwe');
                 break;
             }
-            
+          } else {
+            the_sub_field('rowSwe');
+          }
+
         echo '</li>';
     }
     echo '</ul>'; // .a-listContent

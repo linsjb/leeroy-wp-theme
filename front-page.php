@@ -301,7 +301,7 @@ if($query->have_posts()):
               $buttonAlignment = acfButtonGroup('textAlignment', 'acfIndSecBtnPref', 'alignment', null, true);
               $buttonColor = acfButtonGroup('buttonColor', 'acfIndSecBtnPref', 'color', null, true);
 
-              if(get_field('acfIndSecSecLangi')) {
+              if(get_field('acfIndSecSecLang')) {
                 switch($language) {
                   case 'en':
                     $buttonText = get_sub_field('acfIndSecBtnPref')['nameEng'];
