@@ -15,15 +15,16 @@ export function indexTopContent() {
     let contentMiddle = document.getElementsByClassName('a-topIndexSectionContent')[0].offsetHeight/2;
     let topSectionImage = document.getElementsByClassName('m-topIndexSection__image')[0];
 
-    if(window.document.documentElement.clientHeight < 560) {
-      topSection.style.height = window.innerHeight + contentMiddle + 'px';
-      topSectionImage.style.height = '100vh';
-    } else {
-      if(window.document.documentElement.clientWidth < 768) {
-        topSection.style.height = window.innerHeight + contentMiddle - window.innerHeight*0.6 + 'px';
-      } else {
-        topSection.style.height = window.innerHeight + contentMiddle - window.innerHeight*0.4 + 'px';
+    if(window.innerWidth < 992) {
+
+      if(window.innerHeight < window.innerWidth) {
+        topSectionImage.style.height = '100vh';
+        topSection.style.height = window.innerHeight + contentMiddle + 'px';
+      } else if(window.innerWidth < 768) {
+        topSection.style.height = window.innerHeight + contentMiddle - window.innerHeight*0.5 + 'px';
       }
+    } else {
+      topSection.style.height = window.innerHeight + contentMiddle - window.innerHeight*0.4 + 'px';
     }
   }
 }

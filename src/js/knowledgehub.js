@@ -11,7 +11,6 @@ export function grid() {
 
 export function cellHeight() {
   let knowledgeHubCells = document.getElementsByClassName('o-knowledgeHubCell');
-
   for (var i = 0; i < knowledgeHubCells.length; i++) {
     let knowledgeHubCell = document.getElementById('cell-' + i);
     if (knowledgeHubCell.getAttribute('data-imgprops') == 0) {

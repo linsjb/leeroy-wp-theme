@@ -33,11 +33,11 @@ export default function headerBehaviour() {
     * If the width if equal of greater than 768 (bootstrap col-sm), we will assign the variables the elements of the dektop header and menu.
     * If the width is less than 768 (bootstrap col-xs), we will assign the variables the elements of the mobile header and menu.
     */
-    if(window.innerWidth >= 768) {
+    if(window.innerWidth >= 992) {
       headerElement = $('.o-header');
       navigationElement = $('.m-header__nav');
       headerLogo.setObject('desktopHeaderLogoObj');
-    } else if(window.innerWidth < 768) {
+    } else if(window.innerWidth < 992) {
       headerElement = $('.o-mobileHeader');
       navigationElement = $('.m-mobileHeader__nav');
       headerLogo.setObject('mobileHeaderLogoObj');
@@ -92,7 +92,7 @@ export default function headerBehaviour() {
     * in case that the page is not at the top when it's loaded.
     * And only if the page width is > 768 px (bootstrap col-sm).
     */
-    if(window.innerWidth >= 768) {
+    if(window.innerWidth >= 992) {
       if(window.pageYOffset > scrolloffset) {
         navigationElement.addClass('m-header__nav--darkTextColor');
         headerElement.addClass('o-header--background');
@@ -112,7 +112,7 @@ export default function headerBehaviour() {
           $('#mobileNavBtn').addClass('m-mobileHeaderMenuBtn--darkColor');
         }
 
-        if(window.innerWidth >= 768) {
+        if(window.innerWidth >= 992) {
           navigationElement.addClass('m-header__nav--darkTextColor');
         }
       } else if ($(this).scrollTop() < scrolloffset) {
@@ -122,7 +122,7 @@ export default function headerBehaviour() {
           $('#mobileNavBtn').removeClass('m-mobileHeaderMenuBtn--darkColor');
         }
 
-        if(window.innerWidth >= 768) {
+        if(window.innerWidth >= 992) {
           navigationElement.removeClass('m-header__nav--darkTextColor');
         }
       }

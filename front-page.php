@@ -16,8 +16,28 @@ if($query->have_posts()):
 ?>
     <div  class="o-indexSection col-xs-24 <?= acfButtonGroup('backgroundColor', 'acfIndSecBackground', 'color')?>">
       <?php
-      $title = new wpContent;
-      $title->setContent('title');
+
+      switch($language) {
+        case 'en':
+          if(get_field('acfTitlePref')['titleEng'] =='') {
+            $title = new wpContent;
+            $title->setContent('title');
+          } else {
+            $title = new AcfText;
+            $title->setObject('acfTitlePref', 'titleEng');
+          }
+          break;
+
+        case 'sv':
+          $title = new wpContent;
+          $title->setContent('title');
+          break;
+
+        default:
+          $title = new wpContent;
+          $title->setContent('title');
+          break;
+      }
       $titleAlignment = acfButtonGroup('textAlignment', 'acfTitlePref', 'alignment');
       $titleColor = acfButtonGroup('textColor', 'acfTitlePref', 'color');
       $titleUsed = false;
@@ -91,7 +111,25 @@ if($query->have_posts()):
             case 'acfIndSecText':
               $content = new AcfText;
               $content->useSubfield();
-              $content->setObject('acfIndSecTextField');
+
+              // Language control
+              if(get_field('acfIndSecSecLang')) {
+                switch($language) {
+                  case 'en':
+                    $content->setObject('acfIndSecTextFieldEng');
+                    break;
+
+                  case 'sv':
+                    $content->setObject('acfIndSecTextFieldSwe');
+                    break;
+
+                  default:
+                    $content->setObject('acfIndSecTextFieldSwe');
+                    break;
+                }
+              } else {
+                $content->setObject('acfIndSecTextFieldSwe');
+              }
               $content->setElementType('div');
 
               $contentFontSize = acfButtonGroup('fontSize', 'acfIndSecTextPref', 'size', null, true);
@@ -114,7 +152,6 @@ if($query->have_posts()):
               $desktopImage->useSubfield();
               $desktopImage->setObject('acfIndSecDesktopImg');
               $desktopImage->useElement();
-
               $desktopImage->setClasses('col-xs-16 col-xs-offset-4 hidden-xs');
 
               echo '<div class="container">';
@@ -171,22 +208,21 @@ if($query->have_posts()):
                 }
                 $titleUsed = true;
 
-                $postsArgs = array(
+                $blogPostArgs = array(
                   'posts_per_page'  => 5,
                   'post_type'       => 'post',
                   'meta_key'        => 'acfKnowHubPostCaseShow',
                   'meta_value'      => true
                 );
 
-                $postsQuery = new WP_Query($postsArgs);
+                $blogPosts = new WP_Query($blogPostArgs);
 
-                if($postsQuery->have_posts()) {
+                if(count($blogPosts->posts)) {
                   $counter = 0;
                   echo '<div class="o-knowledgeHubGrid col-xs-24">';
-                    while($postsQuery->have_posts()) {
-                      $postsQuery->the_post();
+                    foreach($blogPosts->posts as $blogPost) {
                       if($counter != 3) {
-                        knowledgeHubGrid($counter);
+                        knowledgeHubGrid($counter, $blogPost->ID);
                       } else {
                         echo '
                           <div id="cell-' . $counter . '" class="o-knowledgeHubCell -static hidden-sm hidden-xs" data-imgprops="-1">
@@ -195,16 +231,14 @@ if($query->have_posts()):
                             </div>
                           </div>
                         ';
-                        knowledgeHubGrid($counter+1);
+                        knowledgeHubGrid($counter+1, $blogPost->ID);
                         $counter++;
                       }
                       $counter++;
-                    }
+                    } // foreach($blogPosts->posts as $nestedPost)
                   echo '</div>'; // .KnowledgeHubGrid
                 echo '</div>'; // .container
-              }
-              // wp_reset_query();
-              wp_reset_postdata();
+              } // if($postsQuery->have_posts())
               break;
 
             // Subtitle
@@ -213,7 +247,26 @@ if($query->have_posts()):
             case 'acfIndSecSubTitle':
               $subtitle = new AcfText;
               $subtitle->useSubfield();
-              $subtitle->setObject('acfIndSecSubTitleText');
+
+              // Language control
+              if(get_field('acfIndSecSecLang')) {
+                switch($language) {
+                  case 'en':
+                    $subtitle->setObject('acfIndSecSubTitleTextEng');
+                    break;
+
+                  case 'sv':
+                    $subtitle->setObject('acfIndSecSubTitleTextSwe');
+                    break;
+
+                  default:
+                    $subtitle->setObject('acfIndSecSubTitleTextSwe');
+                    break;
+                }
+              } else {
+                $subtitle->setObject('acfIndSecSubTitleTextSwe');
+              }
+
               $subtitle->setElementType(acfButtonGroup('titleType', 'acfIndSecSubTitlePref', 'size', null, true));
 
               $subtitleAlignment = acfButtonGroup('textAlignment', 'acfIndSecSubTitlePref', 'alignment', null, true);
@@ -224,7 +277,6 @@ if($query->have_posts()):
                 $subtitle->init();
               echo '</div>';
               break;
-
 
             // Dynamic cell's
             // -------------------------------------------------
@@ -249,10 +301,29 @@ if($query->have_posts()):
               $buttonAlignment = acfButtonGroup('textAlignment', 'acfIndSecBtnPref', 'alignment', null, true);
               $buttonColor = acfButtonGroup('buttonColor', 'acfIndSecBtnPref', 'color', null, true);
 
+              if(get_field('acfIndSecSecLangi')) {
+                switch($language) {
+                  case 'en':
+                    $buttonText = get_sub_field('acfIndSecBtnPref')['nameEng'];
+                    break;
+
+                  case 'sv':
+                    $buttonText = get_sub_field('acfIndSecBtnPref')['nameSwe'];
+                    break;
+
+                  default:
+                    $buttonText = get_sub_field('acfIndSecBtnPref')['nameSwe'];
+                    break;
+                }
+              } else {
+
+                $buttonText = get_sub_field('acfIndSecBtnPref')['nameSwe'];
+              }
+
               echo '
                 <div class="container m-indexSectionButton ' . $buttonAlignment . '">
                   <a href="' . get_sub_field('acfIndSecBtnPref')['link'] . '" class ="a-btn ' . $buttonColor . '"/>'
-                  . get_sub_field('acfIndSecBtnPref')['name'] .'
+                  . $buttonText .'
                   </a>
                 </div>
               ';
@@ -280,9 +351,8 @@ if($query->have_posts()):
     </div>
 
 <?php
-  endwhile;
-endif;
-wp_reset_postdata();
-// wp_reset_query();
+  endwhile; // while($query->have_posts())
+  wp_reset_postdata();
+endif; //if($query->have_posts())
 get_footer();
 ?>

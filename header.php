@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php
     wp_head();
-    $navigation = new Navigation();
-    $navigation->setLocation('masterMenu');
-    $navigation->setContainerClasses('m-header__nav col-sm-22');
+    global $language;
 
+    $navigation = new Navigation();
     $mobileNavigation = new Navigation();
-    $mobileNavigation->setLocation('mobileMasterMenu');
+
+    // Language control
+    Switch($language) {
+      case 'en':
+        $engLang = '-current';
+        $sweLang = '';
+        $flag = get_template_directory_uri() . '/images/united-kingdom.svg';
+        $navigation->setLocation(get_field('acfHeaderOptDeskPref', 'option')['desktopHeaderLocationEng']);
+        $mobileNavigation->setLocation(get_field('acfHeaderOptmobPref', 'option')['mobileHeaderLocationEng']);
+        break;
+
+      case 'sv':
+        $engLang = '';
+        $sweLang = '-current';
+        $flag = get_template_directory_uri() . '/images/sweden.svg';
+        $navigation->setLocation(get_field('acfHeaderOptDeskPref', 'option')['desktopHeaderLocationSwe']);
+        $mobileNavigation->setLocation(get_field('acfHeaderOptmobPref', 'option')['mobileHeaderLocationSwe']);
+        break;
+
+      default:
+        $engLang = '';
+        $sweLang = '-current';
+        $flag = get_template_directory_uri() . '/images/sweden.svg';
+        $navigation->setLocation(get_field('acfHeaderOptDeskPref', 'option')['desktopHeaderLocationSwe']);
+        $mobileNavigation->setLocation(get_field('acfHeaderOptMobPref', 'option')['mobileHeaderLocationSwe']);
+        break;
+    }
+
+    $navigation->setContainerClasses('m-header__nav col-sm-20');
     $mobileNavigation->setContainerClasses('m-mobileHeader__nav');
 
     if(is_front_page()) {
@@ -31,3 +58,18 @@
         include "headerMobile.php";
       }
       ?>
+
+      <div class="o-clickBlanket" id="languageSelectorBlanket"></div>
+
+      <div class="o-languageSelector visibilityHidden">
+        <div class="o-languageSelector__arrow"></div>
+        <ul class="m-languageSelectorList">
+          <li class="a-languageSelectorListItem">
+            <a class="a-languageSelectorListItem__link <?= $sweLang ?>" href="?<?= http_build_query(array('lang'=>'sv')) . "\n";?>">Svenska</a>
+          </li>
+
+          <li class="a-languageSelectorListItem">
+            <a class="a-languageSelectorListItem__link <?= $engLang ?>" href="?<?= http_build_query(array('lang'=>'en')) . "\n";?>">English</a>
+          </li>
+        </ul>
+      </div>

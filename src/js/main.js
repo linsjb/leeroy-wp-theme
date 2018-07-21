@@ -6,7 +6,7 @@ import * as products from './products';
 
 window.onload = function() {
   headerBehaviour();
-  // language();
+  language();
   utils.indexTopContent();
   utils.postFlexSlider();
   products.formPopup();

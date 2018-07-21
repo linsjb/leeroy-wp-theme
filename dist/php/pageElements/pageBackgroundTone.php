@@ -1,8 +1,8 @@
 <?php
-function pageBackgroundTone($pageType = null) {
+function pageBackgroundTone($pageType = null, $id = null) {
   if($pageType == 'postsPage') {
-    $toneCheck               = get_field('acfTintImage',            get_option('page_for_posts'));
-    $toneOpacity             = get_field('acfTintPref',             get_option('page_for_posts'))['opacity'];
+    $toneCheck               = get_field('acfTintImage',  get_option('page_for_posts'));
+    $toneOpacity             = get_field('acfTintPref',   get_option('page_for_posts'))['opacity'];
 
     switch(get_field('acfTintPref', get_option('page_for_posts'))['color']) {
       case 'black':
@@ -30,10 +30,10 @@ function pageBackgroundTone($pageType = null) {
         break;
     }
   } else {
-    $toneCheck               = get_field('acfTintImage');
-    $toneOpacity             = get_field('acfTintPref')['opacity'];
+    $toneCheck               = get_field('acfTintImage', $id);
+    $toneOpacity             = get_field('acfTintPref', $id)['opacity'];
 
-    switch(get_field('acfTintPref')['color']) {
+    switch(get_field('acfTintPref', $id)['color']) {
       case 'black':
         $toneColor = '#2F2F2F';
         break;
@@ -61,8 +61,6 @@ function pageBackgroundTone($pageType = null) {
   }
 
   if($toneCheck) {
-    echo '
-    <div class="col-xs-24 a-elementTint hideIe" style="background-color:' . $toneColor . '; opacity:' . $toneOpacity . '"></div>
-    ';
+    echo '<div class="col-xs-24 a-elementTint" style="background-color:' . $toneColor . '; opacity:' . $toneOpacity . '"></div>';
   }
 }

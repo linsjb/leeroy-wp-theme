@@ -1,37 +1,86 @@
 <?php
-// Creates a grid of blog-posts.
+// Creates a grid-card of blog-posts.
 // Function call need's to be inside the loop!
-function knowledgeHubGrid($counter) {
+// The function represent one card.
+function knowledgeHubGrid($counter, $id = null) {
+  global $language;
+
   $postImage = new AcfImage;
-  $postImage->setSize('large');
-  $postImage->setObject('acfPageBackgroundImage');
-
-  $postTitle = new WpContent;
-  $postTitle->setContent('title');
-  $postTitle->setElementType('h4');
-
 
   $postDate = new WpContent;
   $postDate->setContent('date');
-  $postDate->setElementType('span');
   $postDate->setClasses('a-knowledgeHubCell__date');
 
   $postAuthor = new WpContent;
   $postAuthor->setContent('author');
-  $postAuthor->setElementType('span');
   $postAuthor->setClasses('a-knowledgeHubCell__author');
 
-  if(get_field('acfPageBackgroundType') == 'image') {
+  // Post-specific language controls
+  if(get_field('acfPostSecLang', $id)) {
+    switch($language) {
+      case 'en':
+        $postTitle = new AcfText;
+        $postTitle->setObject('acfSecLangtitle');
+        break;
+
+      case 'sv':
+        $postTitle = new WpContent;
+        $postTitle->setContent('title');
+        break;
+
+      default:
+        $postTitle = new WpContent;
+        $postTitle->setContent('title');
+        break;
+    }
+  } else {
+    $postTitle = new WpContent;
+    $postTitle->setContent('title');
+  }
+
+  // Get the fields for the ID
+  if($id != null) {
+    $postTitle->SetId($id);
+    $postDate->setId($id);
+    $postAuthor->setId($id);
+    $postImage->setId($id);
+  }
+
+  $postImage->setSize('large');
+  $postImage->setObject('acfPageBackgroundImage');
+
+  // general language controls for the card
+  switch($language) {
+    case 'en':
+      $postInfo = '<p class="m-knowledgehubCellInfo">' . $postDate->init() . ' by ' . $postAuthor->init() . '</p>';
+      $cardHoverText = 'Read now';
+      break;
+
+    case 'sv':
+      $postInfo = '<p class="m-knowledgehubCellInfo">' . $postDate->init() . ' av ' . $postAuthor->init() . '</p>';
+      $cardHoverText = 'Läs nu';
+      break;
+
+    default:
+      $postInfo = '<p class="m-knowledgehubCellInfo">' . $postDate->init() . ' av ' . $postAuthor->init() . '</p>';
+      $cardHoverText = 'Läs nu';
+      break;
+  }
+
+  $postTitle->setElementType('h4');
+
+  if(get_field('acfPageBackgroundType', $id) == 'image') {
     // Image props to change the height (padding-top) of the cell with Javacript.
     $imageProps = ($postImage->getHeight() / $postImage->getWidth());
-    $cellBackground = "background-image: url({$postImage->init()}); ";
-    $titleSize = 'a-knowledgeHubCell__title--fontSize25';
+    $cellBackgroundImg = "background-image: url({$postImage->init()}); ";
+    $cellBackgroundColor = '';
+    $titleSize = '-fontSize24';
   } else {
     // A static value to set a static height (padding-top) of the cell with JavaScript.
     $imageProps = 0;
-    $backgroundColor = get_field('acfPageBackgroundColor');
-    $cellBackground = "background-color: {$backgroundColor};";
-    $titleSize = 'a-knowledgeHubCell__title--fontSize45';
+    $cellBackgroundImg = '';
+    $cellBackgroundColor = get_field('acfPageBackgroundColor', $id);
+    $titleSize = '-fontSize45';
   }
 
   // Is the blogpost treated as a case or regular post?
@@ -45,20 +94,23 @@ function knowledgeHubGrid($counter) {
   $cellId = "cell-{$counter}";
 ?>
 
-  <a href="<?php the_permalink()?>">
-    <div id="<?= $cellId ?>" class="o-knowledgeHubCell -dynamic" style="<?= $cellBackground ?>;" data-imgprops="<?= $imageProps ?>">
+  <a href="<?php the_permalink($id)?>">
+    <div id="<?= $cellId ?>" class="o-knowledgeHubCell -dynamic <?= $cellBackgroundColor ?>" style="<?= $cellBackgroundImg ?>;" data-imgprops="<?= $imageProps ?>">
       <div class="m-knowledgeHubHoverContent">
         <img src="<?= get_template_directory_uri() . '/images/coffee-cup.svg' ?>" alt="" class="m-knowledgeHubHoverContent__icon">
-        <p class="m-knowledgeHubHoverContent__text">Read now</p>
+        <p class="m-knowledgeHubHoverContent__text"><?= $cardHoverText ?></p>
       </div>
       <?php
-      if(get_field('acfPageBackgroundType') == 'image') {
-        pageBackgroundTone();
+      if(get_field('acfPageBackgroundType', $id) == 'image') {
+        pageBackgroundTone(null, $id);
       }
       ?>
       <div class="o-knowledgeHubCellContent col-xs-24">
-        <?php $postTitle->init(); ?>
-        <p class="m-knowledgehubCellInfo"><?php $postDate->init()?> by <?php $postAuthor->init() ?></p>
+        <?php
+        $postTitle->init();
+        echo $postInfo;
+        ?>
+
         <!-- .m-knowledgeHubCellContent -->
       </div>
     <!-- .o-knowledgeHubCell -->

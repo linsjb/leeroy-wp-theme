@@ -13,7 +13,7 @@ class WpContent {
         if($this->postpage) {
           $this->rawString = get_the_title(get_option('page_for_posts'));
         } else {
-          $this->rawString = get_the_title();
+          $this->rawString = get_the_title($this->postId);
         }
         break;
 
@@ -30,19 +30,23 @@ class WpContent {
         break;
 
       case 'category':
-        $this->rawString = get_the_category()[0]->name;
+        $this->rawString = get_the_category($this->postId)[0]->name;
         break;
 
       case 'date':
-        $this->rawString = get_the_date();
+        if($this->postId != null) {
+          $this->rawString = get_the_time(get_option('date_format'), 1414);
+        }  else {
+          $this->rawString = get_the_date();
+        }
         break;
 
       case 'author':
-        $this->rawString = get_the_author_meta('display_name');
+        $this->rawString = get_the_author_meta('display_name', get_post_field('post_author', $this->postId));
         break;
 
       case 'tags':
-        $this->rawString = get_the_tags();
+        $this->rawString = get_the_tags($this->postId);
         break;
 
       case '':
@@ -135,6 +139,15 @@ class WpContent {
     $this->breakType = $setBreakpointType;
   }
 
+  /**
+  * Specify an ID for the content.
+  *
+  * Used if content from a specific post is going to be displayed.
+  */
+  function setId($id) {
+    $this->postId = $id;
+  }
+
   private $contentType = '';
   private $elementType = NULL;
   private $classes = NULL;
@@ -143,4 +156,5 @@ class WpContent {
   private $breakType = '|';
   private $rawString;
   private $processedString;
+  private $postId = null;
 }

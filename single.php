@@ -10,11 +10,29 @@ knowledgeHubTop('postsPage');
 <div class="o-singlePost col-xs-24">
   <div class="container">
     <?php
+    global $language;
+
     if(have_posts()):
       the_post();
 
-      $postTitle = new WpContent;
-      $postTitle->setContent('title');
+      // Language control. Is a second language choosen for the post?
+      if(get_field('acfPostSecLang')) {
+        switch($language) {
+          case "en":
+            $postTitle = new AcfText;
+            $postTitle->setObject('acfSecLangtitle');
+            break;
+
+          case "sv":
+            $postTitle = new WpContent;
+            $postTitle->setContent('title');
+            break;
+        }
+      } else {
+        $postTitle = new WpContent;
+        $postTitle->setContent('title');
+      }
+
       $postTitle->setElementType('h1');
 
       if(get_field('acfKnowHubPostCase')) {
@@ -58,7 +76,19 @@ knowledgeHubTop('postsPage');
               the_row();
               switch(get_row_layout()) {
                 case 'acfPostText':
-                  echo the_sub_field('acfPostTextField');
+                  if(get_field('acfPostSecLang')) {
+                    switch($language) {
+                      case "en":
+                        echo the_sub_field('acfPostTextFieldEng');
+                        break;
+
+                      case "sv":
+                        echo the_sub_field('acfPostTextFieldSwe');
+                        break;
+                    }
+                  } else {
+                    echo the_sub_field('acfPostTextFieldSwe');
+                  }
                   break;
 
                 case 'acfPostImageSlider':

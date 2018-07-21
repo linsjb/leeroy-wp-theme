@@ -5,14 +5,48 @@
 * Author: Linus Sjöbro
 */
 function informationPageTop($pageType = null) {
-  $title = new wpContent;
-  $title->setContent('title');
-  $title->useBreakpoint();
+  global $language;
+
+  $slogan = new AcfText;
+
+  switch($language) {
+    case 'en':
+      $title = new AcfText;
+      $title->setObject('acfInfoPageTitleEng');
+
+      if(get_field('acfInfoPageSloganEng') == '') {
+        $slogan->setObject('acfInfoPageSloganSwe');
+      } else {
+        $slogan->setObject('acfInfoPageSloganEng');
+      }
+      break;
+
+    case 'sv':
+      $title = new wpContent;
+      $title->setContent('title');
+
+      if(get_field('acfInfoPageSloganSwe') == '') {
+        $slogan->setObject('acfInfoPageSloganEng');
+      } else {
+        $slogan->setObject('acfInfoPageSloganSwe');
+      }
+      break;
+
+    default:
+      $title = new wpContent;
+      $title->setContent('title');
+
+      if(get_field('acfInfoPageSloganSwe') == '') {
+        $slogan->setObject('acfInfoPageSloganEng');
+      } else {
+        $slogan->setObject('acfInfoPageSloganSwe');
+      }
+      break;
+  }
+
   $title->setElementType('h1');
   $title->setClasses('a-informationPage__title');
 
-  $slogan = new AcfText;
-  $slogan->setObject('acfInfoPageSlogan');
   $slogan->setClasses('a-informationPage__slogan');
   $slogan->setElementType('p');
 

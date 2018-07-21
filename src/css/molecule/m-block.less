@@ -44,15 +44,20 @@
 }
 
 .m-mobileHeaderMenuBtn {
-  position: absolute;
-  height: 100%;
-  top: 3px;
-  right: 25px;
-  width: @mobileHeaderHeight;
   color: @leeroyWhite;
+  height: 100%;
 
   .hamburger {
     margin: 0;
+    padding: 0;
+
+    .hamburger-box {
+      position: absolute;
+      top: 18px;
+      right: 10px;
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .hamburger-inner {
@@ -264,10 +269,16 @@
   }
 
   // Large img-size in the wysiwyg-editor
+
   .size-large,
   .size-full {
     width: 100%;
     height: auto;
+  }
+
+  .wp-caption {
+    position: relative;
+    width: 100% !important;
   }
 
   blockquote {

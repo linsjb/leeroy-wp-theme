@@ -1,5 +1,6 @@
     <?php
     wp_footer();
+    global $language;
 
     if(is_front_page()) {
       $logoUrl = '#topElement';
@@ -34,12 +35,31 @@
                   <?php
                   $wpMenu = new Navigation;
                   $wpMenu->setContainerClasses('a-footerContentColumn__nav');
-                  $wpMenu->setLocation(get_sub_field('location'));
 
                   $navTitle = new AcfMenuFields;
-                  $navTitle->setSubField('title');
+
+                  // Language control
+                  switch($language) {
+                    case 'en':
+                      $navTitle->setSubField('titleEng');
+                      $navTitle->setMenuObject(get_sub_field('locationEng'));
+                      $wpMenu->setLocation(get_sub_field('locationEng'));
+                      break;
+
+                    case 'sv':
+                      $navTitle->setSubField('titleSwe');
+                      $navTitle->setMenuObject(get_sub_field('locationSwe'));
+                      $wpMenu->setLocation(get_sub_field('locationSwe'));
+                      break;
+
+                    default:
+                      $navTitle->setSubField('titleSwe');
+                      $navTitle->setMenuObject(get_sub_field('locationSwe'));
+                      $wpMenu->setLocation(get_sub_field('locationSwe'));
+                      break;
+                  }
+
                   $navTitle->setElementType('h5');
-                  $navTitle->setMenuObject(get_sub_field('location'));
                   $navTitle->init();
 
                   if(get_sub_field('useTitleLink')) {

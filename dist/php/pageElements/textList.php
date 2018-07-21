@@ -1,5 +1,6 @@
 <?php
 function textList($lineHeightClass) {
+  global $language;
   $useDecorator = false;
 
   $listAlignment = acfButtonGroup('textAlignment', 'acfListPref', 'alignment', null, true);
@@ -25,7 +26,20 @@ function textList($lineHeightClass) {
             $listDecorator->init();
           }
 
-          the_sub_field('text');
+          switch($language) {
+              case 'en':
+                the_sub_field('rowEng');
+                break;
+
+              case 'sv':
+                the_sub_field('rowSwe');
+                break;
+
+              default:
+                the_sub_field('rowSwe');
+                break;
+            }
+            
         echo '</li>';
     }
     echo '</ul>'; // .a-listContent

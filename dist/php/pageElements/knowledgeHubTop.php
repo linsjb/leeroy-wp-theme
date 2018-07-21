@@ -1,14 +1,32 @@
 <?php
 function knowledgeHubTop($pageType = null) {
   informationPageTop('postsPage');
+  global $language;
+
+  switch($language) {
+    case 'en':
+      $catMenu = 'Categories';
+      $tagMenu = 'Tags';
+      break;
+
+    case 'sv':
+      $catMenu = 'Kategorier';
+      $tagMenu = 'Taggar';
+      break;
+
+    default:
+      $catMenu = 'Kategorier';
+      $tagMenu = 'Taggar';
+      break;
+  }
 ?>
 
   <div class="o-knowledgeHubMenu col-xs-24">
     <div class="container o-knowledgeHubMenuContent">
       <nav class="m-knowledgeHubMenuNav">
         <ul class="a-knowledgehubMenuList">
-          <li class="a-knowledgeHubMenuList__item">Categories</li>
-          <li class="a-knowledgeHubMenuList__item">Tags</li>
+          <li class="a-knowledgeHubMenuList__item"><?= $catMenu ?></li>
+          <li class="a-knowledgeHubMenuList__item"><?= $tagMenu ?></li>
           <!-- <li class="a-knowledgeHubMenuList__item">Latest posts</li> -->
         </ul>
       </nav>
@@ -25,7 +43,7 @@ function knowledgeHubTop($pageType = null) {
       $categories->setTaxonomy('category');
       $categories->setContainerClasses('m-knowledgeHubMenuDropdownList');
       $categories->setElementClasses('a-knowledgehubMenuDropdownItem');
-      $categories->setTitle('Categories:');
+      $categories->setTitle($catMenu . ':');
       $categories->setTitleClasses('a-knowledgeHubMenuDropdownTitle');
       $categories->init();
       ?>
@@ -42,7 +60,7 @@ function knowledgeHubTop($pageType = null) {
       $tags->setTaxonomy('post_tag');
       $tags->setContainerClasses('m-knowledgeHubMenuDropdownList');
       $tags->setElementClasses('a-knowledgehubMenuDropdownItem');
-      $tags->setTitle('Tags:');
+      $tags->setTitle($tagMenu . ':');
       $tags->setTitleClasses('a-knowledgeHubMenuDropdownTitle');
       $tags->init();
       ?>

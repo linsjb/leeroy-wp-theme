@@ -216,7 +216,6 @@ h6 {
 .o-languageSelector {
   height: 200px;
   position: fixed;
-  top: 45px;
   z-index: 11;
   animation-duration: 200ms;
   -webkit-animation-duration: 200ms;
@@ -547,15 +546,19 @@ h6 {
   height: 60px;
 }
 .m-mobileHeaderMenuBtn {
-  position: absolute;
-  height: 100%;
-  top: 3px;
-  right: 25px;
-  width: 60px;
   color: #FDFDFD;
+  height: 100%;
 }
 .m-mobileHeaderMenuBtn .hamburger {
   margin: 0;
+  padding: 0;
+}
+.m-mobileHeaderMenuBtn .hamburger .hamburger-box {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  margin: 0;
+  padding: 0;
 }
 .m-mobileHeaderMenuBtn .hamburger-inner,
 .m-mobileHeaderMenuBtn .hamburger-inner::before,
@@ -711,6 +714,10 @@ h6 {
   width: 100%;
   height: auto;
 }
+.m-singlePostContent .wp-caption {
+  position: relative;
+  width: 100% !important;
+}
 .m-singlePostContent blockquote {
   font-size: 25px;
   font-family: 'proxima_novabold';
@@ -859,22 +866,9 @@ h6 {
 .m-headerLanguage__flag {
   border-radius: 50%;
   border: 2px solid #FDFDFD;
-  height: 26px;
-  width: 26px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
-}
-.m-languageSelectorList__item {
-  list-style: none;
-  padding: 7px 0;
-  font-family: 'proxima_novaregular';
-  font-size: 16px;
-}
-.m-languageSelectorList__item:hover {
-  cursor: pointer;
-  color: #C9AD74;
-  font-weight: bold;
 }
 .m-mobileHeader__nav ul {
   margin: 0;
@@ -1025,10 +1019,6 @@ h6 {
 .m-mobileHeaderMenuBtn--darkColor .hamburger-inner::after {
   background-color: #2F2F2F;
 }
-.m-languageSelectorList__item.-current {
-  color: #0B4F6C;
-  font-weight: bold;
-}
 .m-dynamicCell__image.-nonHover {
   opacity: 1;
 }
@@ -1043,11 +1033,23 @@ h6 {
   -o-transition: 300ms;
   -o-transition-timing-function: ease-in-out;
 }
+.m-headerLanguage__flag.-desktop {
+  height: 26px;
+  width: 26px;
+}
+.m-headerLanguage__flag.-mobile {
+  height: 29px;
+  width: 29px;
+}
 /*
 * Filename: a-block.less
 * Description: Atom blocks in ABEM CSS method
 * Author: Linus Sjöbro
 */
+.a-languageSelectorListItem {
+  list-style: none;
+  padding: 7px 0;
+}
 .a-topIndexSectionContent {
   position: absolute;
   bottom: 0;
@@ -1139,6 +1141,15 @@ h6 {
   bottom: 30%;
   height: 40%;
   pointer-events: none;
+}
+.a-languageSelectorListItem__link {
+  font-family: 'proxima_novaregular';
+  font-size: 16px;
+  color: #0B4F6C;
+}
+.a-languageSelectorListItem__link:hover {
+  color: #C9AD74;
+  font-weight: bold;
 }
 .a-indexSectionMobile__image {
   padding-top: 50px;
@@ -1590,14 +1601,6 @@ h6 {
 .a-fontSize--40 {
   font-size: 40px;
 }
-.a-knowledgeHubCell__title--fontSize25 {
-  font-size: 25px;
-}
-.a-knowledgeHubCell__title--fontSize45 {
-  font-size: 45px;
-  line-height: 1.3;
-  margin-bottom: 20px;
-}
 .a-singlePostShareListItem__link.-facebook:hover svg {
   fill: #3b5998;
 }
@@ -1637,6 +1640,10 @@ h6 {
 .a-twoColumnsProductPage__button.-right {
   align-self: flex-end;
 }
+.a-languageSelectorListItem__link.-current {
+  color: #C9AD74;
+  font-weight: bold;
+}
 .-leftAlignment {
   text-align: left;
 }
@@ -1675,6 +1682,9 @@ h6 {
 }
 .-fontSize26 {
   font-size: 26px;
+}
+.-fontSize45 {
+  font-size: 45px;
 }
 .-textColorWhite {
   color: #FDFDFD;

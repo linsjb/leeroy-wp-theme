@@ -1,13 +1,18 @@
 export default function language() {
     (function ($) {
-      let languageButton = document.getElementsByClassName('m-headerLanguage')[0];
+
+      let languageButton;
+      if(window.document.documentElement.clientWidth < 992) {
+        languageButton = document.getElementById('mobileLang');
+
+      } else {
+        languageButton = document.getElementById('desktopLang');
+      }
 
       popupOffset(languageButton);
 
-      let selectorVisiblity = false;
       let languageSelector = $('.o-languageSelector');
       let blanket = document.getElementById('languageSelectorBlanket');
-
 
       languageButton.addEventListener('click', function() {
         blanket.style.visibility = 'visible';
@@ -26,6 +31,14 @@ export default function language() {
 // Keeps track of the popup offset from the right edge
 function popupOffset(languageButton) {
   let buttonPosition = languageButton.getBoundingClientRect();
+  let flagPosition;
+  if(window.document.documentElement.clientWidth < 992) {
+    flagPosition = document.getElementById('mobileLangFlag').getBoundingClientRect();
+  } else {
+    flagPosition = document.getElementById('desktopLangFlag').getBoundingClientRect();
+  }
   let popupElement = document.getElementsByClassName('o-languageSelector')[0];
+
   popupElement.style.left = Math.floor(buttonPosition.left + (languageButton.offsetWidth/2) - (popupElement.offsetWidth/2)) + 'px';
+  popupElement.style.top = flagPosition.top + flagPosition.height + 2 + 'px';
 }

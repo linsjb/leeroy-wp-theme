@@ -10,7 +10,7 @@ class AcfText {
     if($this->objectIndex == null) {
       if($this->subfield) {
         if($this->postpage) {
-          $text = get_sub_field($this->objectName, get_option('page_for_posts'));
+          $text = get_sub_field($this->objectName, get_option('page_for_posts'), $this->postId);
         } else {
           $text = get_sub_field($this->objectName);
         }
@@ -18,7 +18,7 @@ class AcfText {
         if($this->postpage) {
           $text = get_field($this->objectName, get_option('page_for_posts'));
         } else {
-          $text = get_field($this->objectName);
+          $text = get_field($this->objectName, $this->postId);
         }
       }
     } else {
@@ -32,7 +32,7 @@ class AcfText {
         if($this->postpage) {
           $text = get_field($this->objectName, get_option('page_for_posts'))[$this->objectIndex];
         } else {
-          $text = get_field($this->objectName)[$this->objectIndex];
+          $text = get_field($this->objectName, $this->postId)[$this->objectIndex];
         }
       }
     }
@@ -74,6 +74,8 @@ class AcfText {
 
   function setBreakType($stringPhrase) {$this->breakType = $stringPhrase; }
 
+  function setId($id) { $this->postId = $id; }
+
   private $objectName;
   private $elementType = NULL;
   private $classes = NULL;
@@ -83,4 +85,5 @@ class AcfText {
   private $breakType = '|';
   private $processedString;
   private $objectIndex;
+  private $postId = null;
 }

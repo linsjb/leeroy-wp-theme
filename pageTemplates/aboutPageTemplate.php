@@ -4,6 +4,7 @@
  * Description: Page template for about page.
  */
 get_header();
+global $language;
 ?>
 <script type="text/javascript">
   let pageLocation = 'about';
@@ -27,12 +28,32 @@ if(have_posts()) {
           echo '<div class="o-aboutPage col-xs-24 ' . $textSectionBackgroundColor . '" id="about-leeroy">';
             $aboutText = new AcfText;
             $aboutText->useSubfield();
-            $aboutText->setObject('acfAboutTextCont');
+
+            // Language control
+            if(get_field('acfAboutSecLang')) {
+              switch($language) {
+                  case 'en':
+                    $aboutText->setObject('acfAboutTextContEng');
+                    break;
+
+                  case 'sv':
+                    $aboutText->setObject('acfAboutTextContSwe');
+                    break;
+
+                  default:
+                    $aboutText->setObject('acfAboutTextContSwe');
+                    break;
+                }
+            } else {
+              $aboutText->setObject('acfAboutTextContSwe');
+            }
+
             $aboutText->setElementType('div');
 
             $aboutTextColor = acfButtonGroup('textColor', 'acfAboutTextPref', 'color', null, true);
             $aboutTextSize = acfButtonGroup('fontSize', 'acfAboutTextPref', 'size', null, true);
             $aboutText->setClasses('container m-aboutPageContent ' . $aboutTextColor .  ' ' . $aboutTextSize);
+
             $aboutText->init();
           echo '</div>'; // .o.aboutPage
 
@@ -60,7 +81,26 @@ if(have_posts()) {
                     the_row();
                     $officeTitle = new AcfText;
                     $officeTitle->useSubfield();
-                    $officeTitle->setObject('title');
+
+                    // Language control
+                    if(get_field('acfAboutSecLang')) {
+                      switch($language) {
+                        case 'en':
+                          $officeTitle->setObject('titleEng');
+                          break;
+                          
+                        case 'sv':
+                          $officeTitle->setObject('titleSwe');
+                          break;
+
+                        default:
+                          $officeTitle->setObject('titleSwe');
+                          break;
+                      }
+                    } else {
+                      $officeTitle->setObject('titleSwe');
+                    }
+
                     $officeTitle->setElementType('p');
                     $officeTitle->setClasses('a-aboutOffice__title ' . $officeSectionTextColor);
 
@@ -122,7 +162,27 @@ if(have_posts()) {
         case 'acfAboutForm':
           $formSectionTitle = new AcfText;
           $formSectionTitle->useSubfield();
-          $formSectionTitle->setObject('acfAboutFormTitlePref', 'title');
+
+          // Language control
+          if(get_field('acfAboutSecLang')) {
+            switch($language) {
+                case 'en':
+                  $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleEng');
+                  break;
+
+                case 'sv':
+                  $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleSwe');
+                  break;
+
+                default:
+                  $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleSwe');
+                  break;
+              }
+          } else {
+            $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleSwe');
+            $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleSwe');
+          }
+
           $formSectionTitle->setElementType('h3');
 
           $formSectionTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutFormTitlePref', 'alignment', null, true);
