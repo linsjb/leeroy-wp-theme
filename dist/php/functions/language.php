@@ -6,6 +6,7 @@
 * When the cookie is set the page will update. And the other language will be displayed.
 *
 */
+
 add_action('init', 'language');
 
 function language() {
