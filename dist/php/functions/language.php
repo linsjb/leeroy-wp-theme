@@ -19,12 +19,11 @@ function language() {
     setcookie('language', $lang, strtotime('+1 day'), "/", false);
     $cookieStatus = true;
   }
-  if(isset($_COOKIE['language'])) {
-    echo "COOKIE: " . $_COOKIE['language'];
-    $language = $_COOKIE['language'];
-  }
 
   if(!$cookieStatus) {
+    if(isset($_COOKIE['language'])) {
+      $language = $_COOKIE['language'];
+    }
   }
 }
 ?>
