@@ -23,41 +23,32 @@
           $oneColumnBackgroundColor = acfButtonGroup('backgroundColor', 'acfProdOneColSecPref', 'backgroundColor', null, true);
 
           echo '<div class="o-productsPage col-xs-24 ' . $oneColumnBackgroundColor .'">';
-            echo '<div class="container m-productsPageOneColumnContent">';
 
-            $oneColumnContentText = new AcfText;
-            $oneColumnContentText->useSubfield();
+            $oneColumnTextColor = acfButtonGroup('textColor', 'acfProOneColTextPref', 'color', null, true);
+            $oneColumnTextSize = acfButtonGroup('textSize', 'acfProOneColTextPref', 'size', null, true);
 
-            if(get_field('acfProdSecLang')) {
-              switch($language) {
-                case 'en':
-                  $oneColumnContentText->setObject('acfProdOneColTextContEng');
-                  break;
+            echo '<div class="container m-productsPageOneColumnContent ' . $oneColumnTextColor . ' ' . $oneColumnTextSize . '">';
 
-                case 'sv':
-                  $oneColumnContentText->setObject('acfProdOneColTextContSwe');
-                  break;
+              $oneColumnContentText = new AcfText;
+              $oneColumnContentText->useSubfield();
 
-                default:
-                  $oneColumnContentText->setObject('acfProdOneColTextContSwe');
-                  break;
+              if(get_field('acfProdSecLang')) {
+                switch($language) {
+                  case 'en':
+                    the_sub_field('acfProdOneColTextContEng');
+                    break;
+
+                  case 'sv':
+                  the_sub_field('acfProdOneColTextContSwe');
+                    break;
+
+                  default:
+                  the_sub_field('acfProdOneColTextContSwe');
+                    break;
+                }
+              } else {
+                the_sub_field('acfProdOneColTextContSwe');
               }
-            } else {
-              $oneColumnContentText->setObject('acfProdOneColTextContSwe');
-            }
-              $oneColumnContentText->setElementType('div');
-
-              $oneColumnTextColor = acfButtonGroup('textColor', 'acfProOneColTextPref', 'color', null, true);
-              $oneColumnTextSize = acfButtonGroup('textSize', 'acfProOneColTextPref', 'size', null, true);
-              $oneColumnContentText->setClasses($oneColumnTextColor . ' ' . $oneColumnTextSize);
-              $oneColumnContentText->init();
-
-              $oneContentImage = new AcfImage;
-              $oneContentImage->useSubfield();
-              $oneContentImage->setObject('acfprodOneColImage');
-              $oneContentImage->useElement();
-              $oneContentImage->setClasses('m-productsPageOneColumnContent__image col-xs-24 col-sm-20 col-sm-offset-2');
-              $oneContentImage->init();
             echo '</div>'; // .m-productsPageContent
           echo '</div>'; // .o-productsPage
           break;
