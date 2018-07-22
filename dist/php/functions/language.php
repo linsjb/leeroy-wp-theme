@@ -22,11 +22,11 @@ function language() {
     $cookieStatus = true;
   }
 
+  if(isset($_COOKIE['language'])) {
+    $language = $_COOKIE['language'];
+    echo "COOKIE: " . $language;
+  }
   if(!$cookieStatus) {
-    if(isset($_COOKIE['language'])) {
-      $language = $_COOKIE['language'];
-      echo "COOKIE: " . $language;
-    }
   }
 }
 ?>
