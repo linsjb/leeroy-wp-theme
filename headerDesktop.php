@@ -1,4 +1,4 @@
-<header class="o-header col-sm-24 hidden-sm">
+<header class="o-header col-sm-24 hidden-xs hidden-sm">
   <div class="container">
     <div class="o-headerWrapper col-sm-24">
         <div class="m-headerLogo col-sm-2">

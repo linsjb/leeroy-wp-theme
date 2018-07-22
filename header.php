@@ -37,7 +37,7 @@
         break;
     }
 
-    $navigation->setContainerClasses('m-header__nav col-sm-20');
+    $navigation->setContainerClasses('m-header__nav col-md-20');
     $mobileNavigation->setContainerClasses('m-mobileHeader__nav');
 
     if(is_front_page()) {
