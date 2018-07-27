@@ -5,8 +5,8 @@ require_once 'dist/php/classes/index.php';
 require_once 'dist/php/pageElements/index.php';
 require_once 'dist/php/devTools/devTools.php';
 
-menuLocations();
 language();
+menuLocations();
 
 function removeFunctionalities() {
   remove_post_type_support('page', 'editor');

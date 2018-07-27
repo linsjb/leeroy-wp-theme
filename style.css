@@ -18,6 +18,12 @@ Text Domain: leeroy
 #menu-mobilemastermenu .current_page_parent a {
   color: #FDFDFD !important;
 }
+.aligncenter {
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: block;
+}
 .caldera-grid .alert-success {
   background: none !important;
   color: #442D5E !important;

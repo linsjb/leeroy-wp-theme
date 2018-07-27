@@ -16,7 +16,7 @@ function language() {
   if(isset($_GET['lang'])) {
     $lang = $_GET['lang'];
     $language = $lang;
-    setcookie('language', $lang, strtotime('+1 day'), "/", false);
+    setcookie('language', $lang, time()+3600, COOKIEPATH, COOKIE_DOMAIN);
     $cookieStatus = true;
   }
 
