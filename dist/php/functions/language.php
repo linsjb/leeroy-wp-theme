@@ -10,20 +10,24 @@ add_action('init', 'language');
 
 function language() {
   global $language;
-  $cookieStatus = false;
 
   // Set's the cookie
-  if(isset($_GET['lang'])) {
-    $lang = $_GET['lang'];
-    $language = $lang;
-    setcookie('language', $lang, time()+3600, COOKIEPATH, COOKIE_DOMAIN);
-    $cookieStatus = true;
+  if(isset($_POST['langSv'])) {
+    $language = 'sv';
+    setcookie('language', 'sv', time()+3600, COOKIEPATH, COOKIE_DOMAIN);
   }
 
-  if(!$cookieStatus) {
-    if(isset($_COOKIE['language'])) {
-      $language = $_COOKIE['language'];
-    }
+  if(isset($_POST['langEn'])) {
+    $language = 'en';
+    setcookie('language', 'en', time()+3600, COOKIEPATH, COOKIE_DOMAIN);
+  }
+
+
+  if(isset($_COOKIE['language'])) {
+    $language = $_COOKIE['language'];
+  } else {
+    setcookie('language', 'sv', time()+3600, COOKIEPATH, COOKIE_DOMAIN);
+    $language = 'sv';
   }
 }
 ?>
