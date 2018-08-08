@@ -1153,12 +1153,11 @@ h6 {
   font-family: 'proxima_novaregular';
   font-size: 16px;
   color: #0B4F6C;
-  background: none;
+  background-color: rgba(0, 0, 0, 0);
   border: none;
 }
 .a-languageSelectorListItem__link:hover {
   color: #C9AD74;
-  font-weight: bold;
   cursor: pointer;
 }
 .a-languageSelectorListItem__link:focus {

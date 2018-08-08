@@ -64,7 +64,7 @@
         <div class="o-languageSelector__arrow"></div>
         <ul class="m-languageSelectorList">
           <li class="a-languageSelectorListItem">
-            <input class="a-languageSelectorListItem__link <?= $sweLang ?>" type="submit" name="langSv" value="Swedish">
+            <input class="a-languageSelectorListItem__link <?= $sweLang ?>" type="submit" name="langSv" value="Svenska">
             <!-- <a class="a-languageSelectorListItem__link <?= $sweLang ?>" href="?<?= http_build_query(array('lang'=>'sv')) . "\n";?>">Svenska</a> -->
           </li>
 
