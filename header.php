@@ -60,17 +60,17 @@
 
       <div class="o-clickBlanket" id="languageSelectorBlanket"></div>
 
-      <div class="o-languageSelector visibilityHidden">
+      <form class="o-languageSelector visibilityHidden" method="post">
         <div class="o-languageSelector__arrow"></div>
         <ul class="m-languageSelectorList">
           <li class="a-languageSelectorListItem">
-            <!-- <input type="submit" name="langSv" value="Swedish"> -->
-            <a class="a-languageSelectorListItem__link <?= $sweLang ?>" href="?<?= http_build_query(array('lang'=>'sv')) . "\n";?>">Svenska</a>
+            <input type="submit" name="langSv" value="Swedish">
+            <!-- <a class="a-languageSelectorListItem__link <?= $sweLang ?>" href="?<?= http_build_query(array('lang'=>'sv')) . "\n";?>">Svenska</a> -->
           </li>
 
           <li class="a-languageSelectorListItem">
-            <!-- <input type="submit" name="langEn" value="English"> -->
-            <a class="a-languageSelectorListItem__link <?= $engLang ?>" href="?<?= http_build_query(array('lang'=>'en')) . "\n";?>">English</a>
+            <input type="submit" name="langEn" value="English">
+            <!-- <a class="a-languageSelectorListItem__link <?= $engLang ?>" href="?<?= http_build_query(array('lang'=>'en')) . "\n";?>">English</a> -->
           </li>
         </ul>
-      </div>
+      </form>

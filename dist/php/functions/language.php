@@ -8,8 +8,20 @@
 */
 
 function language() {
-  if(isset($_GET['lang'])) {
-    setcookie('language', $_GET['lang'], 0, COOKIEPATH, COOKIE_DOMAIN);
+  // if(isset($_GET['lang'])) {
+  //   setcookie('language', $_GET['lang'], 0, COOKIEPATH, COOKIE_DOMAIN);
+  //   wp_redirect(home_url());
+  //   exit;
+  // }
+
+  if(isset($_POST['langSv'])) {
+    setcookie('language', 'sv', 0, COOKIEPATH, COOKIE_DOMAIN);
+    wp_redirect(home_url());
+    exit;
+  }
+
+  if(isset($_POST['langEn'])) {
+    setcookie('language', 'en', 0, COOKIEPATH, COOKIE_DOMAIN);
     wp_redirect(home_url());
     exit;
   }
