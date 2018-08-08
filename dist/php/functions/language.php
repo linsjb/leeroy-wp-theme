@@ -7,14 +7,12 @@
 *
 */
 
-add_action('init', 'language');
-
+if(isset($_GET['lang'])) {
+  setcookie('language', $_GET['lang'], 0, COOKIEPATH, COOKIE_DOMAIN);
+  wp_redirect(home_url());
+  exit;
+}
 function language() {
-  if(isset($_GET['lang'])) {
-    setcookie('language', $_GET['lang'], 0, COOKIEPATH, COOKIE_DOMAIN);
-    wp_redirect(home_url());
-    exit;
-  }
 
   if(!isset($_COOKIE['language'])) {
     setcookie('language', 'sv', 0, COOKIEPATH, COOKIE_DOMAIN);

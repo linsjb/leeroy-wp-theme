@@ -17,6 +17,8 @@ add_action('admin_init', 'removeFunctionalities');
 add_theme_support('title-tag');
 add_image_size('mediumLarge', 500, 500);
 
+add_action('init', 'language'); // Function housed in dist/php/function/language.php
+
 // Custom post page for index sections
 $indexSections = new CustomPostType;
 $indexSections->setName('Index sections');
