@@ -1,9 +1,8 @@
 <?php
 function knowledgeHubTop($pageType = null) {
   informationPageTop('postsPage');
-  global $language;
 
-  switch($language) {
+  switch($_COOKIE['language']) {
     case 'en':
       $catMenu = 'Categories';
       $tagMenu = 'Tags';

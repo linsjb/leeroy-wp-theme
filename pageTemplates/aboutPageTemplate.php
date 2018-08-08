@@ -4,7 +4,7 @@
  * Description: Page template for about page.
  */
 get_header();
-global $language;
+ 
 ?>
 <script type="text/javascript">
   let pageLocation = 'about';
@@ -31,7 +31,7 @@ if(have_posts()) {
 
             // Language control
             if(get_field('acfAboutSecLang')) {
-              switch($language) {
+              switch($_COOKIE['language']) {
                   case 'en':
                     $aboutText->setObject('acfAboutTextContEng');
                     break;
@@ -84,7 +84,7 @@ if(have_posts()) {
 
                     // Language control
                     if(get_field('acfAboutSecLang')) {
-                      switch($language) {
+                      switch($_COOKIE['language']) {
                         case 'en':
                           $officeTitle->setObject('titleEng');
                           break;
@@ -165,7 +165,7 @@ if(have_posts()) {
 
           // Language control
           if(get_field('acfAboutSecLang')) {
-            switch($language) {
+            switch($_COOKIE['language']) {
                 case 'en':
                   $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleEng');
                   break;

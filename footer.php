@@ -1,6 +1,6 @@
     <?php
     wp_footer();
-    global $language;
+     
 
     if(is_front_page()) {
       $logoUrl = '#topElement';
@@ -39,7 +39,7 @@
                   $navTitle = new AcfMenuFields;
 
                   // Language control
-                  switch($language) {
+                  switch($_COOKIE['language']) {
                     case 'en':
                       $navTitle->setSubField('titleEng');
                       $navTitle->setMenuObject(get_sub_field('locationEng'));

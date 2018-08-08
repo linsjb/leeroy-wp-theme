@@ -5,7 +5,6 @@ require_once 'dist/php/classes/index.php';
 require_once 'dist/php/pageElements/index.php';
 require_once 'dist/php/devTools/devTools.php';
 
-language();
 menuLocations();
 
 function removeFunctionalities() {
@@ -59,7 +58,6 @@ acf_add_options_sub_page(array(
   'menu_title'    => "Header",
   'parent_slug'   => 'themeOptions'
 ));
-
 
 function dynamicPopulateFooterLocations($field) {
   $field['choices'] = array();

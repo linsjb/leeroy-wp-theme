@@ -9,25 +9,15 @@
 add_action('init', 'language');
 
 function language() {
-  global $language;
 
-  // Set's the cookie
-  if(isset($_POST['langSv'])) {
-    $language = 'sv';
-    setcookie('language', 'sv', time()+3600, COOKIEPATH, COOKIE_DOMAIN);
+
+  if(isset($_GET['lang'])) {
+    setcookie('language', $_GET['lang'], 0, COOKIEPATH, COOKIE_DOMAIN);
   }
 
-  if(isset($_POST['langEn'])) {
-    $language = 'en';
-    setcookie('language', 'en', time()+3600, COOKIEPATH, COOKIE_DOMAIN);
-  }
-
-
-  if(isset($_COOKIE['language'])) {
-    $language = $_COOKIE['language'];
-  } else {
-    setcookie('language', 'sv', time()+3600, COOKIEPATH, COOKIE_DOMAIN);
-    $language = 'sv';
+  if(!isset($_COOKIE['language'])) {
+    echo "Cookie is not set. </br> Set's the cookie";
+    setcookie('language', 'sv', 0, COOKIEPATH, COOKIE_DOMAIN);
   }
 }
 ?>

@@ -17,7 +17,7 @@ if($query->have_posts()):
     <div  class="o-indexSection col-xs-24 <?= acfButtonGroup('backgroundColor', 'acfIndSecBackground', 'color')?>">
       <?php
 
-      switch($language) {
+      switch($_COOKIE['language']) {
         case 'en':
           if(get_field('acfTitlePref')['titleEng'] =='') {
             $title = new wpContent;
@@ -114,7 +114,7 @@ if($query->have_posts()):
 
               // Language control
               if(get_field('acfIndSecSecLang')) {
-                switch($language) {
+                switch($_COOKIE['language']) {
                   case 'en':
                     $content->setObject('acfIndSecTextFieldEng');
                     break;
@@ -250,7 +250,7 @@ if($query->have_posts()):
 
               // Language control
               if(get_field('acfIndSecSecLang')) {
-                switch($language) {
+                switch($_COOKIE['language']) {
                   case 'en':
                     $subtitle->setObject('acfIndSecSubTitleTextEng');
                     break;
@@ -302,7 +302,7 @@ if($query->have_posts()):
               $buttonColor = acfButtonGroup('buttonColor', 'acfIndSecBtnPref', 'color', null, true);
 
               if(get_field('acfIndSecSecLang')) {
-                switch($language) {
+                switch($_COOKIE['language']) {
                   case 'en':
                     $buttonText = get_sub_field('acfIndSecBtnPref')['nameEng'];
                     break;

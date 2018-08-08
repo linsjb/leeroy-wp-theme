@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php
     wp_head();
-    global $language;
 
     $navigation = new Navigation();
     $mobileNavigation = new Navigation();
 
     // Language control
-    Switch($language) {
+    Switch($_COOKIE['language']) {
       case 'en':
         $engLang = '-current';
         $sweLang = '';
@@ -61,17 +60,17 @@
 
       <div class="o-clickBlanket" id="languageSelectorBlanket"></div>
 
-      <form class="o-languageSelector visibilityHidden" method="post">
+      <div class="o-languageSelector visibilityHidden">
         <div class="o-languageSelector__arrow"></div>
         <ul class="m-languageSelectorList">
           <li class="a-languageSelectorListItem">
-            <input type="submit" name="langSv" value="Swedish">
-            <!-- <a class="a-languageSelectorListItem__link <?= $sweLang ?>" href="?<?= http_build_query(array('lang'=>'sv')) . "\n";?>">Svenska</a> -->
+            <!-- <input type="submit" name="langSv" value="Swedish"> -->
+            <a class="a-languageSelectorListItem__link <?= $sweLang ?>" href="?<?= http_build_query(array('lang'=>'sv')) . "\n";?>">Svenska</a>
           </li>
 
           <li class="a-languageSelectorListItem">
-            <input type="submit" name="langEn" value="English">
-            <!-- <a class="a-languageSelectorListItem__link <?= $engLang ?>" href="?<?= http_build_query(array('lang'=>'en')) . "\n";?>">English</a> -->
+            <!-- <input type="submit" name="langEn" value="English"> -->
+            <a class="a-languageSelectorListItem__link <?= $engLang ?>" href="?<?= http_build_query(array('lang'=>'en')) . "\n";?>">English</a>
           </li>
         </ul>
-      </form>
+      </div>

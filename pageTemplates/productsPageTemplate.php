@@ -9,7 +9,7 @@
    let pageLocation = 'products';
  </script>
  <?php
- global $language;
+  
 
  if(have_posts()) {
    informationPageTop();
@@ -33,7 +33,7 @@
               $oneColumnContentText->useSubfield();
 
               if(get_field('acfProdSecLang')) {
-                switch($language) {
+                switch($_COOKIE['language']) {
                   case 'en':
                     the_sub_field('acfProdOneColTextContEng');
                     break;
@@ -67,7 +67,7 @@
 
 
           if(get_field('acfProdSecLang')) {
-            switch($language) {
+            switch($_COOKIE['language']) {
                 case 'en':
                   $twoColTitle->setObject('acfProdTwoColTitlePref', 'titleEng');
                   $twoColSubtitle->setObject('acfProdTwoColTitlePref', 'subtitleEng');

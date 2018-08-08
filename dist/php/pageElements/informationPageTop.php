@@ -5,11 +5,10 @@
 * Author: Linus Sjöbro
 */
 function informationPageTop($pageType = null) {
-  global $language;
 
   $slogan = new AcfText;
 
-  switch($language) {
+  switch($_COOKIE['language']) {
     case 'en':
       $title = new AcfText;
       $title->setObject('acfInfoPageTitleEng');

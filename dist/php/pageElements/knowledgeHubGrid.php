@@ -3,7 +3,6 @@
 // Function call need's to be inside the loop!
 // The function represent one card.
 function knowledgeHubGrid($counter, $id = null) {
-  global $language;
 
   $postImage = new AcfImage;
 
@@ -17,7 +16,7 @@ function knowledgeHubGrid($counter, $id = null) {
 
   // Post-specific language controls
   if(get_field('acfPostSecLang', $id)) {
-    switch($language) {
+    switch($_COOKIE['language']) {
       case 'en':
         $postTitle = new AcfText;
         $postTitle->setObject('acfSecLangtitle');
@@ -50,7 +49,7 @@ function knowledgeHubGrid($counter, $id = null) {
   $postImage->setObject('acfPageBackgroundImage');
 
   // general language controls for the card
-  switch($language) {
+  switch($_COOKIE['language']) {
     case 'en':
       $postInfo = '<p class="m-knowledgehubCellInfo">' . $postDate->init() . ' by ' . $postAuthor->init() . '</p>';
       $cardHoverText = 'Read now';

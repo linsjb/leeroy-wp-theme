@@ -10,14 +10,14 @@ knowledgeHubTop('postsPage');
 <div class="o-singlePost col-xs-24">
   <div class="container">
     <?php
-    global $language;
+     
 
     if(have_posts()):
       the_post();
 
       // Language control. Is a second language choosen for the post?
       if(get_field('acfPostSecLang')) {
-        switch($language) {
+        switch($_COOKIE['language']) {
           case "en":
             $postTitle = new AcfText;
             $postTitle->setObject('acfSecLangtitle');
@@ -77,7 +77,7 @@ knowledgeHubTop('postsPage');
               switch(get_row_layout()) {
                 case 'acfPostText':
                   if(get_field('acfPostSecLang')) {
-                    switch($language) {
+                    switch($_COOKIE['language']) {
                       case "en":
                         echo the_sub_field('acfPostTextFieldEng');
                         break;

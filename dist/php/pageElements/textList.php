@@ -1,6 +1,5 @@
 <?php
 function textList($lineHeightClass) {
-  global $language;
   $useDecorator = false;
 
   $listAlignment = acfButtonGroup('textAlignment', 'acfListPref', 'alignment', null, true);
@@ -26,7 +25,7 @@ function textList($lineHeightClass) {
             $listDecorator->init();
           }
           if(get_field('acfListSecLang')) {
-            switch($language) {
+            switch($_COOKIE['language']) {
               case 'en':
                 the_sub_field('rowEng');
                 break;
