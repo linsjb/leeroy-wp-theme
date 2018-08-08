@@ -9,14 +9,14 @@
 add_action('init', 'language');
 
 function language() {
-
-
   if(isset($_GET['lang'])) {
     setcookie('language', $_GET['lang'], 0, COOKIEPATH, COOKIE_DOMAIN);
+    
+    wp_redirect(home_url());
+    exit;
   }
 
   if(!isset($_COOKIE['language'])) {
-    echo "Cookie is not set. </br> Set's the cookie";
     setcookie('language', 'sv', 0, COOKIEPATH, COOKIE_DOMAIN);
   }
 }
