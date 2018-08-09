@@ -8,9 +8,8 @@
  <script type="text/javascript">
    let pageLocation = 'products';
  </script>
+ 
  <?php
-  
-
  if(have_posts()) {
    informationPageTop();
    $counter = 0;
@@ -39,11 +38,11 @@
                     break;
 
                   case 'sv':
-                  the_sub_field('acfProdOneColTextContSwe');
+                    the_sub_field('acfProdOneColTextContSwe');
                     break;
 
                   default:
-                  the_sub_field('acfProdOneColTextContSwe');
+                    the_sub_field('acfProdOneColTextContSwe');
                     break;
                 }
               } else {
