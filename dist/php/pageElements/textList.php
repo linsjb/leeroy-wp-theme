@@ -6,10 +6,10 @@ function textList($lineHeightClass) {
   $listFontSize = acfButtonGroup('fontSize', 'acfListPref', 'size', null, true);
   $listTextColor = acfButtonGroup('textColor', 'acfIListPref', 'textColor', null, true);
 
-  if(get_sub_field('acfListPref')['listDecoration']) {
+  if(get_sub_field('acfListDecoration')['decoration']) {
     $listDecorator = new AcfImage;
     $listDecorator->useSubfield();
-    $listDecorator->setObject('acfListPref', 'decorationItem');
+    $listDecorator->setObject('acfListDecoration', 'icon');
     $listDecorator->useElement();
     $listDecorator->setClasses('a-listContent__decoration');
 
@@ -24,22 +24,23 @@ function textList($lineHeightClass) {
           if($useDecorator) {
             $listDecorator->init();
           }
+
           if(get_field('acfListSecLang')) {
             switch($_COOKIE['language']) {
-              case 'en':
-                the_sub_field('rowEng');
+              case get_field('acfLangOptPrimLang', 'option')['code']:
+                the_sub_field('primLangRow');
                 break;
 
-              case 'sv':
-                the_sub_field('rowSwe');
+              case get_field('acfLangOptSecLang', 'option')['code']:
+                the_sub_field('secLangRow');
                 break;
 
               default:
-                the_sub_field('rowSwe');
+                the_sub_field('primLangRow');
                 break;
             }
           } else {
-            the_sub_field('rowSwe');
+            the_sub_field('primLangRow');
           }
 
         echo '</li>';

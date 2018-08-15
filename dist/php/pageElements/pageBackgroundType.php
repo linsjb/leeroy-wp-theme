@@ -29,8 +29,8 @@ function pageBackgroundType($pageType = null) {
 
     $backgroundImageUrl->setObject('acfPageBackgroundImage');
 
-    return 'background: url(' . $backgroundImageUrl->init() . '); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;';
+    return 'style="background: url(' . $backgroundImageUrl->init() . '); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;"';
   } else {
-    return  'background: ' . $backgroundColor . ';';
+    return 'class="' . $backgroundColor . '"';
   }
 }

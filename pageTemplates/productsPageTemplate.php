@@ -8,7 +8,7 @@
  <script type="text/javascript">
    let pageLocation = 'products';
  </script>
- 
+
  <?php
  if(have_posts()) {
    informationPageTop();
@@ -33,20 +33,20 @@
 
               if(get_field('acfProdSecLang')) {
                 switch($_COOKIE['language']) {
-                  case 'en':
-                    the_sub_field('acfProdOneColTextContEng');
+                  case get_field('acfLangOptPrimLang', 'option')['code']:
+                    the_sub_field('acfProdOneColTextContPrimLang');
                     break;
 
-                  case 'sv':
-                    the_sub_field('acfProdOneColTextContSwe');
+                  case get_field('acfLangOptSecLang', 'option')['code']:
+                    the_sub_field('acfProdOneColTextContSecLang');
                     break;
 
                   default:
-                    the_sub_field('acfProdOneColTextContSwe');
+                    the_sub_field('acfProdOneColTextContPrimLang');
                     break;
                 }
               } else {
-                the_sub_field('acfProdOneColTextContSwe');
+                the_sub_field('acfProdOneColTextContPrimLang');
               }
             echo '</div>'; // .m-productsPageContent
           echo '</div>'; // .o-productsPage
@@ -67,28 +67,28 @@
 
           if(get_field('acfProdSecLang')) {
             switch($_COOKIE['language']) {
-                case 'en':
-                  $twoColTitle->setObject('acfProdTwoColTitlePref', 'titleEng');
-                  $twoColSubtitle->setObject('acfProdTwoColTitlePref', 'subtitleEng');
-                  $buttonText = 'Book a demo';
+                case get_field('acfLangOptPrimLang', 'option')['code']:
+                  $twoColTitle->setObject('acfProdTwoColPrimLangTitle', 'title');
+                  $twoColSubtitle->setObject('acfProdTwoColPrimLangTitle', 'subtitle');
+                  $buttonText = get_sub_field('acfProdTwoColBtnPref')['primLang'];
                   break;
 
-                case 'sv':
-                  $twoColTitle->setObject('acfProdTwoColTitlePref', 'titleSwe');
-                  $twoColSubtitle->setObject('acfProdTwoColTitlePref', 'subtitleSwe');
-                  $buttonText = 'Boka demo';
+                case get_field('acfLangOptSecLang', 'option')['code']:
+                  $twoColTitle->setObject('acfProdTwoColSecLangTitle', 'title');
+                  $twoColSubtitle->setObject('acfProdTwoColSecLangTitle', 'subtitle');
+                  $buttonText = get_sub_field('acfProdTwoColBtnPref')['secLang'];
                   break;
 
                 default:
-                  $twoColTitle->setObject('acfProdTwoColTitlePref', 'titleSwe');
-                  $twoColSubtitle->setObject('acfProdTwoColTitlePref', 'subtitleSwe');
-                  $buttonText = 'Boka demo';
+                  $twoColTitle->setObject('acfProdTwoColPrimLangTitle', 'title');
+                  $twoColSubtitle->setObject('acfProdTwoColPrimLangTitle', 'subtitle');
+                  $buttonText = get_sub_field('acfProdTwoColBtnPref')['primLang'];
                   break;
               }
             } else {
-              $twoColTitle->setObject('acfProdTwoColTitlePref', 'titleSwe');
-              $twoColSubtitle->setObject('acfProdTwoColTitlePref', 'subtitleSwe');
-              $buttonText = 'Boka demo';
+              $twoColTitle->setObject('acfProdTwoColPrimLangTitle', 'title');
+              $twoColSubtitle->setObject('acfProdTwoColPrimLangTitle', 'subtitle');
+              $buttonText = get_sub_field('acfProdTwoColBtnPref')['primLang'];
           }
 
            $twoColTitle->setElementType('h3');
@@ -102,6 +102,8 @@
            $twoColImage->setObject('acfProdTwoColImg');
            $twoColImage->useElement();
            $twoColImage->setClasses('a-twoColumnsProductPage__image');
+
+           $buttonColor = get_sub_field('acfProdTwoColBtnPref')['testoloco'];
 
 
            // Alternate the text and image left and right
@@ -129,7 +131,12 @@
                   $twoColTitle->init();
                   $twoColSubtitle->init();
                   textList('-productsLineHeight');
-                  echo '<button class="a-twoColumnsProductPage__button' . $buttonPosition . 'a-btn -btnPurple pull-right">' . $buttonText . '</button>';
+
+                  echo '
+                  <button class=" a-twoColumnsProductPage__button' . $buttonPosition . 'a-btn ' . $buttonColor . ' pull-right">'
+                    . $buttonText .
+                  '</button>';
+
                 echo '</div>'; // .a-twoColumnsProductPage
 
 

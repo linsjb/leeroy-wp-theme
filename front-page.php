@@ -18,19 +18,19 @@ if($query->have_posts()):
       <?php
 
       switch($_COOKIE['language']) {
-        case 'en':
-          if(get_field('acfTitlePref')['titleEng'] =='') {
+        case get_field('acfLangOptPrimLang', 'option')['code']:
+          $title = new wpContent;
+          $title->setContent('title');
+          break;
+
+        case get_field('acfLangOptSecLang', 'option')['code']:
+          if(get_field('acfTitlePref')['secLangTitle'] =='') {
             $title = new wpContent;
             $title->setContent('title');
           } else {
             $title = new AcfText;
-            $title->setObject('acfTitlePref', 'titleEng');
+            $title->setObject('acfTitlePref', 'secLangTitle');
           }
-          break;
-
-        case 'sv':
-          $title = new wpContent;
-          $title->setContent('title');
           break;
 
         default:
@@ -115,32 +115,34 @@ if($query->have_posts()):
               // Language control
               if(get_field('acfIndSecSecLang')) {
                 switch($_COOKIE['language']) {
-                  case 'en':
-                    $content->setObject('acfIndSecTextFieldEng');
+                  case get_field('acfLangOptPrimLang', 'option')['code']:
+                    $content->setObject('acfIndSecPrimLangTextCont');
                     break;
 
-                  case 'sv':
-                    $content->setObject('acfIndSecTextFieldSwe');
+                  case get_field('acfLangOptSecLang', 'option')['code']:
+                    $content->setObject('acfIndSecSecLangTextCont');
                     break;
 
                   default:
-                    $content->setObject('acfIndSecTextFieldSwe');
+                    $content->setObject('acfIndSecPrimLangTextCont');
                     break;
                 }
               } else {
-                $content->setObject('acfIndSecTextFieldSwe');
+                $content->setObject('acfIndSecPrimLangTextCont');
               }
               $content->setElementType('div');
 
               $contentFontSize = acfButtonGroup('fontSize', 'acfIndSecTextPref', 'size', null, true);
               $contentTextColor = acfButtonGroup('textColor', 'acfIndSecTextPref', 'color', null, true);
-              $content->setClasses('container m-indexSectionContentText ' . $contentFontSize .  ' ' . $contentTextColor);
+              $content->setClasses($contentFontSize . ' ' . $contentTextColor);
 
-              if(!$titleUsed) {
-                $title->init();
-              }
-              $titleUsed = true;
-              $content->init();
+              echo '<div class="container m-indexSectionContentText">';
+                if(!$titleUsed) {
+                  $title->init();
+                }
+                $titleUsed = true;
+                $content->init();
+              echo '</div>';
 
               break;
 
@@ -251,20 +253,20 @@ if($query->have_posts()):
               // Language control
               if(get_field('acfIndSecSecLang')) {
                 switch($_COOKIE['language']) {
-                  case 'en':
-                    $subtitle->setObject('acfIndSecSubTitleTextEng');
+                  case get_field('acfLangOptPrimLang', 'option')['code']:
+                    $subtitle->setObject('acfIndSecPrimLangSubTitleText');
                     break;
 
-                  case 'sv':
-                    $subtitle->setObject('acfIndSecSubTitleTextSwe');
+                  case get_field('acfLangOptSecLang', 'option')['code']:
+                    $subtitle->setObject('acfIndSecSecLangSubTitleText');
                     break;
 
                   default:
-                    $subtitle->setObject('acfIndSecSubTitleTextSwe');
+                    $subtitle->setObject('acfIndSecPrimLangSubTitleText');
                     break;
                 }
               } else {
-                $subtitle->setObject('acfIndSecSubTitleTextSwe');
+                $subtitle->setObject('acfIndSecPrimLangSubTitleText');
               }
 
               $subtitle->setElementType(acfButtonGroup('titleType', 'acfIndSecSubTitlePref', 'size', null, true));
@@ -303,21 +305,21 @@ if($query->have_posts()):
 
               if(get_field('acfIndSecSecLang')) {
                 switch($_COOKIE['language']) {
-                  case 'en':
-                    $buttonText = get_sub_field('acfIndSecBtnPref')['nameEng'];
+                  case get_field('acfLangOptPrimLang', 'option')['code']:
+                    $buttonText = get_sub_field('acfIndSecBtnPref')['primLangBtn'];
                     break;
 
-                  case 'sv':
-                    $buttonText = get_sub_field('acfIndSecBtnPref')['nameSwe'];
+                  case get_field('acfLangOptSecLang', 'option')['code']:
+                    $buttonText = get_sub_field('acfIndSecBtnPref')['secLangBtn'];
                     break;
 
                   default:
-                    $buttonText = get_sub_field('acfIndSecBtnPref')['nameSwe'];
+                    $buttonText = get_sub_field('acfIndSecBtnPref')['primLangBtn'];
                     break;
                 }
               } else {
 
-                $buttonText = get_sub_field('acfIndSecBtnPref')['nameSwe'];
+                $buttonText = get_sub_field('acfIndSecBtnPref')['primLangBtn'];
               }
 
               echo '

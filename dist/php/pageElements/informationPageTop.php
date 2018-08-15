@@ -9,25 +9,25 @@ function informationPageTop($pageType = null) {
   $slogan = new AcfText;
 
   switch($_COOKIE['language']) {
-    case 'en':
-      $title = new AcfText;
-      $title->setObject('acfInfoPageTitleEng');
-
-      if(get_field('acfInfoPageSloganEng') == '') {
-        $slogan->setObject('acfInfoPageSloganSwe');
-      } else {
-        $slogan->setObject('acfInfoPageSloganEng');
-      }
-      break;
-
-    case 'sv':
+    case get_field('acfLangOptPrimLang', 'option')['code']:
       $title = new wpContent;
       $title->setContent('title');
 
-      if(get_field('acfInfoPageSloganSwe') == '') {
-        $slogan->setObject('acfInfoPageSloganEng');
+      if(get_field('acfInfoPagePrimLangSlogan') == '') {
+        $slogan->setObject('acfInfoPageSecLangSlogan');
       } else {
-        $slogan->setObject('acfInfoPageSloganSwe');
+        $slogan->setObject('acfInfoPagePrimLangSlogan');
+      }
+      break;
+
+    case get_field('acfLangOptSecLang', 'option')['code']:
+      $title = new AcfText;
+      $title->setObject('acfInfoPageSecLangTitle');
+
+      if(get_field('acfInfoPageSecLangSlogan') == '') {
+        $slogan->setObject('acfInfoPagePrimLangSlogan');
+      } else {
+        $slogan->setObject('acfInfoPageSecLangSlogan');
       }
       break;
 
@@ -35,10 +35,10 @@ function informationPageTop($pageType = null) {
       $title = new wpContent;
       $title->setContent('title');
 
-      if(get_field('acfInfoPageSloganSwe') == '') {
-        $slogan->setObject('acfInfoPageSloganEng');
+      if(get_field('acfInfoPagePrimLangSlogan') == '') {
+        $slogan->setObject('acfInfoPageSecLangSlogan');
       } else {
-        $slogan->setObject('acfInfoPageSloganSwe');
+        $slogan->setObject('acfInfoPagePrimLangSlogan');
       }
       break;
   }
@@ -54,7 +54,7 @@ function informationPageTop($pageType = null) {
     $title->usePostsPage();
   }
 ?>
-    <div id="topElement" class="o-informationPageTop col-xs-24" style="<?= pageBackgroundType($pageType); ?>">
+    <div id="topElement" class="o-informationPageTop col-xs-24" <?= pageBackgroundType($pageType); ?>>
       <?php pageBackgroundTone($pageType) ?>
       <div class="container m-informationPageTopContainer">
         <div class="a-informationPageTopContent">

@@ -1,6 +1,6 @@
     <?php
     wp_footer();
-     
+
 
     if(is_front_page()) {
       $logoUrl = '#topElement';
@@ -40,22 +40,22 @@
 
                   // Language control
                   switch($_COOKIE['language']) {
-                    case 'en':
-                      $navTitle->setSubField('titleEng');
-                      $navTitle->setMenuObject(get_sub_field('locationEng'));
-                      $wpMenu->setLocation(get_sub_field('locationEng'));
+                    case get_field('acfLangOptPrimLang', 'option')['code']:
+                      $navTitle->setSubField('primLangTitle');
+                      $navTitle->setMenuObject(get_sub_field('footerPrimLangLoc'));
+                      $wpMenu->setLocation(get_sub_field('footerPrimLangLoc'));
                       break;
 
-                    case 'sv':
-                      $navTitle->setSubField('titleSwe');
-                      $navTitle->setMenuObject(get_sub_field('locationSwe'));
-                      $wpMenu->setLocation(get_sub_field('locationSwe'));
+                    case get_field('acfLangOptSecLang', 'option')['code']:
+                      $navTitle->setSubField('secLangTitle');
+                      $navTitle->setMenuObject(get_sub_field('footerSecLangLoc'));
+                      $wpMenu->setLocation(get_sub_field('footerSecLangLoc'));
                       break;
 
                     default:
-                      $navTitle->setSubField('titleSwe');
-                      $navTitle->setMenuObject(get_sub_field('locationSwe'));
-                      $wpMenu->setLocation(get_sub_field('locationSwe'));
+                      $navTitle->setSubField('primLangTitle');
+                      $navTitle->setMenuObject(get_sub_field('footerPrimLangLoc'));
+                      $wpMenu->setLocation(get_sub_field('footerPrimLangLoc'));
                       break;
                   }
 

@@ -10,7 +10,7 @@ knowledgeHubTop('postsPage');
 <div class="o-singlePost col-xs-24">
   <div class="container">
     <?php
-     
+
 
     if(have_posts()):
       the_post();
@@ -18,14 +18,14 @@ knowledgeHubTop('postsPage');
       // Language control. Is a second language choosen for the post?
       if(get_field('acfPostSecLang')) {
         switch($_COOKIE['language']) {
-          case "en":
-            $postTitle = new AcfText;
-            $postTitle->setObject('acfSecLangtitle');
-            break;
-
-          case "sv":
+          case get_field('acfLangOptPrimLang', 'option')['code']:
             $postTitle = new WpContent;
             $postTitle->setContent('title');
+            break;
+
+          case get_field('acfLangOptSecLang', 'option')['code']:
+            $postTitle = new AcfText;
+            $postTitle->setObject('acfSecLangtitle');
             break;
         }
       } else {
@@ -78,16 +78,16 @@ knowledgeHubTop('postsPage');
                 case 'acfPostText':
                   if(get_field('acfPostSecLang')) {
                     switch($_COOKIE['language']) {
-                      case "en":
-                        echo the_sub_field('acfPostTextFieldEng');
+                      case get_field('acfLangOptPrimLang', 'option')['code']:
+                        echo the_sub_field('acfPostTextFieldPrimLang');
                         break;
 
-                      case "sv":
-                        echo the_sub_field('acfPostTextFieldSwe');
+                      case get_field('acfLangOptSecLang', 'option')['code']:
+                        echo the_sub_field('acfPostTextFieldSecLang');
                         break;
                     }
                   } else {
-                    echo the_sub_field('acfPostTextFieldSwe');
+                    echo the_sub_field('acfPostTextFieldPrimLang');
                   }
                   break;
 

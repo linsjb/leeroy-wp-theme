@@ -1,5 +1,3 @@
-// import Underscore from 'underscore';
-
 export function postFlexSlider() {(function ($) {
   $('#slider').flexslider({
     animation: "slide",

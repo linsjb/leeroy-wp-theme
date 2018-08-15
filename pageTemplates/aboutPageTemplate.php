@@ -4,7 +4,7 @@
  * Description: Page template for about page.
  */
 get_header();
- 
+
 ?>
 <script type="text/javascript">
   let pageLocation = 'about';
@@ -32,20 +32,20 @@ if(have_posts()) {
             // Language control
             if(get_field('acfAboutSecLang')) {
               switch($_COOKIE['language']) {
-                  case 'en':
-                    $aboutText->setObject('acfAboutTextContEng');
+                  case get_field('acfLangOptPrimLang', 'option')['code']:
+                    $aboutText->setObject('acfAboutTextContPrimLang');
                     break;
 
-                  case 'sv':
-                    $aboutText->setObject('acfAboutTextContSwe');
+                  case get_field('acfLangOptSecLang', 'option')['code']:
+                    $aboutText->setObject('acfAboutTextContSecLang');
                     break;
 
                   default:
-                    $aboutText->setObject('acfAboutTextContSwe');
+                    $aboutText->setObject('acfAboutTextContPrimLang');
                     break;
                 }
             } else {
-              $aboutText->setObject('acfAboutTextContSwe');
+              $aboutText->setObject('acfAboutTextContPrimLang');
             }
 
             $aboutText->setElementType('div');
@@ -85,20 +85,20 @@ if(have_posts()) {
                     // Language control
                     if(get_field('acfAboutSecLang')) {
                       switch($_COOKIE['language']) {
-                        case 'en':
-                          $officeTitle->setObject('titleEng');
+                        case get_field('acfLangOptPrimLang', 'option')['code']:
+                          $officeTitle->setObject('primLangTitle');
                           break;
-                          
-                        case 'sv':
-                          $officeTitle->setObject('titleSwe');
+
+                        case get_field('acfLangOptSecLang', 'option')['code']:
+                          $officeTitle->setObject('secLangTitle');
                           break;
 
                         default:
-                          $officeTitle->setObject('titleSwe');
+                          $officeTitle->setObject('primLangTitle');
                           break;
                       }
                     } else {
-                      $officeTitle->setObject('titleSwe');
+                      $officeTitle->setObject('primLangTitle');
                     }
 
                     $officeTitle->setElementType('p');
@@ -167,20 +167,19 @@ if(have_posts()) {
           if(get_field('acfAboutSecLang')) {
             switch($_COOKIE['language']) {
                 case 'en':
-                  $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleEng');
+                  $formSectionTitle->setObject('acfAboutFormTitlePref', 'primLangTitle');
                   break;
 
                 case 'sv':
-                  $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleSwe');
+                  $formSectionTitle->setObject('acfAboutFormTitlePref', 'secLangTitle');
                   break;
 
                 default:
-                  $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleSwe');
+                  $formSectionTitle->setObject('acfAboutFormTitlePref', 'primLangTitle');
                   break;
               }
           } else {
-            $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleSwe');
-            $formSectionTitle->setObject('acfAboutFormTitlePref', 'titleSwe');
+            $formSectionTitle->setObject('acfAboutFormTitlePref', 'primLangTitle');
           }
 
           $formSectionTitle->setElementType('h3');

@@ -5,7 +5,7 @@ function dynamicCells() {
 
 
   // TODO: Fixa uträkningen så att det alltid blir rätt förskjutning beroende på hur många celler det är
-  $col = 'col-sm-' . (24 - (4 * $numberOfCells))/2;
+  $col = 'col-sm-' . (24 - (4 * $numberOfCells)) / 2;
   if($numberOfCells < 6) {
     echo '<div class="hidden-xs ' . $col . '"></div>';
   }
@@ -30,7 +30,7 @@ function dynamicCells() {
       $dynamicCellHoverImage->setClasses('m-dynamicCell__image -hover');
       $dynamicCellHoverImage->useElement();
 
-      if($cellCounter == $numberOfCells && $cellCounter%2 == 1) {
+      if($cellCounter == $numberOfCells && $cellCounter % 2 == 1) {
         echo '<div class="hidden sm-hidden-md hidden-lg col-xs-6"></div>';
       }
 

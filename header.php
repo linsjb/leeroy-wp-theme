@@ -11,28 +11,28 @@
 
     // Language control
     Switch($_COOKIE['language']) {
-      case 'en':
-        $engLang = '-current';
-        $sweLang = '';
-        $flag = get_template_directory_uri() . '/images/united-kingdom.svg';
-        $navigation->setLocation(get_field('acfHeaderOptDeskPref', 'option')['desktopHeaderLocationEng']);
-        $mobileNavigation->setLocation(get_field('acfHeaderOptmobPref', 'option')['mobileHeaderLocationEng']);
+      case get_field('acfLangOptPrimLang', 'option')['code']:
+        $primaryLanguage = '-current';
+        $secondaryLanguage = '';
+        $flag = get_field('acfLangOptPrimLang', 'option')['icon']['url'];
+        $navigation->setLocation(get_field('acfHeaderOptDeskPref', 'option')['primLangDesktop']);
+        $mobileNavigation->setLocation(get_field('acfHeaderOptmobPref', 'option')['primLangMobile']);
         break;
 
-      case 'sv':
-        $engLang = '';
-        $sweLang = '-current';
-        $flag = get_template_directory_uri() . '/images/sweden.svg';
-        $navigation->setLocation(get_field('acfHeaderOptDeskPref', 'option')['desktopHeaderLocationSwe']);
-        $mobileNavigation->setLocation(get_field('acfHeaderOptmobPref', 'option')['mobileHeaderLocationSwe']);
+      case get_field('acfLangOptSecLang', 'option')['code']:
+        $secondaryLanguage = '-current';
+        $primaryLanguage = '';
+        $flag =  get_field('acfLangOptSecLang', 'option')['icon']['url'];
+        $navigation->setLocation(get_field('acfHeaderOptDeskPref', 'option')['secLangDesktop']);
+        $mobileNavigation->setLocation(get_field('acfHeaderOptmobPref', 'option')['secLangMobile']);
         break;
 
       default:
-        $engLang = '';
-        $sweLang = '-current';
-        $flag = get_template_directory_uri() . '/images/sweden.svg';
-        $navigation->setLocation(get_field('acfHeaderOptDeskPref', 'option')['desktopHeaderLocationSwe']);
-        $mobileNavigation->setLocation(get_field('acfHeaderOptMobPref', 'option')['mobileHeaderLocationSwe']);
+        $primaryLanguage = '-current';
+        $secondaryLanguage = '';
+        $flag = get_field('acfLangOptPrimLang', 'option')['icon']['url'];
+        $navigation->setLocation(get_field('acfHeaderOptDeskPref', 'option')['primLangDesktop']);
+        $mobileNavigation->setLocation(get_field('acfHeaderOptmobPref', 'option')['primLangMobile']);
         break;
     }
 
@@ -63,14 +63,13 @@
       <form class="o-languageSelector visibilityHidden" method="post">
         <div class="o-languageSelector__arrow"></div>
         <ul class="m-languageSelectorList">
+
           <li class="a-languageSelectorListItem">
-            <input class="a-languageSelectorListItem__link <?= $sweLang ?>" type="submit" name="langSv" value="Svenska">
-            <!-- <a class="a-languageSelectorListItem__link <?= $sweLang ?>" href="?<?= http_build_query(array('lang'=>'sv')) . "\n";?>">Svenska</a> -->
+            <input class="a-languageSelectorListItem__link <?= $primaryLanguage ?>" type="submit" name="primLang" value="<?= get_field('acfLangOptPrimLang', 'option')['language']; ?>">
           </li>
 
           <li class="a-languageSelectorListItem">
-            <input class="a-languageSelectorListItem__link <?= $engLang ?>" type="submit" name="langEn" value="English">
-            <!-- <a class="a-languageSelectorListItem__link <?= $engLang ?>" href="?<?= http_build_query(array('lang'=>'en')) . "\n";?>">English</a> -->
+            <input class="a-languageSelectorListItem__link <?= $secondaryLanguage ?>" type="submit" name="secLang" value="<?= get_field('acfLangOptSecLang', 'option')['language']; ?>">
           </li>
         </ul>
       </form>

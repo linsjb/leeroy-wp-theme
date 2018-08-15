@@ -1540,10 +1540,6 @@ h6 {
   font-family: 'proxima_novaregular' !important;
   text-decoration: none;
 }
-.a-btnPurple {
-  background-color: #442D5E;
-  color: #FDFDFD;
-}
 .a-headerNav__loginButton a {
   border-radius: 8px;
   border-style: solid;

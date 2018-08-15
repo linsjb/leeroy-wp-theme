@@ -38,6 +38,12 @@ acf_add_options_page(array(
 ));
 
 acf_add_options_sub_page(array(
+  'page_title'    => 'Theme field options',
+  'menu_title'    => "Theme fields",
+  'parent_slug'   => 'themeOptions'
+));
+
+acf_add_options_sub_page(array(
   'page_title'    => 'Products popup options',
   'menu_title'    => "Product's popup",
   'parent_slug'   => 'themeOptions'
@@ -61,7 +67,13 @@ acf_add_options_sub_page(array(
   'parent_slug'   => 'themeOptions'
 ));
 
-function dynamicPopulateFooterLocations($field) {
+acf_add_options_sub_page(array(
+  'page_title'    => "Language options",
+  'menu_title'    => "Language",
+  'parent_slug'   => 'themeOptions'
+));
+
+function populateFooterLocations($field) {
   $field['choices'] = array();
 
   if(have_rows('acfSiteMenuLocations', 'option')) {
@@ -73,10 +85,39 @@ function dynamicPopulateFooterLocations($field) {
   return $field;
 }
 
+function populateBackgroundColors($field) {
+  $field['choices'] = array();
+
+  if(have_rows('acfThemeOptbackClrs', 'option')) {
+    while (have_rows('acfThemeOptbackClrs', 'option')) {
+      the_row();
+      $field['choices'][get_sub_field('cssClass')] = get_sub_field('colorName');
+    }
+  }
+  return $field;
+}
+
+function populateButtonColors($field) {
+  $field['choices'] = array();
+
+  if(have_rows('acfThemeOptBtnClrs', 'option')) {
+    while (have_rows('acfThemeOptBtnClrs', 'option')) {
+      the_row();
+      $field['choices'][get_sub_field('cssClass')] = get_sub_field('colorName');
+    }
+  }
+  return $field;
+}
+
 // Populate ACF fields
-add_filter('acf/load_field/name=locationSwe', 'dynamicPopulateFooterLocations');
-add_filter('acf/load_field/name=locationEng', 'dynamicPopulateFooterLocations');
-add_filter('acf/load_field/name=desktopHeaderLocationSwe', 'dynamicPopulateFooterLocations');
-add_filter('acf/load_field/name=desktopHeaderLocationEng', 'dynamicPopulateFooterLocations');
-add_filter('acf/load_field/name=mobileHeaderLocationSwe', 'dynamicPopulateFooterLocations');
-add_filter('acf/load_field/name=mobileHeaderLocationEng', 'dynamicPopulateFooterLocations');
+add_filter('acf/load_field/name=testoloco', 'populateButtonColors');
+
+// Theme options footer menu location fields
+add_filter('acf/load_field/name=footerPrimLangLoc', 'populateFooterLocations');
+add_filter('acf/load_field/name=footerSecLangLoc', 'populateFooterLocations');
+
+// Theme options header menu location fields
+add_filter('acf/load_field/name=primLangDesktop', 'populateFooterLocations');
+add_filter('acf/load_field/name=secLangDesktop', 'populateFooterLocations');
+add_filter('acf/load_field/name=primLangMobile', 'populateFooterLocations');
+add_filter('acf/load_field/name=secLangMobile', 'populateFooterLocations');

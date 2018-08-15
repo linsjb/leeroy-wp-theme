@@ -17,14 +17,14 @@ function knowledgeHubGrid($counter, $id = null) {
   // Post-specific language controls
   if(get_field('acfPostSecLang', $id)) {
     switch($_COOKIE['language']) {
-      case 'en':
-        $postTitle = new AcfText;
-        $postTitle->setObject('acfSecLangtitle');
-        break;
-
-      case 'sv':
+      case get_field('acfLangOptPrimLang', 'option')['code']:
         $postTitle = new WpContent;
         $postTitle->setContent('title');
+        break;
+
+      case get_field('acfLangOptSecLang', 'option')['code']:
+        $postTitle = new AcfText;
+        $postTitle->setObject('acfSecLangtitle');
         break;
 
       default:
@@ -50,19 +50,19 @@ function knowledgeHubGrid($counter, $id = null) {
 
   // general language controls for the card
   switch($_COOKIE['language']) {
-    case 'en':
+    case get_field('acfLangOptPrimLang', 'option')['code']:
       $postInfo = '<p class="m-knowledgehubCellInfo">' . $postDate->init() . ' by ' . $postAuthor->init() . '</p>';
       $cardHoverText = 'Read now';
       break;
 
-    case 'sv':
+    case get_field('acfLangOptSecLang', 'option')['code']:
       $postInfo = '<p class="m-knowledgehubCellInfo">' . $postDate->init() . ' av ' . $postAuthor->init() . '</p>';
       $cardHoverText = 'Läs nu';
       break;
 
     default:
-      $postInfo = '<p class="m-knowledgehubCellInfo">' . $postDate->init() . ' av ' . $postAuthor->init() . '</p>';
-      $cardHoverText = 'Läs nu';
+      $postInfo = '<p class="m-knowledgehubCellInfo">' . $postDate->init() . ' by ' . $postAuthor->init() . '</p>';
+      $cardHoverText = 'Read now';
       break;
   }
 

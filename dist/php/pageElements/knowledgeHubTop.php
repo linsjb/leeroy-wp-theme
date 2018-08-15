@@ -3,19 +3,22 @@ function knowledgeHubTop($pageType = null) {
   informationPageTop('postsPage');
 
   switch($_COOKIE['language']) {
-    case 'en':
+    case get_field('acfLangOptPrimLang', 'option')['code']:
       $catMenu = 'Categories';
       $tagMenu = 'Tags';
+      $latestMenu = 'Latest posts';
       break;
 
-    case 'sv':
+    case get_field('acfLangOptSecLang', 'option')['code']:
       $catMenu = 'Kategorier';
       $tagMenu = 'Taggar';
+      $latestMenu = 'Senaste inläggen';
       break;
 
     default:
-      $catMenu = 'Kategorier';
-      $tagMenu = 'Taggar';
+      $catMenu = 'Categories';
+      $tagMenu = 'Tags';
+      $latestMenu = 'Latest posts';
       break;
   }
 ?>
@@ -26,7 +29,7 @@ function knowledgeHubTop($pageType = null) {
         <ul class="a-knowledgehubMenuList">
           <li class="a-knowledgeHubMenuList__item"><?= $catMenu ?></li>
           <li class="a-knowledgeHubMenuList__item"><?= $tagMenu ?></li>
-          <!-- <li class="a-knowledgeHubMenuList__item">Latest posts</li> -->
+          <li class="a-knowledgeHubMenuList__item"><?= $latestMenu ?></li>
         </ul>
       </nav>
     <!-- .o-knowledgeHubMenuContent -->
@@ -76,7 +79,7 @@ function knowledgeHubTop($pageType = null) {
       $latest->setItemsNumber(5);
       $latest->setContainerClasses('m-knowledgeHubMenuDropdownList');
       $latest->setElementClasses('a-knowledgehubMenuDropdownItem');
-      $latest->setTitle('Latest posts:');
+      $latest->setTitle($latestMenu . ':');
       $latest->setTitleClasses('a-knowledgeHubMenuDropdownTitle');
       $latest->init();
       ?>

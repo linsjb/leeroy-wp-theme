@@ -22,7 +22,7 @@ function leeroyScripts() {
   wp_enqueue_style( 'owlCarouselCss', get_template_directory_uri() . '/dist/css/owl.carousel.min.css', array() , '2.2.1', 'all');
   wp_enqueue_style( 'owlCarouselThemeCss', get_template_directory_uri() . '/dist/css/owl.theme.default.min.css', array() , '2.2.1', 'all');
 
-  wp_enqueue_style( 'leeroyCss', get_stylesheet_uri());
+  wp_enqueue_style( 'leeroyCss', get_stylesheet_uri(), array(), '1.1.5', 'all');
 
   wp_enqueue_script('owlCarousel', get_template_directory_uri() . '/dist/js/owl.carousel.min.js', array('jquery'), '2.2.1', true);
   wp_enqueue_script('Masonry', get_template_directory_uri() . '/dist/js/masonry.pkgd.min.js', array('jquery'), '2.2.1', true);
