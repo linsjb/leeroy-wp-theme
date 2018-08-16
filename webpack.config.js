@@ -4,7 +4,7 @@ module.exports = function (env) {
   return {
     entry: './src/js/main.js',
     output: {
-      path: __dirname + '/dist/js',
+      path: __dirname,
       filename: 'bundle.js'
     },
     module: {

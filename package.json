@@ -18,7 +18,10 @@
   },
   "homepage": "leeroy.se",
   "dependencies": {
+    "@zirafa/bootstrap-grid-only": "^1.0.0",
+    "animate.css": "^3.7.0",
     "flexslider": "^2.7.1",
+    "hamburgers": "^0.9.3",
     "masonry-layout": "^4.2.2"
   },
   "devDependencies": {

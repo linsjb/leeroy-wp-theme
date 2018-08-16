@@ -1,9 +1,9 @@
 <?php
-require_once 'dist/php/wpFunctions/scripts.php';
-require_once 'dist/php/functions/index.php';
-require_once 'dist/php/classes/index.php';
-require_once 'dist/php/pageElements/index.php';
-require_once 'dist/php/devTools/devTools.php';
+require_once 'src/php/wpFunctions/scripts.php';
+require_once 'src/php/functions/index.php';
+require_once 'src/php/classes/index.php';
+require_once 'src/php/pageElements/index.php';
+require_once 'src/php/devTools/devTools.php';
 
 menuLocations();
 
