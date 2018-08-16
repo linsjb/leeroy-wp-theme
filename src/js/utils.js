@@ -1,3 +1,5 @@
+import flexslider from 'flexslider';
+
 export function postFlexSlider() {(function ($) {
   $('#slider').flexslider({
     animation: "slide",

@@ -1,7 +1,7 @@
 {
   "name": "leeroy",
-  "version": "1.0.0",
-  "description": "Leeroy package.json",
+  "version": "1.1.5",
+  "description": "package.json for leeroy.se",
   "main": "index.js",
   "scripts": {
     "dev": "webpack -d --watch",
@@ -16,8 +16,13 @@
   "bugs": {
     "url": "https://github.com/linsjb/Leeroy_site/issues"
   },
-  "homepage": "https://github.com/linsjb/Leeroy_site#readme",
+  "homepage": "leeroy.se",
   "dependencies": {
-    "webpack": "^3.10.0"
+    "flexslider": "^2.7.1",
+    "masonry-layout": "^4.2.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.5",
+    "webpack": "^3.12.0"
   }
 }

@@ -1,12 +1,14 @@
+import Masonry from 'masonry-layout';
+
 export function grid() {
-  (function ($) {
-    $('.o-knowledgeHubGrid').masonry({
-      itemSelector: '.o-knowledgeHubCell',
-      percentPosition:  true,
-      horizontalOrder:  true,
-      gutter:           15,
-    });
-  })(jQuery);
+  let gridContainer = document.querySelector('.o-knowledgeHubGrid');
+
+  let grid = new Masonry(gridContainer, {
+    itemSelector: '.o-knowledgeHubCell',
+    percentPosition:  true,
+    horizontalOrder:  true,
+    gutter:           15
+  });
 }
 
 export function cellHeight() {
