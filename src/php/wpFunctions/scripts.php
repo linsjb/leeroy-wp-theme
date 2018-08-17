@@ -16,7 +16,7 @@ function leeroyScripts() {
 
   wp_enqueue_style( 'grid24', get_template_directory_uri() . '/node_modules/@zirafa/bootstrap-grid-only/css/grid24.css', array(),'3.2.0', 'all');
   wp_enqueue_style( 'animateCss', get_template_directory_uri() . '/node_modules/animate.css/animate.min.css', array() , '3.5.2', 'all');
-  wp_enqueue_style( 'hamburgers', get_template_directory_uri() . '/node_modules/dist/hamburgers.min.css', array() , '0.9.3', 'all');
+  wp_enqueue_style( 'hamburgers', get_template_directory_uri() . '/node_modules/hamburgers/dist/hamburgers.min.css', array() , '0.9.3', 'all');
   wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/node_modules/flexslider/flexslider.css', array() , '2.7.0', 'all');
 
   wp_enqueue_style( 'leeroyCss', get_stylesheet_uri(), array(), '1.1.5', 'all');
