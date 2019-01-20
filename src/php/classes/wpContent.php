@@ -35,7 +35,7 @@ class WpContent {
 
       case 'date':
         if($this->postId != null) {
-          $this->rawString = get_the_time(get_option('date_format'), 1414);
+          $this->rawString = get_the_time(get_option('date_format'), $this->postId);
         }  else {
           $this->rawString = get_the_date();
         }
