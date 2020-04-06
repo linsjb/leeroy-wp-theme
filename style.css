@@ -2,7 +2,7 @@
 Theme Name: Leeroy
 Author: Linus Sjöbro
 Description: Custom made theme for Leeroy on host leeroy.se. A theme with flexibility in mind that has a lot of dynamic elements to build a structured website.
-Version: 1.1.4
+Version: 1.1.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: leeroy
@@ -125,7 +125,7 @@ h6 {
 .imageDescription {
   font-size: 14px;
   color: #2F2F2F;
-  opacity: .7;
+  opacity: 0.7;
 }
 .verticalAlign {
   position: relative;
@@ -403,6 +403,7 @@ h6 {
   padding: 25px;
 }
 .o-contactFormContent {
+  margin-top: 55px;
   margin-bottom: 0px;
 }
 .o-contactFormIcon {
@@ -763,7 +764,7 @@ h6 {
   margin: 0;
   font-size: 14px;
   color: #2F2F2F;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 20px;
 }
 .m-singlePostTags {
@@ -1283,7 +1284,9 @@ h6 {
 }
 .a-aboutPageSection__header {
   font-size: 35px;
-  margin-bottom: 55px;
+}
+.a-aboutPageSection__subheader {
+  margin-top: 20px;
 }
 .a-aboutContact__header {
   font-size: 30px;
@@ -1422,7 +1425,7 @@ h6 {
   margin-top: 5px;
   font-size: 14px;
   color: #2F2F2F;
-  opacity: .7;
+  opacity: 0.7;
   border: 0;
 }
 .a-singlePostInfo__author {
