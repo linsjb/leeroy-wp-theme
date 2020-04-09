@@ -61,7 +61,9 @@
   }
 
   .hamburger-inner {
-    &, &::before, &::after {
+    &,
+    &::before,
+    &::after {
       background-color: @leeroyWhite;
     }
   }
@@ -110,7 +112,6 @@
   padding-top: 20px;
 }
 
-
 // Information page
 // -----------------------
 .m-informationPageTopContainer {
@@ -134,6 +135,72 @@
 .m-aboutPageContent {
 }
 
+.m-aboutPageList {
+  list-style-type: none;
+  counter-reset: steps;
+  margin: 0;
+  margin-top: 40px;
+  padding: 0;
+
+  li {
+    font-size: 16px;
+    padding-bottom: 60px;
+    padding-left: 65px;
+    padding-top: 11px;
+    position: relative;
+    margin: 0;
+  }
+
+  li:after {
+    content: counter(steps);
+    counter-increment: steps;
+
+    display: inline-block;
+    position: absolute;
+    height: 46px;
+    width: 46px;
+
+    top: 0;
+    left: 0;
+
+    border-radius: 50%;
+    border: 3px solid @leeroyBlue;
+
+    text-align: center;
+    line-height: 44px;
+    background: @leeroyBlue;
+    color: @leeroyWhite;
+  }
+
+  li:before {
+    position: absolute;
+    left: 22px;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 0;
+    border-left: 3px solid @leeroyBlue;
+  }
+
+  li:last-of-type:before {
+    border: none;
+  }
+
+  li:last-of-type:after {
+    border-color: @leeroyDarkGold;
+    background: @leeroyDarkGold;
+    color: @leeroyWhite;
+  }
+}
+
+.m-aboutPageCard {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .m-aboutTimelineContent {
   padding-left: 15px;
 }
@@ -143,7 +210,6 @@
 }
 
 .m-aboutOfficesContent {
-
 }
 
 .m-aboutOfficeCell {
@@ -293,7 +359,7 @@
 
   blockquote {
     font-size: 25px;
-    font-family: 'proxima_novabold';
+    font-family: "proxima_novabold";
     font-weight: bold;
     color: @leeroyBlue;
   }
@@ -322,7 +388,6 @@
 .m-singlePostTags {
   margin-top: 40px;
 }
-
 
 // Knowledge hub single post author
 // -----------------------
@@ -380,7 +445,7 @@
 
 .m-contactFormCheckbox {
   margin-bottom: 25px !important;
-  div>.checkbox {
+  div > .checkbox {
     label {
       .contactFormLabels;
 

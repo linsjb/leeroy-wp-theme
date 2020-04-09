@@ -6,9 +6,13 @@
 * Author: Linus Sjöbro
 */
 
+.a-aboutPageCardIcon__img {
+  height: 100%;
+}
+
 // Header
 // -----------------------
-.a-headerLogo__link,  {
+.a-headerLogo__link {
   display: block;
   height: 100%;
   width: 100px;
@@ -22,10 +26,10 @@
 }
 
 .a-languageSelectorListItem__link {
-  font-family: 'proxima_novaregular';
+  font-family: "proxima_novaregular";
   font-size: 16px;
   color: @leeroyBlue;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   border: none;
 
   &:hover {
@@ -38,7 +42,6 @@
   }
 }
 
-
 // Index section
 // -----------------------
 
@@ -50,7 +53,6 @@
 .a-indexSectionTopContent__tagline {
   position: relative;
   z-index: 5;
-
 }
 
 .a-listContent__decoration {
@@ -59,7 +61,7 @@
 
 .a-listContent__item {
   list-style: none;
-  font-family: 'proxima_novaregular';
+  font-family: "proxima_novaregular";
 }
 
 // Footer
@@ -151,7 +153,7 @@
 
 .a-aboutOffice__title {
   font-size: 16px;
-  font-family: 'proxima_novabold';
+  font-family: "proxima_novabold";
 }
 
 .a-aboutOffices__icon {
@@ -159,12 +161,8 @@
   height: 60px;
 }
 
-.a-aboutPageSection__header {
-  font-size: 35px;
-}
-
 .a-aboutPageSection__subheader {
-  margin-top: 20px;
+  font-family: "proxima_novaregular";
 }
 
 .a-aboutContact__header {
@@ -188,7 +186,7 @@
   margin: 0;
   padding: 0;
   padding-bottom: 15px;
-  font-family: 'proxima_novaitalic';
+  font-family: "proxima_novaitalic";
 }
 
 .a-twoColumnsProductPage__button {
@@ -201,7 +199,6 @@
     display: -ms-flex;
     display: flex;
     justify-content: center;
-
   }
 }
 
@@ -222,7 +219,7 @@
 // -----------------------
 
 .a-knowledgeHubCell__title,
-.a-knowledgeHubCell__caseTitle  {
+.a-knowledgeHubCell__caseTitle {
   margin: 0;
   padding: 0;
   margin-bottom: 5px;
@@ -230,7 +227,7 @@
 
 .a-knowledgeHubCell__caseTitle {
   &:before {
-    content: 'Case: ';
+    content: "Case: ";
   }
 }
 
@@ -241,7 +238,6 @@
 }
 
 .a-knowledgeHubMenuDropdownTitle {
-
 }
 
 .a-knowledgehubMenuDropdownItem {
@@ -255,7 +251,7 @@
     padding: 20px 10px;
 
     &:hover {
-      .fadeInTransition(.2s);
+      .fadeInTransition(0.2s);
       color: @leeroyGold;
     }
   }
@@ -268,20 +264,20 @@
   margin: 10px 15px;
   font-size: 14px;
   text-decoration: none;
-  font-family: 'proxima_novabold';
+  font-family: "proxima_novabold";
   .fadeInTransition(0.2s);
   color: @leeroyBlack;
 
   &:after {
     .fadeInTransition(0.2s);
-    background-image: url('images/arrowBlack.svg');
+    background-image: url("images/arrowBlack.svg");
     display: inline-block;
     width: 15px;
     height: 15px;
     position: relative;
     top: 4px;
     left: 3px;
-    content: '';
+    content: "";
   }
 
   &:hover {
@@ -289,7 +285,7 @@
     cursor: pointer;
 
     &:after {
-      background-image: url('images/arrowBlue.svg');
+      background-image: url("images/arrowBlue.svg");
     }
   }
 }
@@ -302,20 +298,20 @@
   font-size: 40px;
   margin-top: 0;
   margin-bottom: 12px;
-  font-family: 'freightDispProBold-Regular';
+  font-family: "freightDispProBold-Regular";
   color: @leeroyBlack;
 }
 
 .a-singlePost__caseTitle {
   &:before {
-    content: 'Case: ';
+    content: "Case: ";
   }
 }
 
 .a-singlePostInfo__category {
   color: @secondaryContent;
   font-size: 16px;
-  font-family: 'proxima_novaregular';
+  font-family: "proxima_novaregular";
   text-decoration: none;
 
   &:hover {
@@ -406,7 +402,7 @@
 }
 
 .a-postAuthor_description {
-  font-family: 'proxima_novalight_italic';
+  font-family: "proxima_novalight_italic";
   color: @secondaryContent;
   font-size: 16px;
   margin: 0;
@@ -435,7 +431,6 @@
   }
 }
 
-
 // Globals
 // -----------------------
 
@@ -443,7 +438,7 @@
   border-radius: 8px;
   box-shadow: none;
   padding: 10px 20px;
-  font-family: 'proxima_novaregular' !important;
+  font-family: "proxima_novaregular" !important;
   text-decoration: none;
 }
 
@@ -451,7 +446,7 @@
   a {
     .btnOutline;
     padding: 10px 20px !important;
-    font-family: 'proxima_novaregular';
+    font-family: "proxima_novaregular";
   }
 }
 

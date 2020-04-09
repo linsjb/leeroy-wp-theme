@@ -60,143 +60,28 @@ if($query->have_posts()):
             // -------------------------------------------------
             // -------------------------------------------------
             case 'acfIndSecTopCont':
-              $contentImage = new AcfImage;
-              $contentImage->useSubfield();
-              $contentImage->setObject('acfIndSecTopContImg', 'image');
-              $contentImage->setSize('large');
-
-              $overlappingImage = new AcfImage;
-              $overlappingImage->useSubfield();
-              $overlappingImage->setObject('acfIndSecTopContOverImg', 'image');
-              $overlappingImage->setSize('large');
-              $overlappingImage->useElement();
-              $overlappingImage->setClasses('m-indexSectionTopContent__image col-xs-24 col-sm-20 col-sm-offset-2');
-
-              $sectionImageTintOpacity = acfButtonGroup('opacity', 'acfIndSecTopContImg', 'tintOpacity', null, true);
-              $sectionImageTintColor = acfButtonGroup('backgroundColor', 'acfIndSecTopContImg', 'tintColor', null, true);
-
-              echo '<div class="m-topIndexSection">';
-                echo '<div class="blue m-topIndexSection__image col-xs-24" style="background: url(' . $contentImage->init() . '); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;">';
-                  if(get_sub_field('acfIndSecTopContImg')['tintImage']) {
-                    echo '<div class="col-xs-24 a-elementTint ' . $sectionImageTintOpacity . ' ' . $sectionImageTintColor .'"></div>';
-                  }
-                echo '</div>'; // .m-topIndexSection__image
-
-                // Overlaping element
-                echo '<div class="a-topIndexSectionContent col-xs-24">';
-                  echo '<div class="container">';
-                    if(!$titleUsed) {
-                      $title->init();
-                    }
-                    $titleUsed = true;
-
-                    if(get_sub_field('acfIndSecTopContTag')['useTagline']) {
-                      $taglineAlignment = acfButtonGroup('textAlignment', 'acfIndSecTopContTag', 'alignment', null, true);
-                      $taglineColor = acfButtonGroup('textColor', 'acfIndSecTopContTag', 'color', null, true);
-
-                      echo '<h3 class="a-indexSectionTopContent__tagline ' . $taglineAlignment . ' ' . $taglineColor . '">';
-                        echo get_bloginfo('description');
-                      echo '</h3>';
-                    }
-
-                    $overlappingImage->init();
-                  echo '</div>'; //.container
-                echo '</div>';// .a-topIndexSectionContent
-              echo '</div>';// .m-topIndexSection
+              include 'frontPageSections/topContentSection.php';
               break;
 
             // Section text
             // -------------------------------------------------
             // -------------------------------------------------
             case 'acfIndSecText':
-              $content = new AcfText;
-              $content->useSubfield();
-
-              // Language control
-              if(get_field('acfIndSecSecLang')) {
-                switch($_COOKIE['language']) {
-                  case get_field('acfLangOptPrimLang', 'option')['code']:
-                    $content->setObject('acfIndSecPrimLangTextCont');
-                    break;
-
-                  case get_field('acfLangOptSecLang', 'option')['code']:
-                    $content->setObject('acfIndSecSecLangTextCont');
-                    break;
-
-                  default:
-                    $content->setObject('acfIndSecPrimLangTextCont');
-                    break;
-                }
-              } else {
-                $content->setObject('acfIndSecPrimLangTextCont');
-              }
-              $content->setElementType('div');
-
-              $contentFontSize = acfButtonGroup('fontSize', 'acfIndSecTextPref', 'size', null, true);
-              $contentTextColor = acfButtonGroup('textColor', 'acfIndSecTextPref', 'color', null, true);
-              $content->setClasses($contentFontSize . ' ' . $contentTextColor);
-
-              echo '<div class="container m-indexSectionContentText">';
-                if(!$titleUsed) {
-                  $title->init();
-                }
-                $titleUsed = true;
-                $content->init();
-              echo '</div>';
-
+              include 'frontPageSections/sectionText.php';
               break;
 
             // Section image
             // -------------------------------------------------
             // -------------------------------------------------
             case 'acfIndSecImage':
-              $desktopImage = new AcfImage;
-              $desktopImage->useSubfield();
-              $desktopImage->setObject('acfIndSecDesktopImg');
-              $desktopImage->useElement();
-              $desktopImage->setClasses('col-xs-16 col-xs-offset-4 hidden-xs');
-
-              echo '<div class="container">';
-                if(!$titleUsed) {
-                  $title->init();
-                }
-                $titleUsed = true;
-                $desktopImage->init();
-
-                if(get_sub_field('acfIndSecMobImg')) {
-                  $mobileImage = new AcfImage;
-                  $mobileImage->useSubfield();
-                  $mobileImage->setObject('acfIndSecMobileImg');
-                  $mobileImage->useElement();
-                  $mobileImage->setClasses('a-indexSectionMobile__image col-xs-24 hidden-sm hidden-md hidden-lg');
-                  $mobileImage->init();
-                }
-              echo '</div>';
+              include 'frontPageSections/sectionImage.php';
               break;
-
+            
             // Contact form
             // -------------------------------------------------
             // -------------------------------------------------
             case 'acfIndSecContactForm':
-              echo '<div class="container">';
-                if(!$titleUsed) {
-                  $title->init();
-                }
-                $titleUsed = true;
-
-                echo '<div class="o-contactFormContent col-xs-24 col-sm-19">';
-                  echo do_shortcode(get_sub_field('acfIndSecContCode'));
-                echo '</div>'; // .o-contactFormContent
-
-                echo '<div class="o-contactFormIcon col-xs-24 col-sm-5">';
-                  $contactIcon = new AcfImage;
-                  $contactIcon->useSubfield();
-                  $contactIcon->setObject('acfIndSecContIcon');
-                  $contactIcon->useElement();
-                  $contactIcon->setClasses('a-contactForm__icon');
-                  $contactIcon->init();
-                echo '</div>'; // .o-contactFormIcon
-              echo '</div>'; // .container
+              include 'frontPageSections/contactForm.php';
               break;
 
             // Knowledgehub grid
@@ -247,103 +132,21 @@ if($query->have_posts()):
             // -------------------------------------------------
             // -------------------------------------------------
             case 'acfIndSecSubTitle':
-              $subtitle = new AcfText;
-              $subtitle->useSubfield();
-
-              // Language control
-              if(get_field('acfIndSecSecLang')) {
-                switch($_COOKIE['language']) {
-                  case get_field('acfLangOptPrimLang', 'option')['code']:
-                    $subtitle->setObject('acfIndSecPrimLangSubTitleText');
-                    break;
-
-                  case get_field('acfLangOptSecLang', 'option')['code']:
-                    $subtitle->setObject('acfIndSecSecLangSubTitleText');
-                    break;
-
-                  default:
-                    $subtitle->setObject('acfIndSecPrimLangSubTitleText');
-                    break;
-                }
-              } else {
-                $subtitle->setObject('acfIndSecPrimLangSubTitleText');
-              }
-
-              $subtitle->setElementType(acfButtonGroup('titleType', 'acfIndSecSubTitlePref', 'size', null, true));
-
-              $subtitleAlignment = acfButtonGroup('textAlignment', 'acfIndSecSubTitlePref', 'alignment', null, true);
-              $subtitleColor = acfButtonGroup('textColor', 'acfIndSecSubTitlePref', 'color', null, true);
-
-              $subtitle->setClasses($subtitleAlignment . ' ' . $subtitleColor);
-              echo '<div class="container m-indexSectionSubtitleContent">';
-                $subtitle->init();
-              echo '</div>';
+              include 'frontPageSections/subtitleSection.php';
               break;
 
             // Dynamic cell's
             // -------------------------------------------------
             // -------------------------------------------------
             case 'acfIndSecDynCells':
-              echo '<div class="container m-indexSectionDynamicCellsContent">';
-
-                if(!$titleUsed) {
-                  $title->init();
-                }
-                $titleUsed = true;
-
-                dynamicCells();
-
-              echo '</div>'; // .container
-              break;
-
-            // Button
-            // -------------------------------------------------
-            // -------------------------------------------------
-            case 'acfIndSecBtn':
-              $buttonAlignment = acfButtonGroup('textAlignment', 'acfIndSecBtnPref', 'alignment', null, true);
-              $buttonColor = acfButtonGroup('buttonColor', 'acfIndSecBtnPref', 'color', null, true);
-
-              if(get_field('acfIndSecSecLang')) {
-                switch($_COOKIE['language']) {
-                  case get_field('acfLangOptPrimLang', 'option')['code']:
-                    $buttonText = get_sub_field('acfIndSecBtnPref')['primLangBtn'];
-                    break;
-
-                  case get_field('acfLangOptSecLang', 'option')['code']:
-                    $buttonText = get_sub_field('acfIndSecBtnPref')['secLangBtn'];
-                    break;
-
-                  default:
-                    $buttonText = get_sub_field('acfIndSecBtnPref')['primLangBtn'];
-                    break;
-                }
-              } else {
-
-                $buttonText = get_sub_field('acfIndSecBtnPref')['primLangBtn'];
-              }
-
-              echo '
-                <div class="container m-indexSectionButton ' . $buttonAlignment . '">
-                  <a href="' . get_sub_field('acfIndSecBtnPref')['link'] . '" class ="a-btn ' . $buttonColor . '"/>'
-                  . $buttonText .'
-                  </a>
-                </div>
-              ';
+              include 'frontPageSections/dynamicCellsSection.php';
               break;
 
             // List
             // -------------------------------------------------
             // -------------------------------------------------
             case 'acfIndSecList':
-              echo '<div class="container m-indexSectionList">';
-                if(!$titleUsed) {
-                  $title->init();
-                }
-                $titleUsed = true;
-
-                textList('-indexLineHeight');
-
-              echo '</div>'; // .m-indexSectionList
+              include 'frontPageSections/listSection.php';
               break;
           }
         }

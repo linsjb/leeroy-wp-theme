@@ -1,8 +1,8 @@
 /*
 Theme Name: Leeroy
 Author: Linus Sjöbro
-Description: Custom made theme for Leeroy on host leeroy.se. A theme with flexibility in mind that has a lot of dynamic elements to build a structured website.
-Version: 1.1.5
+Description: Leeroy.se custom theme.
+Version: 1.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: leeroy
@@ -16,7 +16,7 @@ Text Domain: leeroy
 }
 #menu-mobilemastermenu .current_page_item a,
 #menu-mobilemastermenu .current_page_parent a {
-  color: #FDFDFD !important;
+  color: #fdfdfd !important;
 }
 .aligncenter {
   margin: 0 auto;
@@ -26,9 +26,9 @@ Text Domain: leeroy
 }
 .caldera-grid .alert-success {
   background: none !important;
-  color: #442D5E !important;
+  color: #442d5e !important;
   font-size: 30px !important;
-  font-family: 'proxima_novabold' !important;
+  font-family: "proxima_novabold" !important;
 }
 .container-fluid {
   padding: 0;
@@ -49,10 +49,10 @@ Text Domain: leeroy
   display: block !important;
 }
 .activeKnowHubMenu {
-  color: #0B4F6C !important;
+  color: #0b4f6c !important;
 }
 .activeKnowHubMenu:after {
-  background-image: url('images/arrowBlue.svg') !important;
+  background-image: url("images/arrowBlue.svg") !important;
 }
 body {
   padding: 0px;
@@ -60,14 +60,23 @@ body {
 }
 p,
 a,
-span {
-  font-family: 'proxima_novaregular';
+span,
+ul {
+  font-family: "proxima_novaregular";
   text-decoration: none;
   line-height: 1.6;
-  margin: 5px;
+}
+p strong,
+a strong,
+span strong,
+ul strong {
+  font-family: "proxima_novabold";
+}
+a {
+  margin: 0;
 }
 h1 {
-  font-family: 'FreightDispProLight-Regular';
+  font-family: "FreightDispProLight-Regular";
   font-weight: normal;
   font-style: normal;
   font-size: 45px;
@@ -80,14 +89,14 @@ h1 {
   }
 }
 h2 {
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-weight: normal;
   font-size: 40px;
   margin: 0;
   padding: 0;
 }
 h3 {
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-weight: normal;
   font-style: normal;
   font-size: 25px;
@@ -98,7 +107,7 @@ h3 {
   }
 }
 h4 {
-  font-family: 'FreightDispProBook-Regular';
+  font-family: "FreightDispProBook-Regular";
   font-weight: normal;
   font-style: normal;
   font-size: 22px;
@@ -109,7 +118,7 @@ h4 {
   }
 }
 h5 {
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-weight: normal;
   font-size: 18px;
   letter-spacing: 0.1px;
@@ -118,13 +127,13 @@ h6 {
   font-size: 10px;
 }
 .contactFormLabels {
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-size: 18px;
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 .imageDescription {
   font-size: 14px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   opacity: 0.7;
 }
 .verticalAlign {
@@ -147,7 +156,7 @@ h6 {
   border-radius: 8px;
   border-style: solid;
   border-width: 2px;
-  border-color: #FDFDFD;
+  border-color: #fdfdfd;
   padding: 10px 0;
 }
 /*
@@ -248,7 +257,7 @@ h6 {
   -o-animation-delay: 400ms;
 }
 .o-mobileHeaderMenu {
-  background-color: #0B4F6C;
+  background-color: #0b4f6c;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -328,7 +337,7 @@ h6 {
   }
 }
 .o-knowledgeHubMenu {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
   text-align: center;
   border-bottom: 1px solid #cfcfcf;
   z-index: 1;
@@ -336,12 +345,12 @@ h6 {
   white-space: nowrap;
 }
 .o-knowledgeHubMenuDropdown {
-  background-color: #0B4F6C;
+  background-color: #0b4f6c;
   display: none;
   z-index: 2;
   -webkit-animation-duration: 0.2s;
   padding: 5px 0;
-  color: #FDFDFD;
+  color: #fdfdfd;
   font-size: 14px;
   text-align: center;
 }
@@ -350,7 +359,7 @@ h6 {
 }
 .o-knowledgeHub {
   padding-bottom: 30px;
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
 }
 .o-knowledgeHubContent {
   margin-top: 90px;
@@ -369,22 +378,22 @@ h6 {
 .o-singlePost {
   padding-top: 50px;
   padding-bottom: 80px;
-  background: #FDFDFD;
-  color: #2F2F2F;
+  background: #fdfdfd;
+  color: #2f2f2f;
   font-size: 16px;
 }
 .o-singlePostContentSlider {
-  background-color: #FDFDFD !important;
+  background-color: #fdfdfd !important;
   border: 0 !important;
 }
 .o-singlePostContentSlider .flex-control-paging li a:hover {
-  background-color: #C9AD74;
+  background-color: #c9ad74;
 }
 .o-singlePostContentSlider .flex-control-paging li a.flex-active {
-  background-color: #C9AD74;
+  background-color: #c9ad74;
 }
 .o-archive {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
   padding-bottom: 50px;
   padding-top: 50px;
 }
@@ -428,7 +437,7 @@ h6 {
 .o-archiveContent__title {
   font-size: 40px;
   font-family: 'freightDispProBold-Regular';
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 .o-languageSelector__arrow {
   width: 0;
@@ -449,7 +458,7 @@ h6 {
   z-index: 5;
 }
 .o-footer__slogan {
-  color: #FDFDFD;
+  color: #fdfdfd;
   font-size: 20px;
   padding-left: 40px;
   font-family: 'proxima_novalight_italic';
@@ -474,14 +483,14 @@ h6 {
 * Author: Linus Sjöbro
 */
 .o-header--background {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
   border-bottom: #e0e0e0 solid 1px;
 }
 .o-knowledgeHubCell.-dynamic {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  color: #FDFDFD;
+  color: #fdfdfd;
   border: 1px solid #d5d5d5;
   border-radius: 2px;
   box-shadow: 0 3px 3px 0 rgba(233, 233, 233, 0.5);
@@ -492,7 +501,7 @@ h6 {
   align-content: center;
 }
 .o-knowledgeHubCell.-dynamic::after {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
   position: absolute;
   content: "";
   top: 20px;
@@ -553,7 +562,7 @@ h6 {
   height: 60px;
 }
 .m-mobileHeaderMenuBtn {
-  color: #FDFDFD;
+  color: #fdfdfd;
   height: 100%;
 }
 .m-mobileHeaderMenuBtn .hamburger {
@@ -570,7 +579,7 @@ h6 {
 .m-mobileHeaderMenuBtn .hamburger-inner,
 .m-mobileHeaderMenuBtn .hamburger-inner::before,
 .m-mobileHeaderMenuBtn .hamburger-inner::after {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
 }
 .m-indexSectionContentText {
   margin-top: 50px;
@@ -611,9 +620,64 @@ h6 {
   padding-right: 15px;
 }
 .m-popupFormContent {
-  background: #FDFDFD;
+  background: #fdfdfd;
   padding: 25px;
   border-radius: 9px;
+}
+.m-aboutPageList {
+  list-style-type: none;
+  counter-reset: steps;
+  margin: 0;
+  margin-top: 40px;
+  padding: 0;
+}
+.m-aboutPageList li {
+  font-size: 16px;
+  padding-bottom: 60px;
+  padding-left: 65px;
+  padding-top: 11px;
+  position: relative;
+  margin: 0;
+}
+.m-aboutPageList li:after {
+  content: counter(steps);
+  counter-increment: steps;
+  display: inline-block;
+  position: absolute;
+  height: 46px;
+  width: 46px;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border: 3px solid #0b4f6c;
+  text-align: center;
+  line-height: 44px;
+  background: #0b4f6c;
+  color: #fdfdfd;
+}
+.m-aboutPageList li:before {
+  position: absolute;
+  left: 22px;
+  top: 0;
+  content: "";
+  height: 100%;
+  width: 0;
+  border-left: 3px solid #0b4f6c;
+}
+.m-aboutPageList li:last-of-type:before {
+  border: none;
+}
+.m-aboutPageList li:last-of-type:after {
+  border-color: #806e4a;
+  background: #806e4a;
+  color: #fdfdfd;
+}
+.m-aboutPageCard {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .m-aboutTimelineContent {
   padding-left: 15px;
@@ -661,7 +725,7 @@ h6 {
   padding: 0;
 }
 .m-knowledgeHubCellRocket {
-  background: #C9AD74;
+  background: #c9ad74;
   width: 80%;
   height: 80%;
   border-radius: 50%;
@@ -674,7 +738,7 @@ h6 {
   border-radius: 8px;
   box-shadow: none;
   padding: 10px 20px;
-  font-family: 'proxima_novaregular' !important;
+  font-family: "proxima_novaregular" !important;
   text-decoration: none;
   font-size: 14px;
   padding-left: 50px;
@@ -731,12 +795,12 @@ h6 {
 }
 .m-singlePostContent blockquote {
   font-size: 25px;
-  font-family: 'proxima_novabold';
+  font-family: "proxima_novabold";
   font-weight: bold;
-  color: #0B4F6C;
+  color: #0b4f6c;
 }
 .m-singlePostContent a {
-  color: #442D5E;
+  color: #442d5e;
   font-weight: bold;
   text-decoration: none;
   margin: 0;
@@ -758,12 +822,12 @@ h6 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 200ms;
   -o-transition-timing-function: ease-in-out;
-  color: #C9AD74;
+  color: #c9ad74;
 }
 .m-singlePostContent .wp-caption-text {
   margin: 0;
   font-size: 14px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   opacity: 0.7;
   margin-bottom: 20px;
 }
@@ -796,47 +860,85 @@ h6 {
   text-align: right;
 }
 .m-contactFormInput {
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-size: 18px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   padding-bottom: 50px;
 }
 .m-contactFormInput input {
-  background-color: #FDFDFD !important;
+  background-color: #fdfdfd !important;
   border: 0 !important;
   box-shadow: none !important;
-  border-bottom: 2px solid #442D5E !important;
+  border-bottom: 2px solid #442d5e !important;
   font-size: 18px !important;
-  color: #2F2F2F !important;
+  color: #2f2f2f !important;
 }
 .m-contactFormCheckbox {
   margin-bottom: 25px !important;
 }
 .m-contactFormCheckbox div > .checkbox label {
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-size: 18px;
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 .m-contactFormCheckbox div > .checkbox label input {
   margin-right: 20px;
 }
 .m-contactFormMessage {
   margin-bottom: 25px !important;
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-size: 18px;
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 .m-contactFormMessage textarea {
   font-size: 16px !important;
-  border: 2px solid #442D5E !important;
+  border: 2px solid #442d5e !important;
   box-shadow: none !important;
-  background-color: #FDFDFD !important;
+  background-color: #fdfdfd !important;
 }
 /*
 * Filename: m-element.less
 * Description: Molecule elements in ABEM CSS method
 * Author: Linus Sjöbro
 */
+.m-aboutPageList__item {
+  padding: 0 0 20px 50px;
+  position: relative;
+  margin: 0;
+}
+.m-aboutPageList__item:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: counter(steps);
+  counter-increment: steps;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  text-align: center;
+  line-height: 24px;
+  background: #fff;
+}
+.m-aboutPageList__item:before {
+  position: absolute;
+  left: 13px;
+  top: 0;
+  content: "";
+  height: 100%;
+  width: 0;
+  border-left: 2px dashed #000;
+}
+.m-aboutPageList__item:last-of-type:before {
+  border: none;
+}
+.m-aboutPageCard__title {
+  font-size: 18px;
+}
+.m-aboutPageCard__content {
+  font-size: 16px;
+}
 .m-header__nav {
   height: 100%;
   padding: 15px;
@@ -857,7 +959,7 @@ h6 {
   margin-left: 10px;
 }
 .m-header__nav ul li a {
-  color: #FDFDFD;
+  color: #fdfdfd;
   text-decoration: none;
   font-size: 16px;
   text-align: left;
@@ -872,11 +974,11 @@ h6 {
   padding: 10px 20px;
 }
 .m-header__nav ul li a:hover {
-  color: #C9AD74;
+  color: #c9ad74;
 }
 .m-headerLanguage__flag {
   border-radius: 50%;
-  border: 2px solid #FDFDFD;
+  border: 2px solid #fdfdfd;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -903,7 +1005,7 @@ h6 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 0.2s;
   -o-transition-timing-function: ease-in-out;
-  color: #FDFDFD;
+  color: #fdfdfd;
 }
 .m-topIndexSection__image {
   padding: 0;
@@ -949,19 +1051,19 @@ h6 {
   pointer-events: none;
 }
 .m-footerContentColumn__title {
-  color: #FDFDFD;
+  color: #fdfdfd;
   margin: 0;
   margin-bottom: 35px;
 }
 .m-singlePostInfo__text {
   margin-bottom: 40px;
-  color: #0B4F6C;
+  color: #0b4f6c;
 }
 .m-knowledgeHubHoverContent__text {
   z-index: 3;
   font-size: 18px;
-  font-family: 'proxima_novabold';
-  color: #2F2F2F;
+  font-family: "proxima_novabold";
+  color: #2f2f2f;
   margin-bottom: 5px;
 }
 .m-knowledgeHubHoverContent__icon {
@@ -988,9 +1090,9 @@ h6 {
   max-width: 500px;
 }
 .m-error404__text {
-  color: #2F2F2F;
+  color: #2f2f2f;
   font-size: 30px;
-  font-family: 'proxima_novabold';
+  font-family: "proxima_novabold";
 }
 .m-error404__button {
   transition: 0.2s;
@@ -1003,16 +1105,16 @@ h6 {
   -o-transition-timing-function: ease-in-out;
   text-decoration: none;
   font-size: 20px;
-  font-family: 'proxima_novabold';
-  color: #2F2F2F;
+  font-family: "proxima_novabold";
+  color: #2f2f2f;
   padding: 15px 20px;
   border: 4px solid;
-  border-color: #2F2F2F;
+  border-color: #2f2f2f;
   border-radius: 46px;
 }
 .m-error404__button:hover {
-  color: #C9AD74;
-  border-color: #C9AD74;
+  color: #c9ad74;
+  border-color: #c9ad74;
 }
 /*
 * Filename: m-modifier.less
@@ -1025,7 +1127,7 @@ h6 {
 .m-mobileHeaderMenuBtn--darkColor .hamburger-inner,
 .m-mobileHeaderMenuBtn--darkColor .hamburger-inner::before,
 .m-mobileHeaderMenuBtn--darkColor .hamburger-inner::after {
-  background-color: #2F2F2F;
+  background-color: #2f2f2f;
 }
 .m-dynamicCell__image.-nonHover {
   opacity: 1;
@@ -1054,9 +1156,18 @@ h6 {
 * Description: Atom blocks in ABEM CSS method
 * Author: Linus Sjöbro
 */
+.a-aboutPageCardIcon {
+  height: 70px;
+  margin-bottom: 15px;
+}
 .a-languageSelectorListItem {
   list-style: none;
   padding: 7px 0;
+}
+.a-topIndexSectionCampaign {
+  font-size: 18px;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .a-topIndexSectionContent {
   position: absolute;
@@ -1123,7 +1234,7 @@ h6 {
 }
 .a-footerContentColumnLink {
   text-decoration: none;
-  color: #FDFDFD;
+  color: #fdfdfd;
   margin: 0;
   padding: 0;
 }
@@ -1139,6 +1250,9 @@ h6 {
 * Description: Atom elements in ABEM CSS method
 * Author: Linus Sjöbro
 */
+.a-aboutPageCardIcon__img {
+  height: 100%;
+}
 .a-headerLogo__link {
   display: block;
   height: 100%;
@@ -1151,14 +1265,14 @@ h6 {
   pointer-events: none;
 }
 .a-languageSelectorListItem__link {
-  font-family: 'proxima_novaregular';
+  font-family: "proxima_novaregular";
   font-size: 16px;
-  color: #0B4F6C;
+  color: #0b4f6c;
   background-color: rgba(0, 0, 0, 0);
   border: none;
 }
 .a-languageSelectorListItem__link:hover {
-  color: #C9AD74;
+  color: #c9ad74;
   cursor: pointer;
 }
 .a-languageSelectorListItem__link:focus {
@@ -1177,10 +1291,10 @@ h6 {
 }
 .a-listContent__item {
   list-style: none;
-  font-family: 'proxima_novaregular';
+  font-family: "proxima_novaregular";
 }
 .a-footerNav__title {
-  color: #FDFDFD;
+  color: #fdfdfd;
   margin-bottom: 30px;
   font-size: 18px;
 }
@@ -1195,7 +1309,7 @@ h6 {
   -o-transition: 200ms;
   -o-transition-timing-function: ease-in-out;
   margin: 0;
-  color: #FDFDFD;
+  color: #fdfdfd;
 }
 @media screen and (max-width: 767px) {
   .a-footerContentColumnLink__title {
@@ -1218,7 +1332,7 @@ h6 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 200ms;
   -o-transition-timing-function: ease-in-out;
-  color: #C9AD74;
+  color: #c9ad74;
 }
 .a-footerContentColumn__nav {
   display: -webkit-flex;
@@ -1254,43 +1368,40 @@ h6 {
   -o-transition: 200ms;
   -o-transition-timing-function: ease-in-out;
   margin: 0;
-  color: #FDFDFD;
+  color: #fdfdfd;
 }
 .a-footerContentColumn__nav ul li a:hover {
-  color: #C9AD74;
+  color: #c9ad74;
 }
 .a-informationPage__title {
   margin: 0;
   margin-bottom: 10px;
-  color: #FDFDFD;
+  color: #fdfdfd;
 }
 .a-informationPage__slogan {
   font-size: 22px;
-  color: #FDFDFD;
+  color: #fdfdfd;
   z-index: 10;
 }
 .a-aboutTimeline__title {
   font-size: 35px;
-  color: #442D5E;
+  color: #442d5e;
   margin-bottom: 40px;
 }
 .a-aboutOffice__title {
   font-size: 16px;
-  font-family: 'proxima_novabold';
+  font-family: "proxima_novabold";
 }
 .a-aboutOffices__icon {
   width: 60px;
   height: 60px;
 }
-.a-aboutPageSection__header {
-  font-size: 35px;
-}
 .a-aboutPageSection__subheader {
-  margin-top: 20px;
+  font-family: "proxima_novaregular";
 }
 .a-aboutContact__header {
   font-size: 30px;
-  color: #442D5E;
+  color: #442d5e;
   margin-bottom: 30px;
 }
 .a-twoColumnsProductPage__title {
@@ -1304,7 +1415,7 @@ h6 {
   margin: 0;
   padding: 0;
   padding-bottom: 15px;
-  font-family: 'proxima_novaitalic';
+  font-family: "proxima_novaitalic";
 }
 .a-twoColumnsProductPage__button {
   width: 150px;
@@ -1322,7 +1433,7 @@ h6 {
 .a-popupFormContent__title {
   padding: 0;
   margin: 0;
-  color: #442D5E;
+  color: #442d5e;
   margin-bottom: 25px;
 }
 .a-popupFormContent__close:hover {
@@ -1335,7 +1446,7 @@ h6 {
   margin-bottom: 5px;
 }
 .a-knowledgeHubCell__caseTitle:before {
-  content: 'Case: ';
+  content: "Case: ";
 }
 .a-knowledgehubMenuDropdownItem {
   display: inline-block;
@@ -1343,7 +1454,7 @@ h6 {
   margin-right: 5px;
 }
 .a-knowledgehubMenuDropdownItem a {
-  color: #FDFDFD;
+  color: #fdfdfd;
   display: block;
   padding: 20px 10px;
 }
@@ -1356,7 +1467,7 @@ h6 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 0.2s;
   -o-transition-timing-function: ease-in-out;
-  color: #C9AD74;
+  color: #c9ad74;
 }
 .a-knowledgeHubMenuList__item {
   padding: 20px 10px;
@@ -1365,7 +1476,7 @@ h6 {
   margin: 10px 15px;
   font-size: 14px;
   text-decoration: none;
-  font-family: 'proxima_novabold';
+  font-family: "proxima_novabold";
   transition: 0.2s;
   transition-timing-function: ease-in-out;
   -webkit-transition: 0.2s;
@@ -1374,7 +1485,7 @@ h6 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 0.2s;
   -o-transition-timing-function: ease-in-out;
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 .a-knowledgeHubMenuList__item:after {
   transition: 0.2s;
@@ -1385,56 +1496,56 @@ h6 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 0.2s;
   -o-transition-timing-function: ease-in-out;
-  background-image: url('images/arrowBlack.svg');
+  background-image: url("images/arrowBlack.svg");
   display: inline-block;
   width: 15px;
   height: 15px;
   position: relative;
   top: 4px;
   left: 3px;
-  content: '';
+  content: "";
 }
 .a-knowledgeHubMenuList__item:hover {
-  color: #0B4F6C;
+  color: #0b4f6c;
   cursor: pointer;
 }
 .a-knowledgeHubMenuList__item:hover:after {
-  background-image: url('images/arrowBlue.svg');
+  background-image: url("images/arrowBlue.svg");
 }
 .a-singlePost__title,
 .a-singlePost__caseTitle {
   font-size: 40px;
   margin-top: 0;
   margin-bottom: 12px;
-  font-family: 'freightDispProBold-Regular';
-  color: #2F2F2F;
+  font-family: "freightDispProBold-Regular";
+  color: #2f2f2f;
 }
 .a-singlePost__caseTitle:before {
-  content: 'Case: ';
+  content: "Case: ";
 }
 .a-singlePostInfo__category {
   color: #aaaaaa;
   font-size: 16px;
-  font-family: 'proxima_novaregular';
+  font-family: "proxima_novaregular";
   text-decoration: none;
 }
 .a-singlePostInfo__category:hover {
-  color: #C9AD74;
+  color: #c9ad74;
 }
 .a-singlePostContent__galleryImgDesc {
   margin-top: 5px;
   font-size: 14px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   opacity: 0.7;
   border: 0;
 }
 .a-singlePostInfo__author {
   font-size: 18px;
-  color: #0B4F6C;
+  color: #0b4f6c;
 }
 .a-singlePostInfo__date {
   font-size: 16px;
-  color: #0B4F6C;
+  color: #0b4f6c;
 }
 .a-singlePostShareListItem__link {
   display: inline-block;
@@ -1488,7 +1599,7 @@ h6 {
   -o-transition-timing-function: ease-in-out;
 }
 .a-postTags__tag:hover {
-  color: #C9AD74;
+  color: #c9ad74;
 }
 .a-postAuthor__image {
   border-radius: 50%;
@@ -1508,7 +1619,7 @@ h6 {
   margin: 0;
 }
 .a-postAuthor_description {
-  font-family: 'proxima_novalight_italic';
+  font-family: "proxima_novalight_italic";
   color: #aaaaaa;
   font-size: 16px;
   margin: 0;
@@ -1531,26 +1642,26 @@ h6 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 0.2s;
   -o-transition-timing-function: ease-in-out;
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 .a-singlePostRightBox__item a:hover {
-  color: #C9AD74;
+  color: #c9ad74;
 }
 .a-btn {
   border-radius: 8px;
   box-shadow: none;
   padding: 10px 20px;
-  font-family: 'proxima_novaregular' !important;
+  font-family: "proxima_novaregular" !important;
   text-decoration: none;
 }
 .a-headerNav__loginButton a {
   border-radius: 8px;
   border-style: solid;
   border-width: 2px;
-  border-color: #FDFDFD;
+  border-color: #fdfdfd;
   padding: 10px 0;
   padding: 10px 20px !important;
-  font-family: 'proxima_novaregular';
+  font-family: "proxima_novaregular";
 }
 .a-contactForm__icon {
   position: relative;
@@ -1572,34 +1683,34 @@ h6 {
   text-align: right;
 }
 .a-textColor--black {
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 .a-textColor--purple {
-  color: #442D5E;
+  color: #442d5e;
 }
 .a-textColor--white {
-  color: #FDFDFD;
+  color: #fdfdfd;
 }
 .a-textColor--blue {
-  color: #0B4F6C;
+  color: #0b4f6c;
 }
 .a-textColor--gold {
-  color: #C9AD74;
+  color: #c9ad74;
 }
 .a-backgroundColor--black {
-  background-color: #2F2F2F;
+  background-color: #2f2f2f;
 }
 .a-backgroundColor--purple {
-  background-color: #442D5E;
+  background-color: #442d5e;
 }
 .a-backgroundColor--white {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
 }
 .a-backgroundColor--blue {
-  background-color: #0B4F6C;
+  background-color: #0b4f6c;
 }
 .a-backgroundColor--gold {
-  background-color: #C9AD74;
+  background-color: #c9ad74;
 }
 .a-fontSize--20 {
   font-size: 20px;
@@ -1658,7 +1769,7 @@ h6 {
   }
 }
 .a-languageSelectorListItem__link.-current {
-  color: #C9AD74;
+  color: #c9ad74;
   font-weight: bold;
 }
 .-leftAlignment {
@@ -1704,40 +1815,40 @@ h6 {
   font-size: 45px;
 }
 .-textColorWhite {
-  color: #FDFDFD;
+  color: #fdfdfd;
 }
 .-textColorGrey {
   color: rgba(47, 47, 47, 0.41);
 }
 .-textColorBlack {
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 .-textColorBlue {
-  color: #0B4F6C;
+  color: #0b4f6c;
 }
 .-textColorGold {
-  color: #C9AD74;
+  color: #c9ad74;
 }
 .-textColorPurple {
-  color: #442D5E;
+  color: #442d5e;
 }
 .-backgroundColorWhite {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
 }
 .-backgroundColorGrey {
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
 .-backgroundColorBlack {
-  background-color: #2F2F2F;
+  background-color: #2f2f2f;
 }
 .-backgroundColorBlue {
-  background-color: #0B4F6C;
+  background-color: #0b4f6c;
 }
 .-backgroundColorGold {
-  background-color: #C9AD74;
+  background-color: #c9ad74;
 }
 .-backgroundColorPurple {
-  background-color: #442D5E;
+  background-color: #442d5e;
 }
 .-verticalHeight20 {
   min-height: 20vh;
@@ -1795,8 +1906,8 @@ h6 {
   width: 100%;
 }
 .-btnPurple {
-  background-color: #442D5E;
-  color: #FDFDFD;
+  background-color: #442d5e;
+  color: #fdfdfd;
   border: solid 0.9px #ffffff;
   transition: 200ms;
   transition-timing-function: ease-in-out;
@@ -1816,11 +1927,11 @@ h6 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 200ms;
   -o-transition-timing-function: ease-in-out;
-  background-color: #2A1B3B;
+  background-color: #2a1b3b;
 }
 .-btnBlue {
-  background-color: #0B4F6C;
-  color: #FDFDFD;
+  background-color: #0b4f6c;
+  color: #fdfdfd;
   border: solid 0.9px #ffffff;
   transition: 200ms;
   transition-timing-function: ease-in-out;
@@ -1840,12 +1951,12 @@ h6 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 200ms;
   -o-transition-timing-function: ease-in-out;
-  background-color: #072E3F;
+  background-color: #072e3f;
 }
 .-btnGold {
-  background-color: #C9AD74;
-  color: #FDFDFD;
-  border: solid 0.9px #ffffff;
+  background-color: #c9ad74;
+  color: #fdfdfd;
+  border: solid 0.9px #806e4a;
   transition: 200ms;
   transition-timing-function: ease-in-out;
   -webkit-transition: 200ms;
@@ -1864,7 +1975,7 @@ h6 {
   -moz-transition-timing-function: ease-in-out;
   -o-transition: 200ms;
   -o-transition-timing-function: ease-in-out;
-  background-color: #806E4A;
+  background-color: #806e4a;
 }
 .-opacity20 {
   opacity: 0.2;

@@ -23,217 +23,31 @@ if(have_posts()) {
         // -------------------------------------------------
         // -------------------------------------------------
         case 'acfAboutText':
-          $textSectionBackgroundColor = acfButtonGroup('backgroundColor', 'acfAboutTextSecPref', 'backgroundColor', null, true);
-
-          echo '<div class="o-aboutPage col-xs-24 ' . $textSectionBackgroundColor . '" id="about-leeroy">';
-            $aboutText = new AcfText;
-            $aboutText->useSubfield();
-
-            // Language control
-            if(get_field('acfAboutSecLang')) {
-              switch($_COOKIE['language']) {
-                  case get_field('acfLangOptPrimLang', 'option')['code']:
-                    $aboutText->setObject('acfAboutTextContPrimLang');
-                    break;
-
-                  case get_field('acfLangOptSecLang', 'option')['code']:
-                    $aboutText->setObject('acfAboutTextContSecLang');
-                    break;
-
-                  default:
-                    $aboutText->setObject('acfAboutTextContPrimLang');
-                    break;
-                }
-            } else {
-              $aboutText->setObject('acfAboutTextContPrimLang');
-            }
-
-            $aboutText->setElementType('div');
-
-            $aboutTextColor = acfButtonGroup('textColor', 'acfAboutTextPref', 'color', null, true);
-            $aboutTextSize = acfButtonGroup('fontSize', 'acfAboutTextPref', 'size', null, true);
-            $aboutText->setClasses('container m-aboutPageContent ' . $aboutTextColor .  ' ' . $aboutTextSize);
-
-            $aboutText->init();
-          echo '</div>'; // .o.aboutPage
-
+          include 'aboutTemplateSections/textSection.php';
           break; // case - acfAboutText
 
         case 'acfAboutOffices':
-          $officeIcon = new AcfImage;
-          $officeIcon->useSubfield();
-          $officeIcon->setObject('acfAboutOfficesPref', 'icon');
-          $officeIcon->useElement();
-          $officeIcon->setClasses('a-aboutOffices__icon');
-
-          $officesSectionBackgroundColor = acfButtonGroup('backgroundColor', 'acfAboutOfficesSecPref', 'backgroundColor', null, true);
-          $officeSectionTextColor = acfButtonGroup('textColor', 'acfAboutOfficesPref', 'color', null, true);
-          echo '<div class="o-aboutPage col-xs-24 ' . $officesSectionBackgroundColor . '">';
-            echo '<div class="container o-aboutPageContent">';
-
-              echo '<div class="m-aboutOfficesIcon col-xs-4">';
-               $officeIcon->init();
-              echo '</div>'; // .m-aboutOfficesIcon
-
-              if(have_rows('acfAboutOfficesContent')) {
-                echo '<div class="col-xs-24 col-sm-16">';
-                  while(have_rows('acfAboutOfficesContent')) {
-                    the_row();
-                    $officeTitle = new AcfText;
-                    $officeTitle->useSubfield();
-
-                    // Language control
-                    if(get_field('acfAboutSecLang')) {
-                      switch($_COOKIE['language']) {
-                        case get_field('acfLangOptPrimLang', 'option')['code']:
-                          $officeTitle->setObject('primLangTitle');
-                          break;
-
-                        case get_field('acfLangOptSecLang', 'option')['code']:
-                          $officeTitle->setObject('secLangTitle');
-                          break;
-
-                        default:
-                          $officeTitle->setObject('primLangTitle');
-                          break;
-                      }
-                    } else {
-                      $officeTitle->setObject('primLangTitle');
-                    }
-
-                    $officeTitle->setElementType('p');
-                    $officeTitle->setClasses('a-aboutOffice__title ' . $officeSectionTextColor);
-
-                    $officeInformation = new AcfText;
-                    $officeInformation->useSubfield();
-                    $officeInformation->setObject('information');
-                    $officeInformation->setElementType('div');
-                    $officeInformation->setClasses('a-aboutOfficesInfo ' . $officeSectionTextColor);
-
-                    echo '<div class="m-aboutOfficeCell col-xs-24 col-sm-10 col-sm-offset-2">';
-                      $officeTitle->init();
-                      $officeInformation->init();
-                    echo '</div>'; //.m-aboutOfficeCell
-                  }
-                  echo '</div>'; // .col-xs-24
-              }
-            echo '</div>'; // .o-aboutPageContent
-          echo '</div>'; // .o-aboutPage
+          include 'aboutTemplateSections/officesSection.php';
           break;
 
         case 'acfAboutImage':
-          $imageSectionTitle = new AcfText;
-          $imageSectionTitle->useSubfield();
-          $imageSectionTitle->setObject('acfAboutImageTitlePref', 'title');
-          $imageSectionTitle->setElementType();
-
-          $imageSectionTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutImageTitlePref', 'alignment', null, true);
-          $imageSectionTitleColor = acfButtonGroup('textColor', 'acfAboutImageTitlePref', 'color', null, true);
-
-          $imageSectionTitle->setClasses('a-aboutPageSection__header ' . $imageSectionTitleAlignment . ' ' . $imageSectionTitleColor);
-
-          echo '<div class="o-aboutPage col-xs-24" style="background-color:' . get_sub_field('acfAboutImageSectionPref')['backgroundColor'] . '">';
-            echo '<div class="container o-aboutPageContent">';
-              $imageSectionTitle->init();
-              $aboutDesktopImage = new AcfImage;
-              $aboutDesktopImage->useSubfield();
-              $aboutDesktopImage->setObject('acfAboutImageGroup', 'desktopImage');
-              $aboutDesktopImage->useElement();
-
-              if(get_sub_field('acfAboutImageGroup')['MobileImageCheck']) {
-                $aboutDesktopImage->setClasses('a-aboutImage__desktopImage col-xs-24 hidden-xs');
-                $aboutDesktopImage->init();
-
-                $aboutMobileImage = new AcfImage;
-                $aboutMobileImage->useSubfield();
-                $aboutMobileImage->setObject('acfAboutImageGroup', 'mobileImage');
-                $aboutMobileImage->useElement();
-                $aboutMobileImage->setClasses('a-aboutImage__mobileImage col-xs-24 hidden-sm hidden-md hidden-lg');
-                $aboutMobileImage->init();
-              } else {
-                $aboutDesktopImage->setClasses('a-aboutImage__desktopImage col-xs-24');
-                $aboutDesktopImage->init();
-              }
-            echo '</div>'; // .o-aboutPageContent
-          echo '</div>'; // .o-aboutPage
-
+          include 'aboutTemplateSections/imageSection.php';
           break; // case - acfAboutImage
-
+        
         case 'acfAboutForm':
-          $formSectionTitle = new AcfText;
-          $formSectionTitle->useSubfield();
-
-          // Language control
-          if(get_field('acfAboutSecLang')) {
-            switch($_COOKIE['language']) {
-              case 'en':
-                $formSectionTitle->setObject('acfAboutFormTitlePref', 'primLangTitle');
-                break;
-
-              case 'sv':
-                $formSectionTitle->setObject('acfAboutFormTitlePref', 'secLangTitle');
-                break;
-
-              default:
-                $formSectionTitle->setObject('acfAboutFormTitlePref', 'primLangTitle');
-                break;
-            }
-          } else {
-            $formSectionTitle->setObject('acfAboutFormTitlePref', 'primLangTitle');
-          }
-
-          $formSectionTitle->setElementType('h3');
-
-          $formSectionTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutFormTitlePref', 'alignment', null, true);
-          $formSectionTitleTextColor = acfButtonGroup('textColor', 'acfAboutFormTitlePref', 'color', null, true);
-          
-          $formSectionTitle->setClasses('a-aboutPageSection__header ' . $formSectionTitleAlignment . ' ' . $formSectionTitleTextColor . ' ');
-          
-          $formSectionSubheader = new AcfText;
-          $formSectionSubheader->useSubfield();
-          $formSectionSubheader->setObject('acfAboutFormTitlePref', 'subheader');
-          $formSectionSubheader->setElementType('h4');
-
-          $formSectionSubheaderColor = acfButtonGroup('textColor', 'acfAboutFormTitlePref', 'subheaderColor', null, true);
-          $formSectionSubheader->setClasses('a-aboutPageSection__subheader ' . $formSectionTitleAlignment . ' ' . $formSectionSubheaderColor . ' ');
-
-          $formSectionIcon = new AcfImage;
-          $formSectionIcon->useSubfield();
-          $formSectionIcon->setObject('acfAboutFormSecPref', 'icon');
-          $formSectionIcon->useElement();
-          $formSectionIcon->setClasses('a-contactForm__icon');
-
-          $formSectionShortcode = new AcfText;
-          $formSectionShortcode->useSubfield();
-          $formSectionShortcode->setObject('acfAboutFormShortcode');
-          
-
-          $aboutSectionBackgroundColor = acfButtonGroup('backgroundColor', 'acfAboutFormSecPref', 'backgroundColor', null, true);
-          echo '<div class="o-aboutPage col-xs-24 ' . $aboutSectionBackgroundColor . '" id="join-us">';
-            echo '<div class="container o-aboutPageContent">';
-              $formSectionTitle->init();
-              $formSectionSubheader->init();
-              
-
-              echo '<div class="o-contactFormContent col-xs-24 col-sm-20">';
-                echo do_shortcode($formSectionShortcode->init());
-              echo '</div>';
-
-              echo '<div class="o-contactFormIcon col-xs-24 col-sm-4">';
-                $formSectionIcon->init();
-              echo '</div>'; // .o-contactFormIcon
-            echo '</div>'; // .o-aboutPageContent
-          echo '</div>'; // .o-aboutPage
+          include 'aboutTemplateSections/formSection.php';
           break; // case - acfAboutContact
-
+        
         case 'acfAboutDynCells':
-          $dynamicCellsSectionBackgroundColor = acfButtonGroup('backgroundColor', 'acfAbvoutDynCellsSecPref', 'backgroundColor', null, true);
-
-          echo '<div class="o-aboutPage col-xs-24 ' . $dynamicCellsSectionBackgroundColor . '" id="about-leeroy">';
-            echo '<div class="container">';
-              dynamicCells();
-            echo '</div>';
-          echo '</div>';
+          include 'aboutTemplateSections/dynamicCellsSection.php';
+        break;
+        
+        case 'acfAboutCards':
+          include 'aboutTemplateSections/cardsSection.php';
+          break;
+        
+        case 'acfAboutList':
+          include 'aboutTemplateSections/listSection.php';
           break;
       }
     }

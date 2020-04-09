@@ -6,7 +6,6 @@
 }
 
 #menu-mastermenu {
-
   .current_page_item,
   .current_page_parent {
     a {
@@ -36,7 +35,7 @@
   background: none !important;
   color: @leeroyPurple !important;
   font-size: 30px !important;
-  font-family: 'proxima_novabold' !important;
+  font-family: "proxima_novabold" !important;
 }
 
 // Bootstrap classes
@@ -69,7 +68,7 @@
   color: @leeroyBlue !important;
 
   &:after {
-    background-image: url('images/arrowBlue.svg') !important;
+    background-image: url("images/arrowBlue.svg") !important;
   }
 }
 
@@ -79,15 +78,25 @@ body {
   margin: 0px;
 }
 
-p, a, span {
-  font-family: 'proxima_novaregular';
+p,
+a,
+span,
+ul {
+  font-family: "proxima_novaregular";
   text-decoration: none;
   line-height: 1.6;
-  margin: 5px;
+
+  strong {
+    font-family: "proxima_novabold";
+  }
+}
+
+a {
+  margin: 0;
 }
 
 h1 {
-  font-family: 'FreightDispProLight-Regular';
+  font-family: "FreightDispProLight-Regular";
   font-weight: normal;
   font-style: normal;
   font-size: 45px;
@@ -100,7 +109,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-weight: normal;
   font-size: 40px;
   margin: 0;
@@ -108,7 +117,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-weight: normal;
   font-style: normal;
   font-size: 25px;
@@ -119,7 +128,7 @@ h3 {
 }
 
 h4 {
-  font-family: 'FreightDispProBook-Regular';
+  font-family: "FreightDispProBook-Regular";
   font-weight: normal;
   font-style: normal;
   font-size: 22px;
@@ -130,7 +139,7 @@ h4 {
 }
 
 h5 {
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-weight: normal;
   font-size: 18px;
   letter-spacing: 0.1px;
@@ -146,7 +155,7 @@ h6 {
 }
 
 .contactFormLabels {
-  font-family: 'proxima_novasemibold';
+  font-family: "proxima_novasemibold";
   font-size: 18px;
   color: @leeroyBlack;
 }
@@ -154,7 +163,7 @@ h6 {
 .imageDescription {
   font-size: 14px;
   color: @leeroyBlack;
-  opacity: .7;
+  opacity: 0.7;
 }
 
 // Global variables
@@ -162,39 +171,40 @@ h6 {
 @mobileHeaderHeight: 60px;
 
 // Global colors
-@leeroyWhite:       #FDFDFD;
-@leeroyBlack:       #2F2F2F;
-@leeroyBlue:        #0B4F6C;
-@leeroyDarkBlue:    #072E3F;
-@leeroyPurple:      #442D5E;
-@leeroyDarkPurple:  #2A1B3B;
-@leeroyGold:        #C9AD74;
-@leeroyDarkGold:    #806E4A;
-@leeroyGrey:        #f4f4f4;
-@pureWhite:         #ffffff;
-@secondaryContent:  #aaaaaa;
+@leeroyWhite: #fdfdfd;
+@leeroyBlack: #2f2f2f;
+@leeroyBlue: #0b4f6c;
+@leeroyDarkBlue: #072e3f;
+@leeroyPurple: #442d5e;
+@leeroyDarkPurple: #2a1b3b;
+@leeroyGold: #c9ad74;
+@leeroyDarkGold: #806e4a;
+@leeroyGrey: #f4f4f4;
+@pureWhite: #ffffff;
+@secondaryContent: #aaaaaa;
 
 // Global functions
 .fadeInTransition(@duration) {
-  transition:         @duration;
+  transition: @duration;
   transition-timing-function: ease-in-out;
-	-webkit-transition: @duration;
+  -webkit-transition: @duration;
   -webkit-transition-timing-function: ease-in-out;
-  -moz-transition:    @duration;
+  -moz-transition: @duration;
   -moz-transition-timing-function: ease-in-out;
-  -o-transition:      @duration;
+  -o-transition: @duration;
   -o-transition-timing-function: ease-in-out;
 }
 
 .verticalAlign {
-	position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform:     translateY(-50%);
-	transform:         translateY(-50%);
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-.row, .container {
+.row,
+.container {
   height: 100%;
 }
 
