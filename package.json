@@ -4,8 +4,11 @@
   "description": "package.json for leeroy.se",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -d --watch",
-    "prod": "webpack -p"
+    "prod": "",
+    "build:css": "lessc src/less/style.less style.css",
+    "build:js": "webpack -p",
+    "watch:js": "webpack -d --watch",
+    "watch:less": "less-watch-compiler ./src/less ./ style.less"
   },
   "repository": {
     "type": "git",
@@ -30,6 +33,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
+    "less-watch-compiler": "^1.14.6",
     "webpack": "^3.12.0"
   }
 }
