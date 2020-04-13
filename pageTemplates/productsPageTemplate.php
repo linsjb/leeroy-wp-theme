@@ -92,16 +92,16 @@
           }
 
            $twoColTitle->setElementType('h3');
-           $twoColTitle->setClasses('a-twoColumnsProductPage__title');
+           $twoColTitle->setClasses('a-alternatingContent__title');
 
            $twoColSubtitle->setElementType('h5');
-           $twoColSubtitle->setClasses('a-twoColumnsProductPage__subtitle');
+           $twoColSubtitle->setClasses('a-alternatingContent__subtitle');
 
            $twoColImage = new AcfImage;
            $twoColImage->useSubfield();
            $twoColImage->setObject('acfProdTwoColImg');
            $twoColImage->useElement();
-           $twoColImage->setClasses('a-twoColumnsProductPage__image');
+           $twoColImage->setClasses('a-alternatingContent__image');
 
            $buttonColor = get_sub_field('acfProdTwoColBtnPref')['testoloco'];
 
@@ -122,22 +122,22 @@
             echo '<div class="o-productsPage col-xs-24 ' . $twoColBackgroundColor . ' ' . $twoColTextColor .'">';
               echo '<div class="container m-productsPageContent">';
                 // Image column
-                echo '<div class="a-twoColumnsProductPage -image col-xs-24 col-sm-9' . $imageColumnPosition . '">';
+                echo '<div class="a-alternatingContent -image col-xs-24 col-sm-9' . $imageColumnPosition . '">';
                 $twoColImage->init();
-                echo '</div>'; // .a-twoColumnsProductPage
+                echo '</div>'; // .a-alternatingContent
 
                 // Text column
-                echo '<div class="a-twoColumnsProductPage col-xs-24 col-sm-15 col-md-13' . $textColumnOffset . $textColumnPosition . '">';
+                echo '<div class="a-alternatingContent col-xs-24 col-sm-15 col-md-13' . $textColumnOffset . $textColumnPosition . '">';
                   $twoColTitle->init();
                   $twoColSubtitle->init();
                   textList('-productsLineHeight');
 
                   echo '
-                  <button class=" a-twoColumnsProductPage__button' . $buttonPosition . 'a-btn ' . $buttonColor . ' pull-right">'
+                  <button class=" a-alternatingContent__button' . $buttonPosition . 'a-btn ' . $buttonColor . ' pull-right">'
                     . $buttonText .
                   '</button>';
 
-                echo '</div>'; // .a-twoColumnsProductPage
+                echo '</div>'; // .a-alternatingContent
 
 
               echo '</div>'; // .m-productsPageContent

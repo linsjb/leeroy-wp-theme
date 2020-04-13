@@ -22,9 +22,11 @@ if(get_field('acfIndSecSecLang')) {
 }
 
 echo '
-  <div class="container m-indexSectionButton ' . $buttonAlignment . '">
-    <a href="' . get_sub_field('acfIndSecBtnPref')['link'] . '" class ="a-btn ' . $buttonColor . '"/>'
-    . $buttonText .'
-    </a>
+  <div class="col-xs-24 m-indexSectionButton ' . $buttonAlignment . '">
+    <div class="container">
+      <a href="' . get_sub_field('acfIndSecBtnPref')['link'] . '" class ="a-btn ' . $buttonColor . '"/>'
+      . $buttonText .'
+      </a>
+    </div>
   </div>
 ';

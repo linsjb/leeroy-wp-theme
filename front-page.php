@@ -56,37 +56,46 @@ if($query->have_posts()):
           }
 
           switch(get_row_layout()) {
-            // Top content
-            // -------------------------------------------------
-            // -------------------------------------------------
+            case 'acfIndSecCards':
+              include 'frontPageSections/indexSectionCards.php';
+              break;
+
             case 'acfIndSecTopCont':
               include 'frontPageSections/topContentSection.php';
               break;
 
-            // Section text
-            // -------------------------------------------------
-            // -------------------------------------------------
             case 'acfIndSecText':
               include 'frontPageSections/sectionText.php';
               break;
 
-            // Section image
-            // -------------------------------------------------
-            // -------------------------------------------------
             case 'acfIndSecImage':
               include 'frontPageSections/sectionImage.php';
               break;
+
+            case 'acfIndSecBtn':
+              include 'frontPageSections/buttonSection.php';
+              break;
             
-            // Contact form
-            // -------------------------------------------------
-            // -------------------------------------------------
             case 'acfIndSecContactForm':
               include 'frontPageSections/contactForm.php';
               break;
+            
+            case 'acfIndSecAlterCont':
+              include 'frontPageSections/alternatingContent.php';
+              break;
 
-            // Knowledgehub grid
-            // -------------------------------------------------
-            // -------------------------------------------------
+            case 'acfIndSecSubTitle':
+              include 'frontPageSections/subtitleSection.php';
+              break;
+
+            case 'acfIndSecDynCells':
+              include 'frontPageSections/dynamicCellsSection.php';
+              break;
+
+            case 'acfIndSecList':
+              include 'frontPageSections/listSection.php';
+              break;
+
             case 'acfIndSecBlogPosts':
               echo '<div class="container m-indexSectionBlogPost">';
 
@@ -96,7 +105,7 @@ if($query->have_posts()):
                 $titleUsed = true;
 
                 $blogPostArgs = array(
-                  'posts_per_page'  => 5,
+                  'posts_per_page'  => 3,
                   'post_type'       => 'post',
                   'meta_key'        => 'acfKnowHubPostCaseShow',
                   'meta_value'      => true
@@ -126,27 +135,6 @@ if($query->have_posts()):
                   echo '</div>'; // .KnowledgeHubGrid
                 echo '</div>'; // .container
               } // if($postsQuery->have_posts())
-              break;
-
-            // Subtitle
-            // -------------------------------------------------
-            // -------------------------------------------------
-            case 'acfIndSecSubTitle':
-              include 'frontPageSections/subtitleSection.php';
-              break;
-
-            // Dynamic cell's
-            // -------------------------------------------------
-            // -------------------------------------------------
-            case 'acfIndSecDynCells':
-              include 'frontPageSections/dynamicCellsSection.php';
-              break;
-
-            // List
-            // -------------------------------------------------
-            // -------------------------------------------------
-            case 'acfIndSecList':
-              include 'frontPageSections/listSection.php';
               break;
           }
         }

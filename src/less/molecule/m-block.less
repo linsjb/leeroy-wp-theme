@@ -4,6 +4,18 @@
 * Description: Molecule blocks in ABEM CSS method
 * Author: Linus Sjöbro
 */
+.m-indexAlternatingSection {
+}
+
+.m-indexAlternatingSectionContainer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
+}
 
 // header
 // -----------------------
@@ -72,13 +84,18 @@
 // Index section
 // -----------------------
 
-.m-indexSectionContentText {
-  margin-top: 50px;
+.m-indexContactFormTextContent {
+  font-size: 18px;
   margin-bottom: 30px;
 }
 
+.m-indexSectionContentText {
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+
 .m-topIndexSection {
-  position: relative;
+  // position: relative;
 }
 
 .m-indexSectionSubtitleContent {
@@ -110,12 +127,21 @@
 
 .m-indexSectionButton {
   padding-top: 20px;
+  padding-bottom: 50px;
 }
 
 // Information page
 // -----------------------
 .m-informationPageTopContainer {
   height: 45vh;
+}
+
+.m-informationPageImageTopContainer {
+  margin-top: 80px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .m-informationPageBottomContent {

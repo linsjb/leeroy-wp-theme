@@ -26,10 +26,12 @@ $contentFontSize = acfButtonGroup('fontSize', 'acfIndSecTextPref', 'size', null,
 $contentTextColor = acfButtonGroup('textColor', 'acfIndSecTextPref', 'color', null, true);
 $content->setClasses($contentFontSize . ' ' . $contentTextColor);
 
-echo '<div class="container m-indexSectionContentText">';
-  if(!$titleUsed) {
-    $title->init();
-  }
-  $titleUsed = true;
-  $content->init();
+echo '<div class="col-xs-24 m-indexSectionContentText">';
+  echo '<div class="container">';
+    if(!$titleUsed) {
+      $title->init();
+    }
+    $titleUsed = true;
+    $content->init();
+  echo '</div>';
 echo '</div>';

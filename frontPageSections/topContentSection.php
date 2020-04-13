@@ -28,40 +28,56 @@
     $campaignTextColor = acfButtonGroup('textColor', 'acfIndSecTopContCampaign', 'textColor', null, true);
     $campaignAlignment = acfButtonGroup('textAlignment', 'acfIndSecTopContCampaign', 'alignment', null, true);
 }
+
+if(get_sub_field('hasIndexHeroCopy')) {
+  $indexHeroCopy = new Acftext;
+  $indexHeroCopy->useSubfield();
+  $indexHeroCopy->setObject('indexHeroCopy', 'content');
+  $indexHeroCopy->setElementType('div');
+  
+  $indexHeroCopyTextColor = acfButtonGroup('textColor', 'indexHeroCopy', 'textColor', null, true);
+  $indexHeroCopy->setClasses('col-xs-24 a-indexHeroCopy ' . $indexHeroCopyTextColor);
+}
  
- echo '<div class="m-topIndexSection">';
- echo '<div class="blue m-topIndexSection__image col-xs-24" style="background: url(' . $contentImage->init() . '); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;">';
- if(get_sub_field('acfIndSecTopContImg')['tintImage']) {
-     echo '<div class="col-xs-24 a-elementTint ' . $sectionImageTintOpacity . ' ' . $sectionImageTintColor .'"></div>';
-    }
-    echo '</div>'; // .m-topIndexSection__image
+  echo '<div class="m-topIndexSection">';
+
+    // The image does not fill the whole m-topIndexSection div.
+    // The height of the image is being calculated with JS in utils.js
+    echo '<div class="m-topIndexSection__image col-xs-24" style="background: url(' . $contentImage->init() . '); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;">';
+      if(get_sub_field('acfIndSecTopContImg')['tintImage']) {
+          echo '<div class="col-xs-24 a-elementTint ' . $sectionImageTintOpacity . ' ' . $sectionImageTintColor .'"></div>';
+      }
+    echo '</div>';
     
-    // Overlaping element
     echo '<div class="a-topIndexSectionContent col-xs-24">';
-    echo '<div class="container">';
+      echo '<div class="container">';
 
         if(get_sub_field('isOngoingCampaign')) {
-            echo '<div class="a-topIndexSectionCampaign ' . $campaignTextColor . ' ' . $campaignAlignment . '">';
+            echo '<div class="col-xs-24 a-topIndexSectionCampaign ' . $campaignTextColor . ' ' . $campaignAlignment . '">';
                 $campaignDescription->init();
                 echo '<a class="a-btn -btnGold" href="' . $campaignButton->init() . '">Read more</a>';
             echo '</div>';
         }
 
-       if(!$titleUsed) {
-         $title->init();
-       }
-       $titleUsed = true;
+        if(!$titleUsed) {
+          $title->init();
+        }
+        $titleUsed = true;
 
-       if(get_sub_field('acfIndSecTopContTag')['useTagline']) {
-         $taglineAlignment = acfButtonGroup('textAlignment', 'acfIndSecTopContTag', 'alignment', null, true);
-         $taglineColor = acfButtonGroup('textColor', 'acfIndSecTopContTag', 'color', null, true);
+        if(get_sub_field('acfIndSecTopContTag')['useTagline']) {
+          $taglineAlignment = acfButtonGroup('textAlignment', 'acfIndSecTopContTag', 'alignment', null, true);
+          $taglineColor = acfButtonGroup('textColor', 'acfIndSecTopContTag', 'color', null, true);
 
-         echo '<h3 class="a-indexSectionTopContent__tagline ' . $taglineAlignment . ' ' . $taglineColor . '">';
-           echo get_bloginfo('description');
-         echo '</h3>';
-       }
+          echo '<h3 class="a-indexSectionTopContent__tagline ' . $taglineAlignment . ' ' . $taglineColor . '">';
+            echo get_bloginfo('description');
+          echo '</h3>';
+        }
 
-       $overlappingImage->init();
+        if(get_sub_field('hasIndexHeroCopy')) {
+          $indexHeroCopy->init();
+        }
+
+        $overlappingImage->init();
      echo '</div>'; //.container
    echo '</div>';// .a-topIndexSectionContent
  echo '</div>';// .m-topIndexSection

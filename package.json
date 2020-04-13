@@ -4,7 +4,8 @@
   "description": "package.json for leeroy.se",
   "main": "index.js",
   "scripts": {
-    "prod": "",
+    "prod": "npm run build:css & npm run build:js",
+    "dev": "concurrently --kill-others \"npm run watch:less\" \"npm run watch:js\"",
     "build:css": "lessc src/less/style.less style.css",
     "build:js": "webpack -p",
     "watch:js": "webpack -d --watch",
@@ -33,6 +34,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
+    "concurrently": "^5.1.0",
     "less-watch-compiler": "^1.14.6",
     "webpack": "^3.12.0"
   }

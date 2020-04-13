@@ -9,10 +9,49 @@ get_header();
 <script type="text/javascript">
   let pageLocation = 'about';
 </script>
-<?php
 
+<?php
 if(have_posts()) {
-  informationPageTop();
+  if(get_field('acfAboutTopChoice') == 'hero') {
+    informationPageTop();
+  } else {
+
+    $formSectionTitleBackgroundColor = acfButtonGroup('backgroundColor', 'acfAboutImgPref', 'backgroundColor', null, false);
+    $formSectionTextColor = acfButtonGroup('textColor', 'acfAboutImgPref', 'textColor', null, false);
+    $title = new wpContent;
+    $title->setContent('title');
+    $title->setElementType('h1');
+    $title->setClasses('a-informationPage__title ' . $formSectionTextColor);
+
+    $slogan = new AcfText;
+    $slogan->setObject('acfAboutImgPref', 'slogan');
+    $slogan->setElementType('p');
+    $slogan->setClasses('a-informationPage__slogan ' . $formSectionTextColor);
+
+    $hejsan = new AcfImage;
+    $hejsan->setObject('acfAboutImgPref', 'image');
+    $hejsan->setSize('medium');
+    $hejsan->useElement();
+    $hejsan->setClasses('a-informationPageTopImageContent_img');
+    ?>
+      <div id="topElement" class="o-informationPageImageTop col-xs-24 <?= $$formSectionTitleBackgroundColor ?>">
+        <div class="container m-informationPageImageTopContainer">
+          <div class="a-informationPageTopImage">
+            <?php
+              $hejsan->init();
+            ?>
+          </div>
+          
+          <div class="a-informationPageTopImageContent">
+            <?php
+              $title->init();
+              $slogan->init();
+            ?>
+          </div>
+        </div>
+      </div>
+    <?php
+  }
 
   if(have_rows('acfAboutFlexContent')) {
     while(have_rows('acfAboutFlexContent')) {

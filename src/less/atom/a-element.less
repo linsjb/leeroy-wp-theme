@@ -6,6 +6,21 @@
 * Author: Linus Sjöbro
 */
 
+.a-indexAlternatingContent__img {
+  max-width: 100%;
+  max-height: 500px;
+
+  @media screen and (max-width: 767px) {
+    max-height: 350px;
+  }
+}
+
+.a-alternatingContent__content {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
 .a-aboutPageCardIcon__img {
   height: 100%;
 }
@@ -137,6 +152,10 @@
   color: @leeroyWhite;
 }
 
+.a-informationPageTopImageContent_img {
+  height: 70vh;
+}
+
 .a-informationPage__slogan {
   font-size: 22px;
   color: @leeroyWhite;
@@ -172,24 +191,23 @@
 }
 
 // Products
-.a-twoColumnsProductPage__title {
+.a-alternatingContent__title {
   margin: 0;
   padding: 0;
 }
 
-.a-twoColumnsProductPage__image {
+.a-alternatingContent__image {
   width: 80%;
-  // height: 100%;
 }
 
-.a-twoColumnsProductPage__subtitle {
+.a-alternatingContent__subtitle {
   margin: 0;
   padding: 0;
   padding-bottom: 15px;
   font-family: "proxima_novaitalic";
 }
 
-.a-twoColumnsProductPage__button {
+.a-alternatingContent__button {
   width: 150px;
   font-size: 14px;
   margin-top: 15px;
@@ -433,14 +451,6 @@
 
 // Globals
 // -----------------------
-
-.a-btn {
-  border-radius: 8px;
-  box-shadow: none;
-  padding: 10px 20px;
-  font-family: "proxima_novaregular" !important;
-  text-decoration: none;
-}
 
 .a-headerNav__loginButton {
   a {

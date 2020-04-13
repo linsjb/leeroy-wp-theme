@@ -1,6 +1,5 @@
 // main: ./style.less
 @media screen and (max-width: 767px) {
-
   .m-singlePostRightColumn {
     padding-left: 0px;
     padding-right: 0px;
@@ -102,13 +101,19 @@
     width: 100%;
   }
 
-  .a-twoColumnsProductPage__title,
-  .a-twoColumnsProductPage__subtitle {
+  .a-alternatingContent__title,
+  .a-alternatingContent__subtitle {
     text-align: center;
   }
 
-  .a-twoColumnsProductPage.-image {
+  .a-alternatingContent.-image {
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .m-informationPageImageTopContainer {
+    flex-direction: column;
   }
 }
 
