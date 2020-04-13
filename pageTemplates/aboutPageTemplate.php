@@ -34,7 +34,7 @@ if(have_posts()) {
     $hejsan->useElement();
     $hejsan->setClasses('a-informationPageTopImageContent_img');
     ?>
-      <div id="topElement" class="o-informationPageImageTop col-xs-24 <?= $$formSectionTitleBackgroundColor ?>">
+      <div id="topElement" class="o-informationPageImageTop col-xs-24 <?= $formSectionTitleBackgroundColor ?>">
         <div class="container m-informationPageImageTopContainer">
           <div class="a-informationPageTopImage">
             <?php
