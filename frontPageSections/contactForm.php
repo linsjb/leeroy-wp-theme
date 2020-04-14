@@ -13,7 +13,7 @@ if(get_sub_field('acfIndSecContactForm', 'addContent')) {
   $textContent->setClasses('m-indexContactFormTextContent');
 }
 
-echo '<div class="container">';
+echo '<div class="container" id="contactUs">';
   if(!$titleUsed) {
     $title->init();
   }
