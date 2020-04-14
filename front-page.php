@@ -13,41 +13,42 @@ $query = new WP_Query($args);
 if($query->have_posts()):
   while ($query->have_posts()):
     $query->the_post();
+
+    switch($_COOKIE['language']) {
+      case get_field('acfLangOptPrimLang', 'option')['code']:
+        $title = new wpContent;
+        $title->setContent('title');
+        break;
+
+      case get_field('acfLangOptSecLang', 'option')['code']:
+        if(get_field('acfTitlePref')['secLangTitle'] =='') {
+          $title = new wpContent;
+          $title->setContent('title');
+        } else {
+          $title = new AcfText;
+          $title->setObject('acfTitlePref', 'secLangTitle');
+        }
+        break;
+
+      default:
+        $title = new wpContent;
+        $title->setContent('title');
+        break;
+    }
+
+    $titleAlignment = acfButtonGroup('textAlignment', 'acfTitlePref', 'alignment');
+    $titleColor = acfButtonGroup('textColor', 'acfTitlePref', 'color');
+
+    if(get_field('acfTitlePref')['IsBold']) {
+      $boldTitleClass ="-bold"; 
+    } else {
+      $boldTitleClass =""; 
+    }
+
+    $titleUsed = false;
 ?>
     <div  class="o-indexSection col-xs-24 <?= acfButtonGroup('backgroundColor', 'acfIndSecBackground', 'color')?>">
       <?php
-
-      switch($_COOKIE['language']) {
-        case get_field('acfLangOptPrimLang', 'option')['code']:
-          $title = new wpContent;
-          $title->setContent('title');
-          break;
-
-        case get_field('acfLangOptSecLang', 'option')['code']:
-          if(get_field('acfTitlePref')['secLangTitle'] =='') {
-            $title = new wpContent;
-            $title->setContent('title');
-          } else {
-            $title = new AcfText;
-            $title->setObject('acfTitlePref', 'secLangTitle');
-          }
-          break;
-
-        default:
-          $title = new wpContent;
-          $title->setContent('title');
-          break;
-      }
-      $titleAlignment = acfButtonGroup('textAlignment', 'acfTitlePref', 'alignment');
-      $titleColor = acfButtonGroup('textColor', 'acfTitlePref', 'color');
-
-      if(get_field('acfTitlePref')['IsBold']) {
-       $boldTitleClass ="-bold"; 
-      } else {
-        $boldTitleClass =""; 
-      }
-      $titleUsed = false;
-
       if(have_rows('acfIndCont')) {
         while(have_rows('acfIndCont')) {
           the_row();

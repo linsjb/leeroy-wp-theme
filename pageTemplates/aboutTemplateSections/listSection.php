@@ -2,13 +2,18 @@
 $listSectionBgrClr = acfButtonGroup('backgroundColor', 'acfAboutListSecPref', 'backgroundColor', null, true);
 $textColor = acfButtonGroup('textColor', 'acfAboutListContPref', 'textColor', null, true);
 $textSize = acfButtonGroup('fontSize', 'acfAboutListContPref', 'textSize', null, true);
-$titleColor = acfButtonGroup('textColor', 'acfAboutListContPref', 'titleColor', null, true);
 
-$title = new AcfText;
-$title->useSubfield();
-$title->setObject('acfAboutListContPref', 'title');
-$title->setElementType('h3');
-$title->setClasses($titleColor);
+if(get_sub_field('acfAboutListTitle')['title']) {
+    $listSectionTitle = new AcfText;
+    $listSectionTitle->useSubfield();
+    $listSectionTitle->setObject('acfAboutListTitle', 'title');
+    $listSectionTitle->setElementType('h3');
+
+    $listTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutListTitle', 'alignment', null, true);
+    $listTitleColor = acfButtonGroup('textColor', 'acfAboutListTitle', 'color', null, true);
+
+    $listSectionTitle->setClasses($listTitleAlignment .  ' ' . $listTitleColor);
+}
 
 $textContent = new AcfText;
 $textContent->useSubfield();
@@ -19,7 +24,9 @@ $textContent->setClasses($textColor . ' ' . $textSize);
 echo '<div class="o-aboutPage col-xs-24 ' . $listSectionBgrClr . '">';
     echo '<div class="container o-aboutPageContent">';
 
-        $title->init();
+        if(get_sub_field('acfAboutListTitle')['title']) {
+            $listSectionTitle->init();
+        }
 
         $textContent->init();
         

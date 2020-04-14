@@ -27,7 +27,7 @@
 }
 
 if(get_sub_field('hasIndexHeroCopy')) {
-  $indexHeroCopy = new Acftext;
+  $indexHeroCopy = new AcfText;
   $indexHeroCopy->useSubfield();
   $indexHeroCopy->setObject('indexHeroCopy', 'content');
   $indexHeroCopy->setElementType('div');

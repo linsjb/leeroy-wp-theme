@@ -1,5 +1,18 @@
 <?php
 $textSectionBackgroundColor = acfButtonGroup('backgroundColor', 'acfAboutTextSecPref', 'backgroundColor', null, true);
+
+if(get_sub_field('acfAboutTextTitle')['title']) {
+  $textSectionTitle = new AcfText;
+  $textSectionTitle->useSubfield();
+  $textSectionTitle->setObject('acfAboutTextTitle', 'title');
+  $textSectionTitle->setElementType('h3');
+  
+  $textTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutTextTitle', 'alignment', null, true);
+  $textTitleTextColor = acfButtonGroup('textColor', 'acfAboutTextTitle', 'color', null, true);
+  
+  $textSectionTitle->setClasses($textTitleAlignment . ' ' . $textTitleTextColor);
+}
+
 $aboutTextColor = acfButtonGroup('textColor', 'acfAboutTextPref', 'color', null, true);
 $aboutTextSize = acfButtonGroup('fontSize', 'acfAboutTextPref', 'size', null, true);
 
@@ -27,8 +40,13 @@ if(get_field('acfAboutSecLang')) {
 
 $aboutText->setElementType('div');
 
-$aboutText->setClasses('container m-aboutPageContent ' . $aboutTextColor .  ' ' . $aboutTextSize);
+$aboutText->setClasses('m-aboutPageContent ' . $aboutTextColor .  ' ' . $aboutTextSize);
 
 echo '<div class="o-aboutPage col-xs-24 ' . $textSectionBackgroundColor . '">';
-  $aboutText->init();
+  echo '<div class="container">';
+    if(get_sub_field('acfAboutTextTitle')['title']) {
+      $textSectionTitle->init();
+    }
+    $aboutText->init();
+  echo '</div>';
 echo '</div>'; // .o.aboutPage

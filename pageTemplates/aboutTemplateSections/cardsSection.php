@@ -4,20 +4,26 @@ $textSectionBackgroundColor = acfButtonGroup('backgroundColor', 'acfAboutCardsSe
 $textColor = acfButtonGroup('textColor', 'acfAboutCardsContPref', 'textColor', null, true);
 $textSize = acfButtonGroup('fontSize', 'acfAboutCardsContPref', 'textSize', null, true);
 
-$sectionTitleColor = acfButtonGroup('textColor', 'acfAboutCardsContPref', 'titleColor', null, true);
+if(get_sub_field('acfAboutCardsTitle')['title']) {
+  $cardsSectionTitle = new AcfText;
+  $cardsSectionTitle->useSubfield();
+  $cardsSectionTitle->setObject('acfAboutCardsTitle', 'title');
+  $cardsSectionTitle->setElementType('h3');
 
-$sectionTitle = new AcfText;
-$sectionTitle->useSubfield();
-$sectionTitle->setObject('acfAboutCardsContPref', 'title');
-$sectionTitle->setElementType('h3');
-$sectionTitle->setClasses($sectionTitleColor);
+  $cardsTitleColor = acfButtonGroup('textColor', 'acfAboutCardsTitle', 'color', null, true);
+  $cardsTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutCardsTitle', 'alignment', null, true);
+
+  $cardsSectionTitle->setClasses($cardsTitleAlignment .  ' ' . $cardsTitleColor);
+}
 
 $counter = 0;
 
 echo '<div class="o-aboutPage col-xs-24 ' . $textSectionBackgroundColor . '">';
   echo '<div class="container o-aboutPageContent">';
 
-    $sectionTitle->init();
+    if(get_sub_field('acfAboutCardsTitle')['title']) {
+      $cardsSectionTitle->init();
+    }
 
     if(have_rows('acfAboutCardsContent')) {
       while(have_rows('acfAboutCardsContent')) {

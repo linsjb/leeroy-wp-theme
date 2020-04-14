@@ -26,7 +26,7 @@ $formSectionTitle->setElementType('h3');
 $formSectionTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutFormTitlePref', 'alignment', null, true);
 $formSectionTitleTextColor = acfButtonGroup('textColor', 'acfAboutFormTitlePref', 'color', null, true);
 
-$formSectionTitle->setClasses($formSectionTitleAlignment . ' ' . $formSectionTitleTextColor . ' ');
+$formSectionTitle->setClasses($formSectionTitleAlignment . ' ' . $formSectionTitleTextColor);
 
 $formSectionSubheader = new AcfText;
 $formSectionSubheader->useSubfield();

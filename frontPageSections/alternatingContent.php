@@ -63,8 +63,8 @@ if(get_sub_field('acfIndSecAltContentPref')['imageStartPos'] == "left") {
                 $textColor = $altSectionTextColor;
               }
             ?>
-            <div class="col-xs-24 m-indexAlternatingSection <?= $backgroundColor ?> <?= $textColor ?>">
-                <div class="container m-indexAlternatingSectionContainer">
+            <div class="col-xs-24 <?= $backgroundColor ?> <?= $textColor ?>">
+                <div class="container m-indexAlternatingSection">
                     <!-- Image column -->
                     <div class="col-xs-24 col-sm-9 a-alternatingContent -image <?= $imageColumnPosition; ?>">
                         <?php

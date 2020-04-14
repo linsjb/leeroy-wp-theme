@@ -1,17 +1,22 @@
 <?php
-$imageSectionTitle = new AcfText;
-$imageSectionTitle->useSubfield();
-$imageSectionTitle->setObject('acfAboutImageTitlePref', 'title');
-$imageSectionTitle->setElementType();
+if(get_sub_field('acfAboutDynCellsTitle')['title']) {
+  $imageSectionTitle = new AcfText;
+  $imageSectionTitle->useSubfield();
+  $imageSectionTitle->setObject('acfAboutImageTitlePref', 'title');
+  $imageSectionTitle->setElementType();
 
-$imageSectionTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutImageTitlePref', 'alignment', null, true);
-$imageSectionTitleColor = acfButtonGroup('textColor', 'acfAboutImageTitlePref', 'color', null, true);
+  $imageSectionTitleAlignment = acfButtonGroup('textAlignment', 'acfAboutImageTitlePref', 'alignment', null, true);
+  $imageSectionTitleColor = acfButtonGroup('textColor', 'acfAboutImageTitlePref', 'color', null, true);
 
-$imageSectionTitle->setClasses($imageSectionTitleAlignment . ' ' . $imageSectionTitleColor);
+  $imageSectionTitle->setClasses($imageSectionTitleAlignment . ' ' . $imageSectionTitleColor);
+}
 
 echo '<div class="o-aboutPage col-xs-24" style="background-color:' . get_sub_field('acfAboutImageSectionPref')['backgroundColor'] . '">';
   echo '<div class="container o-aboutPageContent">';
-    $imageSectionTitle->init();
+    if(get_sub_field('acfAboutDynCellsTitle')['title']) {
+      $imageSectionTitle->init();
+    }
+    
     $aboutDesktopImage = new AcfImage;
     $aboutDesktopImage->useSubfield();
     $aboutDesktopImage->setObject('acfAboutImageGroup', 'desktopImage');
