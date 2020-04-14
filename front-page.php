@@ -40,6 +40,12 @@ if($query->have_posts()):
       }
       $titleAlignment = acfButtonGroup('textAlignment', 'acfTitlePref', 'alignment');
       $titleColor = acfButtonGroup('textColor', 'acfTitlePref', 'color');
+
+      if(get_field('acfTitlePref')['IsBold']) {
+       $boldTitleClass ="-bold"; 
+      } else {
+        $boldTitleClass =""; 
+      }
       $titleUsed = false;
 
       if(have_rows('acfIndCont')) {
@@ -49,7 +55,7 @@ if($query->have_posts()):
           // Set title element type and class depending on content type.
           if(get_row_layout() == 'acfIndSecTopCont') {
             $title->setElementType('h1');
-            $title->setClasses('o-indexSectionContent__topTitle ' . $titleAlignment . ' ' . $titleColor);
+            $title->setClasses('o-indexSectionContent__topTitle ' . $titleAlignment . ' ' . $titleColor . ' ' . $boldTitleClass);
           } else {
             $title->setElementType('h3');
             $title->setClasses('o-indexSectionContent__title ' . $titleAlignment . ' ' . $titleColor);

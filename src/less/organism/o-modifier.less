@@ -13,47 +13,51 @@
   border-bottom: @clr-grey-300 solid 1px;
 }
 
+.o-indexSectionContent__topTitle.-bold {
+  font-family: "FreightDispProSemibold-Regular";
+}
+
 // Knowledge hub grid
 // -----------------------
 .o-knowledgeHubCell.-dynamic {
   .backgroundPosition;
-   color: @leeroyWhite;
-   border: 1px solid #d5d5d5;
-   border-radius: 2px;
-   box-shadow: 0 3px 3px 0 rgba(233, 233, 233, 0.5);
+  color: @leeroyWhite;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-shadow: 0 3px 3px 0 rgba(233, 233, 233, 0.5);
 
-   display: -webkit-flex;
-   display: -ms-flex;
-   display: flex;
-   align-items: center;
-   align-content: center;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  align-content: center;
 
-   &::after {
-     background-color: @leeroyWhite;
-     position: absolute;
-     content: "";
-     top: 20px;
-     left: 20px;
-     right: 20px;
-     bottom: 20px;
-     transition: all 0.3s ease-in-out;
-     transform: scaleY(0);
-     transform-origin: 0 0;
-     opacity: 0;
-   }
+  &::after {
+    background-color: @leeroyWhite;
+    position: absolute;
+    content: "";
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.3s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
 
-   &:hover {
-     &::after {
-       transform: scaleY(1);
-       opacity: 0.8;
-     }
+  &:hover {
+    &::after {
+      transform: scaleY(1);
+      opacity: 0.8;
+    }
 
-     .m-knowledgeHubHoverContent {
-       transition: 200ms;
-       transition-delay: 0.2s;
-       opacity: 1;
-     }
-   }
+    .m-knowledgeHubHoverContent {
+      transition: 200ms;
+      transition-delay: 0.2s;
+      opacity: 1;
+    }
+  }
 }
 
 .o-knowledgeHubCell.-static {
