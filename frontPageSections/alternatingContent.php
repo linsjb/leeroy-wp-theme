@@ -52,14 +52,12 @@ if(get_sub_field('acfIndSecAltContentPref')['imageStartPos'] == "left") {
 
             if($counter % 2 == 1) {
                 $textColumnPosition = ' col-sm-pull-9 ';
-                $textColumnOffset = ' ';
                 $imageColumnPosition = ' col-sm-push-15 ';
                 $backgroundColor = $altSectionSecondaryBackgroundColor;
                 $textColor = $altSectionSecondaryTextColor;
                 
             } else {
                 $textColumnPosition = ' ';
-                $textColumnOffset = ' col-md-offset-2 ';
                 $imageColumnPosition  = ' ';
                 $backgroundColor = $altSectionBackgroundColor;
                 $textColor = $altSectionTextColor;
@@ -68,14 +66,14 @@ if(get_sub_field('acfIndSecAltContentPref')['imageStartPos'] == "left") {
             <div class="col-xs-24 m-indexAlternatingSection <?= $backgroundColor ?> <?= $textColor ?>">
                 <div class="container m-indexAlternatingSectionContainer">
                     <!-- Image column -->
-                    <div class="col-xs-24 col-sm-9 a-alternatingContent -image <?= $imageColumnPosition; ?>">
+                    <div class="col-xs-24 col-sm-9 a-alternatingContent green -image <?= $imageColumnPosition; ?>">
                         <?php
                         $altContentImage->init();
                         ?>
                     </div>
 
                     <!-- Content column -->
-                    <div class="col-xs-24 col-sm-15 col-md-13 a-alternatingContent <?= $textColumnOffset; ?> <?= $textColumnPosition; ?>">
+                    <div class="col-xs-24 col-sm-15 a-alternatingContent red <?= $textColumnPosition; ?>">
                         <?php
                         if(!empty(get_sub_field('title'))) {
                             $altContentTitle->init();
