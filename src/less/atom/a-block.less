@@ -40,13 +40,16 @@
 // -----------------------
 .a-topIndexSectionCampaign {
   z-index: 6;
-  font-size: 18px;
+  font-size: 20px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 18px;
+  }
   padding: 30px;
   margin-bottom: 30px;
   background-color: @leeroyGrey;
   text-align: center;
   color: @leeroyBlack;
-  border: 1px solid @leeroyDarkGrey;
 }
 
 .a-indexHeroCopy {
