@@ -24,9 +24,6 @@
     $campaignButton = new AcfText;
     $campaignButton->useSubfield();
     $campaignButton->setObject('acfIndSecTopContCampaign','link');
-
-    $campaignTextColor = acfButtonGroup('textColor', 'acfIndSecTopContCampaign', 'textColor', null, true);
-    $campaignAlignment = acfButtonGroup('textAlignment', 'acfIndSecTopContCampaign', 'alignment', null, true);
 }
 
 if(get_sub_field('hasIndexHeroCopy')) {
@@ -53,9 +50,9 @@ if(get_sub_field('hasIndexHeroCopy')) {
       echo '<div class="container">';
 
         if(get_sub_field('isOngoingCampaign')) {
-            echo '<div class="col-xs-24 a-topIndexSectionCampaign ' . $campaignTextColor . ' ' . $campaignAlignment . '">';
+            echo '<div class="col-xs-24 a-topIndexSectionCampaign">';
                 $campaignDescription->init();
-                echo '<a class="a-btn -btnGold" href="' . $campaignButton->init() . '">Read more</a>';
+                echo '<a class="a-btn -btnPurple" href="' . $campaignButton->init() . '">Read more</a>';
             echo '</div>';
         }
 
