@@ -28,21 +28,21 @@ if(have_posts()) {
     $slogan->setElementType('p');
     $slogan->setClasses('a-informationPage__slogan ' . $formSectionTextColor);
 
-    $hejsan = new AcfImage;
-    $hejsan->setObject('acfAboutImgPref', 'image');
-    $hejsan->setSize('medium');
-    $hejsan->useElement();
-    $hejsan->setClasses('a-informationPageTopImageContent_img');
+    $topImage = new AcfImage;
+    $topImage->setObject('acfAboutImgPref', 'image');
+    $topImage->setSize('medium');
+    $topImage->useElement();
+    $topImage->setClasses('a-informationPageTopImageContent_img');
     ?>
       <div id="topElement" class="o-informationPageImageTop col-xs-24 <?= $formSectionTitleBackgroundColor ?>">
         <div class="container m-informationPageImageTopContainer">
-          <div class="a-informationPageTopImage">
+          <div class="a-informationPageTopImage col-xs-24 col-sm-8 col-lg-7">
             <?php
-              $hejsan->init();
+              $topImage->init();
             ?>
           </div>
           
-          <div class="a-informationPageTopImageContent">
+          <div class="a-informationPageTopImageContent col-xs-24 col-sm-16 col-lg-17">
             <?php
               $title->init();
               $slogan->init();
