@@ -139,9 +139,12 @@
 .m-informationPageImageTopContainer {
   margin-top: 80px;
   height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .m-informationPageBottomContent {

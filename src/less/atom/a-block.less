@@ -12,12 +12,14 @@
 }
 
 .a-informationPageTopImage {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  // flex-flow: column nowrap;
-  // flex-direction: column;
-  justify-content: center;
+  @media screen and (min-width: 768px) {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    // flex-flow: column nowrap;
+    // flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .a-informationPageTopImageContent {
