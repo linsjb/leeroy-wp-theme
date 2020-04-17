@@ -96,7 +96,7 @@ h2 {
   padding: 0;
 }
 h3 {
-  font-family: "proxima_novasemibold";
+  font-family: "proxima_novabold";
   font-weight: normal;
   font-style: normal;
   font-size: 25px;
@@ -272,8 +272,10 @@ h6 {
   -moz-animation-duration: 500ms;
   -o-animation-duration: 500ms;
 }
+.o-alternatingIndexSection {
+  padding-top: 80px;
+}
 .o-indexSection {
-  padding-bottom: 80px;
   padding-left: 0;
   padding-right: 0;
 }
@@ -286,6 +288,9 @@ h6 {
 .o-informationPageTop .container {
   position: relative;
   padding: 0;
+}
+.o-informationPageImageTop {
+  padding-bottom: 30px;
 }
 .o-informationPageBottom {
   font-size: 17px;
@@ -412,7 +417,6 @@ h6 {
   padding: 25px;
 }
 .o-contactFormContent {
-  margin-top: 55px;
   margin-bottom: 0px;
 }
 .o-contactFormIcon {
@@ -436,7 +440,7 @@ h6 {
 }
 .o-archiveContent__title {
   font-size: 40px;
-  font-family: 'freightDispProBold-Regular';
+  font-family: "freightDispProBold-Regular";
   color: #2f2f2f;
 }
 .o-languageSelector__arrow {
@@ -452,8 +456,8 @@ h6 {
   position: relative;
 }
 .o-indexSectionContent__title {
-  padding-top: 40px;
-  margin-bottom: 40px;
+  padding-top: 30px;
+  margin-bottom: 30px;
   position: relative;
   z-index: 5;
 }
@@ -461,7 +465,7 @@ h6 {
   color: #fdfdfd;
   font-size: 20px;
   padding-left: 40px;
-  font-family: 'proxima_novalight_italic';
+  font-family: "proxima_novalight_italic";
 }
 .o-topIndexSection__image {
   padding: 0;
@@ -485,6 +489,9 @@ h6 {
 .o-header--background {
   background-color: #fdfdfd;
   border-bottom: #e0e0e0 solid 1px;
+}
+.o-indexSectionContent__topTitle.-bold {
+  font-family: "FreightDispProSemibold-Regular";
 }
 .o-knowledgeHubCell.-dynamic {
   background-position: 50% 50%;
@@ -534,6 +541,16 @@ h6 {
 * Description: Molecule blocks in ABEM CSS method
 * Author: Linus Sjöbro
 */
+.m-indexAlternatingSection {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+@media screen and (min-width: 768px) {
+  .m-indexAlternatingSection {
+    display: flex;
+    align-items: center;
+  }
+}
 .m-headerLogo {
   height: 100%;
   padding: 15px;
@@ -581,12 +598,18 @@ h6 {
 .m-mobileHeaderMenuBtn .hamburger-inner::after {
   background-color: #fdfdfd;
 }
-.m-indexSectionContentText {
-  margin-top: 50px;
+.m-indexContactFormTextContent {
+  font-size: 18px;
   margin-bottom: 30px;
 }
-.m-topIndexSection {
-  position: relative;
+.m-indexSectionContentText {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media screen and (max-width: 767px) {
+  .m-indexSectionContentText p {
+    text-align: center;
+  }
 }
 .m-indexSectionSubtitleContent {
   margin-top: 20px;
@@ -611,9 +634,17 @@ h6 {
 }
 .m-indexSectionButton {
   padding-top: 20px;
+  padding-bottom: 50px;
 }
 .m-informationPageTopContainer {
   height: 45vh;
+}
+.m-informationPageImageTopContainer {
+  margin-top: 80px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .m-informationPageBottomContent {
   padding-left: 15px;
@@ -623,6 +654,11 @@ h6 {
   background: #fdfdfd;
   padding: 25px;
   border-radius: 9px;
+}
+@media screen and (max-width: 767px) {
+  .m-aboutPageContent {
+    text-align: center;
+  }
 }
 .m-aboutPageList {
   list-style-type: none;
@@ -735,6 +771,7 @@ h6 {
   background-color: #ef9a9a !important;
 }
 .elm-button {
+  font-size: 16px !important;
   border-radius: 8px;
   box-shadow: none;
   padding: 10px 20px;
@@ -783,6 +820,8 @@ h6 {
 }
 .m-singlePostContent img {
   margin-top: 20px;
+  max-width: 100%;
+  height: auto;
 }
 .m-singlePostContent .size-large,
 .m-singlePostContent .size-full {
@@ -1009,16 +1048,7 @@ h6 {
 }
 .m-topIndexSection__image {
   padding: 0;
-}
-@media screen and (max-width: 767px) {
-  .m-topIndexSection__image {
-    height: 60vh;
-  }
-}
-@media screen and (min-width: 768px) {
-  .m-topIndexSection__image {
-    height: 80vh;
-  }
+  position: absolute;
 }
 .m-dynamicCell__image {
   max-height: 100%;
@@ -1156,6 +1186,15 @@ h6 {
 * Description: Atom blocks in ABEM CSS method
 * Author: Linus Sjöbro
 */
+.a-informationPageTopImage {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+}
+.a-informationPageTopImageContent {
+  padding: 30px;
+}
 .a-aboutPageCardIcon {
   height: 70px;
   margin-bottom: 15px;
@@ -1165,13 +1204,24 @@ h6 {
   padding: 7px 0;
 }
 .a-topIndexSectionCampaign {
-  font-size: 18px;
+  z-index: 6;
+  font-size: 20px;
   padding: 30px;
-  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  background-color: #f4f4f4;
+  text-align: center;
+  color: #2f2f2f;
+}
+@media screen and (max-width: 767px) {
+  .a-topIndexSectionCampaign {
+    font-size: 18px;
+  }
+}
+.a-indexHeroCopy {
+  font-size: 18px;
 }
 .a-topIndexSectionContent {
-  position: absolute;
-  bottom: 0;
+  padding-top: 80px;
 }
 .a-knowledgeHubPostImage {
   background-position: 50% 50%;
@@ -1210,14 +1260,13 @@ h6 {
   padding-right: 15px;
   bottom: 30px;
 }
-.a-twoColumnsProductPage {
+.a-alternatingContent {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   flex-flow: column nowrap;
   flex-direction: column;
   justify-content: center;
-  align-items: stretch;
 }
 .a-popupFormTopLeft {
   text-align: left;
@@ -1245,11 +1294,34 @@ h6 {
   position: absolute;
   z-index: 0;
 }
+.a-btn {
+  font-size: 16px !important;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 10px 20px;
+  font-family: "proxima_novaregular" !important;
+  text-decoration: none;
+}
 /*
 * Filename: a-element.less
 * Description: Atom elements in ABEM CSS method
 * Author: Linus Sjöbro
 */
+.a-indexAlternatingContent__img {
+  max-width: 100%;
+  max-height: 500px;
+}
+@media screen and (max-width: 767px) {
+  .a-indexAlternatingContent__img {
+    max-width: 100%;
+    max-height: 350px;
+  }
+}
+.a-alternatingContent__content {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
 .a-aboutPageCardIcon__img {
   height: 100%;
 }
@@ -1378,10 +1450,31 @@ h6 {
   margin-bottom: 10px;
   color: #fdfdfd;
 }
+@media screen and (max-width: 767px) {
+  .a-informationPage__title {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 767px) {
+  .a-informationPageTopImageContent_img {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .a-informationPageTopImageContent_img {
+    max-width: 100%;
+    max-height: 60vh;
+  }
+}
 .a-informationPage__slogan {
   font-size: 22px;
   color: #fdfdfd;
   z-index: 10;
+}
+@media screen and (max-width: 767px) {
+  .a-informationPage__slogan {
+    text-align: center;
+  }
 }
 .a-aboutTimeline__title {
   font-size: 35px;
@@ -1404,26 +1497,26 @@ h6 {
   color: #442d5e;
   margin-bottom: 30px;
 }
-.a-twoColumnsProductPage__title {
+.a-alternatingContent__title {
   margin: 0;
   padding: 0;
 }
-.a-twoColumnsProductPage__image {
+.a-alternatingContent__image {
   width: 80%;
 }
-.a-twoColumnsProductPage__subtitle {
+.a-alternatingContent__subtitle {
   margin: 0;
   padding: 0;
   padding-bottom: 15px;
   font-family: "proxima_novaitalic";
 }
-.a-twoColumnsProductPage__button {
+.a-alternatingContent__button {
   width: 150px;
   font-size: 14px;
   margin-top: 15px;
 }
 @media screen and (min-width: 768px) {
-  .a-twoColumnsProductPage__button {
+  .a-alternatingContent__button {
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
@@ -1647,13 +1740,6 @@ h6 {
 .a-singlePostRightBox__item a:hover {
   color: #c9ad74;
 }
-.a-btn {
-  border-radius: 8px;
-  box-shadow: none;
-  padding: 10px 20px;
-  font-family: "proxima_novaregular" !important;
-  text-decoration: none;
-}
 .a-headerNav__loginButton a {
   border-radius: 8px;
   border-style: solid;
@@ -1757,14 +1843,14 @@ h6 {
 .a-listContent.-productsLineHeight {
   line-height: 2.2;
 }
-.a-twoColumnsProductPage.-image {
+.a-alternatingContent.-image {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   align-items: center;
 }
 @media screen and (min-width: 768px) {
-  .a-twoColumnsProductPage__button.-right {
+  .a-alternatingContent__button.-right {
     align-self: flex-end;
   }
 }
@@ -1775,11 +1861,21 @@ h6 {
 .-leftAlignment {
   text-align: left;
 }
+@media screen and (max-width: 767px) {
+  .-leftAlignment {
+    text-align: center;
+  }
+}
 .-centerAlignment {
   text-align: center;
 }
 .-rightAlignment {
   text-align: right;
+}
+@media screen and (max-width: 767px) {
+  .-rightAlignment {
+    text-align: center;
+  }
 }
 .-fontSize8 {
   font-size: 8px;
@@ -1993,6 +2089,9 @@ h6 {
   opacity: 1;
 }
 @media screen and (max-width: 767px) {
+  .m-informationPageImageTopContainer {
+    flex-direction: column;
+  }
   .m-singlePostRightColumn {
     padding-left: 0px;
     padding-right: 0px;
@@ -2070,11 +2169,12 @@ h6 {
   .o-knowledgeHubCell {
     width: 100%;
   }
-  .a-twoColumnsProductPage__title,
-  .a-twoColumnsProductPage__subtitle {
+  .a-alternatingContent__title,
+  .a-alternatingContent__subtitle,
+  .a-alternatingContent__content {
     text-align: center;
   }
-  .a-twoColumnsProductPage.-image {
+  .a-alternatingContent.-image {
     margin-bottom: 20px;
   }
 }
