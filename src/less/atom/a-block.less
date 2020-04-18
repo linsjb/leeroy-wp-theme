@@ -6,6 +6,22 @@
 * Author: Linus Sjöbro
 */
 
+.a-conditionPageChildContainer {
+  height: 300px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    h3 {
+      color: @leeroyGold;
+      .fadeInTransition(0.2s);
+    }
+  }
+}
 .a-indexAlternatingContent {
   // display: flex;
   // align-content: center;
