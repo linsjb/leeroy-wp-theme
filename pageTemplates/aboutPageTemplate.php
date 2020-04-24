@@ -36,13 +36,13 @@ if(have_posts()) {
     ?>
       <div id="topElement" class="o-informationPageImageTop col-xs-24 <?= $formSectionTitleBackgroundColor ?>">
         <div class="container m-informationPageImageTopContainer">
-          <div class="a-informationPageTopImage col-xs-24 col-sm-8 col-lg-7">
+          <div class="a-informationPageTopImage col-xs-24">
             <?php
               $topImage->init();
             ?>
           </div>
           
-          <div class="a-informationPageTopImageContent col-xs-24 col-sm-16 col-lg-17">
+          <div class="a-informationPageTopImageContent col-xs-24">
             <?php
               $title->init();
               $slogan->init();
