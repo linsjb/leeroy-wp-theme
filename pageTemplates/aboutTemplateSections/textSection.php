@@ -13,6 +13,12 @@ if(get_sub_field('acfAboutTextTitle')['title']) {
   $textSectionTitle->setClasses($textTitleAlignment . ' ' . $textTitleTextColor);
 }
 
+if(get_sub_field('acfAboutTextPref')['centerInMobile']) {
+  $centerInMobileClass = '-mobileCenterAlignment';
+} else {
+  $centerInMobileClass = '';
+}
+
 $aboutTextColor = acfButtonGroup('textColor', 'acfAboutTextPref', 'color', null, true);
 $aboutTextSize = acfButtonGroup('fontSize', 'acfAboutTextPref', 'size', null, true);
 
@@ -40,13 +46,18 @@ if(get_field('acfAboutSecLang')) {
 
 $aboutText->setElementType('div');
 
-$aboutText->setClasses('m-aboutPageContent ' . $aboutTextColor .  ' ' . $aboutTextSize);
+$aboutText->setClasses(
+  'm-aboutPageContent ' .
+  $aboutTextColor .  ' ' .
+  $aboutTextSize .  ' ' .
+  $centerInMobileClass
+);?>
 
-echo '<div class="o-aboutPage col-xs-24 ' . $textSectionBackgroundColor . '">';
-  echo '<div class="container">';
-    if(get_sub_field('acfAboutTextTitle')['title']) {
+<div class="o-aboutPage col-xs-24 <?= $textSectionBackgroundColor ?>">
+  <div class="container">
+    <?php if(get_sub_field('acfAboutTextTitle')['title']) {
       $textSectionTitle->init();
     }
-    $aboutText->init();
-  echo '</div>';
-echo '</div>'; // .o.aboutPage
+    $aboutText->init(); ?>
+  </div>
+</div>
