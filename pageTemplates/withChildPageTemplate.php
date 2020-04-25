@@ -25,8 +25,8 @@ if($parent->have_posts()):
   informationPageTop(); ?>
   <div class="col-xs-24 o-conditionPage">
     <div class="container">
-      <?php while($parent->have_posts()): $parent->the_post(); ?>
-        <?php
+      <?php while($parent->have_posts()): $parent->the_post();
+
         $image = new AcfImage;
         $image->setId($id);
         $image->setObject('acfPageBackgroundImage');
@@ -35,18 +35,18 @@ if($parent->have_posts()):
         $title->setId($id);
         $title->setContent('title');
         $title->setElementType('h3');
-        $title->setClasses('a-conditionPageChildContainer__title');
+        $title->setClasses('a-childPageCardContainer__title');?>
 
-        ?>
-        <div class="col-xs-24 col-sm-12 m-conditionPageChild">
+        <div class="col-xs-24 col-sm-12 m-childPageCard">
           <a href="<?php the_permalink($id) ?>">
             <div
-              class="col-xs-24 a-conditionPageChildContainer"
+              class="col-xs-24 a-childPageCardContainer"
               style="
                 background: url(<?= $image->init(); ?>);
                 background-position: 50% 50%;
                 background-repeat: no-repeat;
-                background-size: cover;"
+                background-size: cover;
+                height: 300px;"
             >
               <?php
               pageBackgroundTone();

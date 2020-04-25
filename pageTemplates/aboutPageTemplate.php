@@ -57,13 +57,13 @@ if(have_posts()) {
     while(have_rows('acfAboutFlexContent')) {
       the_row();
       switch(get_row_layout()) {
+        case "acfAboutChildPages":
+          include 'aboutTemplateSections/childPagesSection.php';
+          break;
 
-        // Text content
-        // -------------------------------------------------
-        // -------------------------------------------------
         case 'acfAboutText':
           include 'aboutTemplateSections/textSection.php';
-          break; // case - acfAboutText
+          break;
 
         case 'acfAboutOffices':
           include 'aboutTemplateSections/officesSection.php';
@@ -71,11 +71,11 @@ if(have_posts()) {
 
         case 'acfAboutImage':
           include 'aboutTemplateSections/imageSection.php';
-          break; // case - acfAboutImage
+          break;
         
         case 'acfAboutForm':
           include 'aboutTemplateSections/formSection.php';
-          break; // case - acfAboutContact
+          break;
         
         case 'acfAboutDynCells':
           include 'aboutTemplateSections/dynamicCellsSection.php';
